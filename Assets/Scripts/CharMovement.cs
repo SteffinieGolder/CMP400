@@ -15,7 +15,7 @@ public class CharMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         //Normalising this vector prevents faster movement in diagonal direction. 
-        Vector3 direction = new Vector3(horizontal, vertical).normalized;
+        Vector3 direction = new Vector3(horizontal, vertical,0).normalized;
 
         AnimateMovement(direction);
         transform.position += direction * moveSpeed * Time.deltaTime;
