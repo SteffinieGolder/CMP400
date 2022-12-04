@@ -43,11 +43,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -22190,19 +22190,19 @@ TextureImporter:
       gtiles2_308: -607629157
       gtiles2_1033: 925326682
       gtiles2_238: -1240291779
+      gtiles2_970: -408740772
       gtiles2_348: -1510541371
-      gtiles2_858: 739313281
       gtiles2_45: -1810352896
       gtiles2_517: -1772387625
       gtiles2_157: -1418295097
       gtiles2_702: 1725218535
       gtiles2_752: -386074481
+      gtiles2_858: 739313281
       gtiles2_529: -1811602928
       gtiles2_511: -2061626261
       gtiles2_902: 620734238
       gtiles2_930: 1677527736
       gtiles2_386: 553977528
-      gtiles2_970: -408740772
       gtiles2_915: 1028071010
       gtiles2_582: -93449315
       gtiles2_793: -387677854
@@ -22674,8 +22674,8 @@ TextureImporter:
       gtiles2_414: -1096871959
       gtiles2_358: 1013372733
       gtiles2_68: -2066942172
-      gtiles2_816: -1312866725
       gtiles2_1043: 77775975
+      gtiles2_816: -1312866725
       gtiles2_54: -565880166
       gtiles2_334: 695107836
       gtiles2_519: -673517081
@@ -22699,12 +22699,12 @@ TextureImporter:
       gtiles2_279: 921731668
       gtiles2_333: 1169130760
       gtiles2_471: 1330555301
-      gtiles2_3: -1112577589
+      gtiles2_360: -1506105615
       gtiles2_714: -270949930
       gtiles2_697: 1687796506
-      gtiles2_360: -1506105615
       gtiles2_695: -1227336150
       gtiles2_773: 96644088
+      gtiles2_3: -1112577589
       gtiles2_979: 1925145556
       gtiles2_107: 1840552282
       gtiles2_871: 1804338904
@@ -22718,12 +22718,12 @@ TextureImporter:
       gtiles2_249: -514932619
       gtiles2_77: 1224183272
       gtiles2_777: -1210025164
+      gtiles2_802: -1242993911
       gtiles2_9: 203681781
       gtiles2_383: 395619743
       gtiles2_213: -2036946267
-      gtiles2_802: -1242993911
-      gtiles2_977: 808063386
       gtiles2_999: 1377438028
+      gtiles2_977: 808063386
       gtiles2_784: -1365372699
       gtiles2_709: 1510486835
       gtiles2_929: -491494252
@@ -22735,14 +22735,14 @@ TextureImporter:
       gtiles2_220: 1838739496
       gtiles2_124: 356256426
       gtiles2_209: 1042094997
-      gtiles2_278: 2124887042
       gtiles2_319: 1567591603
-      gtiles2_364: -384606018
       gtiles2_598: 281381444
+      gtiles2_364: -384606018
       gtiles2_992: 71325127
-      gtiles2_817: -1843348219
+      gtiles2_278: 2124887042
       gtiles2_500: 741701929
       gtiles2_733: 583804354
+      gtiles2_817: -1843348219
       gtiles2_735: -1693179822
       gtiles2_399: -1551733289
       gtiles2_796: -884160953
@@ -22783,13 +22783,13 @@ TextureImporter:
       gtiles2_21: -964291786
       gtiles2_672: -1035298670
       gtiles2_297: -1293520320
+      gtiles2_712: 1653926124
       gtiles2_699: 1003476172
       gtiles2_300: 692858420
-      gtiles2_712: 1653926124
+      gtiles2_731: 1014084328
       gtiles2_972: -460204884
       gtiles2_284: -282362937
       gtiles2_594: 1505431357
-      gtiles2_731: 1014084328
       gtiles2_952: 473042931
       gtiles2_1025: 943835700
       gtiles2_60: -879853715
@@ -22802,10 +22802,10 @@ TextureImporter:
       gtiles2_805: 1728351529
       gtiles2_543: -1393681544
       gtiles2_142: -1969147244
-      gtiles2_928: -1867051888
       gtiles2_1004: 446107830
       gtiles2_923: 140436218
       gtiles2_687: 1292883134
+      gtiles2_928: -1867051888
       gtiles2_1016: 1029735639
       gtiles2_314: 930867592
       gtiles2_596: 1332388888
