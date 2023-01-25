@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: EnvFront
     uniqueID: 467255087
+    locked: 0
+  - name: Collect
+    uniqueID: 3048668329
     locked: 0
