@@ -54,6 +54,8 @@ public class InventoryUI : MonoBehaviour
         Item itemToDrop = GameManager.instance.itemManager.GetItemByName(
             player.inventory.slots[slotID].itemName);
 
+        Debug.Log("Dropping");
+
         if (itemToDrop != null)
         {
             player.DropItem(itemToDrop);
