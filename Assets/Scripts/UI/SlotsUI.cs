@@ -9,6 +9,7 @@ public class SlotsUI : MonoBehaviour
     public Image itemIcon;
     public TextMeshProUGUI quantityText;
 
+    [SerializeField] private GameObject highlightObj;
     public void SetItem(Inventory.Slot slot)
     {
         if(slot !=null)
@@ -25,4 +26,10 @@ public class SlotsUI : MonoBehaviour
         itemIcon.color = new Color(1, 1, 1, 0);
         quantityText.text = "";
     }
+
+    public void SetHighlight(bool isOn)
+    {
+        highlightObj.SetActive(isOn);
+    }
+
 }
