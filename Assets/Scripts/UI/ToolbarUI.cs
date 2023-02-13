@@ -1,36 +1,46 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script which controls the toolbar UI element and adds highlight to selected toolbar slot. 
+
 public class ToolbarUI : MonoBehaviour
 {
+    //List of slots on toolbar. 
     [SerializeField] private List<SlotsUI> toolbarSlots = new List<SlotsUI>();
 
+    //The slot selected by the player.
     private SlotsUI selectedSlot;
 
     private void Start()
     {
+        //Initialise selected slot to 0.
         SelectSlot(0);
     }
 
     private void Update()
     {
+        //Check which key has been pressed (corresponds to slot on toolbar UI).
         CheckAlphaNumericKeys();
     }
 
+    //Function which changes highlighted/selected slot. 
     public void SelectSlot(int index)
     {
         if(toolbarSlots.Count == 9)
         {
+            //Sets previous selected slot highlight to false (removes highlight from previous) if previous exists.
             if (selectedSlot != null)
             {
                 selectedSlot.SetHighlight(false);
             }
+
+            //Apply highlight to new selected slot. 
             selectedSlot = toolbarSlots[index];
             selectedSlot.SetHighlight(true);
         }
     }
 
+    //Function which checks player input and selects a slot depending on which number was pressed. 
     private void CheckAlphaNumericKeys()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))

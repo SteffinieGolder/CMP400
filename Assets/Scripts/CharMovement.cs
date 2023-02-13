@@ -1,35 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//Script which controls player character movement and animation. 
 public class CharMovement : MonoBehaviour
 {
+    //Movement speed variable. 
     public float moveSpeed;
-    //Should I get this from gameobject?
+    //Animator variable.
     public Animator animator;
+    //Direction of player character. 
     private Vector3 direction;
 
-    // Update is called once per frame
     void Update()
     {
+        //Get horizontal and vertical input axis for movement calculations. 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        //Normalising this vector prevents faster movement in diagonal direction. 
+        //Set direction to normalised vector to prevent faster movement in diagonal direction. 
         direction = new Vector3(horizontal, vertical,0).normalized;
-
+        
+        //Pass direction to animation function. 
         AnimateMovement(direction);
     }
 
     private void FixedUpdate()
     {
+        //Move player character.
         transform.position += direction * moveSpeed * Time.deltaTime;
     }
 
+    //Function which animates the player character based on movement input/calculations. 
     void AnimateMovement(Vector3 movedir)
     {
         if(animator!=null)
         {
+            //If player character is moving update animator variables based on input.
             if(movedir.magnitude>0)
             {
                 animator.SetBool("isMoving", true);
@@ -37,6 +42,7 @@ public class CharMovement : MonoBehaviour
                 animator.SetFloat("vertical", movedir.y);
             }
 
+            //Otherwise, tell animator player has stopped moving. 
             else
             {
                 animator.SetBool("isMoving", false);
