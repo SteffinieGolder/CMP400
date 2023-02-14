@@ -6,6 +6,7 @@ using TMPro;
 
 public class SlotsUI : MonoBehaviour
 {
+    public int slotID;
     //Item icon and text which displays number held. 
     public Image itemIcon;
     public TextMeshProUGUI quantityText;

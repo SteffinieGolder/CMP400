@@ -99,4 +99,17 @@ public class Inventory
     {
         slots[index].RemoveItem();
     }
+
+
+    //Function to remove item at desired index. 
+    public void Remove(int index, int numToRemove)
+    {
+        if(slots[index].count >=numToRemove)
+        {
+            for(int i =0; i<numToRemove; i++)
+            {
+                Remove(index);
+            }
+        }
+    }
 }
