@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     //Item manager script which controls in game items. 
     public ItemManager itemManager;
+    public TileManager tileManager;
 
     private void Awake()
     {
@@ -26,5 +27,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         //Set item manager. 
         itemManager = GetComponent<ItemManager>();
+        tileManager = GetComponent<TileManager>();
     }
 }
