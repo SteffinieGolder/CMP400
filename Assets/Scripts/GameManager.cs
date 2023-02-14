@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public ItemManager itemManager;
     //Tile manager script which controls ground environment tiles in the level. 
     public TileManager tileManager;
+    public UIManager uiManager;
+    public Player player;
 
     private void Awake()
     {
@@ -30,5 +32,8 @@ public class GameManager : MonoBehaviour
         itemManager = GetComponent<ItemManager>();
         //Set tile manager.
         tileManager = GetComponent<TileManager>();
+        uiManager = GetComponent<UIManager>();
+
+        player = FindObjectOfType<Player>();
     }
 }

@@ -1,71 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 //Script which controls the inventory UI. 
 
 public class InventoryUI : MonoBehaviour
 {
-    //UI panel.
-    public GameObject inventoryPanel;
-    //Player ref.
-    public Player player;
+    public string inventoryName;
+    
     //List of UI slots in inventory. 
     public List<SlotsUI> slots = new List<SlotsUI>();
 
     [SerializeField] private Canvas canvas;
-    private SlotsUI draggedSlot;
-    private Image draggedIcon;
-    private bool draggedSingle = false;
+   
+    private Inventory inventory;
 
     private void Awake()
     {
         canvas = FindObjectOfType<Canvas>();
     }
 
-    private void Update()
+    private void Start()
     {
-        //Toggle inventory on/off when player presses TAB key. 
-        if(Input.GetKeyDown(KeyCode.Tab))
-        {
-            ToggleInventory();
-        }
-
-        if(Input.GetKey(KeyCode.LeftShift))
-        {
-            draggedSingle = true;
-        }
-        else
-        {
-            draggedSingle = false;
-        }
-    }
-
-    //Function which toggles inventory on/off by activating/deactivating UI panel element.
-    public void ToggleInventory()
-    {
-        if(inventoryPanel.activeSelf == false)
-        {
-            inventoryPanel.SetActive(true);
-            Refresh();
-        }
-        else
-        {
-            inventoryPanel.SetActive(false);
-        }
+        inventory = GameManager.instance.player.inventory.GetInventoryByName(inventoryName);
+        SetupSlots();
+        Refresh();
     }
 
     //Function which refreshes inventory UI. 
-    void Refresh()
+    public void Refresh()
     {
-        if(slots.Count == player.inventory.slots.Count)
+        if (slots.Count == inventory.slots.Count)
         {
             //Check each slot in the player inventory. If an item is present then set corresponding slot UI element to display the item information.  
-            for (int i = 0; i<slots.Count; i++)
+            for (int i = 0; i < slots.Count; i++)
             {
-                if(player.inventory.slots[i].itemName !="")
+                if (inventory.slots[i].itemName != "")
                 {
-                    slots[i].SetItem(player.inventory.slots[i]);
+                    slots[i].SetItem(inventory.slots[i]);
                 }
 
                 //Otherwise, remove any information.
@@ -81,62 +52,72 @@ public class InventoryUI : MonoBehaviour
     public void RemoveItem()
     {
         //Call game manager to get details of item player has requested to drop. 
-        Item itemToDrop = GameManager.instance.itemManager.GetItemByName(
-            player.inventory.slots[draggedSlot.slotID].itemName);
+        Item itemToDrop = GameManager.instance.itemManager.GetItemByName(inventory.slots[UIManager.draggedSlot.slotID].itemName);
 
         //Check if item has been selected to drop. 
         if (itemToDrop != null)
         {
-            if (draggedSingle)
+            if (UIManager.dragSingle)
             {
                 //Tell player script to drop item.
-                player.DropItem(itemToDrop);
+                GameManager.instance.player.DropItem(itemToDrop);
                 //Remove item from player inventory.
-                player.inventory.Remove(draggedSlot.slotID);
+                inventory.Remove(UIManager.draggedSlot.slotID);
             }
 
             else
             {
                 //Tell player script to drop item.
-                player.DropItem(itemToDrop, player.inventory.slots[draggedSlot.slotID].count);
+                GameManager.instance.player.DropItem(itemToDrop, inventory.slots[UIManager.draggedSlot.slotID].count);
                 //Remove item from player inventory.
-                player.inventory.Remove(draggedSlot.slotID, player.inventory.slots[draggedSlot.slotID].count);
+                inventory.Remove(UIManager.draggedSlot.slotID, inventory.slots[UIManager.draggedSlot.slotID].count);
             }
            
             //Refresh UI. 
             Refresh();
         }
 
-        draggedSlot = null;
+        UIManager.draggedSlot = null;
     }
 
     public void SlotBeginDrag(SlotsUI slot)
     {
-        draggedSlot = slot;
-        draggedIcon = Instantiate(draggedSlot.itemIcon);
-        draggedIcon.transform.SetParent(canvas.transform);
-        draggedIcon.raycastTarget = false;
-        draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
-        MoveToMousePosition(draggedIcon.gameObject);
+        UIManager.draggedSlot = slot;
+        UIManager.draggedIcon = Instantiate(UIManager.draggedSlot.itemIcon);
+        UIManager.draggedIcon.transform.SetParent(canvas.transform);
+        UIManager.draggedIcon.raycastTarget = false;
+        UIManager.draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
+        MoveToMousePosition(UIManager.draggedIcon.gameObject);
         //Debug.Log("Start Dragging: " + draggedSlot.name);
     }
 
     public void SlotDrag()
     {
-        MoveToMousePosition(draggedIcon.gameObject);
+        MoveToMousePosition(UIManager.draggedIcon.gameObject);
        // Debug.Log("Dragging: " + draggedSlot.name);
     }
 
     public void SlotEndDrag()
     {
-        Destroy(draggedIcon.gameObject);
-        draggedIcon = null;
+        Destroy(UIManager.draggedIcon.gameObject);
+        UIManager.draggedIcon = null;
        // Debug.Log("Done Dragging: " + draggedSlot.name);
     }
 
     public void SlotDrop(SlotsUI slot)
     {
-       // Debug.Log("Dropped " + draggedSlot.name + " on " + slot.name);
+        if (UIManager.dragSingle)
+        {
+            // Debug.Log("Dropped " + draggedSlot.name + " on " + slot.name);
+            UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory);
+        }
+        else
+        {
+            UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory,
+                UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].count);
+
+        }
+        GameManager.instance.uiManager.RefreshAll();
     }
 
     private void MoveToMousePosition(GameObject toMove)
@@ -149,6 +130,18 @@ public class InventoryUI : MonoBehaviour
                 Input.mousePosition, null, out position);
 
             toMove.transform.position = canvas.transform.TransformPoint(position);
+        }
+    }
+
+    void SetupSlots()
+    {
+        int counter = 0;
+
+        foreach(SlotsUI slot in slots)
+        {
+            slot.slotID = counter;
+            counter++;
+            slot.inventory = inventory;
         }
     }
 }
