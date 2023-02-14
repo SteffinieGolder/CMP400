@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//Script which controls the player/item interactions. 
+//Script which controls player interactions. 
 
 public class Player : MonoBehaviour
 {
@@ -15,14 +15,17 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        //Detect space bar press - player wants to interact with ground tile. 
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            //Convert player world position to int for use with tile map. 
             Vector3Int position = new Vector3Int((int)transform.position.x,
                 (int)transform.position.y, 0);
 
+            //Check if tile map position contains an interactable tile. 
             if(GameManager.instance.tileManager.IsInteractable(position))
             {
-                Debug.Log("Tile interactable");
+                //Set that tile to its interacted version. 
                 GameManager.instance.tileManager.SetInteracted(position);
             }
         }
