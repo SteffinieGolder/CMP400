@@ -1,7 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+//Script which stores and controls all inventory UIs accessed by the player. 
 
 public class UIManager : MonoBehaviour
 {
@@ -47,10 +48,12 @@ public class UIManager : MonoBehaviour
             {
                 inventoryPanel.SetActive(true);
                 RefreshInventoryUI("Backpack");
+                Time.timeScale = 0;
             }
             else
             {
                 inventoryPanel.SetActive(false);
+                Time.timeScale = 1;
             }
         }
     }
@@ -90,5 +93,13 @@ public class UIManager : MonoBehaviour
                 inventoryUIByName.Add(ui.inventoryName, ui);
             }
         }
+    }
+
+    public void RemoveFromInv()
+    {
+        InventoryUI current = GetInventoryUI(draggedSlot.inventory.inventoryName);
+
+        current.RemoveItem();
+       
     }
 }

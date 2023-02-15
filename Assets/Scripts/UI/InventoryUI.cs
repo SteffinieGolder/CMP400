@@ -21,7 +21,7 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
-        inventory = GameManager.instance.player.inventory.GetInventoryByName(inventoryName);
+        inventory = GameManager.instance.player.inventoryManager.GetInventoryByName(inventoryName);
         SetupSlots();
         Refresh();
     }
@@ -88,27 +88,23 @@ public class InventoryUI : MonoBehaviour
         UIManager.draggedIcon.raycastTarget = false;
         UIManager.draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
         MoveToMousePosition(UIManager.draggedIcon.gameObject);
-        //Debug.Log("Start Dragging: " + draggedSlot.name);
     }
 
     public void SlotDrag()
     {
         MoveToMousePosition(UIManager.draggedIcon.gameObject);
-       // Debug.Log("Dragging: " + draggedSlot.name);
     }
 
     public void SlotEndDrag()
     {
         Destroy(UIManager.draggedIcon.gameObject);
         UIManager.draggedIcon = null;
-       // Debug.Log("Done Dragging: " + draggedSlot.name);
     }
 
     public void SlotDrop(SlotsUI slot)
     {
         if (UIManager.dragSingle)
         {
-            // Debug.Log("Dropped " + draggedSlot.name + " on " + slot.name);
             UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory);
         }
         else

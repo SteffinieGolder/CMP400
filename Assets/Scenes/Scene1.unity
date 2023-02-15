@@ -376,6 +376,10 @@ PrefabInstance:
       value: InventoryUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 4277328}
@@ -1880,6 +1884,10 @@ PrefabInstance:
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[4].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -7535,7 +7543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.22745098}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7577,9 +7585,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 712272895}
-          m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
-          m_MethodName: RemoveItem
+        - m_Target: {fileID: 979790178}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: RemoveFromInv
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21968,7 +21976,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004082352, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -22014,7 +22022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f74dd728aaeaea44aaa0f8299a7c818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventoryManager: {fileID: 0}
 --- !u!114 &1256042638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22029,9 +22037,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backpack:
     slots: []
+    inventoryName: 
   backpackSlotCount: 24
   toolbar:
     slots: []
+    inventoryName: 
   toolbarSlotCount: 9
 --- !u!1 &1336044971
 GameObject:
@@ -22241,6 +22251,10 @@ PrefabInstance:
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[4].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -23076,6 +23090,10 @@ PrefabInstance:
       value: InventoryUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1378094909}
@@ -23363,6 +23381,10 @@ PrefabInstance:
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[4].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -23701,6 +23723,10 @@ PrefabInstance:
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[4].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -24399,6 +24425,10 @@ PrefabInstance:
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[4].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -25828,6 +25858,10 @@ PrefabInstance:
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[4].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7821309783267813836, guid: f78bcf605b84c0a4fb942fe26d1c5c1e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument

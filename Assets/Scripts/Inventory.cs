@@ -8,7 +8,7 @@ using UnityEngine;
 public class Inventory 
 {
     [System.Serializable]
-    //Slot class reprents a slot in the inventory. 
+    //Slot class represents a slot in an inventory. 
     public class Slot
     {
         //Slot will have name of item stored in it, the amount, the total allowed and an icon. 
@@ -55,7 +55,7 @@ public class Inventory
             count++;
         }
 
-        //Function which fills slot with item data. 
+        //Function which fills slot with item data. //////////////////////////////////////////////////////////////////FIX
         public void AddItem(string itemName, Sprite icon, int maxAllowed)
         {
             this.itemName = itemName;
@@ -82,10 +82,12 @@ public class Inventory
 
     //List of slots.
     public List<Slot> slots = new List<Slot>();
+    public string inventoryName;
 
     //Constructor to initialise inventory with desired number of slots. 
-    public Inventory(int numSlots)
+    public Inventory(int numSlots, string name)
     {
+        inventoryName = name; 
         for (int i = 0; i < numSlots; i++)
         {
             Slot slot = new Slot();

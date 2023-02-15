@@ -14,11 +14,11 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        backpack = new Inventory(backpackSlotCount);
-        toolbar = new Inventory(toolbarSlotCount);
+        backpack = new Inventory(backpackSlotCount, "Backpack");
+        toolbar = new Inventory(toolbarSlotCount, "Toolbar");
 
-        inventoryByName.Add("Backpack", backpack);
-        inventoryByName.Add("Toolbar", toolbar);
+        inventoryByName.Add(backpack.inventoryName, backpack);
+        inventoryByName.Add(toolbar.inventoryName, toolbar);
     }
 
     public void Add(string inventoryName, Item item)

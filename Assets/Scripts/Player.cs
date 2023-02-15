@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public InventoryManager inventory;
+    public InventoryManager inventoryManager;
 
     private void Awake()
     {
-        inventory = GetComponent<InventoryManager>();
+        inventoryManager = GetComponent<InventoryManager>();
     }
 
     private void Update()
@@ -34,13 +34,13 @@ public class Player : MonoBehaviour
     {
         //Controls location player will drop item to.
         Vector2 spawnLocation = transform.position;
-        Vector2 spawnOffset = Random.insideUnitCircle * 1.5f;
+        Vector2 spawnOffset = Random.insideUnitCircle * 2f;
 
         //Instantiate item that is dropped back into scene. 
         Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
 
         //Push item away from player to mimic drop. 
-        droppedItem.rb2d.AddForce(spawnOffset * .2f, ForceMode2D.Impulse);
+        droppedItem.rb2d.AddForce(spawnOffset * .01f, ForceMode2D.Impulse);
     }
 
     public void DropItem(Item item, int numToDrop)
