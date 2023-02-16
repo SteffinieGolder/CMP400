@@ -15,4 +15,16 @@ public class Item : MonoBehaviour
         //Initialise rigid body. 
         rb2d = GetComponent<Rigidbody2D>();
     }
+
+    //Checks if player has collided which the collectable.
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Player player = collision.GetComponent<Player>();
+
+        if (player)
+        {
+            player.inventoryManager.Add("Backpack", this);
+            Destroy(this.gameObject);
+        }
+    }
 }

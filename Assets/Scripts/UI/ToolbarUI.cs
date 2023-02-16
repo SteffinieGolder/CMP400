@@ -14,7 +14,7 @@ public class ToolbarUI : MonoBehaviour
     private void Start()
     {
         //Initialise selected slot to 0.
-        SelectSlot(0);
+        //SelectSlot(0);
     }
 
     private void Update()
@@ -26,7 +26,7 @@ public class ToolbarUI : MonoBehaviour
     //Function which changes highlighted/selected slot. 
     public void SelectSlot(int index)
     {
-        if(toolbarSlots.Count == 9)
+        if (toolbarSlots.Count == 9)
         {
             //Sets previous selected slot highlight to false (removes highlight from previous) if previous exists.
             if (selectedSlot != null)
@@ -37,6 +37,8 @@ public class ToolbarUI : MonoBehaviour
             //Apply highlight to new selected slot. 
             selectedSlot = toolbarSlots[index];
             selectedSlot.SetHighlight(true);
+
+            GameManager.instance.itemManager.EquipItem(selectedSlot.inventory.slots[selectedSlot.slotID].itemName);
         }
     }
 

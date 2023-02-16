@@ -11,12 +11,26 @@ public class ItemManager : MonoBehaviour
     //Dictionary holding name and item object.
     private Dictionary<string, Item> nameToItemDict = new Dictionary<string, Item>();
 
+    //[HideInInspector]
+    private Item equippedItem; 
+
     private void Awake()
     {
         //Run AddItem func for each item in array. 
         foreach(Item item in items)
         {
             AddItem(item);
+        }
+    }
+
+    private void Update()
+    {
+        if (equippedItem)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                equippedItem.data.toolBehaviourScript.PerformBehaviour();
+            }
         }
     }
 
@@ -38,5 +52,18 @@ public class ItemManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void EquipItem(string equipName)
+    {
+        if (nameToItemDict.ContainsKey(equipName))
+        {
+            equippedItem = nameToItemDict[equipName];
+        }
+
+        else
+        {
+            equippedItem = null;
+        }
     }
 }
