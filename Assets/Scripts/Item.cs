@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb2d;
 
     private void Awake()
-    {
+    { 
         //Initialise rigid body. 
         rb2d = GetComponent<Rigidbody2D>();
     }

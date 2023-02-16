@@ -1,11 +1,54 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 //Script which controls the tile map and ground tiles in the scene. 
 
 public class TileManager : MonoBehaviour
 {
-    //Interactable tilemap contains the tiles which can be altered by the player. 
+    [SerializeField] Tilemap tilemap;
+    [SerializeField] List<TileData> tileDataList;
+    Dictionary<TileBase, TileData> dataFromTileDict;
+
+    private void Start()
+    {
+        dataFromTileDict = new Dictionary<TileBase, TileData>();
+
+        foreach(TileData tileData in tileDataList)
+        {
+            foreach(TileBase tile in tileData.tiles)
+            {
+                dataFromTileDict.Add(tile, tileData);
+            }
+        }
+    }
+
+    public Vector3Int GetGridPosition(Vector2 position, bool mousePosition)
+    {
+        Vector3 worldPosition;
+
+        if (mousePosition)
+        {
+            worldPosition = Camera.main.ScreenToWorldPoint(position);
+        }
+        else
+        {
+            worldPosition = position;
+        }
+
+        Vector3Int gridPos = tilemap.WorldToCell(worldPosition);
+        return gridPos;
+    }
+
+    public TileBase GetTileBase(Vector3Int gridPosition, bool mousePosition = false)
+    {
+        TileBase tile = tilemap.GetTile(gridPosition);
+        Debug.Log(tile);
+        return null;
+    }
+}
+
+/*//Interactable tilemap contains the tiles which can be altered by the player. 
     [SerializeField] private Tilemap interactMap;
     //Tile used to identify the interactable tiles. 
     [SerializeField] private Tile hiddenInteractTile;
@@ -48,5 +91,4 @@ public class TileManager : MonoBehaviour
     public void SetInteracted(Vector3Int position)
     {
         interactMap.SetTile(position, interactedTile);
-    }
-}
+    }*/

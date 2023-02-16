@@ -3,7 +3,7 @@ using UnityEngine;
 //Script which controls collectables in game. 
 
 //Requires the item scriptable object which holds this collectable's data (name, icon etc). 
-[RequireComponent(typeof(Item))]
+//[RequireComponent(typeof(Item))]
 public class Collectable : MonoBehaviour
 {
     //Checks if player has collided which the collectable.

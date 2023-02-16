@@ -21,11 +21,11 @@ public class Player : MonoBehaviour
                 (int)transform.position.y, 0);
 
             //Check if tile map position contains an interactable tile. 
-            if(GameManager.instance.tileManager.IsInteractable(position))
+           /* if(GameManager.instance.tileManager.IsInteractable(position))
             {
                 //Set that tile to its interacted version. 
                 GameManager.instance.tileManager.SetInteracted(position);
-            }
+            }*/
         }
     }
 
