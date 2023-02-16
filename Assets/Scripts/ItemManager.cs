@@ -29,7 +29,11 @@ public class ItemManager : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(0))
             {
-                equippedItem.data.toolBehaviourScript.PerformBehaviour();
+                Vector2 pos = Input.mousePosition;
+                if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos))
+                {
+                    equippedItem.data.toolBehaviourScript.PerformBehaviour();
+                }
             }
         }
     }

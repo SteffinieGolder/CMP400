@@ -40,11 +40,25 @@ public class TileManager : MonoBehaviour
         return gridPos;
     }
 
-    public TileBase GetTileBase(Vector3Int gridPosition, bool mousePosition = false)
+    public TileBase GetTileBase(Vector3Int gridPosition)
     {
         TileBase tile = tilemap.GetTile(gridPosition);
-        Debug.Log(tile);
+        return tile;
+    }
+
+    public TileData GetTileData(TileBase tileBase)
+    {
+        if(dataFromTileDict.ContainsKey(tileBase))
+        {
+            return dataFromTileDict[tileBase];
+        }
         return null;
+    }
+
+    public void ChangeTile(Vector3Int position, Tile newTile)
+    {
+        tilemap.SetTile(position, newTile);
+
     }
 }
 

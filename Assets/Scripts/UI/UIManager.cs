@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
 
     public void RefreshInventoryUI(string inventoryName)
     {
-        if(inventoryUIByName.ContainsKey(inventoryName))
+        if (inventoryUIByName.ContainsKey(inventoryName))
         {
             inventoryUIByName[inventoryName].Refresh();
         }
@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
 
     public void RefreshAll()
     {
-        foreach(KeyValuePair<string, InventoryUI> keyValuePair in inventoryUIByName)
+        foreach (KeyValuePair<string, InventoryUI> keyValuePair in inventoryUIByName)
         {
             keyValuePair.Value.Refresh();
         }
@@ -76,7 +76,7 @@ public class UIManager : MonoBehaviour
 
     public InventoryUI GetInventoryUI(string inventoryName)
     {
-        if(inventoryUIByName.ContainsKey(inventoryName))
+        if (inventoryUIByName.ContainsKey(inventoryName))
         {
             return inventoryUIByName[inventoryName];
         }
@@ -86,9 +86,9 @@ public class UIManager : MonoBehaviour
 
     void Initialise()
     {
-        foreach(InventoryUI ui in inventoryUIs)
+        foreach (InventoryUI ui in inventoryUIs)
         {
-            if(!inventoryUIByName.ContainsKey(ui.inventoryName))
+            if (!inventoryUIByName.ContainsKey(ui.inventoryName))
             {
                 inventoryUIByName.Add(ui.inventoryName, ui);
             }
@@ -97,9 +97,15 @@ public class UIManager : MonoBehaviour
 
     public void RemoveFromInv()
     {
-        InventoryUI current = GetInventoryUI(draggedSlot.inventory.inventoryName);
+        if (draggedSlot)
+        {
+            InventoryUI current = GetInventoryUI(draggedSlot.inventory.inventoryName);
 
-        current.RemoveItem();
-       
+            if (current)
+            {
+                current.RemoveItem();
+            }
+        }
     }
+
 }

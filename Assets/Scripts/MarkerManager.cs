@@ -3,15 +3,26 @@ using UnityEngine.Tilemaps;
 
 public class MarkerManager : MonoBehaviour
 {
-    [SerializeField] Tilemap targetTilemap;
     [SerializeField] TileBase tile;
-    public Vector3Int markedCellPosition;
+
     Vector3Int oldCellPosition;
+    Tilemap map;
+
+    private void Start()
+    {
+        map = this.GetComponent<Tilemap>();
+    }
+
 
     private void Update()
     {
-        targetTilemap.SetTile(oldCellPosition, null);
-        targetTilemap.SetTile(markedCellPosition, tile);
-        oldCellPosition = markedCellPosition;
+        Vector3Int currentPos = GameManager.instance.tileManager.GetGridPosition(Input.mousePosition, true);
+
+        if (currentPos != oldCellPosition)
+        {
+            map.SetTile(oldCellPosition, null);
+            map.SetTile(currentPos, tile);
+            oldCellPosition = currentPos;
+        }
     }
 }
