@@ -16,7 +16,7 @@ public class MarkerManager : MonoBehaviour
 
     private void Update()
     {
-        Vector3Int currentPos = GameManager.instance.tileManager.GetGridPosition(Input.mousePosition, true);
+        Vector3Int currentPos = GameManager.instance.tileManager.GetGridPosition(Input.mousePosition, true, TileManager.tilemapOptions.BACKGROUND);
 
         if (currentPos != oldCellPosition)
         {

@@ -38,7 +38,7 @@ public class ToolbarUI : MonoBehaviour
             selectedSlot = toolbarSlots[index];
             selectedSlot.SetHighlight(true);
 
-            GameManager.instance.itemManager.EquipItem(selectedSlot.inventory.slots[selectedSlot.slotID].itemName);
+            GameManager.instance.itemManager.EquipItem(selectedSlot.inventory.slots[selectedSlot.slotID].itemName, selectedSlot);
         }
     }
 

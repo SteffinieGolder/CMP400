@@ -11,8 +11,8 @@ public class ItemManager : MonoBehaviour
     //Dictionary holding name and item object.
     private Dictionary<string, Item> nameToItemDict = new Dictionary<string, Item>();
 
-    //[HideInInspector]
-    private Item equippedItem; 
+    private Item equippedItem;
+    private SlotsUI equippedSlot;
 
     private void Awake()
     {
@@ -30,9 +30,21 @@ public class ItemManager : MonoBehaviour
             if(Input.GetMouseButtonDown(0))
             {
                 Vector2 pos = Input.mousePosition;
-                if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos))
+                if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                 {
-                    equippedItem.data.toolBehaviourScript.PerformBehaviour();
+                    //THIS IS PROBABLY JANK///////////////////////////
+                    if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
+                    {                        
+                        //Remove item from player inventory.
+                        Inventory inventory = equippedSlot.inventory;
+                        inventory.Remove(equippedSlot.slotID);
+                        GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+
+                        if (equippedSlot.quantityText.text == "")
+                        {
+                            equippedItem = null;
+                        }
+                    }
                 }
             }
         }
@@ -58,11 +70,12 @@ public class ItemManager : MonoBehaviour
         return null;
     }
 
-    public void EquipItem(string equipName)
+    public void EquipItem(string equipName, SlotsUI slot)
     {
         if (nameToItemDict.ContainsKey(equipName))
         {
             equippedItem = nameToItemDict[equipName];
+            equippedSlot = slot;
         }
 
         else

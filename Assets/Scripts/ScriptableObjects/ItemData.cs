@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 //Scriptable object asset for in game items. 
 
@@ -9,4 +10,5 @@ public class ItemData : ScriptableObject
     public string itemName = "Item Name";
     public Sprite icon;
     public ToolBehaviour toolBehaviourScript;
+    public Tile tileToChangeTo;
 }

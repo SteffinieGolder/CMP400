@@ -5,20 +5,18 @@ using UnityEngine.Tilemaps;
 
 public class HoeBehaviour : ToolBehaviour
 {
-    public Tile PlowTile;
     TileManager manager;
     TileData tileData;
     Vector3Int gridPos;
+    ItemData itemData;
 
-    public override bool CheckUseConditions(Vector2 position)
+    public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
         manager = GameManager.instance.tileManager;
-        gridPos = manager.GetGridPosition(position, true);
+        gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.BACKGROUND);
+        itemData = item;
 
-        /////////THIS IS JANKY AS HELL? AND NEEDS FIXED BUT JUST FOR TESTING RN
-        /////SOME TILES ARE ON THE OTHER TILEMAP - EITHER COMBINE INTO ONE OR FIGURE OUT HOW THE LAYERING WILL WORK. 
-
-        TileBase tile = manager.GetTileBase(gridPos);
+        TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.BACKGROUND);
 
         if (tile)
         {
@@ -41,7 +39,9 @@ public class HoeBehaviour : ToolBehaviour
         //Whenever player clicks to use, animate action
         //Set tile to plowed tile. 
 
-        manager.ChangeTile(gridPos, PlowTile);
-        return true;
+        manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.BACKGROUND);
+
+        //Return false if item is reusable
+        return false;
     }
 }

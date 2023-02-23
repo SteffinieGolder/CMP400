@@ -8,4 +8,5 @@ public class TileData : ScriptableObject
     public List<TileBase> tiles;
 
     public bool isPlowable;
+    public bool isPlantable;
 }

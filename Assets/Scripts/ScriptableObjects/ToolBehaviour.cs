@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ToolBehaviour : ScriptableObject
 {
-    public virtual bool CheckUseConditions(Vector2 position)
+    public virtual bool CheckUseConditions(Vector2 position, ItemData item)
     {
         Debug.LogWarning("CheckUseConditions is not applied");
         return true;

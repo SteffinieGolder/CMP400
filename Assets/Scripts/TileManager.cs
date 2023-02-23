@@ -6,9 +6,15 @@ using System.Collections.Generic;
 
 public class TileManager : MonoBehaviour
 {
-    [SerializeField] Tilemap tilemap;
+    [SerializeField] List<Tilemap> tilemaps;
     [SerializeField] List<TileData> tileDataList;
     Dictionary<TileBase, TileData> dataFromTileDict;
+
+    public enum tilemapOptions
+    {
+        BACKGROUND = 0,
+        GROUND = 1
+    }
 
     private void Start()
     {
@@ -23,7 +29,7 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    public Vector3Int GetGridPosition(Vector2 position, bool mousePosition)
+    public Vector3Int GetGridPosition(Vector2 position, bool mousePosition, tilemapOptions choice)
     {
         Vector3 worldPosition;
 
@@ -36,13 +42,13 @@ public class TileManager : MonoBehaviour
             worldPosition = position;
         }
 
-        Vector3Int gridPos = tilemap.WorldToCell(worldPosition);
+        Vector3Int gridPos = tilemaps[((int)choice)].WorldToCell(worldPosition);
         return gridPos;
     }
 
-    public TileBase GetTileBase(Vector3Int gridPosition)
+    public TileBase GetTileBase(Vector3Int gridPosition, tilemapOptions choice)
     {
-        TileBase tile = tilemap.GetTile(gridPosition);
+        TileBase tile = tilemaps[((int)choice)].GetTile(gridPosition);
         return tile;
     }
 
@@ -55,54 +61,9 @@ public class TileManager : MonoBehaviour
         return null;
     }
 
-    public void ChangeTile(Vector3Int position, Tile newTile)
+    public void ChangeTile(Vector3Int position, Tile newTile, tilemapOptions choice)
     {
-        tilemap.SetTile(position, newTile);
+        tilemaps[((int)choice)].SetTile(position, newTile);
 
     }
 }
-
-/*//Interactable tilemap contains the tiles which can be altered by the player. 
-    [SerializeField] private Tilemap interactMap;
-    //Tile used to identify the interactable tiles. 
-    [SerializeField] private Tile hiddenInteractTile;
-    //Tile to switch to once player has interacted. 
-    [SerializeField] private Tile interactedTile;
-
-    void Start()
-    {
-        //Check each tile in the tilemap...
-        foreach (var position in interactMap.cellBounds.allPositionsWithin)
-        {
-            TileBase tile = interactMap.GetTile(position);
-
-            //If the tile is interactable
-            if(tile!=null && tile.name == "InteractableVis")
-            {
-                //Set it to hidden (so player can't see 'interactable' identifier on tile. 
-                interactMap.SetTile(position, hiddenInteractTile);
-            }
-        }
-    }
-
-    //Function which checks if tile is interactable. Returns true if players current position is on interactable tile. 
-   public bool IsInteractable(Vector3Int position)
-    {
-        TileBase tile = interactMap.GetTile(position);
-
-        if(tile!= null)
-        {
-            if(tile.name == "Interactable")
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    //Function which changes tile once player has successfully interacted. 
-    public void SetInteracted(Vector3Int position)
-    {
-        interactMap.SetTile(position, interactedTile);
-    }*/
