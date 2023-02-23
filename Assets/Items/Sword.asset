@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Sword
   icon: {fileID: 571710038, guid: 978a2bf2e3d10a7449c5dbbc233fb948, type: 3}
+  isEquippable: 1
   toolBehaviourScript: {fileID: 11400000, guid: 5db6256bfbd3b7a40aa846acc5a633c4, type: 2}
   tileToChangeTo: {fileID: 0}
+  itemToSpawn: {fileID: 0}

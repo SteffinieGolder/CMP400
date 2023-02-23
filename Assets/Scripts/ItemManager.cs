@@ -34,20 +34,22 @@ public class ItemManager : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         Vector2 pos = Input.mousePosition;
-
-                        if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
+                        if (equippedItem.data.isEquippable)
                         {
-                            //THIS IS PROBABLY JANK///////////////////////////
-                            if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
+                            if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                             {
-                                //Remove item from player inventory.
-                                Inventory inventory = equippedSlot.inventory;
-                                inventory.Remove(equippedSlot.slotID);
-                                GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
-
-                                if (equippedSlot.quantityText.text == "")
+                                //THIS IS PROBABLY JANK///////////////////////////
+                                if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
                                 {
-                                    equippedItem = null;
+                                    //Remove item from player inventory.
+                                    Inventory inventory = equippedSlot.inventory;
+                                    inventory.Remove(equippedSlot.slotID);
+                                    GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+
+                                    if (equippedSlot.quantityText.text == "")
+                                    {
+                                        equippedItem = null;
+                                    }
                                 }
                             }
                         }

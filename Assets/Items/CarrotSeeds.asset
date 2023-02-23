@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Carrot Seeds
   icon: {fileID: 1789221170, guid: 216650a61abab8b45a1ab1ae38560ab3, type: 3}
+  isEquippable: 1
   toolBehaviourScript: {fileID: 11400000, guid: eb743941154a4b64581bbf8180962a16, type: 2}
   tileToChangeTo: {fileID: 11400000, guid: 7471b09934a16c04c97c819995220d1e, type: 2}
+  itemToSpawn: {fileID: 0}

@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5297cd8cd13005c43b74b7bca9d261c4, type: 3}
-  m_Name: Hoe
+  m_Name: Log
   m_EditorClassIdentifier: 
-  itemName: Hoe
-  icon: {fileID: 1141040612, guid: 63c4e42a2a249da4eb8e57fc68ac2514, type: 3}
-  isEquippable: 1
-  toolBehaviourScript: {fileID: 11400000, guid: 1250c9807a383b144ae25f1961e36876, type: 2}
-  tileToChangeTo: {fileID: 11400000, guid: 2f0b83313c91bd4499d17312ee8faa1a, type: 2}
+  itemName: Log
+  icon: {fileID: -270846972, guid: 04b70f0e832fa104a844550bd37b1bd8, type: 3}
+  toolBehaviourScript: {fileID: 0}
+  tileToChangeTo: {fileID: 0}
   itemToSpawn: {fileID: 0}

@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: FishingRod
   icon: {fileID: 379012196, guid: fb6dc28437df0b141a773a05eae07d67, type: 3}
+  isEquippable: 1
   toolBehaviourScript: {fileID: 11400000, guid: ec0fbdbf346724643b36051cb4c474b5, type: 2}
   tileToChangeTo: {fileID: 11400000, guid: 2492ed2c38b10244caa9de43b4a0f57d, type: 2}
+  itemToSpawn: {fileID: 0}
