@@ -893,7 +893,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       seeds_16: 713010923
-      seeds_23: 179674903
+      seeds_21: -261947967
       seeds_19: -2009617197
       seeds_0: 1789221170
       seeds_22: 132731879
@@ -925,8 +925,8 @@ TextureImporter:
       seeds_25: -1460846815
       seeds_34: -1302832408
       seeds_13: -968940015
+      seeds_23: 179674903
       seeds_12: 1730834561
-      seeds_21: -261947967
       seeds_32: -73144821
       seeds_1: -2089870448
   spritePackingTag: 

@@ -9,4 +9,5 @@ public class TileData : ScriptableObject
 
     public bool isPlowable;
     public bool isPlantable;
+    public bool canFish;
 }
