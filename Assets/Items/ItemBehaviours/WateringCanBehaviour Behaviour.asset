@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd24ffc40e7ecfe4fad2e3029071d18b, type: 3}
-  m_Name: PlantableTileData
+  m_Script: {fileID: 11500000, guid: 25eaca9db087007459b94f62f2d29145, type: 3}
+  m_Name: WateringCanBehaviour Behaviour
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 11400000, guid: 2f0b83313c91bd4499d17312ee8faa1a, type: 2}
-  - {fileID: 11400000, guid: b4f2112f92acbd841bcb219cce2fbd9d, type: 2}
-  isPlowable: 0
-  isPlantable: 1

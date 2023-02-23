@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 //Script which tracks items in game. Used to store item reference for instantiation when it is dropped from inventory. 
 
