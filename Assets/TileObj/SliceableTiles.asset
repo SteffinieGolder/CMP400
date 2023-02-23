@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd24ffc40e7ecfe4fad2e3029071d18b, type: 3}
+  m_Name: SliceableTiles
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 0d4b948bf064c3f4ba2fe82dd2f1418e, type: 2}
+  - {fileID: 11400000, guid: e0006b3820ede8e4a9e446aa23392bd6, type: 2}
+  - {fileID: 11400000, guid: ebe155f5653ba3143b32eaa90d2bb8e3, type: 2}
+  - {fileID: 11400000, guid: b6d680f8c737dfd4f85d262b81c23eb9, type: 2}
+  - {fileID: 11400000, guid: 00bbc05d76372784192aef29b7ba80ef, type: 2}
+  - {fileID: 11400000, guid: 58007134224c6df4a9004abbeebb83c7, type: 2}
+  - {fileID: 11400000, guid: f25d4ab799f387e4a9c1b4098cf9a1d4, type: 2}
+  isPlowable: 0
+  isPlantable: 0
+  canFish: 0
+  canBeSliced: 1
