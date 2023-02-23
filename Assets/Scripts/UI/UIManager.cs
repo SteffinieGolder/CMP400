@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 //Script which stores and controls all inventory UIs accessed by the player. 
 
 public class UIManager : MonoBehaviour
@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public static SlotsUI draggedSlot;
     public static Image draggedIcon;
     public static bool dragSingle;
+    public static bool isPointerOnToggleUI;
+    public static bool isPointerOnConstantUI;
 
     private void Awake()
     {
@@ -53,7 +55,8 @@ public class UIManager : MonoBehaviour
             else
             {
                 inventoryPanel.SetActive(false);
-                Time.timeScale = 1;
+                SetPointerOnToggleUI(false);
+                Time.timeScale = 1;                
             }
         }
     }
@@ -106,6 +109,16 @@ public class UIManager : MonoBehaviour
                 current.RemoveItem();
             }
         }
+    }
+
+    public void SetPointerOnToggleUI(bool isOnUI)
+    {
+        isPointerOnToggleUI = isOnUI;
+    }
+
+    public void SetPointerOnConstantUI(bool isOnUI)
+    {
+        isPointerOnConstantUI = isOnUI;
     }
 
 }

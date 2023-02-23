@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 //Script which tracks items in game. Used to store item reference for instantiation when it is dropped from inventory. 
 
@@ -17,7 +18,7 @@ public class ItemManager : MonoBehaviour
     private void Awake()
     {
         //Run AddItem func for each item in array. 
-        foreach(Item item in items)
+        foreach (Item item in items)
         {
             AddItem(item);
         }
@@ -27,24 +28,32 @@ public class ItemManager : MonoBehaviour
     {
         if (equippedItem)
         {
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                Vector2 pos = Input.mousePosition;
-                if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
+                if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
                 {
-                    //THIS IS PROBABLY JANK///////////////////////////
-                    if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
-                    {                        
-                        //Remove item from player inventory.
-                        Inventory inventory = equippedSlot.inventory;
-                        inventory.Remove(equippedSlot.slotID);
-                        GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        Vector2 pos = Input.mousePosition;
 
-                        if (equippedSlot.quantityText.text == "")
+                        if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                         {
-                            equippedItem = null;
+                            //THIS IS PROBABLY JANK///////////////////////////
+                            if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
+                            {
+                                //Remove item from player inventory.
+                                Inventory inventory = equippedSlot.inventory;
+                                inventory.Remove(equippedSlot.slotID);
+                                GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+
+                                if (equippedSlot.quantityText.text == "")
+                                {
+                                    equippedItem = null;
+                                }
+                            }
                         }
                     }
+
                 }
             }
         }

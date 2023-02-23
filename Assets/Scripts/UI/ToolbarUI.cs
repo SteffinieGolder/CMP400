@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Script which controls the toolbar UI element and adds highlight to selected toolbar slot. 
 
@@ -7,7 +8,7 @@ public class ToolbarUI : MonoBehaviour
 {
     //List of slots on toolbar. 
     [SerializeField] private List<SlotsUI> toolbarSlots = new List<SlotsUI>();
-
+     
     //The slot selected by the player.
     private SlotsUI selectedSlot;
 
