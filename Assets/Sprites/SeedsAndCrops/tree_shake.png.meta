@@ -109,18 +109,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 128
+        y: 105
         width: 30
-        height: 32
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 102e0c33a88aa7d4bb2955de792ed795
+      spriteID: 80d6929a02790cb4a8375add086c2288
       internalID: -109041289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_shake_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 96
+        width: 30
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24f79a6e592679b49b2cdd8236c6c94d
+      internalID: 39373951
       vertices: []
       indices: 
       edges: []

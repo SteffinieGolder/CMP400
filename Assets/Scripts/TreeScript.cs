@@ -6,19 +6,11 @@ public class TreeScript : MonoBehaviour
 {
     public Sprite choppedSprite;
     public Item choppedObjSpawn;
+    public GameObject stumpObj;
     public int amountToSpawn = 3;
-
-    private SpriteRenderer spriteRenderer;
-
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
     public void ChopTree()
     {
-        spriteRenderer.sprite = choppedSprite;
-
         //Controls location player will drop item to.
         Vector2 spawnLocation = transform.position;
         Vector2 spawnOffset = Random.insideUnitCircle * 3f;
@@ -31,6 +23,7 @@ public class TreeScript : MonoBehaviour
             log.rb2d.AddForce(spawnOffset * .01f, ForceMode2D.Impulse);
         }
 
+        Instantiate(stumpObj, this.gameObject.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }
