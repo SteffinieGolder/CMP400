@@ -29,6 +29,7 @@ public class AxeBehaviour : ToolBehaviour
 
     public override bool PerformBehaviour()
     {
+        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("chopTrigger");
         //If you add in more items like the axe use polymorphism here 
         hit.transform.gameObject.GetComponent<TreeScript>().ChopTree();
         //Return false if item is reusable
