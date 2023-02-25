@@ -25,7 +25,10 @@ public class WateringCanBehaviour : ToolBehaviour
             {
                 if (tileData.isPlantable)
                 {
-                    return true;
+                    if (Vector3.Distance(GameManager.instance.player.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                    {
+                        return true;
+                    }
                 }
             }
         }

@@ -26,7 +26,10 @@ public class HoeBehaviour : ToolBehaviour
             {
                 if (tileData.isPlowable)
                 {
-                    return true;
+                    if (Vector3.Distance(GameManager.instance.player.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                    {
+                        return true;
+                    }
                 }
             }
         }

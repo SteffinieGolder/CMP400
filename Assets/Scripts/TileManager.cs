@@ -46,6 +46,12 @@ public class TileManager : MonoBehaviour
         return gridPos;
     }
 
+    public Vector3 GetWorldPosition(Vector3Int gridPos, tilemapOptions choice)
+    {
+        Vector3 worldPos = tilemaps[((int)choice)].CellToWorld(gridPos);
+        return worldPos;
+    }
+
     public TileBase GetTileBase(Vector3Int gridPosition, tilemapOptions choice)
     {
         TileBase tile = tilemaps[((int)choice)].GetTile(gridPosition);

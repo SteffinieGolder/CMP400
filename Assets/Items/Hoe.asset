@@ -16,5 +16,7 @@ MonoBehaviour:
   icon: {fileID: 1141040612, guid: 63c4e42a2a249da4eb8e57fc68ac2514, type: 3}
   isEquippable: 1
   toolBehaviourScript: {fileID: 11400000, guid: 1250c9807a383b144ae25f1961e36876, type: 2}
+  interactRange: 2
   tileToChangeTo: {fileID: 11400000, guid: 2f0b83313c91bd4499d17312ee8faa1a, type: 2}
   itemToSpawn: {fileID: 0}
+  interactableObjects: []

@@ -10,14 +10,18 @@ public class AxeBehaviour : ToolBehaviour
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
         itemData = item;
-        //Raycast at mousepos and store the hit? if its a tree then condition is met.
+
         //RAYCAST ON THE LAYER INSTEAD?
         hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(position));
         if (hit)
         {
             if (hit.transform.gameObject.layer == 6)
             {
-                return true;
+                //Check if player position is in the interact range
+                if (Vector3.Distance(GameManager.instance.player.transform.position, hit.transform.position) <= itemData.interactRange)
+                {
+                    return true;
+                }
             }
         }
         return false;

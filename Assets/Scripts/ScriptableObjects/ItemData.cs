@@ -12,6 +12,7 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public bool isEquippable;
     public ToolBehaviour toolBehaviourScript;
+    public float interactRange;
     public Tile tileToChangeTo;
     public Item itemToSpawn;
     public List<GameObject> interactableObjects;

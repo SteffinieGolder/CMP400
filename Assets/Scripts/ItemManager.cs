@@ -31,30 +31,26 @@ public class ItemManager : MonoBehaviour
             {
                 if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    Vector2 pos = Input.mousePosition;
+                    if (equippedItem.data.isEquippable)
                     {
-                        Vector2 pos = Input.mousePosition;
-                        if (equippedItem.data.isEquippable)
+                        if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                         {
-                            if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
+                            //THIS IS PROBABLY JANK///////////////////////////
+                            if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
                             {
-                                //THIS IS PROBABLY JANK///////////////////////////
-                                if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
-                                {
-                                    //Remove item from player inventory.
-                                    Inventory inventory = equippedSlot.inventory;
-                                    inventory.Remove(equippedSlot.slotID);
-                                    GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+                                //Remove item from player inventory.
+                                Inventory inventory = equippedSlot.inventory;
+                                inventory.Remove(equippedSlot.slotID);
+                                GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
 
-                                    if (equippedSlot.quantityText.text == "")
-                                    {
-                                        equippedItem = null;
-                                    }
+                                if (equippedSlot.quantityText.text == "")
+                                {
+                                    equippedItem = null;
                                 }
                             }
                         }
                     }
-
                 }
             }
         }

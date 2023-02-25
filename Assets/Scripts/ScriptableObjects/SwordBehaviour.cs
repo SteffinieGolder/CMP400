@@ -27,7 +27,10 @@ public class SwordBehaviour : ToolBehaviour
             {
                 if (tileData.canBeSliced)
                 {
-                    return true;
+                    if (Vector3.Distance(GameManager.instance.player.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                    {
+                        return true;
+                    }
                 }
             }
         }
