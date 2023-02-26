@@ -42,6 +42,7 @@ public class SwordBehaviour : ToolBehaviour
         //Set char animation to holding the tool
         //Whenever player clicks to use, animate action
         //Remove tile
+        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("slashTrigger");
 
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
 

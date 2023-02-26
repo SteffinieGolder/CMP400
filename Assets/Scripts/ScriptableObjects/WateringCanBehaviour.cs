@@ -38,6 +38,8 @@ public class WateringCanBehaviour : ToolBehaviour
     public override bool PerformBehaviour()
     {
         //Do any animations
+        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("waterTrigger");
+
         //Change tile. 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.BACKGROUND);
 

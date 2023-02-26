@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 197d3ba6bd14b034d9d5019a0b49133e
+guid: ff194f4d448fc1042b9b30f5570afb04
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: axe_silver_0
+      name: axe_0
       rect:
         serializedVersion: 2
         x: 45
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b709814956976646a0cbbe74b5299a5
-      internalID: 1070860315
+      spriteID: b6a27892d5a17094c8db5eff71a818d9
+      internalID: -1377503783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_1
+      name: axe_1
       rect:
         serializedVersion: 2
         x: 77
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d3e88f38dfac124882224cbf5b9a593
-      internalID: -1441614516
+      spriteID: 2404913287c4e1d49aba7c072638fc1b
+      internalID: -537610987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_2
+      name: axe_2
       rect:
         serializedVersion: 2
         x: 109
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7971e15c1bc086e4d82b769d7218cc81
-      internalID: 1877418356
+      spriteID: 3446462113668cb468cbbefcd949e47e
+      internalID: -237652763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_3
+      name: axe_3
       rect:
         serializedVersion: 2
         x: 13
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e9d5ce510d7b8344917c6fd8cd1560e
-      internalID: -1479283097
+      spriteID: c11fa0164552b2a42bc47d2ac2a001fc
+      internalID: 64745806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_4
+      name: axe_4
       rect:
         serializedVersion: 2
         x: 140
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e36f08905826704995af974c28cf385
-      internalID: -757590271
+      spriteID: 2fd662d18e443574f94f2b5ca0a13c02
+      internalID: 1112589547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_5
+      name: axe_5
       rect:
         serializedVersion: 2
         x: 45
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa8a23484d69b854f9b0d74e9cd5332f
-      internalID: 1320098724
+      spriteID: 92d6d715fe92b0148a2a9e1fd1c4c18a
+      internalID: -1377264945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_6
+      name: axe_6
       rect:
         serializedVersion: 2
         x: 77
@@ -245,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5624b7f637ffa45a7c347d9897b10f
-      internalID: -1238810566
+      spriteID: e263e4fc39ebe3f45a91a35023a050b0
+      internalID: 417187558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_7
+      name: axe_7
       rect:
         serializedVersion: 2
         x: 109
@@ -266,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e523a15ac2d5a045bcf67d029a1ecc7
-      internalID: -1316645229
+      spriteID: 88f631f63e2c18643b931e3a6642e91b
+      internalID: -1381113622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_8
+      name: axe_8
       rect:
         serializedVersion: 2
         x: 17
@@ -287,14 +287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcacb071d4cd1634597e786f146ecb4d
-      internalID: -730660084
+      spriteID: dd2655a282a02b745837af2eb32d117d
+      internalID: -562444477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_9
+      name: axe_9
       rect:
         serializedVersion: 2
         x: 48
@@ -308,14 +308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d549f14a99c7a84ea31ebc430d6ca68
-      internalID: 1418456391
+      spriteID: 6a90d29a138ac794da17ba2fafb85570
+      internalID: 1777605148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_10
+      name: axe_10
       rect:
         serializedVersion: 2
         x: 72
@@ -329,14 +329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0631593f4a50e3046ad5b6bb00af16a8
-      internalID: -1359059542
+      spriteID: e3c28ed37039a5443a690984f2453fd6
+      internalID: -1215404007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_11
+      name: axe_11
       rect:
         serializedVersion: 2
         x: 101
@@ -350,14 +350,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79f5f467d46b1de4084deb0af70573d4
-      internalID: -2100534615
+      spriteID: e5a62cee4e5c4ef4cbad823ceca6f17b
+      internalID: 192445312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_12
+      name: axe_12
       rect:
         serializedVersion: 2
         x: 147
@@ -371,14 +371,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a6f771d8b225eb4194b3c0dd17061d0
-      internalID: 1651996903
+      spriteID: a349b1a32a2db7b4f98626f32811579e
+      internalID: -1843177151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_13
+      name: axe_13
       rect:
         serializedVersion: 2
         x: 2
@@ -392,14 +392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62b3878479c88914e9a097d1a49cd83f
-      internalID: 120635445
+      spriteID: e27f29dc9a75d804ea1e0fa052256248
+      internalID: 229690780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_14
+      name: axe_14
       rect:
         serializedVersion: 2
         x: 39
@@ -413,14 +413,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49744ca4c5805b44e94b46f7b19b96ad
-      internalID: -2119237323
+      spriteID: 2e19ed5102a7ab143963124500f67277
+      internalID: 99088525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_15
+      name: axe_15
       rect:
         serializedVersion: 2
         x: 78
@@ -434,14 +434,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 612c271dff6dd694c88bceca9aa08686
-      internalID: -604721468
+      spriteID: 8095b8877b7bf0b4c9f86f10496c4fe1
+      internalID: -1917131753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_16
+      name: axe_16
       rect:
         serializedVersion: 2
         x: 98
@@ -455,14 +455,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f839fec2ee761644097517912213be48
-      internalID: 2030643239
+      spriteID: d258a506e4db63c4b80ad81647b7fe77
+      internalID: -1120990748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe_silver_17
+      name: axe_17
       rect:
         serializedVersion: 2
         x: 130
@@ -476,8 +476,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e1b412eea036e649b3979e41ecef2a5
-      internalID: 667030319
+      spriteID: 8abf0dea1b2f19d4faac1898f6efbd28
+      internalID: -1862880723
       vertices: []
       indices: 
       edges: []
@@ -493,24 +493,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      axe_silver_4: -757590271
-      axe_silver_7: -1316645229
-      axe_silver_3: -1479283097
-      axe_silver_17: 667030319
-      axe_silver_13: 120635445
-      axe_silver_8: -730660084
-      axe_silver_14: -2119237323
-      axe_silver_16: 2030643239
-      axe_silver_9: 1418456391
-      axe_silver_5: 1320098724
-      axe_silver_6: -1238810566
-      axe_silver_11: -2100534615
-      axe_silver_2: 1877418356
-      axe_silver_10: -1359059542
-      axe_silver_12: 1651996903
-      axe_silver_0: 1070860315
-      axe_silver_1: -1441614516
-      axe_silver_15: -604721468
+      axe_4: 1112589547
+      axe_15: -1917131753
+      axe_3: 64745806
+      axe_10: -1215404007
+      axe_2: -237652763
+      axe_5: -1377264945
+      axe_11: 192445312
+      axe_0: -1377503783
+      axe_6: 417187558
+      axe_1: -537610987
+      axe_9: 1777605148
+      axe_17: -1862880723
+      axe_13: 229690780
+      axe_16: -1120990748
+      axe_7: -1381113622
+      axe_8: -562444477
+      axe_12: -1843177151
+      axe_14: 99088525
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

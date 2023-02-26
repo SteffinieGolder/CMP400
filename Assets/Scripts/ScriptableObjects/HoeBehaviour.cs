@@ -41,7 +41,7 @@ public class HoeBehaviour : ToolBehaviour
         //Set char animation to holding the tool
         //Whenever player clicks to use, animate action
         //Set tile to plowed tile. 
-
+        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("hoeTrigger");
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.BACKGROUND);
 
         //Return false if item is reusable
