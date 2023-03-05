@@ -23,7 +23,7 @@ public class Item : MonoBehaviour
 
         if (player)
         {
-            player.inventoryManager.Add("Backpack", this);
+            player.inventoryManager.Add(player.inventoryManager.backpack.inventoryName, this);
             Destroy(this.gameObject);
         }
     }

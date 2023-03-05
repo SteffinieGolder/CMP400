@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 //Script which stores and controls all inventory UIs accessed by the player. 
 
 public class UIManager : MonoBehaviour
 {
     public Dictionary<string, InventoryUI> inventoryUIByName = new Dictionary<string, InventoryUI>();
 
-    public GameObject inventoryPanel;
-
     public List<InventoryUI> inventoryUIs;
+    public List<GameObject> backpackPanels;
+    public List<GameObject> toolbarPanels;
 
     public static SlotsUI draggedSlot;
     public static Image draggedIcon;
@@ -44,20 +43,59 @@ public class UIManager : MonoBehaviour
     //Function which toggles inventory on/off by activating/deactivating UI panel element.
     public void ToggleInventory()
     {
-        if (inventoryPanel != null)
+        //THIS IS BAD////////////////////////////////////////////////////////////////
+        if (backpackPanels != null)
         {
-            if (inventoryPanel.activeSelf == false)
+            if (GameManager.instance.characterManager.char1IsActive)
             {
-                inventoryPanel.SetActive(true);
-                RefreshInventoryUI("Backpack");
-                Time.timeScale = 0;
+                if (backpackPanels[0].activeSelf == false)
+                {
+                    backpackPanels[1].SetActive(false);
+                    backpackPanels[0].SetActive(true);
+                    RefreshInventoryUI("Backpack_C1");
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    backpackPanels[0].SetActive(false);
+                    SetPointerOnToggleUI(false);
+                    Time.timeScale = 1;
+                }
             }
+
             else
             {
-                inventoryPanel.SetActive(false);
-                SetPointerOnToggleUI(false);
-                Time.timeScale = 1;                
+                if (backpackPanels[1].activeSelf == false)
+                {
+                    backpackPanels[0].SetActive(false);
+                    backpackPanels[1].SetActive(true);
+                    RefreshInventoryUI("Backpack_C2");
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    backpackPanels[1].SetActive(false);
+                    SetPointerOnToggleUI(false);
+                    Time.timeScale = 1;
+                }
             }
+        }
+    }
+
+    public void SwitchToolbar(bool isCharOne)
+    {
+        if(isCharOne)
+        {
+            toolbarPanels[1].SetActive(false);
+            toolbarPanels[0].SetActive(true);
+            RefreshInventoryUI("Toolbar_C1");
+        }
+
+        else
+        {
+            toolbarPanels[0].SetActive(false);
+            toolbarPanels[1].SetActive(true);
+            RefreshInventoryUI("Toolbar_C2");
         }
     }
 
@@ -88,8 +126,8 @@ public class UIManager : MonoBehaviour
     }
 
     void Initialise()
-    {
-        foreach (InventoryUI ui in inventoryUIs)
+    {   
+        foreach(InventoryUI ui in inventoryUIs)
         {
             if (!inventoryUIByName.ContainsKey(ui.inventoryName))
             {

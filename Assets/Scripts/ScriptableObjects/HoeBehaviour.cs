@@ -26,7 +26,7 @@ public class HoeBehaviour : ToolBehaviour
             {
                 if (tileData.isPlowable)
                 {
-                    if (Vector3.Distance(GameManager.instance.player.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                    if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                     {
                         return true;
                     }
@@ -41,7 +41,7 @@ public class HoeBehaviour : ToolBehaviour
         //Set char animation to holding the tool
         //Whenever player clicks to use, animate action
         //Set tile to plowed tile. 
-        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("hoeTrigger");
+        GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("hoeTrigger");
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.BACKGROUND);
 
         //Return false if item is reusable

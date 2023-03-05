@@ -11,7 +11,8 @@ public class CharacterManager : MonoBehaviour
     private CharMovement char2MovementScript;
     private CamFollow camFollowScript;
 
-    private bool char1IsActive;
+    public bool char1IsActive;
+    public Player activePlayer;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class CharacterManager : MonoBehaviour
         char1PlayerScript.enabled = false;
         char1MovementScript.enabled = false;
         camFollowScript.followTransform = char2.transform;
+        activePlayer = char2PlayerScript;
     }
 
     void Update()
@@ -39,6 +41,8 @@ public class CharacterManager : MonoBehaviour
                 char1MovementScript.enabled = false;
                 char1IsActive = false;
                 camFollowScript.followTransform = char2.transform;
+                GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
+                activePlayer = char2PlayerScript;
             }
 
             else
@@ -49,6 +53,8 @@ public class CharacterManager : MonoBehaviour
                 char1MovementScript.enabled = true;
                 char1IsActive = true;
                 camFollowScript.followTransform = char1.transform;
+                GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
+                activePlayer = char1PlayerScript;
             }
         }
     }

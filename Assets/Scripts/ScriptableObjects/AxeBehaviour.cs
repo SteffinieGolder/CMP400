@@ -18,7 +18,7 @@ public class AxeBehaviour : ToolBehaviour
             if (hit.transform.gameObject.layer == 6)
             {
                 //Check if player position is in the interact range
-                if (Vector3.Distance(GameManager.instance.player.transform.position, hit.transform.position) <= itemData.interactRange)
+                if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, hit.transform.position) <= itemData.interactRange)
                 {
                     return true;
                 }
@@ -29,7 +29,7 @@ public class AxeBehaviour : ToolBehaviour
 
     public override bool PerformBehaviour()
     {
-        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("chopTrigger");
+        GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("chopTrigger");
         //If you add in more items like the axe use polymorphism here 
         hit.transform.gameObject.GetComponent<TreeScript>().ChopTree();
         //Return false if item is reusable

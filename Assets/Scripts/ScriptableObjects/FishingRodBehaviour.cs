@@ -27,7 +27,7 @@ public class FishingRodBehaviour : ToolBehaviour
             {
                 if (tileData.canFish)
                 {
-                    if (Vector3.Distance(GameManager.instance.player.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                    if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                     {
                         return true;
                     }
@@ -42,7 +42,7 @@ public class FishingRodBehaviour : ToolBehaviour
         //Do any animations
         //Put fish in inventory
         //Change tile
-        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("fishTrigger");
+        GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("fishTrigger");
 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
 

@@ -14,8 +14,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        backpack = new Inventory(backpackSlotCount, "Backpack");
-        toolbar = new Inventory(toolbarSlotCount, "Toolbar");
+        backpack = new Inventory(backpackSlotCount, backpack.inventoryName);
+        toolbar = new Inventory(toolbarSlotCount, toolbar.inventoryName);
 
         inventoryByName.Add(backpack.inventoryName, backpack);
         inventoryByName.Add(toolbar.inventoryName, toolbar);

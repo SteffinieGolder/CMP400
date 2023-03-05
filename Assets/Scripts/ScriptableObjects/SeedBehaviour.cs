@@ -28,7 +28,7 @@ public class SeedBehaviour : ToolBehaviour
                 {
                     if (tileData.isPlantable)
                     {
-                        if (Vector3.Distance(GameManager.instance.player.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                        if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                         {
                             return true;
                         }

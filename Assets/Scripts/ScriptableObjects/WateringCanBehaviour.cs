@@ -25,7 +25,7 @@ public class WateringCanBehaviour : ToolBehaviour
             {
                 if (tileData.isPlantable)
                 {
-                    if (Vector3.Distance(GameManager.instance.player.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                    if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                     {
                         return true;
                     }
@@ -38,7 +38,7 @@ public class WateringCanBehaviour : ToolBehaviour
     public override bool PerformBehaviour()
     {
         //Do any animations
-        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("waterTrigger");
+        GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("waterTrigger");
 
         //Change tile. 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.BACKGROUND);

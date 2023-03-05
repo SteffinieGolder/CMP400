@@ -27,7 +27,7 @@ public class SwordBehaviour : ToolBehaviour
             {
                 if (tileData.canBeSliced)
                 {
-                    if (Vector3.Distance(GameManager.instance.player.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                    if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                     {
                         return true;
                     }
@@ -42,7 +42,7 @@ public class SwordBehaviour : ToolBehaviour
         //Set char animation to holding the tool
         //Whenever player clicks to use, animate action
         //Remove tile
-        GameManager.instance.player.GetComponent<CharMovement>().animator.SetTrigger("slashTrigger");
+        GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("slashTrigger");
 
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
 

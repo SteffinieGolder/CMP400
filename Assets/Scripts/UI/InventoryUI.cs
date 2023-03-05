@@ -6,6 +6,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     public string inventoryName;
+    public GameObject owningCharacter;
     
     //List of UI slots in inventory. 
     public List<SlotsUI> slots = new List<SlotsUI>();
@@ -13,6 +14,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private Canvas canvas;
    
     private Inventory inventory;
+    private Player owningCharScript;
 
     private void Awake()
     {
@@ -21,7 +23,8 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
-        inventory = GameManager.instance.player.inventoryManager.GetInventoryByName(inventoryName);
+        inventory = owningCharacter.GetComponent<InventoryManager>().GetInventoryByName(inventoryName);
+        owningCharScript = owningCharacter.GetComponent<Player>();
         SetupSlots();
         Refresh();
     }
@@ -60,7 +63,7 @@ public class InventoryUI : MonoBehaviour
             if (UIManager.dragSingle)
             {
                 //Tell player script to drop item.
-                GameManager.instance.player.DropItem(itemToDrop);
+                owningCharScript.DropItem(itemToDrop);
                 //Remove item from player inventory.
                 inventory.Remove(UIManager.draggedSlot.slotID);
             }
@@ -68,7 +71,7 @@ public class InventoryUI : MonoBehaviour
             else
             {
                 //Tell player script to drop item.
-                GameManager.instance.player.DropItem(itemToDrop, inventory.slots[UIManager.draggedSlot.slotID].count);
+                owningCharScript.DropItem(itemToDrop, inventory.slots[UIManager.draggedSlot.slotID].count);
                 //Remove item from player inventory.
                 inventory.Remove(UIManager.draggedSlot.slotID, inventory.slots[UIManager.draggedSlot.slotID].count);
             }
