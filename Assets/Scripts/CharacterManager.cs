@@ -9,6 +9,7 @@ public class CharacterManager : MonoBehaviour
     private Player char2PlayerScript;
     private CharMovement char1MovementScript;
     private CharMovement char2MovementScript;
+    private CamFollow camFollowScript;
 
     private bool char1IsActive;
 
@@ -18,10 +19,12 @@ public class CharacterManager : MonoBehaviour
         char1MovementScript = char1.GetComponent<CharMovement>();
         char2PlayerScript = char2.GetComponent<Player>();
         char2MovementScript = char2.GetComponent<CharMovement>();
+        camFollowScript = Camera.main.GetComponent<CamFollow>();
 
         char1IsActive = false;
         char1PlayerScript.enabled = false;
         char1MovementScript.enabled = false;
+        camFollowScript.followTransform = char2.transform;
     }
 
     void Update()
@@ -35,6 +38,7 @@ public class CharacterManager : MonoBehaviour
                 char1PlayerScript.enabled = false;
                 char1MovementScript.enabled = false;
                 char1IsActive = false;
+                camFollowScript.followTransform = char2.transform;
             }
 
             else
@@ -44,6 +48,7 @@ public class CharacterManager : MonoBehaviour
                 char1PlayerScript.enabled = true;
                 char1MovementScript.enabled = true;
                 char1IsActive = true;
+                camFollowScript.followTransform = char1.transform;
             }
         }
     }
