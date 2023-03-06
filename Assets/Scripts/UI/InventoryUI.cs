@@ -18,7 +18,7 @@ public class InventoryUI : MonoBehaviour
 
     private void Awake()
     {
-        canvas = FindObjectOfType<Canvas>();
+        canvas = GetComponentInParent<Canvas>();
     }
 
     private void Start()
