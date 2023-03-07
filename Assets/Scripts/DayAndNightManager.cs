@@ -22,7 +22,11 @@ public class DayAndNightManager : MonoBehaviour
     //Amount of seconds in a day. 
     const float secondsInDay = 86400f;
     //Game time variable.
+    public float startTime = 21600f;
     float time;
+
+    //jank
+    bool once = false;
 
     //Time in hours.
     float hours
@@ -39,7 +43,7 @@ public class DayAndNightManager : MonoBehaviour
     private void Start()
     {
         //Set time at start of game to be 6am.
-        time = 21600f;    
+        time = startTime;    
     }
 
     private void Update()
@@ -68,5 +72,16 @@ public class DayAndNightManager : MonoBehaviour
         //Reset time and increment days variable by 1.
         time = 0;
         days += 1;
+    }
+
+    public float GetCurrentTime()
+    {
+        if(!once)
+        {
+            once = true;
+            return startTime;
+        }
+
+        return time;
     }
 }

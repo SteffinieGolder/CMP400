@@ -9,6 +9,9 @@ public class CharacterManager : MonoBehaviour
     private Player char2PlayerScript;
     private CharMovement char1MovementScript;
     private CharMovement char2MovementScript;
+    private CharBehaviourBase char1BehaviourScript;
+    private CharBehaviourBase char2BehaviourScript;
+
     private CamFollow camFollowScript;
 
     public bool char1IsActive;
@@ -17,16 +20,16 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         char1PlayerScript = char1.GetComponent<Player>();
-        char1MovementScript = char1.GetComponent<CharMovement>();
+        char1MovementScript = char1.GetComponent<CharMovement>(); 
+        char1BehaviourScript = char1.GetComponent<CharBehaviourBase>();
+
         char2PlayerScript = char2.GetComponent<Player>();
         char2MovementScript = char2.GetComponent<CharMovement>();
+        char2BehaviourScript = char2.GetComponent<CharBehaviourBase>();
+
         camFollowScript = Camera.main.GetComponent<CamFollow>();
 
-        char1IsActive = false;
-        char1PlayerScript.enabled = false;
-        char1MovementScript.enabled = false;
-        camFollowScript.followTransform = char2.transform;
-        activePlayer = char2PlayerScript;
+        SetChar2Active();
     }
 
     void Update()
@@ -35,27 +38,43 @@ public class CharacterManager : MonoBehaviour
         {
             if(char1IsActive)
             {
-                char2MovementScript.enabled = true;
-                char2PlayerScript.enabled = true;
-                char1PlayerScript.enabled = false;
-                char1MovementScript.enabled = false;
-                char1IsActive = false;
-                camFollowScript.followTransform = char2.transform;
-                GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
-                activePlayer = char2PlayerScript;
+                SetChar2Active();
             }
 
             else
             {
-                char2MovementScript.enabled = false;
-                char2PlayerScript.enabled = false;
-                char1PlayerScript.enabled = true;
-                char1MovementScript.enabled = true;
-                char1IsActive = true;
-                camFollowScript.followTransform = char1.transform;
-                GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
-                activePlayer = char1PlayerScript;
+                SetChar1Active();
             }
         }
+    }
+
+    void SetChar1Active()
+    {
+        char1IsActive = true; 
+        char2PlayerScript.enabled = false;
+        char2MovementScript.enabled = false;
+        char2BehaviourScript.enabled = false;
+        char1PlayerScript.enabled = true;
+        char1MovementScript.enabled = true;
+        char1BehaviourScript.enabled = true;
+        char1BehaviourScript.ResetEnergyBar();
+        camFollowScript.followTransform = char1.transform;
+        GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
+        activePlayer = char1PlayerScript;
+    }
+
+    void SetChar2Active()
+    {
+        char1IsActive = false;
+        char1PlayerScript.enabled = false;
+        char1MovementScript.enabled = false;
+        char1BehaviourScript.enabled = false;
+        char2PlayerScript.enabled = true;
+        char2MovementScript.enabled = true;
+        char2BehaviourScript.enabled = true;
+        char2BehaviourScript.ResetEnergyBar();
+        camFollowScript.followTransform = char2.transform;
+        GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
+        activePlayer = char2PlayerScript;
     }
 }

@@ -32,20 +32,23 @@ public class InventoryUI : MonoBehaviour
     //Function which refreshes inventory UI. 
     public void Refresh()
     {
-        if (slots.Count == inventory.slots.Count)
+        if (inventory != null)
         {
-            //Check each slot in the player inventory. If an item is present then set corresponding slot UI element to display the item information.  
-            for (int i = 0; i < slots.Count; i++)
+            if (slots.Count == inventory.slots.Count)
             {
-                if (inventory.slots[i].itemName != "")
+                //Check each slot in the player inventory. If an item is present then set corresponding slot UI element to display the item information.  
+                for (int i = 0; i < slots.Count; i++)
                 {
-                    slots[i].SetItem(inventory.slots[i]);
-                }
+                    if (inventory.slots[i].itemName != "")
+                    {
+                        slots[i].SetItem(inventory.slots[i]);
+                    }
 
-                //Otherwise, remove any information.
-                else
-                {
-                    slots[i].SetEmpty();
+                    //Otherwise, remove any information.
+                    else
+                    {
+                        slots[i].SetEmpty();
+                    }
                 }
             }
         }
