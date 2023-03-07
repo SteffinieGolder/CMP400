@@ -20,3 +20,4 @@ MonoBehaviour:
   tileToChangeTo: {fileID: 11400000, guid: 2492ed2c38b10244caa9de43b4a0f57d, type: 2}
   itemToSpawn: {fileID: 0}
   interactableObjects: []
+  taskIndex: 1

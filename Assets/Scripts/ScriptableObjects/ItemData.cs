@@ -16,4 +16,5 @@ public class ItemData : ScriptableObject
     public Tile tileToChangeTo;
     public Item itemToSpawn;
     public List<GameObject> interactableObjects;
+    public int taskIndex;
 }
