@@ -17,6 +17,14 @@ public abstract class CharBehaviourBase : MonoBehaviour
         currentTime = timeManager.GetCurrentTime();
     }
 
+    public void UpdateBase()
+    {
+        if (timeManager.GetCurrentTime() == 0)
+        {
+            currentTime = timeManager.GetCurrentTime();
+        }
+    }
+
     public void UpdateEnergyBar(int multiplier, bool isIncreasing)
     {
         if(isIncreasing)

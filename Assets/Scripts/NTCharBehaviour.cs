@@ -7,10 +7,7 @@ public class NTCharBehaviour : CharBehaviourBase
 
     void Update()
     {
-        if(timeManager.GetCurrentTime() == 0)
-        {
-            currentTime = timeManager.GetCurrentTime();
-        }
+        base.UpdateBase();
 
         if (timeManager.GetCurrentTime() >= (currentTime+timeBetweenChanges))
         {
