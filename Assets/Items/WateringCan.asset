@@ -21,3 +21,4 @@ MonoBehaviour:
   itemToSpawn: {fileID: 0}
   interactableObjects: []
   taskIndex: 5
+  timeValue: 1000

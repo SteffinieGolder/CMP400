@@ -25,16 +25,16 @@ public abstract class CharBehaviourBase : MonoBehaviour
         }
     }
 
-    public void UpdateEnergyBar(int multiplier, bool isIncreasing)
+    public void UpdateEnergyBar(float multiplier, bool isIncreasing)
     {
         if(isIncreasing)
         {
-            energyBarSlider.value = energyBarSlider.value + (energyCellSize * multiplier);
+            energyBarSlider.value = energyBarSlider.value + ((energyCellSize/4) * multiplier);
         }
 
         else
         {
-            energyBarSlider.value = energyBarSlider.value - (energyCellSize * multiplier);
+            energyBarSlider.value = energyBarSlider.value - ((energyCellSize /4) * multiplier);
         }
     }
 
@@ -43,5 +43,5 @@ public abstract class CharBehaviourBase : MonoBehaviour
         energyBarSlider.value = currentEnergySliderNum;
     }
 
-    public abstract void UpdateTime(float timeVal);
+    public abstract void UpdateBehaviour(float timeVal);
 }

@@ -11,16 +11,18 @@ public class NTCharBehaviour : CharBehaviourBase
     {
         base.UpdateBase();
 
-        if (timeManager.GetCurrentTime() >= (currentTime+timeBetweenChanges))
+        /*if (timeManager.GetCurrentTime() >= (currentTime+timeBetweenChanges))
         {
             UpdateEnergyBar(1, false);
             currentEnergySliderNum = energyBarSlider.value;
             currentTime = timeManager.GetCurrentTime();
-        }
+        }*/
     }
 
-    public override void UpdateTime(float timeVal)
+    public override void UpdateBehaviour(float timeVal)
     {
-        //ADVANCE TIME BY PARAM
+        timeManager.AdvanceCurrentTime(timeVal);
+        UpdateEnergyBar(1f, false);
+        currentEnergySliderNum = energyBarSlider.value;
     }
 }

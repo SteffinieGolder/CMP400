@@ -84,4 +84,9 @@ public class DayAndNightManager : MonoBehaviour
 
         return time;
     }
+
+    public void AdvanceCurrentTime(float timeVal)
+    {
+        time += timeVal;
+    }
 }

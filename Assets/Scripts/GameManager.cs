@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     public DayAndNightManager dayAndNightManager;
     public CharacterManager characterManager;
-    public TaskController taskController;
+    public TaskManager taskManager;
 
     private void Awake()
     {
@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour
         uiManager = GetComponent<UIManager>();
         dayAndNightManager = GetComponent<DayAndNightManager>();
         characterManager = GetComponent<CharacterManager>();
-        taskController = GetComponent<TaskController>();
+        taskManager = GetComponent<TaskManager>();
     }
 }

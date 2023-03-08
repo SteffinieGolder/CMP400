@@ -46,9 +46,9 @@ public class SeedBehaviour : ToolBehaviour
 
         if (GameManager.instance.characterManager.char1IsActive)
         {
-            if (GameManager.instance.taskController.IsTaskComplete(true, itemData.taskIndex))
+            if (GameManager.instance.taskManager.IsTaskComplete(true, itemData.taskIndex))
             {
-                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateTime(itemData.timeValue);
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
             }
             else
             {
@@ -58,9 +58,9 @@ public class SeedBehaviour : ToolBehaviour
 
         else
         {
-            if (GameManager.instance.taskController.IsTaskComplete(false, itemData.taskIndex))
+            if (GameManager.instance.taskManager.IsTaskComplete(false, itemData.taskIndex))
             {
-                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateTime(itemData.timeValue);
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
             }
             else
             {

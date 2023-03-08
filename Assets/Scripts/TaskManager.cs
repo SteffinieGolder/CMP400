@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class TaskController : MonoBehaviour
+public class TaskManager : MonoBehaviour
 {
     public List<TextMeshProUGUI> char1Tasks;
     public List<TextMeshProUGUI> char1Totals;
