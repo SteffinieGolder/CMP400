@@ -9,6 +9,7 @@ public class BagBehaviour : ToolBehaviour
     TileData tileData;
     Vector3Int gridPos;
     ItemData itemData;
+    TileBase tile;
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
@@ -16,7 +17,7 @@ public class BagBehaviour : ToolBehaviour
         gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.GROUND);
         itemData = item;
 
-        TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
+        tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
 
         if (tile)
         {
@@ -38,8 +39,8 @@ public class BagBehaviour : ToolBehaviour
     }
 
     public override bool PerformBehaviour()
-    {     
-        //NEED TO ADD THE HARVEST TO INVENTORY
+    {
+        Instantiate(GameManager.instance.itemManager.GetItemByName(tile.name), manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND), GameManager.instance.characterManager.activePlayer.transform.rotation);
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
         return false;
     }
