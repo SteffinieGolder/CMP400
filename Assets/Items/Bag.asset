@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5297cd8cd13005c43b74b7bca9d261c4, type: 3}
+  m_Name: Bag
+  m_EditorClassIdentifier: 
+  itemName: Bag
+  icon: {fileID: -1942448196, guid: 2c0661b874ee0ee46a343cc31e327292, type: 3}
+  isEquippable: 1
+  toolBehaviourScript: {fileID: 11400000, guid: 80819269e9367dc4cb72cfac4f805d9d, type: 2}
+  interactRange: 2
+  tileToChangeTo: {fileID: 0}
+  itemToSpawn: {fileID: 0}
+  interactableObjects: []
+  taskIndex: 0
+  timeValue: 1000

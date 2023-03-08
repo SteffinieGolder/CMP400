@@ -8,27 +8,33 @@ public class HoeBehaviour : ToolBehaviour
     TileManager manager;
     TileData tileData;
     Vector3Int gridPos;
+    Vector3Int gridPos2;
     ItemData itemData;
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
         manager = GameManager.instance.tileManager;
         gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.BACKGROUND);
+        gridPos2 = manager.GetGridPosition(position, true, TileManager.tilemapOptions.GROUND);
         itemData = item;
 
         TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.BACKGROUND);
+        TileBase tile2 = manager.GetTileBase(gridPos2, TileManager.tilemapOptions.GROUND);
 
-        if (tile)
+        if (!tile2)
         {
-            tileData = manager.GetTileData(tile);
-
-            if (tileData)
+            if (tile)
             {
-                if (tileData.isPlowable)
+                tileData = manager.GetTileData(tile);
+
+                if (tileData)
                 {
-                    if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                    if (tileData.isPlowable)
                     {
-                        return true;
+                        if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
+                        {
+                            return true;
+                        }
                     }
                 }
             }
