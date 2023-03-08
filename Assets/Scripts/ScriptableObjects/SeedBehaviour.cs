@@ -44,6 +44,30 @@ public class SeedBehaviour : ToolBehaviour
         //Apply tile effect (planted seed tile)
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
 
+        if (GameManager.instance.characterManager.char1IsActive)
+        {
+            if (GameManager.instance.taskController.IsTaskComplete(true, itemData.taskIndex))
+            {
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateTime(itemData.timeValue);
+            }
+            else
+            {
+                //NOT COMPLETE
+            }
+        }
+
+        else
+        {
+            if (GameManager.instance.taskController.IsTaskComplete(false, itemData.taskIndex))
+            {
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateTime(itemData.timeValue);
+            }
+            else
+            {
+                //NOT COMPLETE
+            }
+        }
+
         //return true if item needs removed 
         return true;
     }

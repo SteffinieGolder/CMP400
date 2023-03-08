@@ -42,4 +42,6 @@ public abstract class CharBehaviourBase : MonoBehaviour
     {
         energyBarSlider.value = currentEnergySliderNum;
     }
+
+    public abstract void UpdateTime(float timeVal);
 }

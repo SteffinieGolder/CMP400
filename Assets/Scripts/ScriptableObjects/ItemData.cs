@@ -17,4 +17,5 @@ public class ItemData : ScriptableObject
     public Item itemToSpawn;
     public List<GameObject> interactableObjects;
     public int taskIndex;
+    public float timeValue;
 }

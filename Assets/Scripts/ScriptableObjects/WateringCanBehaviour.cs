@@ -43,6 +43,30 @@ public class WateringCanBehaviour : ToolBehaviour
         //Change tile. 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.BACKGROUND);
 
+        if (GameManager.instance.characterManager.char1IsActive)
+        {
+            if (GameManager.instance.taskController.IsTaskComplete(true, itemData.taskIndex))
+            {
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateTime(itemData.timeValue);
+            }
+            else
+            {
+                //NOT COMPLETE
+            }
+        }
+
+        else
+        {
+            if (GameManager.instance.taskController.IsTaskComplete(false, itemData.taskIndex))
+            {
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateTime(itemData.timeValue);
+            }
+            else
+            {
+                //NOT COMPLETE
+            }
+        }
+
         //Return false if item is reusable
         return false;
     }

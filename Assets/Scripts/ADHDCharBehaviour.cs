@@ -17,4 +17,9 @@ public class ADHDCharBehaviour : CharBehaviourBase
             currentEnergySliderNum = energyBarSlider.value;
         }
     }
+
+    public override void UpdateTime(float timeVal)
+    {
+        //ADVANCE TIME BY PARAM
+    }
 }

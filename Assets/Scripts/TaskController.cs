@@ -6,34 +6,59 @@ using UnityEngine.UI;
 public class TaskController : MonoBehaviour
 {
     public List<TextMeshProUGUI> char1Tasks;
+    public List<TextMeshProUGUI> char1Totals;
+    public List<Image> char1Icons;
     public List<TextMeshProUGUI> char2Tasks;
+    public List<TextMeshProUGUI> char2Totals;
+    public List<Image> char2Icons;
     public Sprite completeSprite;
 
-    public void UpdateTask(bool isChar1, int taskIndex, int numCompleted)
+    public bool IsTaskComplete(bool isChar1, int taskIndex)
     {
-        //GET TOTAL NUM TEXT FROM THE TASK AND CHECK IF ITS COMPLETE USING PARAM
-        if(isChar1)
+        if (isChar1)
         {
-           char1Tasks[taskIndex].text = numCompleted.ToString();
+            int currentNum = int.Parse(char1Tasks[taskIndex].text);
+            int totalNum = int.Parse(char1Totals[taskIndex].text);
+
+            currentNum++;
+
+            if(currentNum < totalNum)
+            {
+                char1Tasks[taskIndex].text = currentNum.ToString();
+                return true;
+            }
+
+            if (currentNum == totalNum)
+            {
+                char1Tasks[taskIndex].text = currentNum.ToString();
+                char1Icons[taskIndex].sprite = completeSprite;
+                return true;
+            }
+
+            return false;
         }
 
         else
         {
-            char2Tasks[taskIndex].text = numCompleted.ToString();
+            int currentNum = int.Parse(char2Tasks[taskIndex].text);
+            int totalNum = int.Parse(char2Totals[taskIndex].text);
+
+            currentNum++;
+
+            if (currentNum < totalNum)
+            {
+                char2Tasks[taskIndex].text = currentNum.ToString();
+                return true;
+            }
+
+            if (currentNum == totalNum)
+            {
+                char2Tasks[taskIndex].text = currentNum.ToString();
+                char2Icons[taskIndex].sprite = completeSprite;
+                return true;
+            }
+
+            return false;
         }
     }
-
-    public void CompleteTask(bool isChar1, int index)
-    {
-        if(isChar1)
-        {
-            //char1Tasks[index].GetComponentInParent<Image>().sprite = completeSprite;
-        }
-
-        else
-        {
-            //char2Tasks[index].GetComponentInParent<Image>().sprite = completeSprite;
-        }
-    }
-
 }

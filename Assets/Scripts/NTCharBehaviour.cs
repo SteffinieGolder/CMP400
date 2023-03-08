@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class NTCharBehaviour : CharBehaviourBase
 {
     void Start()
@@ -15,5 +17,10 @@ public class NTCharBehaviour : CharBehaviourBase
             currentEnergySliderNum = energyBarSlider.value;
             currentTime = timeManager.GetCurrentTime();
         }
+    }
+
+    public override void UpdateTime(float timeVal)
+    {
+        //ADVANCE TIME BY PARAM
     }
 }

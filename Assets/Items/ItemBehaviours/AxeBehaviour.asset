@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9dc971c283a974e88f50c7f7545504, type: 3}
   m_Name: AxeBehaviour
   m_EditorClassIdentifier: 
+  char1CompleteCounter: 0
+  char2CompleteCounter: 0

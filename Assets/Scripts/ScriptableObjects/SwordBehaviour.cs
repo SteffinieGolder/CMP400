@@ -46,6 +46,30 @@ public class SwordBehaviour : ToolBehaviour
 
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
 
+        if (GameManager.instance.characterManager.char1IsActive)
+        {
+            if (GameManager.instance.taskController.IsTaskComplete(true, itemData.taskIndex))
+            {
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateTime(itemData.timeValue);
+            }
+            else
+            {
+                //NOT COMPLETE
+            }
+        }
+
+        else
+        {
+            if (GameManager.instance.taskController.IsTaskComplete(false, itemData.taskIndex))
+            {
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateTime(itemData.timeValue);
+            }
+            else
+            {
+                //NOT COMPLETE
+            }
+        }
+
         //Return false if item is reusable
         return false;
     }
