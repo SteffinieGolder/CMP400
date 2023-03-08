@@ -14,7 +14,7 @@ public class ItemData : ScriptableObject
     public ToolBehaviour toolBehaviourScript;
     public float interactRange;
     public Tile tileToChangeTo;
-    public List<Item> itemsToSpawn;
+    public GameObject itemToSpawn;
     public int taskIndex;
     public float timeValue;
 }

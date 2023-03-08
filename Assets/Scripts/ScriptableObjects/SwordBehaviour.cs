@@ -19,6 +19,10 @@ public class SwordBehaviour : ToolBehaviour
 
         TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
 
+
+        Instantiate(itemData.itemToSpawn, GameManager.instance.characterManager.activePlayer.transform.position,
+            GameManager.instance.characterManager.activePlayer.transform.rotation);
+
         if (tile)
         {
             tileData = manager.GetTileData(tile);

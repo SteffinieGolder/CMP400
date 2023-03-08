@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5297cd8cd13005c43b74b7bca9d261c4, type: 3}
-  m_Name: Sword
+  m_Name: Weed
   m_EditorClassIdentifier: 
-  itemName: Sword
-  icon: {fileID: 985594540, guid: bfebd85fb4c61d44198fc862312eefc6, type: 3}
-  isEquippable: 1
-  toolBehaviourScript: {fileID: 11400000, guid: 5db6256bfbd3b7a40aa846acc5a633c4, type: 2}
-  interactRange: 2
+  itemName: Weed
+  icon: {fileID: 1463505228, guid: cee9d7d69c99d66428e7779f0e23aee5, type: 3}
+  isEquippable: 0
+  toolBehaviourScript: {fileID: 0}
+  interactRange: 0
   tileToChangeTo: {fileID: 0}
-  itemToSpawn: {fileID: 4435991638173258854, guid: e23c4c30a8fe7ef43b3b0fbce7a060cf, type: 3}
-  taskIndex: 2
-  timeValue: 1000
+  itemsToSpawn: []
+  taskIndex: 0
+  timeValue: 0
