@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "StorageBox")
+        if (collision.gameObject.name == (gameObject.name + "StorageBox"))
         {
             UIManager.isCharacterInStorageInteractRange = true;
         }
@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "StorageBox")
+        if (collision.gameObject.name == (gameObject.name + "StorageBox"))
         {
             UIManager.isCharacterInStorageInteractRange = false;
            // GameManager.instance.uiManager.CloseStorageUI();
