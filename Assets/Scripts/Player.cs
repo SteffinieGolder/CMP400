@@ -46,7 +46,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.name == (gameObject.name + "StorageBox"))
         {
             UIManager.isCharacterInStorageInteractRange = false;
-           // GameManager.instance.uiManager.CloseStorageUI();
         }
     }
 }

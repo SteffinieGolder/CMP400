@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 //Scriptable object asset for in game items. 
 
@@ -17,4 +18,5 @@ public class ItemData : ScriptableObject
     public GameObject itemToSpawn;
     public int taskIndex;
     public float timeValue;
+    public Sprite gradeImage;
 }

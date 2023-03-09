@@ -8,6 +8,7 @@ public class SlotsUI : MonoBehaviour
 {
     public int slotID;
     public Inventory inventory;
+    public GameObject ratingImage;
 
     //Item icon and text which displays number held. 
     public Image itemIcon;

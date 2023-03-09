@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Script which controls the inventory UI. 
 
@@ -63,6 +64,12 @@ public class InventoryUI : MonoBehaviour
         //Check if item has been selected to drop. 
         if (itemToDrop != null)
         {
+            //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            if (inventory.inventoryName == "Storage_C1" || inventory.inventoryName == "Storage_C2")
+            {
+                slots[UIManager.draggedSlot.slotID].ratingImage.SetActive(false);
+            }
+
             if (UIManager.dragSingle)
             {
                 //Tell player script to drop item.
@@ -77,8 +84,8 @@ public class InventoryUI : MonoBehaviour
                 owningCharScript.DropItem(itemToDrop, inventory.slots[UIManager.draggedSlot.slotID].count);
                 //Remove item from player inventory.
                 inventory.Remove(UIManager.draggedSlot.slotID, inventory.slots[UIManager.draggedSlot.slotID].count);
-            }
-           
+            }          
+
             //Refresh UI. 
             Refresh();
         }
@@ -109,6 +116,25 @@ public class InventoryUI : MonoBehaviour
 
     public void SlotDrop(SlotsUI slot)
     {
+        //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (slot.inventory.inventoryName == "Storage_C1" || slot.inventory.inventoryName == "Storage_C2")
+        {
+            Item itemToGrade = GameManager.instance.itemManager.GetItemByName(UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].itemName);
+
+            if (itemToGrade.data.itemName == "Fish" || itemToGrade.data.itemName == "Strawberry" || itemToGrade.data.itemName == "Tomato" || itemToGrade.data.itemName == "Carrot")
+            {
+                slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.gradeImage;
+                slot.ratingImage.SetActive(true);
+            }
+        }
+
+        //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
+        {
+            UIManager.draggedSlot.ratingImage.SetActive(false);
+        }
+
+
         if (UIManager.dragSingle)
         {
             UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory);
@@ -119,6 +145,7 @@ public class InventoryUI : MonoBehaviour
                 UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].count);
 
         }
+
         GameManager.instance.uiManager.RefreshAll();
         UIManager.draggedSlot = null;
     }

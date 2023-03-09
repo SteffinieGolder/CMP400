@@ -18,6 +18,7 @@ MonoBehaviour:
   toolBehaviourScript: {fileID: 0}
   interactRange: 0
   tileToChangeTo: {fileID: 0}
-  itemsToSpawn: []
+  itemToSpawn: {fileID: 0}
   taskIndex: 0
   timeValue: 0
+  gradeImage: {fileID: 21300000, guid: b0ca2120bee34ec438cc7fdf52f35dbf, type: 3}
