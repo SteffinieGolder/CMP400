@@ -120,6 +120,7 @@ public class InventoryUI : MonoBehaviour
 
         }
         GameManager.instance.uiManager.RefreshAll();
+        UIManager.draggedSlot = null;
     }
 
     private void MoveToMousePosition(GameObject toMove)

@@ -10,20 +10,46 @@ public class UIManager : MonoBehaviour
     public List<InventoryUI> inventoryUIs;
     public List<GameObject> backpackPanels;
     public List<GameObject> toolbarPanels;
+    public List<GameObject> storagePanels;
+    public GameObject removePanel;
+    public int toggleUIAmount = 2;
 
     public static SlotsUI draggedSlot;
     public static Image draggedIcon;
     public static bool dragSingle;
     public static bool isPointerOnToggleUI;
     public static bool isPointerOnConstantUI;
+    public static bool isCharacterInStorageInteractRange;
 
+    private int currentActiveToggleUICount;
     private void Awake()
     {
         Initialise();
+        currentActiveToggleUICount = 0;
     }
 
     private void Update()
     {
+        //IS THIS JUST CONSTANTLY SETTING/////////////////////////
+        if(currentActiveToggleUICount ==0)
+        {
+            Time.timeScale = 1;
+        }
+
+        else
+        {
+            Time.timeScale = 0;
+        }
+
+        if (isCharacterInStorageInteractRange)
+        {
+            if(Input.GetKeyDown(KeyCode.I))
+            {
+                //Pull up storage screen
+                ShowStorageScreen();
+            }
+        }
+
         //Toggle inventory on/off when player presses TAB key. 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -37,6 +63,22 @@ public class UIManager : MonoBehaviour
         else
         {
             dragSingle = false;
+        }
+
+        if(draggedSlot)
+        {
+            if(!removePanel.activeSelf)
+            {
+                removePanel.SetActive(true);
+            }
+        }
+
+        else
+        {
+            if(removePanel.activeSelf)
+            {
+                removePanel.SetActive(false);
+            }
         }
     }
 
@@ -53,13 +95,13 @@ public class UIManager : MonoBehaviour
                     backpackPanels[1].SetActive(false);
                     backpackPanels[0].SetActive(true);
                     RefreshInventoryUI("Backpack_C1");
-                    Time.timeScale = 0;
+                    currentActiveToggleUICount++;
                 }
                 else
                 {
                     backpackPanels[0].SetActive(false);
                     SetPointerOnToggleUI(false);
-                    Time.timeScale = 1;
+                    currentActiveToggleUICount--;
                 }
             }
 
@@ -70,13 +112,77 @@ public class UIManager : MonoBehaviour
                     backpackPanels[0].SetActive(false);
                     backpackPanels[1].SetActive(true);
                     RefreshInventoryUI("Backpack_C2");
-                    Time.timeScale = 0;
+                    currentActiveToggleUICount++;
                 }
                 else
                 {
                     backpackPanels[1].SetActive(false);
                     SetPointerOnToggleUI(false);
-                    Time.timeScale = 1;
+                    currentActiveToggleUICount--;
+                }
+            }
+        }
+    }
+
+    public void ShowStorageScreen()
+    {
+        if (GameManager.instance.characterManager.char1IsActive)
+        {
+            if (storagePanels[0].activeSelf == false)
+            {
+                storagePanels[1].SetActive(false);
+                storagePanels[0].SetActive(true);
+                RefreshInventoryUI("Storage_C1");
+                currentActiveToggleUICount++;
+            }
+            else
+            {
+                storagePanels[0].SetActive(false);
+                SetPointerOnToggleUI(false);
+                currentActiveToggleUICount--;
+            }
+        }
+
+        else
+        {
+            if (storagePanels[1].activeSelf == false)
+            {
+                storagePanels[0].SetActive(false);
+                storagePanels[1].SetActive(true);
+                RefreshInventoryUI("Storage_C2");
+                currentActiveToggleUICount++;
+            }
+            else
+            {
+                storagePanels[1].SetActive(false);
+                SetPointerOnToggleUI(false);
+                currentActiveToggleUICount--;
+            }
+        }
+    }
+
+
+    /// <summary>
+    /// /MESSES UP DRAGGED SLOT IF ITS DRAGGED THEN PLAYER MOVES OUT OF RANGE BEFORE DROP
+    /// </summary>
+    public void CloseStorageUI()
+    {
+        if (storagePanels != null)
+        {
+            if (GameManager.instance.characterManager.char1IsActive)
+            {
+                if (storagePanels[0].activeSelf)
+                {
+                    storagePanels[0].SetActive(false);           
+                }
+            }
+
+            else
+            {
+                if (storagePanels[1].activeSelf)
+                {
+                    storagePanels[1].SetActive(false);
+
                 }
             }
         }
@@ -136,7 +242,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void RemoveFromInv()
+    public void RemoveFromInv(GameObject triggerObj)
     {
         if (draggedSlot)
         {
@@ -144,7 +250,17 @@ public class UIManager : MonoBehaviour
 
             if (current)
             {
+                //FIX THIS///////
+                //if (triggerObj.name == "CompostBin" && draggedSlot.itemIcon.name == "Weed")
+                // /{
+                //   Debug.Log("Found weed");
+                //}
+
+                //else
+                // {
                 current.RemoveItem();
+                //  }
+                // }
             }
         }
     }
@@ -157,6 +273,11 @@ public class UIManager : MonoBehaviour
     public void SetPointerOnConstantUI(bool isOnUI)
     {
         isPointerOnConstantUI = isOnUI;
+    }
+
+    public void SetCharInStorageRange(bool isInRange)
+    {
+        isCharacterInStorageInteractRange = isInRange;
     }
 
 }

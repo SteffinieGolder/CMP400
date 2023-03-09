@@ -32,4 +32,21 @@ public class Player : MonoBehaviour
             DropItem(item);
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "StorageBox")
+        {
+            UIManager.isCharacterInStorageInteractRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "StorageBox")
+        {
+            UIManager.isCharacterInStorageInteractRange = false;
+           // GameManager.instance.uiManager.CloseStorageUI();
+        }
+    }
 }

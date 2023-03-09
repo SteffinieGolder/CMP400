@@ -12,13 +12,19 @@ public class InventoryManager : MonoBehaviour
     public Inventory toolbar;
     public int toolbarSlotCount;
 
+    [Header("Storage")]
+    public Inventory storage;
+    public int storageSlotCount;
+
     private void Awake()
     {
         backpack = new Inventory(backpackSlotCount, backpack.inventoryName);
         toolbar = new Inventory(toolbarSlotCount, toolbar.inventoryName);
+        storage = new Inventory(storageSlotCount, storage.inventoryName);
 
         inventoryByName.Add(backpack.inventoryName, backpack);
         inventoryByName.Add(toolbar.inventoryName, toolbar);
+        inventoryByName.Add(storage.inventoryName, storage);
     }
 
     public void Add(string inventoryName, Item item)
