@@ -141,12 +141,15 @@ public class Inventory
         Slot fromSlot = slots[fromIndex];
         Slot toSlot = toInventory.slots[toIndex];
 
-        if(toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemName))
+        if (fromSlot != null && toSlot != null)
         {
-            for (int i = 0; i < numToMove; i++)
+            if (toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemName))
             {
-                toSlot.AddItem(fromSlot.itemName, fromSlot.icon, fromSlot.maxAllowed);
-                fromSlot.RemoveItem(); 
+                for (int i = 0; i < numToMove; i++)
+                {
+                    toSlot.AddItem(fromSlot.itemName, fromSlot.icon, fromSlot.maxAllowed);
+                    fromSlot.RemoveItem();
+                }
             }
         }
     }

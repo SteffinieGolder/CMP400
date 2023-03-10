@@ -116,45 +116,54 @@ public class InventoryUI : MonoBehaviour
 
     public void SlotDrop(SlotsUI slot)
     {
-        //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (slot.inventory.inventoryName == "Storage_C1" || slot.inventory.inventoryName == "Storage_C2")
+        if (slot)
         {
-            Item itemToGrade = GameManager.instance.itemManager.GetItemByName(UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].itemName);
-
-            if (itemToGrade.data.itemName == "Fish" || itemToGrade.data.itemName == "Strawberry" || itemToGrade.data.itemName == "Tomato" || itemToGrade.data.itemName == "Carrot")
+            if (UIManager.draggedSlot)
             {
-                slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.gradeImage;
-                slot.ratingImage.SetActive(true);
-            }
-        }
-
-        if (UIManager.dragSingle)
-        {
-            UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory);
-
-            if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
-            {
-                if(UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].IsEmpty)
+                //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                if (slot.inventory.inventoryName == "Storage_C1" || slot.inventory.inventoryName == "Storage_C2")
                 {
-                    UIManager.draggedSlot.ratingImage.SetActive(false);
+                    Item itemToGrade = GameManager.instance.itemManager.GetItemByName(UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].itemName);
+
+                    if (itemToGrade)
+                    {
+                        if (itemToGrade.data.itemName == "Fish" || itemToGrade.data.itemName == "Strawberry" || itemToGrade.data.itemName == "Tomato" || itemToGrade.data.itemName == "Carrot")
+                        {
+                            slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.gradeImage;
+                            slot.ratingImage.SetActive(true);
+                        }
+                    }
                 }
+
+                if (UIManager.dragSingle)
+                {
+                    UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory);
+
+                    if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
+                    {
+                        if (UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].IsEmpty)
+                        {
+                            UIManager.draggedSlot.ratingImage.SetActive(false);
+                        }
+                    }
+                }
+
+                else
+                {
+                    UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory,
+                        UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].count);
+
+                    //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
+                    {
+                        UIManager.draggedSlot.ratingImage.SetActive(false);
+                    }
+                }
+
+                GameManager.instance.uiManager.RefreshAll();
+                UIManager.draggedSlot = null;
             }
         }
-
-        else
-        {
-            UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory,
-                UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].count);
-
-            //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
-            {
-                UIManager.draggedSlot.ratingImage.SetActive(false);
-            }
-        }
-
-        GameManager.instance.uiManager.RefreshAll();
-        UIManager.draggedSlot = null;
     }
 
     private void MoveToMousePosition(GameObject toMove)

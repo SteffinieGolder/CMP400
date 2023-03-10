@@ -46,7 +46,7 @@ public class SwordBehaviour : ToolBehaviour
 
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
 
-        Vector2 spawnLocation = new Vector2(GameManager.instance.characterManager.activePlayer.transform.position.x - 1f, GameManager.instance.characterManager.activePlayer.transform.position.y);
+        Vector2 spawnLocation = new Vector2(GameManager.instance.characterManager.activePlayer.transform.position.x - 1.5f, GameManager.instance.characterManager.activePlayer.transform.position.y);
 
         Instantiate(itemData.itemToSpawn, spawnLocation, GameManager.instance.characterManager.activePlayer.transform.rotation);
 
