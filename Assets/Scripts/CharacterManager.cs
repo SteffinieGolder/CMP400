@@ -4,6 +4,8 @@ public class CharacterManager : MonoBehaviour
 {
     [SerializeField] GameObject char1;
     [SerializeField] GameObject char2;
+    [SerializeField] GameObject char1Gate;
+    [SerializeField] GameObject char2Gate;
 
     private Player char1PlayerScript;
     private Player char2PlayerScript;
@@ -60,6 +62,8 @@ public class CharacterManager : MonoBehaviour
         char1BehaviourScript.ResetEnergyBar();
         camFollowScript.followTransform = char1.transform;
         GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
+        char1Gate.SetActive(false);
+        char2Gate.SetActive(true);
         activePlayer = char1PlayerScript;
     }
 
@@ -75,6 +79,8 @@ public class CharacterManager : MonoBehaviour
         char2BehaviourScript.ResetEnergyBar();
         camFollowScript.followTransform = char2.transform;
         GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
+        char1Gate.SetActive(true);
+        char2Gate.SetActive(false);
         activePlayer = char2PlayerScript;
     }
 }

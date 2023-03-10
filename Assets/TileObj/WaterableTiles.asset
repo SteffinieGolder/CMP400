@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd24ffc40e7ecfe4fad2e3029071d18b, type: 3}
-  m_Name: PlantableTileData
+  m_Name: WaterableTiles
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 2f0b83313c91bd4499d17312ee8faa1a, type: 2}
-  - {fileID: 11400000, guid: b4f2112f92acbd841bcb219cce2fbd9d, type: 2}
+  - {fileID: 11400000, guid: 7471b09934a16c04c97c819995220d1e, type: 2}
+  - {fileID: 11400000, guid: cee8963d4219fd646b5efe1a839af4b2, type: 2}
+  - {fileID: 11400000, guid: f73abc7b7b85c5b42ab55d9d30ccc4cd, type: 2}
   isPlowable: 0
-  isPlantable: 1
+  isPlantable: 0
   canFish: 0
   canBeSliced: 0
   isHarvestable: 0
+  isWaterable: 1

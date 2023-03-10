@@ -46,8 +46,9 @@ public class FishingRodBehaviour : ToolBehaviour
 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
 
-        Instantiate(itemData.itemToSpawn, GameManager.instance.characterManager.activePlayer.transform.position,
-            GameManager.instance.characterManager.activePlayer.transform.rotation);
+        Vector2 spawnLocation = new Vector2(GameManager.instance.characterManager.activePlayer.transform.position.x -1f, GameManager.instance.characterManager.activePlayer.transform.position.y);
+
+        Instantiate(itemData.itemToSpawn, spawnLocation, GameManager.instance.characterManager.activePlayer.transform.rotation);
 
         if (GameManager.instance.characterManager.char1IsActive)
         {

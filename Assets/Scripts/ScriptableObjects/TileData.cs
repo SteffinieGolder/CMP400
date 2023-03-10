@@ -12,4 +12,5 @@ public class TileData : ScriptableObject
     public bool canFish;
     public bool canBeSliced;
     public bool isHarvestable;
+    public bool isWaterable;
 }

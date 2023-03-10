@@ -19,10 +19,6 @@ public class SwordBehaviour : ToolBehaviour
 
         TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
 
-
-        Instantiate(itemData.itemToSpawn, GameManager.instance.characterManager.activePlayer.transform.position,
-            GameManager.instance.characterManager.activePlayer.transform.rotation);
-
         if (tile)
         {
             tileData = manager.GetTileData(tile);
@@ -49,6 +45,10 @@ public class SwordBehaviour : ToolBehaviour
         GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("slashTrigger");
 
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
+
+        Vector2 spawnLocation = new Vector2(GameManager.instance.characterManager.activePlayer.transform.position.x - 1f, GameManager.instance.characterManager.activePlayer.transform.position.y);
+
+        Instantiate(itemData.itemToSpawn, spawnLocation, GameManager.instance.characterManager.activePlayer.transform.rotation);
 
         if (GameManager.instance.characterManager.char1IsActive)
         {

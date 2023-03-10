@@ -12,18 +12,27 @@ public class WateringCanBehaviour : ToolBehaviour
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
         manager = GameManager.instance.tileManager;
-        gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.BACKGROUND);
+        gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.GROUND);
         itemData = item;
 
-        TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.BACKGROUND);
-        
+        TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
+        TileBase backgroundTile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.BACKGROUND);
+
+        if (backgroundTile)
+        {
+            if(backgroundTile.name == itemData.tileToChangeTo.name)
+            {
+                return false;
+            }
+        }
+
         if (tile)
         {
             tileData = manager.GetTileData(tile);
 
             if (tileData)
             {
-                if (tileData.isPlantable)
+                if (tileData.isWaterable)
                 {
                     if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                     {

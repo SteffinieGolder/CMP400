@@ -19,6 +19,6 @@ MonoBehaviour:
   interactRange: 2
   tileToChangeTo: {fileID: 11400000, guid: b4f2112f92acbd841bcb219cce2fbd9d, type: 2}
   itemToSpawn: {fileID: 0}
-  interactableObjects: []
-  taskIndex: 5
+  taskIndex: 3
   timeValue: 1000
+  gradeImage: {fileID: 0}

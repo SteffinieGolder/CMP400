@@ -128,22 +128,29 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
-        //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
-        {
-            UIManager.draggedSlot.ratingImage.SetActive(false);
-        }
-
-
         if (UIManager.dragSingle)
         {
             UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory);
+
+            if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
+            {
+                if(UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].IsEmpty)
+                {
+                    UIManager.draggedSlot.ratingImage.SetActive(false);
+                }
+            }
         }
+
         else
         {
             UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory,
                 UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].count);
 
+            //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
+            {
+                UIManager.draggedSlot.ratingImage.SetActive(false);
+            }
         }
 
         GameManager.instance.uiManager.RefreshAll();
