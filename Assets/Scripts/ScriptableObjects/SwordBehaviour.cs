@@ -48,7 +48,7 @@ public class SwordBehaviour : ToolBehaviour
 
         Vector2 spawnLocation = new Vector2(GameManager.instance.characterManager.activePlayer.transform.position.x - 1.5f, GameManager.instance.characterManager.activePlayer.transform.position.y);
 
-        Instantiate(itemData.itemToSpawn, spawnLocation, GameManager.instance.characterManager.activePlayer.transform.rotation);
+        Instantiate(itemData.itemToSpawn, GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), GameManager.instance.characterManager.activePlayer.transform.rotation);
 
         if (GameManager.instance.characterManager.char1IsActive)
         {

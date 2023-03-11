@@ -40,7 +40,7 @@ public class BagBehaviour : ToolBehaviour
 
     public override bool PerformBehaviour()
     {
-        Instantiate(GameManager.instance.itemManager.GetItemByName(tile.name), manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND), GameManager.instance.characterManager.activePlayer.transform.rotation);
+        Instantiate(GameManager.instance.itemManager.GetItemByName(tile.name), GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), GameManager.instance.characterManager.activePlayer.transform.rotation);
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
         return false;
     }

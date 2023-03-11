@@ -10,6 +10,9 @@ public class CharMovement : MonoBehaviour
     //Direction of player character. 
     private Vector3 direction;
 
+    public float itemSpawnOffset = 1f;
+    Vector3 lastDirFacing;
+
     void Update()
     {
         //Get horizontal and vertical input axis for movement calculations. 
@@ -18,6 +21,11 @@ public class CharMovement : MonoBehaviour
 
         //Set direction to normalised vector to prevent faster movement in diagonal direction. 
         direction = new Vector3(horizontal, vertical,0).normalized;
+
+        if(direction!=new Vector3(0,0,0))
+        {
+            lastDirFacing = direction;
+        }
         
         //Pass direction to animation function. 
         AnimateMovement(direction);
@@ -48,5 +56,29 @@ public class CharMovement : MonoBehaviour
                 animator.SetBool("isMoving", false);
             }
         }
+    }
+
+    public Vector3 GetItemSpawnPos()
+    {
+        if(lastDirFacing.x >= 1)
+        {
+            return new Vector3(transform.position.x - itemSpawnOffset, transform.position.y, 0);
+        }
+
+        if (lastDirFacing.x < 0)
+        {
+            return new Vector3(transform.position.x + itemSpawnOffset, transform.position.y, 0);
+        }
+
+        if (lastDirFacing.y >= 1)
+        {
+            return new Vector3(transform.position.x, transform.position.y - itemSpawnOffset, 0);
+        }
+
+        if (lastDirFacing.y < 0)
+        {
+            return new Vector3(transform.position.x, transform.position.y + itemSpawnOffset, 0);
+        }
+        return new Vector3(0, 0, 0);
     }
 }

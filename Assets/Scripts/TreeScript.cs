@@ -20,10 +20,10 @@ public class TreeScript : MonoBehaviour
         //Instantiate item that is dropped back into scene. 
         for (int i = 0; i < amountToSpawn; i++)
         {
-            Item log = Instantiate(choppedObjSpawn, spawnLocation + spawnOffset, Quaternion.identity);
+            Item log = Instantiate(choppedObjSpawn, GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), Quaternion.identity);
 
             //Push item away from player to mimic drop. 
-            log.rb2d.AddForce(spawnOffset * .01f, ForceMode2D.Impulse);
+            //log.rb2d.AddForce(spawnOffset * .01f, ForceMode2D.Impulse);
         }
 
         Vector2 spawnPos = new Vector2(transform.position.x, transform.position.y - 1f);
