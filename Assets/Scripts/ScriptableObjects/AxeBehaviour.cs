@@ -45,7 +45,7 @@ public class AxeBehaviour : ToolBehaviour
         if (GameManager.instance.characterManager.char1IsActive)
         {
             
-            if (GameManager.instance.taskManager.IsTaskComplete(true, itemData.taskIndex))
+            if (GameManager.instance.taskManager.IsTaskPortionComplete(true, itemData.taskIndex))
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
             }
@@ -57,7 +57,7 @@ public class AxeBehaviour : ToolBehaviour
 
         else
         {            
-            if(GameManager.instance.taskManager.IsTaskComplete(false, itemData.taskIndex))
+            if(GameManager.instance.taskManager.IsTaskPortionComplete(false, itemData.taskIndex))
             {               
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
             }

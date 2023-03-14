@@ -8,6 +8,8 @@ public class TileManager : MonoBehaviour
 {
     [SerializeField] List<Tilemap> tilemaps;
     [SerializeField] List<TileData> tileDataList;
+    [SerializeField] Tile seedTile;
+
     Dictionary<TileBase, TileData> dataFromTileDict;
 
     public enum tilemapOptions
@@ -26,7 +28,7 @@ public class TileManager : MonoBehaviour
             {
                 dataFromTileDict.Add(tile, tileData);
             }
-        }
+        }  
     }
 
     public Vector3Int GetGridPosition(Vector2 position, bool mousePosition, tilemapOptions choice)
@@ -71,5 +73,26 @@ public class TileManager : MonoBehaviour
     {
         tilemaps[((int)choice)].SetTile(position, newTile);
 
+    }
+
+    public void ChangeAllPatchTiles(List<Vector3Int> positions, tilemapOptions option, Tile tileToChangeTo)
+    {
+        foreach(Vector3Int pos in positions)
+        {
+            ChangeTile(pos, tileToChangeTo, option);
+        }
+    }
+
+    public List<Vector3Int> GetAllPatchGridPositions(List<Vector2> positions, tilemapOptions option)
+    {
+        List<Vector3Int> gridPositions = new List<Vector3Int>();
+
+        foreach(Vector2 pos in positions)
+        {
+            Vector3Int gridPos = tilemaps[((int)option)].WorldToCell(pos);
+            gridPositions.Add(gridPos);
+        }
+
+        return gridPositions;
     }
 }

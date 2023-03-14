@@ -44,6 +44,7 @@ public class SeedBehaviour : ToolBehaviour
         //Apply tile effect (planted seed tile)
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
 
+
         /*if (GameManager.instance.characterManager.char1IsActive)
         {
             if (GameManager.instance.taskManager.IsTaskComplete(true, itemData.taskIndex))

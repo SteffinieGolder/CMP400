@@ -30,6 +30,8 @@ public class CharacterData : ScriptableObject
 
         dialogueLines.Add("Axe", axeLine);
         faceTypes.Add(axeLine, (int)axeFaceType);
+
+
     }
 
     public string GetDialogueLine(string itemName)
