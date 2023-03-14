@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc859be90d5b9b6409a4c24eaf434a51, type: 3}
+  m_Name: NTChar
+  m_EditorClassIdentifier: 
+  charFaceSprites:
+  - {fileID: 21300000, guid: 9250cb0d0524f439fb2e48d5ecc828e5, type: 3}
+  - {fileID: 21300000, guid: e62c299aa3fef458f9f46e8a98fc0608, type: 3}
+  - {fileID: 21300000, guid: 2acedd98a2e4247569fc702d2b8fc91d, type: 3}
+  - {fileID: 21300000, guid: 91720d10e0c0c489f80bd693c4a619b1, type: 3}
+  - {fileID: 21300000, guid: 36e7d59ac1efc4cf7bc6a250df52e2b4, type: 3}
+  axeLine: I am NT axe Line
+  axeFaceType: 3

@@ -65,6 +65,12 @@ public class CharacterManager : MonoBehaviour
         char1Gate.SetActive(false);
         char2Gate.SetActive(true);
         activePlayer = char1PlayerScript;
+
+        if (!char1PlayerScript.isCharDataInitComplete)
+        {
+            char1PlayerScript.charData.InitDialogueLines();
+            char1PlayerScript.isCharDataInitComplete = true;
+        }
     }
 
     void SetChar2Active()
@@ -82,5 +88,12 @@ public class CharacterManager : MonoBehaviour
         char1Gate.SetActive(true);
         char2Gate.SetActive(false);
         activePlayer = char2PlayerScript;
+
+        if (!char2PlayerScript.isCharDataInitComplete)
+        {
+            char2PlayerScript.charData.InitDialogueLines();
+            char2PlayerScript.isCharDataInitComplete = true;
+        }
+
     }
 }

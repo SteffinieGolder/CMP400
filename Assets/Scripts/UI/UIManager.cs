@@ -1,11 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 //Script which stores and controls all inventory UIs accessed by the player. 
 
 public class UIManager : MonoBehaviour
 {
     public Dictionary<string, InventoryUI> inventoryUIByName = new Dictionary<string, InventoryUI>();
+
+    public GameObject DialoguePanel;
+    public Image dialogueSprite;
+    public TextMeshProUGUI dialogueTextUI;
 
     public List<InventoryUI> inventoryUIs;
     public List<GameObject> backpackPanels;
@@ -22,10 +27,11 @@ public class UIManager : MonoBehaviour
     public static bool isCharacterInStorageInteractRange;
 
     private int currentActiveToggleUICount;
+
     private void Awake()
     {
         Initialise();
-        currentActiveToggleUICount = 0;
+        currentActiveToggleUICount = 0;  
     }
 
     private void Update()
@@ -50,6 +56,11 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            //Close Dialogue Box
+            DialoguePanel.SetActive(false);
+        }
         //Toggle inventory on/off when player presses TAB key. 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -124,6 +135,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowDialogueBox(string dialogueText, Sprite charImage, bool showDialogue)
+    {
+        if(showDialogue)
+        {
+            dialogueSprite.sprite = charImage;
+            dialogueTextUI.text = dialogueText;
+        }
+
+        DialoguePanel.SetActive(showDialogue);
+    }
     public void ShowStorageScreen()
     {
         if (GameManager.instance.characterManager.char1IsActive)

@@ -18,7 +18,11 @@ MonoBehaviour:
   toolBehaviourScript: {fileID: 11400000, guid: 3d3e7f82576f08647bdddcce74e03e16, type: 2}
   interactRange: 2.5
   tileToChangeTo: {fileID: 0}
-  itemsToSpawn:
-  - {fileID: 1165487634247327869, guid: 21e37f4a7ad37064481234b037663c5a, type: 3}
+  itemToSpawn: {fileID: 0}
   taskIndex: 0
   timeValue: 2000
+  gradeImage: {fileID: 0}
+  ADHDCharDialogue:
+  - This is the axe dialogue for the ADHD CHAR
+  NTCharDialogue:
+  - This is the axe dialogue for the NT CHAR

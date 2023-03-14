@@ -5,11 +5,14 @@ using UnityEngine;
 public class AxeBehaviour : ToolBehaviour
 {
     ItemData itemData;
+    CharacterData charData;
     RaycastHit2D hit;
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
+        //DO A CHECK IN HERE TO SEE IF CHARACTER IS ACTUALLY GOING TO PERFORM BEHAVIOUR, IF NOT JUST ACCESS DIALOGUE/EMOTE AND DISPLAY. 
         itemData = item;
+        charData = GameManager.instance.characterManager.activePlayer.charData;
 
         //RAYCAST ON THE LAYER INSTEAD?
         hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(position));
@@ -34,8 +37,14 @@ public class AxeBehaviour : ToolBehaviour
         //If you add in more items like the axe use polymorphism here 
         hit.transform.gameObject.GetComponent<TreeScript>().ChopTree();
 
-        if(GameManager.instance.characterManager.char1IsActive)
+        if (charData)
         {
+            GameManager.instance.uiManager.ShowDialogueBox(charData.GetDialogueLine(itemData.itemName), charData.GetCharExpression(itemData.itemName), true);
+        }
+
+        if (GameManager.instance.characterManager.char1IsActive)
+        {
+            
             if (GameManager.instance.taskManager.IsTaskComplete(true, itemData.taskIndex))
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);

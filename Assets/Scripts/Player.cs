@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public InventoryManager inventoryManager;
+    public CharacterData charData;
+
+    public bool isCharDataInitComplete = false;
 
     private void Awake()
     {
