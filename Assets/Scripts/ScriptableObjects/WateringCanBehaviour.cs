@@ -10,12 +10,15 @@ public class WateringCanBehaviour : ToolBehaviour
     TileData tileData;
     Vector3Int gridPos;
     ItemData itemData;
+    CharacterData charData;
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
         manager = GameManager.instance.tileManager;
         gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.GROUND);
         itemData = item;
+        charData = GameManager.instance.characterManager.activePlayer.charData;
+
 
         TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
         TileBase backgroundTile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.BACKGROUND);
@@ -56,21 +59,28 @@ public class WateringCanBehaviour : ToolBehaviour
 
         if (GameManager.instance.characterManager.char1IsActive)
         {
-           
             if (GameManager.instance.taskManager.IsTaskPortionComplete(true, itemData.taskIndex))
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(true, itemData.taskIndex))
                 {
-                    //Call on fade ui to animate and pause time. 
+                    //Fade out UI. 
+                    GameManager.instance.uiManager.FadeInOrOut(true);
 
                     //Change all tiles to seeds.
                     GameManager.instance.tileManager.ChangeAllPatchTiles(GameManager.instance.tileManager.GetAllPatchGridPositions(itemData.TilePatchPositions,
                         TileManager.tilemapOptions.GROUND), TileManager.tilemapOptions.GROUND, itemData.patchTile);
 
                     //Remove all seeds from the inventory.
+                    Item seedItem1 = GameManager.instance.itemManager.GetItemByName("Carrot Seeds");
 
+                    if (seedItem1)
+                    {
+                        GameManager.instance.characterManager.activePlayer.inventoryManager.backpack.RemoveAllItemsOfType(seedItem1);
+                        GameManager.instance.characterManager.activePlayer.inventoryManager.toolbar.RemoveAllItemsOfType(seedItem1);
+                        GameManager.instance.uiManager.RefreshAll();
+                    }
 
                     //Change some tiles to watered. 
                     List<Vector2> lessPositions = new List<Vector2>();
@@ -82,9 +92,12 @@ public class WateringCanBehaviour : ToolBehaviour
                     GameManager.instance.tileManager.ChangeAllPatchTiles(GameManager.instance.tileManager.GetAllPatchGridPositions(lessPositions,
                        TileManager.tilemapOptions.BACKGROUND), TileManager.tilemapOptions.BACKGROUND, itemData.tileToChangeTo);
 
-                    //Fade up UI and unpause
+                    //Fade in UI
+                    GameManager.instance.uiManager.FadeInOrOut(false);
 
-                    //Display Dialogue (can you click through dialogue while its paused?
+                    //Show Dialogue lines.
+                    GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndex).dialogueLines, 
+                        charData.GetDialogueGroup(itemData.dialogueGroupIndex).expressionTypes);
                 }
 
             }

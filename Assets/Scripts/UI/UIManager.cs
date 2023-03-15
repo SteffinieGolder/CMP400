@@ -8,9 +8,11 @@ public class UIManager : MonoBehaviour
 {
     public Dictionary<string, InventoryUI> inventoryUIByName = new Dictionary<string, InventoryUI>();
 
-    public GameObject DialoguePanel;
+    public GameObject dialoguePanel;
     public Image dialogueSprite;
     public TextMeshProUGUI dialogueTextUI;
+
+    public GameObject fadePanel;
 
     public List<InventoryUI> inventoryUIs;
     public List<GameObject> backpackPanels;
@@ -27,11 +29,16 @@ public class UIManager : MonoBehaviour
     public static bool isCharacterInStorageInteractRange;
 
     private int currentActiveToggleUICount;
+    private List<string> dialogueToShow;
+    private List<CharacterData.FaceType> faceTypes;
+    private int currentDialogueIndex = 0;
 
     private void Awake()
     {
         Initialise();
-        currentActiveToggleUICount = 0;  
+        currentActiveToggleUICount = 0;
+        dialogueToShow = new List<string>();
+        faceTypes = new List<CharacterData.FaceType>();
     }
 
     private void Update()
@@ -56,11 +63,28 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (dialogueToShow.Count > 0)
         {
-            //Close Dialogue Box
-            DialoguePanel.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                currentDialogueIndex++;
+
+                if (currentDialogueIndex == dialogueToShow.Count)
+                {
+                    dialoguePanel.SetActive(false);
+                    dialogueTextUI.text = "";
+                    dialogueSprite = null;
+                    currentDialogueIndex = 0;
+                    dialogueToShow.Clear();
+                    faceTypes.Clear();
+                    //Time.timeScale = 1;
+                    return;
+                }
+
+                ShowDialogueBox(currentDialogueIndex);
+            }
         }
+
         //Toggle inventory on/off when player presses TAB key. 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -135,16 +159,45 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowDialogueBox(string dialogueText, Sprite charImage, bool showDialogue)
+    public void SetDialogueData(List<string> dialoguelines, List<CharacterData.FaceType> charFaceTypes)
     {
-        if(showDialogue)
+        dialogueToShow = dialoguelines;
+        faceTypes = charFaceTypes;
+
+        ShowDialogueBox(0);
+    }
+
+    private void ShowDialogueBox(int currentIndex)
+    {
+        dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceTypes[currentIndex]];
+        dialogueTextUI.text = dialogueToShow[currentIndex];
+
+        if (!dialoguePanel.activeSelf)
         {
-            dialogueSprite.sprite = charImage;
-            dialogueTextUI.text = dialogueText;
+            dialoguePanel.SetActive(true);
+           // Time.timeScale = 0;
+        }
+    }
+
+    public void FadeInOrOut(bool fadeOut)
+    {
+        Animation clip = fadePanel.GetComponent<Animation>();
+
+        if(fadeOut)
+        {
+            clip.Play("FadeClip");
+            
+            Time.timeScale = 0;
         }
 
-        DialoguePanel.SetActive(showDialogue);
+        else
+        {
+            clip.Play("FadeClip 1");
+            Time.timeScale = 1;
+        }
+
     }
+
     public void ShowStorageScreen()
     {
         if (GameManager.instance.characterManager.char1IsActive)

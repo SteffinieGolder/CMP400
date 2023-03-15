@@ -18,5 +18,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3a465f460d75b4ec18ebd486218e7339, type: 3}
   - {fileID: 21300000, guid: fb60fb2dac6334bcda242a3fa42dfa34, type: 3}
   - {fileID: 21300000, guid: 70fb0fc6beb2647a897e9b1683114fce, type: 3}
-  axeLine: I am ADHD Axe line
-  axeFaceType: 2
+  dialogueGroups:
+  - dialogueLines:
+    - I am watering can zone out 1
+    - I am watering can zone out 2
+    - I am watering can zone out 3
+    - I am watering can zone out 4
+    expressionTypes: 01000000020000000300000004000000
+  - dialogueLines:
+    - I am dud can zone out 1
+    - I am dud can zone out 2
+    expressionTypes: 0100000000000000

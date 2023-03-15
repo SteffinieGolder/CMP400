@@ -39,7 +39,7 @@ public class AxeBehaviour : ToolBehaviour
 
         if (charData)
         {
-            GameManager.instance.uiManager.ShowDialogueBox(charData.GetDialogueLine(itemData.itemName), charData.GetCharExpression(itemData.itemName), true);
+            //GameManager.instance.uiManager.ShowDialogueBox(charData.GetDialogueLine(itemData.itemName), charData.GetCharExpression(itemData.itemName), true);
         }
 
         if (GameManager.instance.characterManager.char1IsActive)

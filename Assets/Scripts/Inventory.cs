@@ -136,6 +136,17 @@ public class Inventory
         }
     }
 
+    public void RemoveAllItemsOfType(Item itemToRemove)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (slots[i].itemName == itemToRemove.data.itemName)
+            {
+                Remove(i, slots[i].count);
+            }
+        }
+    }
+
     public void MoveSlot(int fromIndex, int toIndex, Inventory toInventory, int numToMove = 1)
     {
         Slot fromSlot = slots[fromIndex];

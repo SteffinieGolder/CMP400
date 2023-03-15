@@ -42,6 +42,12 @@ public class FishingRodBehaviour : ToolBehaviour
         //Do any animations
         //Put fish in inventory
         //Change tile
+
+        if(GameManager.instance.characterManager.char1IsActive)
+        {
+
+        }
+
         GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("fishTrigger");
 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
