@@ -147,6 +147,35 @@ public class Inventory
         }
     }
 
+    public void AddItemToAmount(int goalAmount, Item itemToAdd)
+    {
+        foreach (Slot slot in slots)
+        {
+            if (slot.itemName == itemToAdd.data.itemName && slot.CanAddItem(itemToAdd.data.itemName))
+            {
+                for (int i = slot.count; i < goalAmount; i++)
+                {
+                    slot.AddItem(itemToAdd);
+                }
+
+                return;
+            }
+        }
+
+        foreach (Slot slot in slots)
+        {
+            if (slot.itemName == "")
+            {
+                for (int i = 0; i < goalAmount; i++)
+                {
+                    slot.AddItem(itemToAdd);
+                }
+
+                return;
+            }
+        }
+    }
+
     public void MoveSlot(int fromIndex, int toIndex, Inventory toInventory, int numToMove = 1)
     {
         Slot fromSlot = slots[fromIndex];
@@ -163,5 +192,18 @@ public class Inventory
                 }
             }
         }
+    }
+
+    public int ReturnItemCount(Item item)
+    {
+        foreach (Slot slot in slots)
+        {
+            if (slot.itemName == item.data.itemName)
+            {
+                return slot.count;
+            }
+        }
+
+        return 0;
     }
 }

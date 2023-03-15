@@ -82,6 +82,22 @@ public class WateringCanBehaviour : ToolBehaviour
                         GameManager.instance.uiManager.RefreshAll();
                     }
 
+                    //Add any remaining crops to the inventory
+                    Item carrot = GameManager.instance.itemManager.GetItemByName("Carrot");
+                    Item strawb = GameManager.instance.itemManager.GetItemByName("Strawberry");
+                    Item tomato = GameManager.instance.itemManager.GetItemByName("Tomato");
+
+                    if (carrot && strawb && tomato)
+                    {
+                        int carrotsInStorage = GameManager.instance.characterManager.activePlayer.inventoryManager.storage.ReturnItemCount(carrot);
+                        int strawbsInStorage = GameManager.instance.characterManager.activePlayer.inventoryManager.storage.ReturnItemCount(strawb);
+                        int tomatsInStorage = GameManager.instance.characterManager.activePlayer.inventoryManager.storage.ReturnItemCount(tomato);
+
+                        GameManager.instance.characterManager.activePlayer.inventoryManager.backpack.AddItemToAmount(20 - carrotsInStorage, carrot);
+                        GameManager.instance.characterManager.activePlayer.inventoryManager.backpack.AddItemToAmount(9 - strawbsInStorage, strawb);
+                        GameManager.instance.characterManager.activePlayer.inventoryManager.backpack.AddItemToAmount(11 - tomatsInStorage, tomato);
+                    }
+
                     //Change some tiles to watered. 
                     List<Vector2> lessPositions = new List<Vector2>();
                     for (int i = 0; i < itemData.TilePatchPositions.Count/2; i++)
