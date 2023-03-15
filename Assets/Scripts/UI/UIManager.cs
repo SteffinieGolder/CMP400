@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     private List<string> dialogueToShow;
     private List<CharacterData.FaceType> faceTypes;
     private int currentDialogueIndex = 0;
+    private bool showDialogue = false;
 
     private void Awake()
     {
@@ -63,7 +64,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (dialogueToShow.Count > 0)
+        if (showDialogue)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -75,8 +76,7 @@ public class UIManager : MonoBehaviour
                     dialogueTextUI.text = "";
                     dialogueSprite = null;
                     currentDialogueIndex = 0;
-                    dialogueToShow.Clear();
-                    faceTypes.Clear();
+                    showDialogue = false;
                     //Time.timeScale = 1;
                     return;
                 }
@@ -165,6 +165,7 @@ public class UIManager : MonoBehaviour
         faceTypes = charFaceTypes;
 
         ShowDialogueBox(0);
+        showDialogue = true;
     }
 
     private void ShowDialogueBox(int currentIndex)

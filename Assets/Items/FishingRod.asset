@@ -21,3 +21,7 @@ MonoBehaviour:
   itemToSpawn: {fileID: 8231763008255958994, guid: c10f4e1df5be1b64983b461c5c980aeb, type: 3}
   taskIndex: 1
   timeValue: 2000
+  gradeImage: {fileID: 0}
+  dialogueGroupIndex: 1
+  TilePatchPositions: []
+  patchTile: {fileID: 0}

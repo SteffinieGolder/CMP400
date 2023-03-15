@@ -20,11 +20,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 70fb0fc6beb2647a897e9b1683114fce, type: 3}
   dialogueGroups:
   - dialogueLines:
-    - I am watering can zone out 1
-    - I am watering can zone out 2
-    - I am watering can zone out 3
-    - I am watering can zone out 4
-    expressionTypes: 01000000020000000300000004000000
+    - werg
+    - splerg
+    - joberg
+    expressionTypes: 020000000000000003000000
   - dialogueLines:
     - I am dud can zone out 1
     - I am dud can zone out 2
