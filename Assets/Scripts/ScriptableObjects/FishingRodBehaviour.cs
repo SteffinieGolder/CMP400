@@ -9,11 +9,14 @@ public class FishingRodBehaviour : ToolBehaviour
     TileData tileData;
     Vector3Int gridPos;
     ItemData itemData;
+    CharacterData charData;
+
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
         manager = GameManager.instance.tileManager;
         gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.GROUND);
         itemData = item;
+        charData = GameManager.instance.characterManager.activePlayer.charData;
 
         TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
 
@@ -45,10 +48,11 @@ public class FishingRodBehaviour : ToolBehaviour
 
         if(GameManager.instance.characterManager.char1IsActive)
         {
-
+            GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndex).dialogueLines,
+                      charData.GetDialogueGroup(itemData.dialogueGroupIndex).expressionTypes);
         }
 
-        GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("fishTrigger");
+        /*GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("fishTrigger");
 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
 
@@ -76,7 +80,7 @@ public class FishingRodBehaviour : ToolBehaviour
             {
                 //NOT COMPLETE
             }
-        }
+        }*/
 
         //Return false if item is reusable
         return false;

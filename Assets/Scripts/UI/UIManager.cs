@@ -72,9 +72,9 @@ public class UIManager : MonoBehaviour
 
                 if (currentDialogueIndex == dialogueToShow.Count)
                 {
+                    Debug.Log("Reset");
                     dialoguePanel.SetActive(false);
                     dialogueTextUI.text = "";
-                    dialogueSprite = null;
                     currentDialogueIndex = 0;
                     showDialogue = false;
                     //Time.timeScale = 1;
@@ -164,12 +164,16 @@ public class UIManager : MonoBehaviour
         dialogueToShow = dialoguelines;
         faceTypes = charFaceTypes;
 
-        ShowDialogueBox(0);
+        Debug.Log(dialogueToShow.Count);
+        Debug.Log(faceTypes.Count);
+
         showDialogue = true;
+        ShowDialogueBox(0);
     }
 
     private void ShowDialogueBox(int currentIndex)
     {
+        Debug.Log(currentIndex);
         dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceTypes[currentIndex]];
         dialogueTextUI.text = dialogueToShow[currentIndex];
 
