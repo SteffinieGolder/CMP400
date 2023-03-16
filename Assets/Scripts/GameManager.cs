@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public DayAndNightManager dayAndNightManager;
     public CharacterManager characterManager;
     public TaskManager taskManager;
+    public RespawnManager respawnManager;
 
     private void Awake()
     {
@@ -38,5 +39,6 @@ public class GameManager : MonoBehaviour
         dayAndNightManager = GetComponent<DayAndNightManager>();
         characterManager = GetComponent<CharacterManager>();
         taskManager = GetComponent<TaskManager>();
+        respawnManager = GetComponent<RespawnManager>();
     }
 }

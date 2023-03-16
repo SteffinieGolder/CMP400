@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -15,12 +16,15 @@ public class CharacterManager : MonoBehaviour
     private CharBehaviourBase char2BehaviourScript;
 
     private CamFollow camFollowScript;
+    private ItemManager itemManager;
 
     public bool char1IsActive;
     public Player activePlayer;
 
     void Start()
     {
+        itemManager = GameManager.instance.itemManager;
+
         char1PlayerScript = char1.GetComponent<Player>();
         char1MovementScript = char1.GetComponent<CharMovement>(); 
         char1BehaviourScript = char1.GetComponent<CharBehaviourBase>();
@@ -30,6 +34,9 @@ public class CharacterManager : MonoBehaviour
         char2BehaviourScript = char2.GetComponent<CharBehaviourBase>();
 
         camFollowScript = Camera.main.GetComponent<CamFollow>();
+
+        InitialiseCharacter1InventoryItems();
+        InitialiseCharacter2InventoryItems();
 
         SetChar2Active();
     }
@@ -52,8 +59,9 @@ public class CharacterManager : MonoBehaviour
 
     void SetChar1Active()
     {
-        //respawn fish and trees.
-        //put some items in backpack, some in environment.
+        
+        GameManager.instance.respawnManager.RespawnObject();
+        GameManager.instance.respawnManager.RespawnTiles();
 
         char1IsActive = true; 
         char2PlayerScript.enabled = false;
@@ -102,5 +110,46 @@ public class CharacterManager : MonoBehaviour
             char2PlayerScript.isCharDataInitComplete = true;
         }*/
 
+    }
+
+    void InitialiseCharacter1InventoryItems()
+    {
+        Dictionary<Item, int> char1StartItems = new Dictionary<Item, int>();
+        char1StartItems.Add(itemManager.GetItemByName("Carrot Seeds"), 40);
+        char1StartItems.Add(itemManager.GetItemByName("FishingRod"), 1);
+        char1StartItems.Add(itemManager.GetItemByName("Sword"), 1);
+        char1StartItems.Add(itemManager.GetItemByName("Bag"), 1);
+        char1StartItems.Add(itemManager.GetItemByName("WateringCan"), 1);
+
+        char1PlayerScript.inventoryManager.InitialiseInventoryWithItems(char1StartItems, char1PlayerScript.inventoryManager.backpack.inventoryName);
+        GameManager.instance.uiManager.RefreshAll();
+    }
+
+    void InitialiseCharacter2InventoryItems()
+    {
+        Dictionary<Item, int> char2StartItems = new Dictionary<Item, int>();
+        char2StartItems.Add(itemManager.GetItemByName("Carrot Seeds"), 40);
+        char2StartItems.Add(itemManager.GetItemByName("FishingRod"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Sword"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Bag"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("WateringCan"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Axe"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Hoe"), 1);
+
+        char2PlayerScript.inventoryManager.InitialiseInventoryWithItems(char2StartItems, char2PlayerScript.inventoryManager.backpack.inventoryName);
+
+        Dictionary<Item, int> char2StorageItems = new Dictionary<Item, int>();
+        char2StorageItems.Add(itemManager.GetItemByName("Carrot"), 20);
+        char2StorageItems.Add(itemManager.GetItemByName("Strawberry"), 9);
+        char2StorageItems.Add(itemManager.GetItemByName("Tomato"), 11);
+
+        char2PlayerScript.inventoryManager.InitialiseInventoryWithItems(char2StorageItems, char2PlayerScript.inventoryManager.storage.inventoryName);
+
+        GameManager.instance.uiManager.RefreshAll();
+
+        /*GameManager.instance.uiManager.GetInventoryUI(char2PlayerScript.inventoryManager.storage.inventoryName).CheckSlotsForGrading(itemManager.GetItemByName("Carrot"), false);
+        GameManager.instance.uiManager.GetInventoryUI(char2PlayerScript.inventoryManager.storage.inventoryName).CheckSlotsForGrading(itemManager.GetItemByName("Strawberry"), false);
+        GameManager.instance.uiManager.GetInventoryUI(char2PlayerScript.inventoryManager.storage.inventoryName).CheckSlotsForGrading(itemManager.GetItemByName("Tomato"), false);
+   */
     }
 }

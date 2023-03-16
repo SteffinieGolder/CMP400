@@ -21,4 +21,9 @@ MonoBehaviour:
   itemToSpawn: {fileID: 0}
   taskIndex: 0
   timeValue: 0
-  gradeImage: {fileID: 21300000, guid: b0ca2120bee34ec438cc7fdf52f35dbf, type: 3}
+  ADHDGradeImage: {fileID: 21300000, guid: b0ca2120bee34ec438cc7fdf52f35dbf, type: 3}
+  NTGradeImage: {fileID: 21300000, guid: fd2e63bf9e10e274cbeb1c162958efdf, type: 3}
+  dialogueGroupIndexes: 
+  TilePatchPositions: []
+  patchTile: {fileID: 0}
+  counter: 0

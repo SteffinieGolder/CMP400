@@ -40,7 +40,6 @@ public class FishingRodBehaviour : ToolBehaviour
 
     public override bool PerformBehaviour()
     {
-        Debug.Log(itemData.counter);
         if (GameManager.instance.characterManager.char1IsActive)
         {
             GameManager.instance.taskManager.fishTaskCounter++;
@@ -103,6 +102,11 @@ public class FishingRodBehaviour : ToolBehaviour
             if (GameManager.instance.taskManager.IsTaskPortionComplete(false, itemData.taskIndex))
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
+
+                if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
+                {
+                    //TaskComplete
+                }
             }
             else
             {

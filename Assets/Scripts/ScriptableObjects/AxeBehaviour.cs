@@ -10,7 +10,6 @@ public class AxeBehaviour : ToolBehaviour
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
-        //DO A CHECK IN HERE TO SEE IF CHARACTER IS ACTUALLY GOING TO PERFORM BEHAVIOUR, IF NOT JUST ACCESS DIALOGUE/EMOTE AND DISPLAY. 
         itemData = item;
         charData = GameManager.instance.characterManager.activePlayer.charData;
 
@@ -37,17 +36,16 @@ public class AxeBehaviour : ToolBehaviour
         //If you add in more items like the axe use polymorphism here 
         hit.transform.gameObject.GetComponent<TreeScript>().ChopTree();
 
-        if (charData)
-        {
-            //GameManager.instance.uiManager.ShowDialogueBox(charData.GetDialogueLine(itemData.itemName), charData.GetCharExpression(itemData.itemName), true);
-        }
-
         if (GameManager.instance.characterManager.char1IsActive)
-        {
-            
+        {         
             if (GameManager.instance.taskManager.IsTaskPortionComplete(true, itemData.taskIndex))
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
+
+                if (GameManager.instance.taskManager.IsTaskTotallyComplete(true, itemData.taskIndex))
+                {
+
+                }
             }
             else
             {
@@ -60,6 +58,11 @@ public class AxeBehaviour : ToolBehaviour
             if(GameManager.instance.taskManager.IsTaskPortionComplete(false, itemData.taskIndex))
             {               
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
+
+                if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
+                {
+
+                }
             }
             else
             {

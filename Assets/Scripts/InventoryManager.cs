@@ -44,4 +44,15 @@ public class InventoryManager : MonoBehaviour
 
         return null;
     }
+
+    public void InitialiseInventoryWithItems(Dictionary<Item, int> items, string nameOfInventory)
+    {
+        foreach(Item item in items.Keys)
+        {
+            int itemAmount = items[item];
+
+            GetInventoryByName(nameOfInventory).AddItemToAmount(itemAmount, item);
+        }
+           
+    }
 }

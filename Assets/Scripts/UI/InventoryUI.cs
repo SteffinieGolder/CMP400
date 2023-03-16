@@ -8,12 +8,12 @@ public class InventoryUI : MonoBehaviour
 {
     public string inventoryName;
     public GameObject owningCharacter;
-    
+
     //List of UI slots in inventory. 
     public List<SlotsUI> slots = new List<SlotsUI>();
 
     [SerializeField] private Canvas canvas;
-   
+
     private Inventory inventory;
     private Player owningCharScript;
 
@@ -84,7 +84,7 @@ public class InventoryUI : MonoBehaviour
                 owningCharScript.DropItem(itemToDrop, inventory.slots[UIManager.draggedSlot.slotID].count);
                 //Remove item from player inventory.
                 inventory.Remove(UIManager.draggedSlot.slotID, inventory.slots[UIManager.draggedSlot.slotID].count);
-            }          
+            }
 
             //Refresh UI. 
             Refresh();
@@ -129,7 +129,17 @@ public class InventoryUI : MonoBehaviour
                     {
                         if (itemToGrade.data.itemName == "Fish" || itemToGrade.data.itemName == "Strawberry" || itemToGrade.data.itemName == "Tomato" || itemToGrade.data.itemName == "Carrot")
                         {
-                            slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.gradeImage;
+                            if(GameManager.instance.characterManager.char1IsActive)
+                            {
+                                slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.ADHDGradeImage;
+
+                            }
+
+                            else
+                            {
+                                slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.NTGradeImage;
+                            }
+
                             slot.ratingImage.SetActive(true);
                         }
                     }
@@ -168,7 +178,7 @@ public class InventoryUI : MonoBehaviour
 
     private void MoveToMousePosition(GameObject toMove)
     {
-        if(canvas!=null)
+        if (canvas != null)
         {
             Vector2 position;
 
@@ -183,11 +193,37 @@ public class InventoryUI : MonoBehaviour
     {
         int counter = 0;
 
-        foreach(SlotsUI slot in slots)
+        foreach (SlotsUI slot in slots)
         {
             slot.slotID = counter;
             counter++;
             slot.inventory = inventory;
         }
     }
+
+   /* public void CheckSlotsForGrading(Item itemToGrade, bool isChar1)
+    {
+        // if (inventoryNameForGrading == "Storage_C1" || inventoryNameForGrading == "Storage_C2")
+        // {
+        // if (inventoryName == inventoryNameForGrading)
+        // {
+        foreach (SlotsUI slot in slots)
+        {
+            if (slot.itemIcon == itemToGrade.data.icon)
+            {
+                if (isChar1)
+                {
+                    slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.ADHDGradeImage;
+                }
+                else
+                {
+                    slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.NTGradeImage;
+                }
+
+                slot.ratingImage.SetActive(true);
+            }
+            //     }
+        }
+        //  }
+    }*/
 }

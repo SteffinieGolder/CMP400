@@ -40,7 +40,7 @@ public class TaskManager : MonoBehaviour
 
             currentNum++;
 
-            if (currentNum < totalNum)
+            if (currentNum <= totalNum)
             {
                 char2Tasks[taskIndex].text = currentNum.ToString();
                 return true;
