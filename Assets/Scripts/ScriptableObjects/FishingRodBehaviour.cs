@@ -10,6 +10,7 @@ public class FishingRodBehaviour : ToolBehaviour
     Vector3Int gridPos;
     ItemData itemData;
     CharacterData charData;
+    int counter = 0;
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
@@ -19,8 +20,6 @@ public class FishingRodBehaviour : ToolBehaviour
         charData = GameManager.instance.characterManager.activePlayer.charData;
 
         TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
-
-        //Check if the tile is in range of the fishing rod. 
 
         if (tile)
         {
@@ -42,17 +41,46 @@ public class FishingRodBehaviour : ToolBehaviour
 
     public override bool PerformBehaviour()
     {
-        //Do any animations
-        //Put fish in inventory
-        //Change tile
-
-        if(GameManager.instance.characterManager.char1IsActive)
+        if (GameManager.instance.characterManager.char1IsActive)
         {
-            GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndex).dialogueLines,
-                      charData.GetDialogueGroup(itemData.dialogueGroupIndex).expressionTypes);
+            GameManager.instance.taskManager.fishTaskCounter++;
+
+            int current = GameManager.instance.taskManager.fishTaskCounter;
+
+            if (current == 3 || current == 4 || current == 7 || current == 9)
+            {
+                //Show Dialogue lines.
+                GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndexes[counter]).dialogueLines,
+                    charData.GetDialogueGroup(itemData.dialogueGroupIndexes[counter]).expressionTypes);
+
+                counter++;
+                manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
+
+                if (counter > itemData.dialogueGroupIndexes.Count)
+                {
+                    counter = 0;
+                }
+
+            }
+
+            else
+            {
+                RunBehaviour();
+            }
         }
 
-        /*GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("fishTrigger");
+        else
+        {
+            RunBehaviour();
+        }
+
+        //Return false if item is reusable
+        return false;
+    }
+
+    void RunBehaviour()
+    {
+        GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("fishTrigger");
 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
 
@@ -80,9 +108,6 @@ public class FishingRodBehaviour : ToolBehaviour
             {
                 //NOT COMPLETE
             }
-        }*/
-
-        //Return false if item is reusable
-        return false;
+        }
     }
 }

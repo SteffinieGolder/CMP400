@@ -34,6 +34,10 @@ public class UIManager : MonoBehaviour
     private int currentDialogueIndex = 0;
     private bool showDialogue = false;
 
+    //private bool isSingleLine = false;
+    //private string lineToShow;
+    //private CharacterData.FaceType faceToShow;
+
     private void Awake()
     {
         Initialise();
@@ -68,20 +72,33 @@ public class UIManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                currentDialogueIndex++;
-
-                if (currentDialogueIndex == dialogueToShow.Count)
+                /*if (isSingleLine)
                 {
                     Debug.Log("Reset");
                     dialoguePanel.SetActive(false);
                     dialogueTextUI.text = "";
-                    currentDialogueIndex = 0;
-                    showDialogue = false;
+                    isSingleLine = false;
                     //Time.timeScale = 1;
                     return;
-                }
+                }*/
 
-                ShowDialogueBox(currentDialogueIndex);
+               // else
+                //{
+                    currentDialogueIndex++;
+
+                    if (currentDialogueIndex == dialogueToShow.Count)
+                    {
+                        Debug.Log("Reset");
+                        dialoguePanel.SetActive(false);
+                        dialogueTextUI.text = "";
+                        currentDialogueIndex = 0;
+                        showDialogue = false;
+                        //Time.timeScale = 1;
+                        return;
+                    }
+
+                    ShowDialogueBox(currentDialogueIndex);
+                //}
             }
         }
 
@@ -164,19 +181,36 @@ public class UIManager : MonoBehaviour
         dialogueToShow = dialoguelines;
         faceTypes = charFaceTypes;
 
-        Debug.Log(dialogueToShow.Count);
-        Debug.Log(faceTypes.Count);
-
         showDialogue = true;
         ShowDialogueBox(0);
     }
 
+   /* public void SetSingleDialogueLine(string line, CharacterData.FaceType type)
+    {
+        lineToShow = line;
+        faceToShow = type;
+
+        isSingleLine = true;
+        ShowSingleDialogue();
+    }
+
+    private void ShowSingleDialogue()
+    {
+        dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceToShow];
+        dialogueTextUI.text = lineToShow;
+
+        if (!dialoguePanel.activeSelf)
+        {
+            dialoguePanel.SetActive(true);
+            // Time.timeScale = 0;
+        }
+    }*/
+
     private void ShowDialogueBox(int currentIndex)
     {
-        Debug.Log(currentIndex);
         dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceTypes[currentIndex]];
         dialogueTextUI.text = dialogueToShow[currentIndex];
-
+       
         if (!dialoguePanel.activeSelf)
         {
             dialoguePanel.SetActive(true);

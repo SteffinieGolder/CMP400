@@ -22,6 +22,6 @@ MonoBehaviour:
   taskIndex: 1
   timeValue: 2000
   gradeImage: {fileID: 0}
-  dialogueGroupIndex: 1
+  dialogueGroupIndexes: 01000000020000000300000004000000
   TilePatchPositions: []
   patchTile: {fileID: 0}

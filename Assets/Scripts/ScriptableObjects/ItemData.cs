@@ -19,7 +19,7 @@ public class ItemData : ScriptableObject
     public int taskIndex;
     public float timeValue;
     public Sprite gradeImage;
-    public int dialogueGroupIndex;
+    public List<int> dialogueGroupIndexes;
 
     public List<Vector2> TilePatchPositions;
     public Tile patchTile;

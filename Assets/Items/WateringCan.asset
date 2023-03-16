@@ -22,6 +22,7 @@ MonoBehaviour:
   taskIndex: 3
   timeValue: 1000
   gradeImage: {fileID: 0}
+  dialogueGroupIndexes: 00000000
   TilePatchPositions:
   - {x: -18, y: -11}
   - {x: -18, y: -12}

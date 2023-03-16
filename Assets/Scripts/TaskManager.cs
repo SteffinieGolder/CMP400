@@ -13,6 +13,8 @@ public class TaskManager : MonoBehaviour
     public List<Image> char2Icons;
     public Sprite completeSprite;
 
+    public int fishTaskCounter = 0;
+
     public bool IsTaskPortionComplete(bool isChar1, int taskIndex)
     {
         if (isChar1)
@@ -50,7 +52,7 @@ public class TaskManager : MonoBehaviour
 
     public bool IsTaskTotallyComplete(bool isChar1, int taskIndex)
     {
-        if(isChar1)
+        if (isChar1)
         {
             int currentNum = int.Parse(char1Tasks[taskIndex].text);
             int totalNum = int.Parse(char1Totals[taskIndex].text);
@@ -78,4 +80,20 @@ public class TaskManager : MonoBehaviour
 
         return false;
     }
+
+    public int GetAmountOfCompletedTasks(bool isChar1, int taskIndex)
+    {
+        if (isChar1)
+        {
+            int currentNum = int.Parse(char1Tasks[taskIndex].text);
+            return currentNum;
+        }
+
+        else
+        {
+            int currentNum = int.Parse(char2Tasks[taskIndex].text);
+            return currentNum;
+        }
+    }
 }
+

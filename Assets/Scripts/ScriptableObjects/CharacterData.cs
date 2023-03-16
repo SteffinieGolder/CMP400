@@ -17,6 +17,7 @@ public class CharacterData : ScriptableObject
     [Header("Dialogue")]
     public List<DialogueGroup> dialogueGroups = new List<DialogueGroup>();
 
+
     public enum FaceType
     {
         NEUTRAL = 0,
