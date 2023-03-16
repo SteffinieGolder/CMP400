@@ -131,7 +131,7 @@ public class WateringCanBehaviour : ToolBehaviour
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
 
-                if (GameManager.instance.taskManager.IsTaskTotallyComplete(true, itemData.taskIndex))
+                if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {
 
                 }
