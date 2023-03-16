@@ -108,12 +108,13 @@ public class WateringCanBehaviour : ToolBehaviour
                     GameManager.instance.tileManager.ChangeAllPatchTiles(GameManager.instance.tileManager.GetAllPatchGridPositions(lessPositions,
                        TileManager.tilemapOptions.BACKGROUND), TileManager.tilemapOptions.BACKGROUND, itemData.tileToChangeTo);
 
-                    //Fade in UI
-                    GameManager.instance.uiManager.FadeInOrOut(false);
-
+              
                     //Show Dialogue lines.
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndexes[0]).dialogueLines, 
                         charData.GetDialogueGroup(itemData.dialogueGroupIndexes[0]).expressionTypes);
+
+                    GameManager.instance.uiManager.FadeInOrOut(false);
+
                 }
 
             }

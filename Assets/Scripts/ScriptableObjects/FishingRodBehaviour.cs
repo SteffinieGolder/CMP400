@@ -10,7 +10,6 @@ public class FishingRodBehaviour : ToolBehaviour
     Vector3Int gridPos;
     ItemData itemData;
     CharacterData charData;
-    int counter = 0;
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
@@ -41,6 +40,7 @@ public class FishingRodBehaviour : ToolBehaviour
 
     public override bool PerformBehaviour()
     {
+        Debug.Log(itemData.counter);
         if (GameManager.instance.characterManager.char1IsActive)
         {
             GameManager.instance.taskManager.fishTaskCounter++;
@@ -50,15 +50,15 @@ public class FishingRodBehaviour : ToolBehaviour
             if (current == 3 || current == 4 || current == 7 || current == 9)
             {
                 //Show Dialogue lines.
-                GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndexes[counter]).dialogueLines,
-                    charData.GetDialogueGroup(itemData.dialogueGroupIndexes[counter]).expressionTypes);
+                GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndexes[itemData.counter]).dialogueLines,
+                    charData.GetDialogueGroup(itemData.dialogueGroupIndexes[itemData.counter]).expressionTypes);
 
-                counter++;
+                itemData.counter++;
                 manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
 
-                if (counter > itemData.dialogueGroupIndexes.Count)
+                if (itemData.counter == itemData.dialogueGroupIndexes.Count)
                 {
-                    counter = 0;
+                    itemData.counter = 0;
                 }
 
             }

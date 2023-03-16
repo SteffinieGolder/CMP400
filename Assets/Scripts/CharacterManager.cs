@@ -52,6 +52,9 @@ public class CharacterManager : MonoBehaviour
 
     void SetChar1Active()
     {
+        //respawn fish and trees.
+        //put some items in backpack, some in environment.
+
         char1IsActive = true; 
         char2PlayerScript.enabled = false;
         char2MovementScript.enabled = false;
@@ -75,6 +78,10 @@ public class CharacterManager : MonoBehaviour
 
     void SetChar2Active()
     {
+        //put all items in backpack
+        //Put some gold star crops in the sell box
+
+
         char1IsActive = false;
         char1PlayerScript.enabled = false;
         char1MovementScript.enabled = false;

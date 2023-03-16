@@ -82,22 +82,22 @@ public class UIManager : MonoBehaviour
                     return;
                 }*/
 
-               // else
+                // else
                 //{
-                    currentDialogueIndex++;
+                currentDialogueIndex++;
 
-                    if (currentDialogueIndex == dialogueToShow.Count)
-                    {
-                        Debug.Log("Reset");
-                        dialoguePanel.SetActive(false);
-                        dialogueTextUI.text = "";
-                        currentDialogueIndex = 0;
-                        showDialogue = false;
-                        //Time.timeScale = 1;
-                        return;
-                    }
+                if (currentDialogueIndex == dialogueToShow.Count)
+                {
+                    Debug.Log("Reset");
+                    dialoguePanel.SetActive(false);
+                    dialogueTextUI.text = "";
+                    currentDialogueIndex = 0;
+                    showDialogue = false;
+                    currentActiveToggleUICount--;
+                    return;
+                }
 
-                    ShowDialogueBox(currentDialogueIndex);
+                ShowDialogueBox(currentDialogueIndex);
                 //}
             }
         }
@@ -178,6 +178,8 @@ public class UIManager : MonoBehaviour
 
     public void SetDialogueData(List<string> dialoguelines, List<CharacterData.FaceType> charFaceTypes)
     {
+        Debug.Log("Set Dialogue");
+
         dialogueToShow = dialoguelines;
         faceTypes = charFaceTypes;
 
@@ -208,13 +210,14 @@ public class UIManager : MonoBehaviour
 
     private void ShowDialogueBox(int currentIndex)
     {
+        Debug.Log("Show Dialogue");
         dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceTypes[currentIndex]];
         dialogueTextUI.text = dialogueToShow[currentIndex];
        
         if (!dialoguePanel.activeSelf)
         {
             dialoguePanel.SetActive(true);
-           // Time.timeScale = 0;
+            currentActiveToggleUICount++;
         }
     }
 
@@ -226,13 +229,13 @@ public class UIManager : MonoBehaviour
         {
             clip.Play("FadeClip");
             
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
 
         else
         {
             clip.Play("FadeClip 1");
-            Time.timeScale = 1;
+           // Time.timeScale = 1;
         }
 
     }
