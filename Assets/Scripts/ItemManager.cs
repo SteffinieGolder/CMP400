@@ -25,28 +25,31 @@ public class ItemManager : MonoBehaviour
 
     private void Update()
     {
-        if (equippedItem)
+        if (Time.timeScale != 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (equippedItem)
             {
-                if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    Vector2 pos = Input.mousePosition;
-                    if (equippedItem.data.isEquippable)
+                    if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
                     {
-                        if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
+                        Vector2 pos = Input.mousePosition;
+                        if (equippedItem.data.isEquippable)
                         {
-                            //THIS IS PROBABLY JANK///////////////////////////
-                            if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
+                            if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                             {
-                                //Remove item from player inventory.
-                                Inventory inventory = equippedSlot.inventory;
-                                inventory.Remove(equippedSlot.slotID);
-                                GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
-
-                                if (equippedSlot.quantityText.text == "")
+                                //THIS IS PROBABLY JANK///////////////////////////
+                                if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
                                 {
-                                    equippedItem = null;
+                                    //Remove item from player inventory.
+                                    Inventory inventory = equippedSlot.inventory;
+                                    inventory.Remove(equippedSlot.slotID);
+                                    GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+
+                                    if (equippedSlot.quantityText.text == "")
+                                    {
+                                        equippedItem = null;
+                                    }
                                 }
                             }
                         }

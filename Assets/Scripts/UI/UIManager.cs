@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject dialoguePanel;
     public Image dialogueSprite;
     public TextMeshProUGUI dialogueTextUI;
+    public GameObject dialoguePausePanel;
 
     public GameObject fadePanel;
 
@@ -32,7 +33,7 @@ public class UIManager : MonoBehaviour
     private List<string> dialogueToShow;
     private List<CharacterData.FaceType> faceTypes;
     private int currentDialogueIndex = 0;
-    private bool showDialogue = false;
+    //private bool showDialogue = false;
 
     //private bool isSingleLine = false;
     //private string lineToShow;
@@ -68,7 +69,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (showDialogue)
+       /* if (showDialogue)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -80,7 +81,7 @@ public class UIManager : MonoBehaviour
                     isSingleLine = false;
                     //Time.timeScale = 1;
                     return;
-                }*/
+                }
 
                 // else
                 //{
@@ -88,7 +89,7 @@ public class UIManager : MonoBehaviour
 
                 if (currentDialogueIndex == dialogueToShow.Count)
                 {
-                    Debug.Log("Reset");
+                    //Debug.Log("Reset");
                     dialoguePanel.SetActive(false);
                     dialogueTextUI.text = "";
                     currentDialogueIndex = 0;
@@ -100,7 +101,7 @@ public class UIManager : MonoBehaviour
                 ShowDialogueBox(currentDialogueIndex);
                 //}
             }
-        }
+        }*/
 
         //Toggle inventory on/off when player presses TAB key. 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -178,13 +179,15 @@ public class UIManager : MonoBehaviour
 
     public void SetDialogueData(List<string> dialoguelines, List<CharacterData.FaceType> charFaceTypes)
     {
-        Debug.Log("Set Dialogue");
+        //Debug.Log("Set Dialogue");
 
         dialogueToShow = dialoguelines;
         faceTypes = charFaceTypes;
 
-        showDialogue = true;
-        ShowDialogueBox(0);
+        //showDialogue = true;
+        currentDialogueIndex = 0;
+        ShowDialogueBox();
+        //ShowDialogueBox();
     }
 
    /* public void SetSingleDialogueLine(string line, CharacterData.FaceType type)
@@ -208,16 +211,30 @@ public class UIManager : MonoBehaviour
         }
     }*/
 
-    private void ShowDialogueBox(int currentIndex)
+    public void ShowDialogueBox()
     {
-        Debug.Log("Show Dialogue");
-        dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceTypes[currentIndex]];
-        dialogueTextUI.text = dialogueToShow[currentIndex];
-       
-        if (!dialoguePanel.activeSelf)
+        if (currentDialogueIndex < dialogueToShow.Count)
         {
-            dialoguePanel.SetActive(true);
-            currentActiveToggleUICount++;
+            dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceTypes[currentDialogueIndex]];
+            dialogueTextUI.text = dialogueToShow[currentDialogueIndex];
+
+            if (!dialoguePanel.activeSelf)
+            {
+                dialoguePanel.SetActive(true);
+                dialoguePausePanel.SetActive(true);
+                currentActiveToggleUICount++;
+            }
+
+            currentDialogueIndex++;
+        }
+
+        else
+        {
+            dialoguePanel.SetActive(false);
+            dialoguePausePanel.SetActive(false);
+            dialogueTextUI.text = "";
+            currentDialogueIndex = 0;
+            currentActiveToggleUICount--;
         }
     }
 
@@ -225,17 +242,14 @@ public class UIManager : MonoBehaviour
     {
         Animation clip = fadePanel.GetComponent<Animation>();
 
-        if(fadeOut)
+        if (fadeOut)
         {
             clip.Play("FadeClip");
-            
-            //Time.timeScale = 0;
         }
 
         else
         {
             clip.Play("FadeClip 1");
-           // Time.timeScale = 1;
         }
 
     }
