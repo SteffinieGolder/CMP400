@@ -31,41 +31,4 @@ public class CharacterData : ScriptableObject
     {
         return dialogueGroups[groupIndex];
     }
-
-    //public void InitDialogueLines()
-    //{
-    /* dialogueLines = new Dictionary<string, string>();
-     faceTypes = new Dictionary<string, int>();
-
-     dialogueLines.Add("Axe", axeLine);
-     faceTypes.Add(axeLine, (int)axeFaceType);
-
-     dialogueLines.Add("WateringCan", wateringLine);
-     faceTypes.Add(wateringLine, (int)wateringFaceType);
-    */
-
-    // }
-
-    /* public Sprite GetCharExpression(string itemName)
-     {
-         /*string dialogueLine = "";
-
-         if (dialogueLines.ContainsKey(itemName))
-         {
-             dialogueLine = dialogueLines[itemName];
-
-         }
-
-         if (dialogueLine != "")
-         {
-             if (faceTypes.ContainsKey(dialogueLine))
-             {
-                 int spriteIndex = faceTypes[dialogueLine];
-
-                 return charFaceSprites[spriteIndex];
-             }
-         }
-
-         return charFaceSprites[(int)FaceType.HAPPY];
-    }*/
 }

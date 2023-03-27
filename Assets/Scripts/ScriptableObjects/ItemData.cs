@@ -17,9 +17,15 @@ public class ItemData : ScriptableObject
     public Tile tileToChangeTo;
     public GameObject itemToSpawn;
     public int taskIndex;
-    public float timeValue;
+
+    public float ADHDTimeValue;
+    public float ADHDMultiplier;
     public Sprite ADHDGradeImage;
+
+    public float NTTimeValue;
+    public float NTMultiplier;
     public Sprite NTGradeImage;
+
     public List<int> dialogueGroupIndexes;
 
     public List<Vector2> TilePatchPositions;

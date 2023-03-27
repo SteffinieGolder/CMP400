@@ -20,17 +20,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 70fb0fc6beb2647a897e9b1683114fce, type: 3}
   dialogueGroups:
   - dialogueLines:
-    - werg
+    - 'ADHD '
     - splerg
     - joberg
-    expressionTypes: 020000000000000003000000
+    expressionTypes: 020000000300000003000000
   - dialogueLines:
     - Fish zone 1
     - fISH Zone 2
     expressionTypes: 0200000000000000
   - dialogueLines:
-    - Fish zone 1
-    - fISH Zone 2
+    - Fish zone dialogue 1
+    - fish zone dialogue 2
     - fISH Zone 3
     expressionTypes: 020000000000000002000000
   - dialogueLines:

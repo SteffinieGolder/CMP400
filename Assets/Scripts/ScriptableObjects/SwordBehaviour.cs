@@ -54,7 +54,7 @@ public class SwordBehaviour : ToolBehaviour
         {
             if (GameManager.instance.taskManager.IsTaskPortionComplete(true, itemData.taskIndex))
             {
-                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier);
 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(true, itemData.taskIndex))
                 {
@@ -72,7 +72,7 @@ public class SwordBehaviour : ToolBehaviour
         {
             if (GameManager.instance.taskManager.IsTaskPortionComplete(false, itemData.taskIndex))
             {
-                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier);
 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {

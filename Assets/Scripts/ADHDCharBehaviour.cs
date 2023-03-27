@@ -10,18 +10,12 @@ public class ADHDCharBehaviour : CharBehaviourBase
     void Update()
     {
         base.UpdateBase();
-
-        /*if (Input.GetKeyDown(KeyCode.J))
-        {
-            UpdateEnergyBar(3, false);
-            currentEnergySliderNum = energyBarSlider.value;
-        }*/
     }
 
-    public override void UpdateBehaviour(float timeVal)
+    public override void UpdateBehaviour(float timeVal, float multiplier)
     {
         timeManager.AdvanceCurrentTime(timeVal);
-        UpdateEnergyBar(1.5f, false);
+        UpdateEnergyBar(multiplier, false);
         currentEnergySliderNum = energyBarSlider.value;
     }
 }

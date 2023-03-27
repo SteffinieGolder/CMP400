@@ -20,9 +20,13 @@ MonoBehaviour:
   tileToChangeTo: {fileID: 0}
   itemToSpawn: {fileID: 0}
   taskIndex: 0
-  timeValue: 2000
-  gradeImage: {fileID: 0}
-  ADHDCharDialogue:
-  - This is the axe dialogue for the ADHD CHAR
-  NTCharDialogue:
-  - This is the axe dialogue for the NT CHAR
+  ADHDTimeValue: 2000
+  ADHDMultiplier: 3
+  ADHDGradeImage: {fileID: 0}
+  NTTimeValue: 1000
+  NTMultiplier: 1
+  NTGradeImage: {fileID: 0}
+  dialogueGroupIndexes: 
+  TilePatchPositions: []
+  patchTile: {fileID: 0}
+  counter: 0

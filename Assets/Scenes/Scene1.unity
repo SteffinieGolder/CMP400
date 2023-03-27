@@ -6314,7 +6314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &325338535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8959,7 +8959,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -43429,7 +43429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1243950306
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44206,6 +44206,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBarSlider: {fileID: 1243950307}
+  charEmotes:
+  - {fileID: 11400000, guid: fc2bff11e413ed54dae0a8f77806bdeb, type: 2}
+  - {fileID: 11400000, guid: 14f51b5b32ac3974aa450bc9b296362a, type: 2}
+  - {fileID: 11400000, guid: 1cf4b0c94858bb840b63cf5305c3b332, type: 2}
+  emoteObject: {fileID: 887396321}
 --- !u!58 &1256042640
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -64164,6 +64169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBarSlider: {fileID: 1243950307}
+  charEmotes:
+  - {fileID: 11400000, guid: 1e4deed35614fc341acd04a27ef67dbb, type: 2}
+  - {fileID: 11400000, guid: 243c6a9ace5530e4ca87f7a6a602ab68, type: 2}
+  - {fileID: 11400000, guid: 5f9f2cb1f9f217a4aa5986e66e3f72fe, type: 2}
+  emoteObject: {fileID: 1501443102}
 --- !u!58 &2102600633
 CircleCollider2D:
   m_ObjectHideFlags: 0
