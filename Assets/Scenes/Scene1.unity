@@ -20668,6 +20668,7 @@ MonoBehaviour:
   - {fileID: 4435991638173258874, guid: e23c4c30a8fe7ef43b3b0fbce7a060cf, type: 3}
   - {fileID: 5610451417737268896, guid: 2705a9169a8770340a296ade408c02bb, type: 3}
   - {fileID: 3841243677032078910, guid: d10df1c3b828a6b40984d0d5123812a1, type: 3}
+  - {fileID: 3531395010911444636, guid: 7b34f6b09041ec34a954b9674827b63b, type: 3}
 --- !u!114 &979790176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44211,6 +44212,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14f51b5b32ac3974aa450bc9b296362a, type: 2}
   - {fileID: 11400000, guid: 1cf4b0c94858bb840b63cf5305c3b332, type: 2}
   emoteObject: {fileID: 887396321}
+  currentEmote: {fileID: 0}
 --- !u!58 &1256042640
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -64174,6 +64176,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 243c6a9ace5530e4ca87f7a6a602ab68, type: 2}
   - {fileID: 11400000, guid: 5f9f2cb1f9f217a4aa5986e66e3f72fe, type: 2}
   emoteObject: {fileID: 1501443102}
+  currentEmote: {fileID: 0}
 --- !u!58 &2102600633
 CircleCollider2D:
   m_ObjectHideFlags: 0

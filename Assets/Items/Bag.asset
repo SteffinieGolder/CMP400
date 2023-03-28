@@ -19,6 +19,14 @@ MonoBehaviour:
   interactRange: 2
   tileToChangeTo: {fileID: 0}
   itemToSpawn: {fileID: 0}
-  interactableObjects: []
   taskIndex: 0
-  timeValue: 1000
+  ADHDTimeValue: 200
+  ADHDMultiplier: 1
+  ADHDGradeImage: {fileID: 0}
+  NTTimeValue: 0
+  NTMultiplier: 0
+  NTGradeImage: {fileID: 0}
+  dialogueGroupIndexes: 
+  TilePatchPositions: []
+  patchTile: {fileID: 0}
+  counter: 0

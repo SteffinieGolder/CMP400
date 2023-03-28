@@ -50,29 +50,17 @@ public class HoeBehaviour : ToolBehaviour
         GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().animator.SetTrigger("hoeTrigger");
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.BACKGROUND);
 
-        /*if (GameManager.instance.characterManager.char1IsActive)
+        if (GameManager.instance.characterManager.char1IsActive)
         {
-            if (GameManager.instance.taskManager.IsTaskComplete(true, itemData.taskIndex))
-            {
-                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
-            }
-            else
-            {
-                //NOT COMPLETE
-            }
+            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
+
         }
 
         else
         {
-            if (GameManager.instance.taskManager.IsTaskComplete(false, itemData.taskIndex))
-            {
-                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.timeValue);
-            }
-            else
-            {
-                //NOT COMPLETE
-            }
-        }*/
+            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
+
+        }
 
         //Return false if item is reusable
         return false;

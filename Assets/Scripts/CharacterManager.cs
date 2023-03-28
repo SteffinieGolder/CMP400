@@ -120,6 +120,7 @@ public class CharacterManager : MonoBehaviour
         char1StartItems.Add(itemManager.GetItemByName("Sword"), 1);
         char1StartItems.Add(itemManager.GetItemByName("Bag"), 1);
         char1StartItems.Add(itemManager.GetItemByName("WateringCan"), 1);
+        char1StartItems.Add(itemManager.GetItemByName("Milk"), 5);
 
         char1PlayerScript.inventoryManager.InitialiseInventoryWithItems(char1StartItems, char1PlayerScript.inventoryManager.backpack.inventoryName);
         GameManager.instance.uiManager.RefreshAll();
@@ -135,6 +136,7 @@ public class CharacterManager : MonoBehaviour
         char2StartItems.Add(itemManager.GetItemByName("WateringCan"), 1);
         char2StartItems.Add(itemManager.GetItemByName("Axe"), 1);
         char2StartItems.Add(itemManager.GetItemByName("Hoe"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Milk"), 5);
 
         char2PlayerScript.inventoryManager.InitialiseInventoryWithItems(char2StartItems, char2PlayerScript.inventoryManager.backpack.inventoryName);
 

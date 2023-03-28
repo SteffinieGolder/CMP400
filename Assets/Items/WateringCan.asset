@@ -20,8 +20,12 @@ MonoBehaviour:
   tileToChangeTo: {fileID: 11400000, guid: b4f2112f92acbd841bcb219cce2fbd9d, type: 2}
   itemToSpawn: {fileID: 0}
   taskIndex: 3
-  timeValue: 1000
-  gradeImage: {fileID: 0}
+  ADHDTimeValue: 4000
+  ADHDMultiplier: 2
+  ADHDGradeImage: {fileID: 0}
+  NTTimeValue: 500
+  NTMultiplier: 0.2
+  NTGradeImage: {fileID: 0}
   dialogueGroupIndexes: 00000000
   TilePatchPositions:
   - {x: -18, y: -11}
@@ -65,3 +69,4 @@ MonoBehaviour:
   - {x: -9, y: -13}
   - {x: -9, y: -14}
   patchTile: {fileID: 11400000, guid: 7471b09934a16c04c97c819995220d1e, type: 2}
+  counter: 0

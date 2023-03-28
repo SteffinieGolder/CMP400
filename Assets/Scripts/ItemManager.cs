@@ -29,7 +29,41 @@ public class ItemManager : MonoBehaviour
         {
             if (equippedItem)
             {
-                if (GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().currentEmote.doesCharAcceptTask)
+                if (equippedItem.data.itemName != "Milk")
+                {
+                    if (GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().currentEmote.doesCharAcceptTask)
+                    {
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
+                            {
+                                Vector2 pos = Input.mousePosition;
+                                if (equippedItem.data.isEquippable)
+                                {
+                                    if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
+                                    {
+                                        //THIS IS PROBABLY JANK///////////////////////////
+                                        if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
+                                        {
+                                            //Remove item from player inventory.
+                                            Inventory inventory = equippedSlot.inventory;
+                                            inventory.Remove(equippedSlot.slotID);
+                                            GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+
+                                            if (equippedSlot.quantityText.text == "")
+                                            {
+                                                equippedItem = null;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //BAD REPEATED CODE
+                else
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
@@ -40,7 +74,6 @@ public class ItemManager : MonoBehaviour
                             {
                                 if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                                 {
-                                    //THIS IS PROBABLY JANK///////////////////////////
                                     if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
                                     {
                                         //Remove item from player inventory.

@@ -89,7 +89,7 @@ public class FishingRodBehaviour : ToolBehaviour
         {
             if (GameManager.instance.taskManager.IsTaskPortionComplete(true, itemData.taskIndex))
             {
-                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier);
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
             }
             else
             {
@@ -101,7 +101,7 @@ public class FishingRodBehaviour : ToolBehaviour
         {
             if (GameManager.instance.taskManager.IsTaskPortionComplete(false, itemData.taskIndex))
             {
-                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier);
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {

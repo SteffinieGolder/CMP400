@@ -20,11 +20,11 @@ MonoBehaviour:
   tileToChangeTo: {fileID: 0}
   itemToSpawn: {fileID: 0}
   taskIndex: 0
-  ADHDTimeValue: 2000
-  ADHDMultiplier: 3
+  ADHDTimeValue: 500
+  ADHDMultiplier: 0.5
   ADHDGradeImage: {fileID: 0}
-  NTTimeValue: 1000
-  NTMultiplier: 1
+  NTTimeValue: 100
+  NTMultiplier: 0.2
   NTGradeImage: {fileID: 0}
   dialogueGroupIndexes: 
   TilePatchPositions: []

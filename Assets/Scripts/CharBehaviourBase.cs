@@ -44,18 +44,20 @@ public abstract class CharBehaviourBase : MonoBehaviour
         {
             emoteObject.GetComponent<SpriteRenderer>().sprite = charEmotes[(int)EmoteTypes.TIRED].emoteSprite;
             this.GetComponent<CharMovement>().moveSpeed = charEmotes[(int)EmoteTypes.TIRED].moveSpeed;
+            currentEmote = charEmotes[(int)EmoteTypes.TIRED];
         }
 
         if (energyBarSlider.value <= 0.245)
         {
             emoteObject.GetComponent<SpriteRenderer>().sprite = charEmotes[(int)EmoteTypes.FRUSTRATED].emoteSprite;
             this.GetComponent<CharMovement>().moveSpeed = charEmotes[(int)EmoteTypes.FRUSTRATED].moveSpeed;
+            currentEmote = charEmotes[(int)EmoteTypes.FRUSTRATED];
         }
 
-       /* if (Input.GetKeyDown(KeyCode.U))
-        {
-            energyBarSlider.value -= energyCellSize;
-        }*/
+        /* if (Input.GetKeyDown(KeyCode.U))
+         {
+             energyBarSlider.value -= energyCellSize;
+         }*/
     }
 
     public void UpdateEnergyBar(float multiplier, bool isIncreasing)
@@ -76,5 +78,5 @@ public abstract class CharBehaviourBase : MonoBehaviour
         energyBarSlider.value = currentEnergySliderNum;
     }
 
-    public abstract void UpdateBehaviour(float timeVal, float multiplier);
+    public abstract void UpdateBehaviour(float timeVal, float multiplier, bool isEnergyIncreasing);
 }

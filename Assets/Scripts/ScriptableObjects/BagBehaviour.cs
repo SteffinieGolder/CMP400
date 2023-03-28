@@ -42,6 +42,7 @@ public class BagBehaviour : ToolBehaviour
     {
         Instantiate(GameManager.instance.itemManager.GetItemByName(tile.name), GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), GameManager.instance.characterManager.activePlayer.transform.rotation);
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
+        GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
         return false;
     }
 }

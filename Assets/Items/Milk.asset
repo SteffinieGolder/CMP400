@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5297cd8cd13005c43b74b7bca9d261c4, type: 3}
-  m_Name: Sword
+  m_Name: Milk
   m_EditorClassIdentifier: 
-  itemName: Sword
-  icon: {fileID: 985594540, guid: bfebd85fb4c61d44198fc862312eefc6, type: 3}
+  itemName: Milk
+  icon: {fileID: -65211862, guid: d086973bcd13ff14fb8ae6c8bd380052, type: 3}
   isEquippable: 1
-  toolBehaviourScript: {fileID: 11400000, guid: 5db6256bfbd3b7a40aa846acc5a633c4, type: 2}
-  interactRange: 2
+  toolBehaviourScript: {fileID: 11400000, guid: 9607ff741199f6f4f9ca20db1ca65839, type: 2}
+  interactRange: 0
   tileToChangeTo: {fileID: 0}
-  itemToSpawn: {fileID: 4435991638173258854, guid: e23c4c30a8fe7ef43b3b0fbce7a060cf, type: 3}
-  taskIndex: 2
-  ADHDTimeValue: 500
+  itemToSpawn: {fileID: 0}
+  taskIndex: 0
+  ADHDTimeValue: 0
   ADHDMultiplier: 0.5
   ADHDGradeImage: {fileID: 0}
-  NTTimeValue: 100
-  NTMultiplier: 0.1
+  NTTimeValue: 0
+  NTMultiplier: 2
   NTGradeImage: {fileID: 0}
   dialogueGroupIndexes: 
   TilePatchPositions: []
