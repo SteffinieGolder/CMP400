@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -18,13 +16,16 @@ public class MailUIManager : MonoBehaviour
 
     public void DisplayMailText(GameObject mail)
     {
+        //Check character
+        //Check if its important mail
+        //check if character will read it
         mailObj = mail;
         mailText = mail.GetComponentInChildren<TextMeshProUGUI>(true);
-        mailIcon = mail.GetComponentsInChildren<Image>()[0];
-        urgentIcon = mail.GetComponentsInChildren<Image>()[1];
-
+        mailIcon = mail.GetComponentsInChildren<Image>(true)[0];
+        urgentIcon = mail.GetComponentsInChildren<Image>(true)[1];
         letterText.text = mailText.text;
         letterPanel.SetActive(true);
+
     }
 
     public void CloseLetterUI()
@@ -35,9 +36,16 @@ public class MailUIManager : MonoBehaviour
         Destroy(mailObj.GetComponent<EventTrigger>());
     }
 
-    public void RefuseToRead()
+    public void RefuseToRead(int dialogueIndex)
     {
-        Debug.Log("eek");
+        if (GameManager.instance.characterManager.char1IsActive)
+        {
+            CharacterData charData = GameManager.instance.characterManager.activePlayer.charData;
+
+            //Show Dialogue lines.
+            GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(dialogueIndex).dialogueLines,
+                charData.GetDialogueGroup(dialogueIndex).expressionTypes);
+        }  
     }
 
 }

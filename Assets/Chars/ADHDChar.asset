@@ -40,3 +40,7 @@ MonoBehaviour:
     - Fish zone again
     - and again
     expressionTypes: 0200000001000000
+  - dialogueLines:
+    - I dont wanna read tht
+    - Oh its so spooky
+    expressionTypes: 0200000001000000
