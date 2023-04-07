@@ -41,9 +41,9 @@ MonoBehaviour:
     - and again
     expressionTypes: 0200000001000000
   - dialogueLines:
-    - I dont wanna read tht
-    - Oh its so spooky
-    expressionTypes: 0200000001000000
+    - Why do they make important mail look so intimidating?
+    - I can't read it. I just can't.
+    expressionTypes: 0400000002000000
   - dialogueLines:
     - Oh cool! Freebies!
     - Wait what is this? What am I subscribed to?
@@ -61,4 +61,15 @@ MonoBehaviour:
     - 'I will reply to this. I wont forget again. I cant forget again. '
     - When I get some time, I'll sit down and write a proper reply. She deserves
       a proper reply.
-    expressionTypes: 02000000020000000300000003000000030000000000000000000000
+    expressionTypes: 02000000020000000300000003000000030000000300000000000000
+  - dialogueLines:
+    - I will get to this, I just can't right now.
+    expressionTypes: 02000000
+  - dialogueLines:
+    - Probably another bill I've forgotten to pay...
+    expressionTypes: 02000000
+  - dialogueLines:
+    - Just open it.
+    - Come on brain, let me open it.
+    - 'Okay I''ll come back to it! '
+    expressionTypes: 000000000200000000000000

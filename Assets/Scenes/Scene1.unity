@@ -26481,7 +26481,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
+            m_IntArgument: 10
             m_FloatArgument: 0
             m_StringArgument: This is an example\n does this work?
             m_BoolArgument: 0
@@ -51544,17 +51544,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hey,\n\nI'm gonna be honest, Its been a while since I've heard anything
+  m_text: "Hey,\n\nI'm gonna be honest, its been a while since I've heard anything
     from you and I'm really starting to think that you don't have any interest in
     being friends anymore. I know you're busy, we're all busy. I understand that,
     but others still at least make an effort to check in and try to keep some kind
     of relationship going. It really does seem like you just couldn't care less honestly.
     You've always been like this, happy to engage if its right in front of your face
     but as soon as you have to make a little bit of effort? you vanish. I'm really
-    not trying to be mean or anything, it just hurts a lot you know. It hurts being
-    the only one reaching out, making an effort and continually having it thrown
-    back in my face. I don't want to lose our friendship, but if I hear nothing back
-    again I'll take that as my sign to stop trying. \n\nJess. "
+    not trying to be mean or anything, it just really hurts. It hurts being the only
+    one reaching out, making an effort and continually having it thrown back in my
+    face. I don't want to lose our friendship, but if I hear nothing back again I'll
+    take that as my sign to stop trying. \n\nJess. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -60000,7 +60000,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
+            m_IntArgument: 9
             m_FloatArgument: 0
             m_StringArgument: This is an example\n does this work?
             m_BoolArgument: 0
@@ -68624,7 +68624,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
+            m_IntArgument: 8
             m_FloatArgument: 0
             m_StringArgument: This is an example\n does this work?
             m_BoolArgument: 0
