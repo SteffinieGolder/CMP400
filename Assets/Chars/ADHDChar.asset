@@ -44,3 +44,21 @@ MonoBehaviour:
     - I dont wanna read tht
     - Oh its so spooky
     expressionTypes: 0200000001000000
+  - dialogueLines:
+    - Oh cool! Freebies!
+    - Wait what is this? What am I subscribed to?
+    - I've been paying these guys for a year?!
+    - How much money have I...
+    - I really have to cancel this later.
+    expressionTypes: 0100000000000000040000000200000000000000
+  - dialogueLines:
+    - I'm really trying to read this but I keep getting lost.
+    - 'Repeating the same line over and over but I can''t seem to comprehend what''s
+      being said... '
+    - I can tell she's upset at me. I really want to make this right.
+    - Why can't I just read it and respond?! Why is it so difficult?
+    - Why am I so overwhelmed by everything?
+    - 'I will reply to this. I wont forget again. I cant forget again. '
+    - When I get some time, I'll sit down and write a proper reply. She deserves
+      a proper reply.
+    expressionTypes: 02000000020000000300000003000000030000000000000000000000

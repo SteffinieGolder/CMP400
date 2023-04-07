@@ -18,5 +18,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2acedd98a2e4247569fc702d2b8fc91d, type: 3}
   - {fileID: 21300000, guid: 91720d10e0c0c489f80bd693c4a619b1, type: 3}
   - {fileID: 21300000, guid: 36e7d59ac1efc4cf7bc6a250df52e2b4, type: 3}
-  axeLine: I am NT axe Line
-  axeFaceType: 3
+  dialogueGroups:
+  - dialogueLines: []
+    expressionTypes: 
+  - dialogueLines:
+    - 'Nice! '
+    expressionTypes: 00000000
+  - dialogueLines:
+    - Nice! Getting everything sorted yesterday really paid off!
+    expressionTypes: 01000000
+  - dialogueLines:
+    - I'll just respond to this really quickly.
+    - Meet at 6 for...Japanese food!
+    expressionTypes: 0000000001000000

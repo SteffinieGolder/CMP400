@@ -13,6 +13,7 @@ public class MailUIManager : MonoBehaviour
     TextMeshProUGUI mailText;
     Image mailIcon;
     Image urgentIcon;
+    int dialogueIndex;
 
     public void DisplayMailText(GameObject mail)
     {
@@ -20,12 +21,21 @@ public class MailUIManager : MonoBehaviour
         //Check if its important mail
         //check if character will read it
         mailObj = mail;
-        mailText = mail.GetComponentInChildren<TextMeshProUGUI>(true);
+        mailText = mail.GetComponentsInChildren<TextMeshProUGUI>(true)[0];
         mailIcon = mail.GetComponentsInChildren<Image>(true)[0];
         urgentIcon = mail.GetComponentsInChildren<Image>(true)[1];
+        dialogueIndex = int.Parse(mail.GetComponentsInChildren<TextMeshProUGUI>(true)[1].text);
         letterText.text = mailText.text;
         letterPanel.SetActive(true);
 
+        if (dialogueIndex != 0)
+        {
+            CharacterData charData = GameManager.instance.characterManager.activePlayer.charData;
+
+            //Show Dialogue lines.
+            GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(dialogueIndex).dialogueLines,
+                charData.GetDialogueGroup(dialogueIndex).expressionTypes);
+        }
     }
 
     public void CloseLetterUI()
