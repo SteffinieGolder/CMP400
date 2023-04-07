@@ -22,12 +22,14 @@ MonoBehaviour:
   - dialogueLines: []
     expressionTypes: 
   - dialogueLines:
-    - 'Nice! '
+    - 'Good to know. '
     expressionTypes: 00000000
   - dialogueLines:
     - Nice! Getting everything sorted yesterday really paid off!
     expressionTypes: 01000000
   - dialogueLines:
-    - I'll just respond to this really quickly.
-    - Meet at 6 for...Japanese food!
-    expressionTypes: 0000000001000000
+    - I'll just respond to this really quickly...
+    - ...no joke man, kids are hard work...anything you wanna do?...meet at 6 for
+      Japanese food?
+    - Sent!
+    expressionTypes: 000000000100000001000000

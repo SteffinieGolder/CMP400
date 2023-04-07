@@ -45351,9 +45351,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hey man, \n\nLooking forward to seeing you at the weekend, been too long!
-    Let me know what time you wanna meet and where you wanna get dinner or whatever.
-    \n\nJoe. "
+  m_text: "Hey man, \n\nI'm looking forward to seeing you too! \n\nHope you've been
+    doing well this week. Work has been pretty hectic and the kids are driving me
+    a crazy, so a break at the weekend is exactly what I need.\n\nLet me know what
+    time you want to meet up and where you want to get dinner.\n\nSee ya soon!\nJoe. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -68470,11 +68471,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Dear Homeowner,
-
-
-    Some kinda bill that needs to be paid but they''ve
-    got a little credit or sumn'
+  m_text: "Dear Homeowner,\n\nYour payment has been received, thank you. Your account
+    is currently in credit to the amount of \xA3190.95. \n\nRegards, \nFarm Home
+    Services LTD."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
