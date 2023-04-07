@@ -834,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5896968723210653374, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -282
+      value: -660
       objectReference: {fileID: 0}
     - target: {fileID: 5896968723210653374, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -862,8 +862,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 'Notes: Fishing rod in the backpack as usual. Put fish in sell box when
-        collected. '
+      value: 'Notes: Fishing rod is in your backpack as usual. Put fish in the sell
+        box when collected. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
@@ -20353,7 +20353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5896968723210653374, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -529.9013
+      value: -419
       objectReference: {fileID: 0}
     - target: {fileID: 5896968723210653374, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -43407,7 +43407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5896968723210653374, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -799.9331
+      value: -141
       objectReference: {fileID: 0}
     - target: {fileID: 5896968723210653374, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -59481,7 +59481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5896968723210653374, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -76.32596
+      value: -864
       objectReference: {fileID: 0}
     - target: {fileID: 5896968723210653374, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -59509,7 +59509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 'Notes: Could use some more logs for firewood. Axe is in backpack.'
+      value: 'Notes: Axe is in your backpack. Could use some extra firewood.'
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_fontSize
