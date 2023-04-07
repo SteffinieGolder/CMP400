@@ -28,8 +28,9 @@ MonoBehaviour:
     - Nice! Getting everything sorted yesterday really paid off!
     expressionTypes: 01000000
   - dialogueLines:
-    - I'll just respond to this really quickly...
-    - ...no joke man, kids are hard work...anything you wanna do?...meet at 6 for
-      Japanese food?
+    - Whoops, probably should've replied to this earlier.
+    - I'll get it done now...
+    - Sorry for the late reply...no joke man, kids are hard work...anything you wanna
+      do?...meet at 6 for Japanese food?
     - Sent!
-    expressionTypes: 000000000100000001000000
+    expressionTypes: 04000000000000000100000001000000

@@ -55,13 +55,12 @@ MonoBehaviour:
     - I'm really trying to read this but I keep getting lost.
     - 'Repeating the same line over and over but I can''t seem to comprehend what''s
       being said... '
-    - I can tell she's upset at me. I really want to make this right.
     - Why can't I just read it and respond?! Why is it so difficult?
     - Why am I so overwhelmed by everything?
     - 'I will reply to this. I wont forget again. I cant forget again. '
     - When I get some time, I'll sit down and write a proper reply. She deserves
       a proper reply.
-    expressionTypes: 02000000020000000300000003000000030000000300000000000000
+    expressionTypes: 020000000200000003000000030000000300000000000000
   - dialogueLines:
     - I will get to this, I just can't right now.
     expressionTypes: 02000000
