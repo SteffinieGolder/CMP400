@@ -21,12 +21,12 @@ MonoBehaviour:
   itemToSpawn: {fileID: 0}
   taskIndex: 3
   ADHDTimeValue: 350
-  ADHDMultiplier: 0.5
+  ADHDMultiplier: 0.2
   ADHDGradeImage: {fileID: 0}
   NTTimeValue: 150
-  NTMultiplier: 0.2
+  NTMultiplier: 0.1
   NTGradeImage: {fileID: 0}
   dialogueGroupIndexes: 
   TilePatchPositions: []
   patchTile: {fileID: 0}
-  counter: 0
+  currentIndex: 0

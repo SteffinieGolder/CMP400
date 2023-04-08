@@ -111,3 +111,11 @@ MonoBehaviour:
     - Come on brain, let me open it.
     - 'Okay I''ll come back to it! '
     expressionTypes: 000000000200000000000000
+  rejectDialogueGroups:
+  - dialogueLines:
+    - I can't do this right now.
+    expressionTypes: 02000000
+  - dialogueLines:
+    - STOP
+    - ASKING
+    expressionTypes: 0200000002000000

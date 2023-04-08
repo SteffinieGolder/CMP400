@@ -61380,7 +61380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5896968721987062047, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5896968722212395579, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_AnchoredPosition.y

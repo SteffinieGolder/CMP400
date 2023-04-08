@@ -34,60 +34,94 @@ public class ItemManager : MonoBehaviour
                 {
                     if (GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().currentEmote.doesCharAcceptTask)
                     {
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
-                            {
-                                Vector2 pos = Input.mousePosition;
-                                if (equippedItem.data.isEquippable)
-                                {
-                                    if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
-                                    {
-                                        //THIS IS PROBABLY JANK///////////////////////////
-                                        if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
-                                        {
-                                            //Remove item from player inventory.
-                                            Inventory inventory = equippedSlot.inventory;
-                                            inventory.Remove(equippedSlot.slotID);
-                                            GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+                        RunTaskAccepted();
+                    }
 
-                                            if (equippedSlot.quantityText.text == "")
-                                            {
-                                                equippedItem = null;
-                                            }
-                                        }
-                                    }
-                                }
+                    else
+                    {
+                        RunTaskRejected();
+                    }
+                }
+
+                else
+                {
+                    DrinkMilk();
+                }
+            }
+        }
+    }
+
+    private void RunTaskAccepted()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
+            {
+                Vector2 pos = Input.mousePosition;
+                if (equippedItem.data.isEquippable)
+                {
+                    if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
+                    {
+                        //THIS IS PROBABLY JANK///////////////////////////
+                        if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
+                        {
+                            //Remove item from player inventory.
+                            Inventory inventory = equippedSlot.inventory;
+                            inventory.Remove(equippedSlot.slotID);
+                            GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+
+                            if (equippedSlot.quantityText.text == "")
+                            {
+                                equippedItem = null;
                             }
                         }
                     }
                 }
+            }
+        }
+    }
 
-                //BAD REPEATED CODE
-                else
+    private void RunTaskRejected()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
+            {
+                Vector2 pos = Input.mousePosition;
+                if (equippedItem.data.isEquippable)
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                     {
-                        if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
-                        {
-                            Vector2 pos = Input.mousePosition;
-                            if (equippedItem.data.isEquippable)
-                            {
-                                if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
-                                {
-                                    if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
-                                    {
-                                        //Remove item from player inventory.
-                                        Inventory inventory = equippedSlot.inventory;
-                                        inventory.Remove(equippedSlot.slotID);
-                                        GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+                        CharBehaviourBase behaviour = GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>();
 
-                                        if (equippedSlot.quantityText.text == "")
-                                        {
-                                            equippedItem = null;
-                                        }
-                                    }
-                                }
+                        behaviour.DisplayRejectDialogue();
+                    }
+                }
+            }
+        }
+    }
+
+    private void DrinkMilk()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
+            {
+                Vector2 pos = Input.mousePosition;
+                if (equippedItem.data.isEquippable)
+                {
+                    if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
+                    {
+                        if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
+                        {
+                            //Remove item from player inventory.
+                            Inventory inventory = equippedSlot.inventory;
+                            inventory.Remove(equippedSlot.slotID);
+                            GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
+
+                            if (equippedSlot.quantityText.text == "")
+                            {
+                                equippedItem = null;
                             }
                         }
                     }

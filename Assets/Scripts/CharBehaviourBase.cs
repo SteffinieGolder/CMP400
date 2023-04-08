@@ -13,6 +13,7 @@ public abstract class CharBehaviourBase : MonoBehaviour
     protected float currentTime;
     protected DayAndNightManager timeManager;
     public EmoteData currentEmote;
+    private int rejectDialogueIndex;
 
     enum EmoteTypes
     {
@@ -30,6 +31,7 @@ public abstract class CharBehaviourBase : MonoBehaviour
         currentEmote = charEmotes[(int)EmoteTypes.HAPPY];
         emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
         this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
+        rejectDialogueIndex = 0;
     }
 
     public void UpdateBase()
@@ -53,11 +55,6 @@ public abstract class CharBehaviourBase : MonoBehaviour
             this.GetComponent<CharMovement>().moveSpeed = charEmotes[(int)EmoteTypes.FRUSTRATED].moveSpeed;
             currentEmote = charEmotes[(int)EmoteTypes.FRUSTRATED];
         }
-
-        /* if (Input.GetKeyDown(KeyCode.U))
-         {
-             energyBarSlider.value -= energyCellSize;
-         }*/
     }
 
     public void UpdateEnergyBar(float multiplier, bool isIncreasing)
@@ -79,4 +76,17 @@ public abstract class CharBehaviourBase : MonoBehaviour
     }
 
     public abstract void UpdateBehaviour(float timeVal, float multiplier, bool isEnergyIncreasing);
+
+    public void DisplayRejectDialogue()
+    {
+        Player playerScript = this.GetComponent<Player>();
+
+        playerScript.charData.DisplayCharRejectDialogue(rejectDialogueIndex);
+        rejectDialogueIndex++;
+
+        if (rejectDialogueIndex == playerScript.charData.rejectDialogueGroups.Count)
+        {
+            rejectDialogueIndex = 0;
+        }
+    }
 }
