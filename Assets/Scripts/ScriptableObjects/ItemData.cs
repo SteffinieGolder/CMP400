@@ -30,5 +30,5 @@ public class ItemData : ScriptableObject
 
     public List<Vector2> TilePatchPositions;
     public Tile patchTile;
-    public int counter = 0;
+    public int currentIndex;
 }

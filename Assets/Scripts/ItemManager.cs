@@ -20,6 +20,7 @@ public class ItemManager : MonoBehaviour
         foreach (Item item in items)
         {
             AddItem(item);
+            item.data.currentIndex = 0;
         }
     }
 

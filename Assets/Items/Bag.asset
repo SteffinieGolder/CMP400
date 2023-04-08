@@ -21,7 +21,7 @@ MonoBehaviour:
   itemToSpawn: {fileID: 0}
   taskIndex: 0
   ADHDTimeValue: 200
-  ADHDMultiplier: 1
+  ADHDMultiplier: 0.3
   ADHDGradeImage: {fileID: 0}
   NTTimeValue: 0
   NTMultiplier: 0

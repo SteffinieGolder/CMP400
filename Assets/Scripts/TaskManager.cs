@@ -15,6 +15,11 @@ public class TaskManager : MonoBehaviour
 
     public int fishTaskCounter = 0;
 
+    private void Start()
+    {
+        fishTaskCounter = 0;
+    }
+
     public bool IsTaskPortionComplete(bool isChar1, int taskIndex)
     {
         if (isChar1)

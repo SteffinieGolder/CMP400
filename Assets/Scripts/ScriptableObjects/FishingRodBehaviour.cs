@@ -46,19 +46,14 @@ public class FishingRodBehaviour : ToolBehaviour
 
             int current = GameManager.instance.taskManager.fishTaskCounter;
 
-            if (current == 3 || current == 4 || current == 7 || current == 9)
+            if (current == 2 || current == 3 || current == 4 || current == 7 || current == 9 || current == 10)
             {
                 //Show Dialogue lines.
-                GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndexes[itemData.counter]).dialogueLines,
-                    charData.GetDialogueGroup(itemData.dialogueGroupIndexes[itemData.counter]).expressionTypes);
+                GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndexes[itemData.currentIndex]).dialogueLines,
+                    charData.GetDialogueGroup(itemData.dialogueGroupIndexes[itemData.currentIndex]).expressionTypes);
 
-                itemData.counter++;
+                itemData.currentIndex++;
                 manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
-
-                if (itemData.counter == itemData.dialogueGroupIndexes.Count)
-                {
-                    itemData.counter = 0;
-                }
 
             }
 
