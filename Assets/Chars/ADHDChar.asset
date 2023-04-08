@@ -69,14 +69,13 @@ MonoBehaviour:
     - Please focus...please.
     - I've missed so many.
     - ...
-    - ...
     - focus
     - ...
     - It's gone. I did it again.
     - What is my problem? I'm supposed to be an adult!
     - 'Why is it that I can only focus way too much or not at all? There''s no balance! '
     - No in-between...
-    expressionTypes: 02000000020000000200000003000000030000000300000003000000020000000200000002000000020000000300000003000000
+    expressionTypes: 020000000200000002000000030000000300000003000000020000000200000002000000020000000300000003000000
   - dialogueLines:
     - I can't do this.
     expressionTypes: 03000000
