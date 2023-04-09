@@ -9,4 +9,6 @@ public class EmoteData : ScriptableObject
     public float moveSpeed;
     public bool doesCharAcceptTask;
     public int dialogueIndex;
+    public float lowerLimit;
+    public float upperLimit;
 }

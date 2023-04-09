@@ -17,3 +17,5 @@ MonoBehaviour:
   moveSpeed: 1
   doesCharAcceptTask: 0
   dialogueIndex: 1
+  lowerLimit: 0.245
+  upperLimit: 0.622

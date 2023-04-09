@@ -50,7 +50,7 @@ public abstract class CharBehaviourBase : MonoBehaviour
             }
 
             //This value hardcoding is probably dodgy should fix
-            if (energyBarSlider.value > 0.622)
+            if (energyBarSlider.value > charEmotes[(int)EmoteTypes.HAPPY].lowerLimit)
             {
                 if (currentEmote != charEmotes[(int)EmoteTypes.HAPPY])
                 {
@@ -61,7 +61,7 @@ public abstract class CharBehaviourBase : MonoBehaviour
                 }
             }
 
-            if (energyBarSlider.value <= 0.622 && energyBarSlider.value > 0.245)
+            else if (energyBarSlider.value <= charEmotes[(int)EmoteTypes.TIRED].upperLimit && energyBarSlider.value > charEmotes[(int)EmoteTypes.TIRED].lowerLimit)
             {
                 if (currentEmote != charEmotes[(int)EmoteTypes.TIRED])
                 {
@@ -72,7 +72,7 @@ public abstract class CharBehaviourBase : MonoBehaviour
                 }
             }
 
-            if (energyBarSlider.value <= 0.245)
+           else if (energyBarSlider.value <= charEmotes[(int)EmoteTypes.HAPPY].lowerLimit)
             {
                 if (currentEmote != charEmotes[(int)EmoteTypes.FRUSTRATED])
                 {
