@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject dialoguePausePanel;
 
     public GameObject fadePanel;
+    public GameObject skyPanel;
 
     public List<InventoryUI> inventoryUIs;
     public List<GameObject> backpackPanels;
@@ -68,40 +69,6 @@ public class UIManager : MonoBehaviour
                 ShowStorageScreen();
             }
         }
-
-       /* if (showDialogue)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                /*if (isSingleLine)
-                {
-                    Debug.Log("Reset");
-                    dialoguePanel.SetActive(false);
-                    dialogueTextUI.text = "";
-                    isSingleLine = false;
-                    //Time.timeScale = 1;
-                    return;
-                }
-
-                // else
-                //{
-                currentDialogueIndex++;
-
-                if (currentDialogueIndex == dialogueToShow.Count)
-                {
-                    //Debug.Log("Reset");
-                    dialoguePanel.SetActive(false);
-                    dialogueTextUI.text = "";
-                    currentDialogueIndex = 0;
-                    showDialogue = false;
-                    currentActiveToggleUICount--;
-                    return;
-                }
-
-                ShowDialogueBox(currentDialogueIndex);
-                //}
-            }
-        }*/
 
         //Toggle inventory on/off when player presses TAB key. 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -179,14 +146,16 @@ public class UIManager : MonoBehaviour
 
     public void SetDialogueData(List<string> dialoguelines, List<CharacterData.FaceType> charFaceTypes)
     {
-        //Debug.Log("Set Dialogue");
-
         dialogueToShow = dialoguelines;
         faceTypes = charFaceTypes;
 
         //showDialogue = true;
         currentDialogueIndex = 0;
-        ShowDialogueBox();
+
+        if (!fadePanel.activeSelf && !skyPanel.activeSelf)
+        {
+            ShowDialogueBox();
+        }
         //ShowDialogueBox();
     }
 
@@ -235,6 +204,16 @@ public class UIManager : MonoBehaviour
             dialogueTextUI.text = "";
             currentDialogueIndex = 0;
             currentActiveToggleUICount--;
+            
+            if (fadePanel.activeSelf)
+            {
+                FadeInOrOut(false);
+            }
+
+            if(skyPanel.activeSelf)
+            {
+                DisplaySkyPanel(false);
+            }
         }
     }
 
@@ -244,14 +223,33 @@ public class UIManager : MonoBehaviour
 
         if (fadeOut)
         {
+            fadePanel.SetActive(true);
             clip.Play("FadeClip");
         }
 
         else
         {
             clip.Play("FadeClip 1");
+            //fadePanel.SetActive(false);
         }
 
+    }
+
+    public void DisplaySkyPanel(bool shouldDisplayPanel)
+    {
+        Animation clip = skyPanel.GetComponent<Animation>();
+
+        if (shouldDisplayPanel)
+        {
+            skyPanel.SetActive(true);
+            clip.Play("SkyAnimFadeIn");
+        }
+
+        else
+        {
+            clip.Play("SkyAnimFadeOut");
+            //skyPanel.SetActive(false);
+        }
     }
 
     public void ShowStorageScreen()
@@ -291,10 +289,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// /MESSES UP DRAGGED SLOT IF ITS DRAGGED THEN PLAYER MOVES OUT OF RANGE BEFORE DROP
-    /// </summary>
     public void CloseStorageUI()
     {
         if (storagePanels != null)

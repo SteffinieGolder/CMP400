@@ -34,14 +34,11 @@ public class MilkBehaviour : ToolBehaviour
     {
         if (GameManager.instance.characterManager.char1IsActive)
         {
-            //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, true);
-            //Increase slightly? no change? decrease?
-            //Dialogue
-            //Show Dialogue lines.
+            GameManager.instance.uiManager.DisplaySkyPanel(true);
             GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).dialogueLines,
                 charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
-            //zone out
-            Debug.Log("I am zoning out now");
+
+            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, true);
         }
 
         else

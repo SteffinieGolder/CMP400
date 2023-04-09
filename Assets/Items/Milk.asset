@@ -20,8 +20,8 @@ MonoBehaviour:
   tileToChangeTo: {fileID: 0}
   itemToSpawn: {fileID: 0}
   taskIndex: 0
-  ADHDTimeValue: 0
-  ADHDMultiplier: 1
+  ADHDTimeValue: 5000
+  ADHDMultiplier: 6
   ADHDGradeImage: {fileID: 0}
   NTTimeValue: 0
   NTMultiplier: 2

@@ -62,7 +62,6 @@ public class ItemManager : MonoBehaviour
                 {
                     if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                     {
-                        //THIS IS PROBABLY JANK///////////////////////////
                         if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
                         {
                             //Remove item from player inventory.

@@ -111,8 +111,6 @@ public class WateringCanBehaviour : ToolBehaviour
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).dialogueLines, 
                         charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
 
-                    GameManager.instance.uiManager.FadeInOrOut(false);
-
                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
 
                 }

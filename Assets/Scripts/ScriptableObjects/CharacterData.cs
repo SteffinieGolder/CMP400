@@ -20,9 +20,8 @@ public class CharacterData : ScriptableObject
     [Header("Reject Dialogue")]
     public List<DialogueGroup> rejectDialogueGroups = new List<DialogueGroup>();
 
-    [Header("Reject Dialogue")]
+    [Header("Emote Dialogue")]
     public List<DialogueGroup> emoteDialogueGroups = new List<DialogueGroup>();
-
 
     public enum FaceType
     {

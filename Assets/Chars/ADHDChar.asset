@@ -112,9 +112,11 @@ MonoBehaviour:
     - I will get to this, I just can't right now.
     expressionTypes: 02000000
   - dialogueLines:
-    - I am the milk man
-    - my milk is delicious
-    expressionTypes: 0200000001000000
+    - This is the text
+    - where i talk about
+    - how much everything su ks
+    - boooohooooo
+    expressionTypes: 02000000010000000400000003000000
   rejectDialogueGroups:
   - dialogueLines:
     - I can't do this right now.
