@@ -20,6 +20,9 @@ public class CharacterData : ScriptableObject
     [Header("Reject Dialogue")]
     public List<DialogueGroup> rejectDialogueGroups = new List<DialogueGroup>();
 
+    [Header("Reject Dialogue")]
+    public List<DialogueGroup> emoteDialogueGroups = new List<DialogueGroup>();
+
 
     public enum FaceType
     {
@@ -39,5 +42,11 @@ public class CharacterData : ScriptableObject
     {
         //Show Reject Dialogue lines.
         GameManager.instance.uiManager.SetDialogueData(rejectDialogueGroups[groupIndex].dialogueLines, rejectDialogueGroups[groupIndex].expressionTypes);
+    }
+
+    public void DisplayCharEmoteDialogue(int groupIndex)
+    {
+        //Show Reject Dialogue lines.
+        GameManager.instance.uiManager.SetDialogueData(emoteDialogueGroups[groupIndex].dialogueLines, emoteDialogueGroups[groupIndex].expressionTypes);
     }
 }

@@ -111,6 +111,10 @@ MonoBehaviour:
   - dialogueLines:
     - I will get to this, I just can't right now.
     expressionTypes: 02000000
+  - dialogueLines:
+    - I am the milk man
+    - my milk is delicious
+    expressionTypes: 0200000001000000
   rejectDialogueGroups:
   - dialogueLines:
     - I can't do this right now.
@@ -119,3 +123,14 @@ MonoBehaviour:
     - STOP
     - ASKING
     expressionTypes: 0200000002000000
+  emoteDialogueGroups:
+  - dialogueLines:
+    - Starting to feel better now
+    - Finally
+    expressionTypes: 0000000000000000
+  - dialogueLines:
+    - Wow I'm pretty tired
+    expressionTypes: 00000000
+  - dialogueLines:
+    - REEEEEEE
+    expressionTypes: 00000000

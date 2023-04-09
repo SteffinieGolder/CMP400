@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EmoteData : ScriptableObject
 {
+    public string emoteName;
     public Sprite emoteSprite;
     public float moveSpeed;
     public bool doesCharAcceptTask;
+    public int dialogueIndex;
 }

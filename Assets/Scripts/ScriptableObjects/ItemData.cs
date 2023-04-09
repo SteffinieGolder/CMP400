@@ -26,7 +26,8 @@ public class ItemData : ScriptableObject
     public float NTMultiplier;
     public Sprite NTGradeImage;
 
-    public List<int> dialogueGroupIndexes;
+    public List<int> ADHDDialogueGroupIndexes;
+    public List<int> NTDialogueGroupIndexes;
 
     public List<Vector2> TilePatchPositions;
     public Tile patchTile;

@@ -108,8 +108,8 @@ public class WateringCanBehaviour : ToolBehaviour
 
               
                     //Show Dialogue lines.
-                    GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndexes[0]).dialogueLines, 
-                        charData.GetDialogueGroup(itemData.dialogueGroupIndexes[0]).expressionTypes);
+                    GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).dialogueLines, 
+                        charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
 
                     GameManager.instance.uiManager.FadeInOrOut(false);
 

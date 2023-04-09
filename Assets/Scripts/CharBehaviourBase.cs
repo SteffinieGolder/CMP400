@@ -36,24 +36,52 @@ public abstract class CharBehaviourBase : MonoBehaviour
 
     public void UpdateBase()
     {
-        if (timeManager.GetCurrentTime() == 0)
+        if (Time.timeScale != 0)
         {
-            currentTime = timeManager.GetCurrentTime();
-        }
+            //Testing
+            if(Input.GetKeyDown(KeyCode.B))
+            {
+                energyBarSlider.value -= 0.126f;
+            }
 
-        //THIS MIGHT BE DODGY BUT I CANT THINK RN
-        if (energyBarSlider.value <= 0.622 && energyBarSlider.value > 0.245)
-        {
-            emoteObject.GetComponent<SpriteRenderer>().sprite = charEmotes[(int)EmoteTypes.TIRED].emoteSprite;
-            this.GetComponent<CharMovement>().moveSpeed = charEmotes[(int)EmoteTypes.TIRED].moveSpeed;
-            currentEmote = charEmotes[(int)EmoteTypes.TIRED];
-        }
+            if (timeManager.GetCurrentTime() == 0)
+            {
+                currentTime = timeManager.GetCurrentTime();
+            }
 
-        if (energyBarSlider.value <= 0.245)
-        {
-            emoteObject.GetComponent<SpriteRenderer>().sprite = charEmotes[(int)EmoteTypes.FRUSTRATED].emoteSprite;
-            this.GetComponent<CharMovement>().moveSpeed = charEmotes[(int)EmoteTypes.FRUSTRATED].moveSpeed;
-            currentEmote = charEmotes[(int)EmoteTypes.FRUSTRATED];
+            //This value hardcoding is probably dodgy should fix
+            if (energyBarSlider.value > 0.622)
+            {
+                if (currentEmote != charEmotes[(int)EmoteTypes.HAPPY])
+                {
+                    currentEmote = charEmotes[(int)EmoteTypes.HAPPY];
+                    emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
+                    this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
+                    DisplayEmoteChangeDialogue(currentEmote.dialogueIndex);
+                }
+            }
+
+            if (energyBarSlider.value <= 0.622 && energyBarSlider.value > 0.245)
+            {
+                if (currentEmote != charEmotes[(int)EmoteTypes.TIRED])
+                {
+                    currentEmote = charEmotes[(int)EmoteTypes.TIRED];
+                    emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
+                    this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
+                    DisplayEmoteChangeDialogue(currentEmote.dialogueIndex);
+                }
+            }
+
+            if (energyBarSlider.value <= 0.245)
+            {
+                if (currentEmote != charEmotes[(int)EmoteTypes.FRUSTRATED])
+                {
+                    currentEmote = charEmotes[(int)EmoteTypes.FRUSTRATED];
+                    emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
+                    this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
+                    DisplayEmoteChangeDialogue(currentEmote.dialogueIndex);
+                }
+            }
         }
     }
 
@@ -77,6 +105,11 @@ public abstract class CharBehaviourBase : MonoBehaviour
 
     public abstract void UpdateBehaviour(float timeVal, float multiplier, bool isEnergyIncreasing);
 
+    public void FullyRestoreEnergy()
+    {
+        energyBarSlider.value = 1.0f;
+    }
+
     public void DisplayRejectDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
@@ -88,5 +121,17 @@ public abstract class CharBehaviourBase : MonoBehaviour
         {
             rejectDialogueIndex = 0;
         }
+    }
+
+    public void DisplayEmoteChangeDialogue(int index)
+    {
+        Player playerScript = this.GetComponent<Player>();
+
+        playerScript.charData.DisplayCharEmoteDialogue(index);
+    }
+
+    public string GetEmoteAsString()
+    {
+        return currentEmote.emoteName;
     }
 }

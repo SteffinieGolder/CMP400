@@ -49,8 +49,8 @@ public class FishingRodBehaviour : ToolBehaviour
             if (current == 2 || current == 3 || current == 4 || current == 7 || current == 9 || current == 10)
             {
                 //Show Dialogue lines.
-                GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.dialogueGroupIndexes[itemData.currentIndex]).dialogueLines,
-                    charData.GetDialogueGroup(itemData.dialogueGroupIndexes[itemData.currentIndex]).expressionTypes);
+                GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[itemData.currentIndex]).dialogueLines,
+                    charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[itemData.currentIndex]).expressionTypes);
 
                 itemData.currentIndex++;
                 manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);

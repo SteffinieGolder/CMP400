@@ -6,6 +6,7 @@ public class MilkBehaviour : ToolBehaviour
 {
     ItemData itemData;
     RaycastHit2D hit;
+    CharacterData charData;
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
@@ -19,6 +20,8 @@ public class MilkBehaviour : ToolBehaviour
             {
                 if (hit.transform.GetComponent<Player>().isActiveAndEnabled)
                 {
+                    charData = GameManager.instance.characterManager.activePlayer.charData;
+                    if (hit.transform.GetComponent<CharBehaviourBase>().GetEmoteAsString() == "Tired" || hit.transform.GetComponent<CharBehaviourBase>().GetEmoteAsString() == "Frustrated")
                     return true;
                 }
             }
@@ -31,14 +34,20 @@ public class MilkBehaviour : ToolBehaviour
     {
         if (GameManager.instance.characterManager.char1IsActive)
         {
-            //Increase adhd energy by amount
-            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, true);
+            //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, true);
+            //Increase slightly? no change? decrease?
+            //Dialogue
+            //Show Dialogue lines.
+            GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).dialogueLines,
+                charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
+            //zone out
+            Debug.Log("I am zoning out now");
         }
 
         else
         {
             //increase nt eneergy by amount
-            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, true);
+            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().FullyRestoreEnergy();
         }
 
         //Return false if item is reusable

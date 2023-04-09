@@ -34,3 +34,4 @@ MonoBehaviour:
       do?...meet at 6 for Japanese food?
     - Sent!
     expressionTypes: 04000000000000000100000001000000
+  rejectDialogueGroups: []

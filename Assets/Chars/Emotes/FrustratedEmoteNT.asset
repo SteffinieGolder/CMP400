@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242f5e7ea1170b0448afb0b140f4ad41, type: 3}
   m_Name: FrustratedEmoteNT
   m_EditorClassIdentifier: 
+  emoteName: Frustrated
   emoteSprite: {fileID: 433158054, guid: 960bf5022a04bf647a4a554c7d580f2b, type: 3}
   moveSpeed: 0
   doesCharAcceptTask: 0
+  dialogueIndex: 2

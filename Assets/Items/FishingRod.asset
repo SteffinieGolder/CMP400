@@ -26,7 +26,8 @@ MonoBehaviour:
   NTTimeValue: 200
   NTMultiplier: 0.2
   NTGradeImage: {fileID: 0}
-  dialogueGroupIndexes: 010000000200000003000000040000000500000006000000
+  ADHDDialogueGroupIndexes: 010000000200000003000000040000000500000006000000
+  NTDialogueGroupIndexes: 
   TilePatchPositions: []
   patchTile: {fileID: 0}
   currentIndex: 4
