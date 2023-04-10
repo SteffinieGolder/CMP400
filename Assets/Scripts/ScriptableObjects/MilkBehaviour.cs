@@ -39,6 +39,9 @@ public class MilkBehaviour : ToolBehaviour
                 charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
 
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, true);
+           // GameManager.instance.characterManager.activePlayer.GetComponent<CharMovement>().moveSpeed += 2;
+            GameManager.instance.dayAndNightManager.timeScale = 60f;
+            
         }
 
         else
