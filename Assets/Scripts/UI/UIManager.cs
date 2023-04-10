@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     private List<string> dialogueToShow;
     private List<CharacterData.FaceType> faceTypes;
     private int currentDialogueIndex = 0;
+    private bool shouldRemoveUI = false;
     //private bool showDialogue = false;
 
     //private bool isSingleLine = false;
@@ -59,6 +60,30 @@ public class UIManager : MonoBehaviour
         else
         {
             Time.timeScale = 0;
+        }
+
+        //Make function??
+        if(shouldRemoveUI)
+        {
+            if (fadePanel.activeSelf)
+            {
+                Animator animator = fadePanel.GetComponent<Animator>();
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                {
+                    fadePanel.SetActive(false);
+                    shouldRemoveUI = false;
+                }
+            }
+
+            else if (skyPanel.activeSelf)
+            {
+                Animator animator = skyPanel.GetComponent<Animator>();
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                {
+                    skyPanel.SetActive(false);
+                    shouldRemoveUI = false;
+                }
+            }
         }
 
         if (isCharacterInStorageInteractRange)
@@ -151,11 +176,8 @@ public class UIManager : MonoBehaviour
 
         //showDialogue = true;
         currentDialogueIndex = 0;
+        ShowDialogueBox();
 
-        if (!fadePanel.activeSelf && !skyPanel.activeSelf)
-        {
-            ShowDialogueBox();
-        }
         //ShowDialogueBox();
     }
 
@@ -219,36 +241,36 @@ public class UIManager : MonoBehaviour
 
     public void FadeInOrOut(bool fadeOut)
     {
-        Animation clip = fadePanel.GetComponent<Animation>();
+        Animator animator = fadePanel.GetComponent<Animator>();
 
         if (fadeOut)
         {
             fadePanel.SetActive(true);
-            clip.Play("FadeClip");
+            animator.SetTrigger("FadeIn");
         }
 
         else
         {
-            clip.Play("FadeClip 1");
-            //fadePanel.SetActive(false);
+            animator.SetTrigger("FadeOut");
+            shouldRemoveUI = true;
         }
 
     }
 
     public void DisplaySkyPanel(bool shouldDisplayPanel)
     {
-        Animation clip = skyPanel.GetComponent<Animation>();
+        Animator animator = skyPanel.GetComponent<Animator>();
 
         if (shouldDisplayPanel)
         {
             skyPanel.SetActive(true);
-            clip.Play("SkyAnimFadeIn");
+            animator.SetTrigger("FadeIn");
         }
 
         else
         {
-            clip.Play("SkyAnimFadeOut");
-            //skyPanel.SetActive(false);
+            animator.SetTrigger("FadeOut");
+            shouldRemoveUI = true;
         }
     }
 

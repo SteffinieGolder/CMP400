@@ -96,6 +96,18 @@ public class WateringCanBehaviour : ToolBehaviour
                         GameManager.instance.characterManager.activePlayer.inventoryManager.backpack.AddItemToAmount(11 - tomatsInStorage, tomato);
                     }
 
+                    //Destroy any vegetables lying in the environment. 
+                    GameObject[] arr = GameObject.FindGameObjectsWithTag("Item");
+
+                    foreach(var obj in arr)
+                    {
+                        ItemData itemData = obj.GetComponent<Item>().data;
+                        if (itemData.itemName == "Carrot" || itemData.itemName == "Strawberry" || itemData.itemName == "Tomato")
+                        {
+                            Destroy(obj);
+                        }
+                    }
+                    
                     //Change some tiles to watered. 
                     List<Vector2> lessPositions = new List<Vector2>();
                     for (int i = 0; i < itemData.TilePatchPositions.Count/2; i++)
