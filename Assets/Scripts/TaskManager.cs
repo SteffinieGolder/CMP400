@@ -14,6 +14,10 @@ public class TaskManager : MonoBehaviour
     public Sprite completeSprite;
 
     public int fishTaskCounter = 0;
+    public bool isFishingComplete = false;
+    public bool isPlantingComplete = false;
+    public bool hasFishingStarted = false;
+    public bool hasPlantingStarted = false;
 
     private void Start()
     {

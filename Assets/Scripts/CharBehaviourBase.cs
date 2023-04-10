@@ -13,7 +13,12 @@ public abstract class CharBehaviourBase : MonoBehaviour
     protected float currentTime;
     protected DayAndNightManager timeManager;
     public EmoteData currentEmote;
+
     private int rejectDialogueIndex;
+    private int shouldBeFishingIndex;
+    private int busyFishingIndex;
+    private int shouldBePlantingIndex;
+    private int busyPlantingIndex;
 
     enum EmoteTypes
     {
@@ -31,7 +36,13 @@ public abstract class CharBehaviourBase : MonoBehaviour
         currentEmote = charEmotes[(int)EmoteTypes.HAPPY];
         emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
         this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
+
         rejectDialogueIndex = 0;
+        shouldBeFishingIndex = 0;
+        busyFishingIndex = 0;
+        shouldBePlantingIndex = 0;
+        busyPlantingIndex = 0;
+
     }
 
     public void UpdateBase()
@@ -128,6 +139,58 @@ public abstract class CharBehaviourBase : MonoBehaviour
         Player playerScript = this.GetComponent<Player>();
 
         playerScript.charData.DisplayCharEmoteDialogue(index);
+    }
+
+    public void DisplayBusyFishingDialogue()
+    {
+        Player playerScript = this.GetComponent<Player>();
+
+        playerScript.charData.DisplayFishingDialogue(busyFishingIndex);
+        busyFishingIndex++;
+
+        if (busyFishingIndex == playerScript.charData.busyFishingDialogue.Count)
+        {
+            busyFishingIndex = 0;
+        }
+    }
+
+    public void DisplayShouldBeFishingDialogue()
+    {
+        Player playerScript = this.GetComponent<Player>();
+
+        playerScript.charData.DisplayShouldBeFishingDialogue(shouldBeFishingIndex);
+        shouldBeFishingIndex++;
+
+        if (shouldBeFishingIndex == playerScript.charData.shouldBeFishingDialogue.Count)
+        {
+            shouldBeFishingIndex = 0;
+        }
+    }
+
+    public void DisplayBusyPlantingDialogue()
+    {
+        Player playerScript = this.GetComponent<Player>();
+
+        playerScript.charData.DisplayPlantingDialogue(busyPlantingIndex);
+        busyPlantingIndex++;
+
+        if (busyPlantingIndex == playerScript.charData.busyPlantingDialogue.Count)
+        {
+            busyPlantingIndex = 0;
+        }
+    }
+
+    public void DisplayShouldBePlantingDialogue()
+    {
+        Player playerScript = this.GetComponent<Player>();
+
+        playerScript.charData.DisplayShouldBePlantingDialogue(shouldBePlantingIndex);
+        shouldBePlantingIndex++;
+
+        if (shouldBePlantingIndex == playerScript.charData.shouldBePlantingDialogue.Count)
+        {
+            shouldBePlantingIndex = 0;
+        }
     }
 
     public string GetEmoteAsString()

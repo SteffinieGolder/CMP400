@@ -23,6 +23,14 @@ public class CharacterData : ScriptableObject
     [Header("Emote Dialogue")]
     public List<DialogueGroup> emoteDialogueGroups = new List<DialogueGroup>();
 
+    [Header("Fishing Dialogue")]
+    public List<DialogueGroup> shouldBeFishingDialogue = new List<DialogueGroup>();
+    public List<DialogueGroup> busyFishingDialogue = new List<DialogueGroup>();
+
+    [Header("Planting Dialogue")]
+    public List<DialogueGroup> shouldBePlantingDialogue = new List<DialogueGroup>();
+    public List<DialogueGroup> busyPlantingDialogue = new List<DialogueGroup>();
+
     public enum FaceType
     {
         NEUTRAL = 0,
@@ -47,5 +55,25 @@ public class CharacterData : ScriptableObject
     {
         //Show Reject Dialogue lines.
         GameManager.instance.uiManager.SetDialogueData(emoteDialogueGroups[groupIndex].dialogueLines, emoteDialogueGroups[groupIndex].expressionTypes);
+    }
+
+    public void DisplayShouldBeFishingDialogue(int groupIndex)
+    {
+        GameManager.instance.uiManager.SetDialogueData(shouldBeFishingDialogue[groupIndex].dialogueLines, shouldBeFishingDialogue[groupIndex].expressionTypes);
+    }
+
+    public void DisplayFishingDialogue(int groupIndex)
+    {
+        GameManager.instance.uiManager.SetDialogueData(busyFishingDialogue[groupIndex].dialogueLines, busyFishingDialogue[groupIndex].expressionTypes);
+    }
+
+    public void DisplayShouldBePlantingDialogue(int groupIndex)
+    {
+        GameManager.instance.uiManager.SetDialogueData(shouldBePlantingDialogue[groupIndex].dialogueLines, shouldBePlantingDialogue[groupIndex].expressionTypes);
+    }
+
+    public void DisplayPlantingDialogue(int groupIndex)
+    {
+        GameManager.instance.uiManager.SetDialogueData(busyPlantingDialogue[groupIndex].dialogueLines, busyPlantingDialogue[groupIndex].expressionTypes);
     }
 }

@@ -136,3 +136,38 @@ MonoBehaviour:
   - dialogueLines:
     - REEEEEEE
     expressionTypes: 00000000
+  shouldBeFishingDialogue:
+  - dialogueLines:
+    - I should be fishing rn
+    expressionTypes: 04000000
+  - dialogueLines:
+    - I
+    - wanna
+    - fish
+    expressionTypes: 000000000000000002000000
+  busyFishingDialogue:
+  - dialogueLines:
+    - Im fishing rn
+    expressionTypes: 01000000
+  - dialogueLines:
+    - Stop iiiitttt
+    - Pllsssss
+    - lemme keep fishing
+    expressionTypes: 010000000300000001000000
+  shouldBePlantingDialogue:
+  - dialogueLines:
+    - I should be planting rn
+    expressionTypes: 02000000
+  - dialogueLines:
+    - I should be planting bro
+    - just let me plant brp
+    expressionTypes: 0200000001000000
+  - dialogueLines:
+    - let meeee plant
+    - plsssss
+    - im begging idiot
+    expressionTypes: 020000000100000002000000
+  busyPlantingDialogue:
+  - dialogueLines:
+    - im planting rn
+    expressionTypes: 01000000

@@ -41,6 +41,7 @@ public class WateringCanBehaviour : ToolBehaviour
                 {
                     if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                     {
+
                         return true;
                     }
                 }
@@ -124,7 +125,8 @@ public class WateringCanBehaviour : ToolBehaviour
                         charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
 
                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
-
+                    GameManager.instance.taskManager.isPlantingComplete = true;
+                    GameManager.instance.taskManager.hasPlantingStarted = false;
                 }
 
             }

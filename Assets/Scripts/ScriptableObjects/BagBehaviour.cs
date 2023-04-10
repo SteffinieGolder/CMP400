@@ -10,6 +10,7 @@ public class BagBehaviour : ToolBehaviour
     Vector3Int gridPos;
     ItemData itemData;
     TileBase tile;
+    CharacterData charData;
 
     public override bool CheckUseConditions(Vector2 position, ItemData item)
     {
@@ -29,12 +30,29 @@ public class BagBehaviour : ToolBehaviour
                 {
                     if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                     {
-                        return true;
+                        if (GameManager.instance.taskManager.isFishingComplete)
+                        {
+                            return true;
+                        }
+
+                        else
+                        {
+                            if (!GameManager.instance.taskManager.hasFishingStarted)
+                            {
+                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayShouldBeFishingDialogue();
+                            }       
+
+                            else
+                            {
+                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyFishingDialogue();
+                            }
+                        }
                     }
                 }
             }
 
         }
+
         return false;
     }
 
@@ -43,6 +61,11 @@ public class BagBehaviour : ToolBehaviour
         Instantiate(GameManager.instance.itemManager.GetItemByName(tile.name), GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), GameManager.instance.characterManager.activePlayer.transform.rotation);
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
         GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
+
+        if (!GameManager.instance.taskManager.hasPlantingStarted)
+        {
+            GameManager.instance.taskManager.hasPlantingStarted = true;
+        }
         return false;
     }
 }

@@ -22,7 +22,39 @@ public class AxeBehaviour : ToolBehaviour
                 //Check if player position is in the interact range
                 if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, hit.transform.position) <= itemData.interactRange)
                 {
-                    return true;
+                    if (GameManager.instance.taskManager.isPlantingComplete)
+                    {
+                        return true;
+                    }
+
+                    else
+                    {
+                        if (!GameManager.instance.taskManager.isFishingComplete)
+                        {
+                            if (!GameManager.instance.taskManager.hasFishingStarted)
+                            {
+                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayShouldBeFishingDialogue();
+                            }
+
+                            else
+                            {
+                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyFishingDialogue();
+                            }
+                        }
+
+                        else
+                        {
+                            if (!GameManager.instance.taskManager.hasPlantingStarted)
+                            {
+                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayShouldBePlantingDialogue();
+                            }
+
+                            else
+                            {
+                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
+                            }
+                        }
+                    }
                 }
             }
         }
