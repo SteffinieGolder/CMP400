@@ -39,6 +39,9 @@ public class CharacterData : ScriptableObject
     [Header("End Sequence Dialogue")]
     public List<DialogueGroup> endSequenceSoloDialogue = new List<DialogueGroup>();
 
+    [Header("Axe Borrow Conversation Dialogue")]
+    public List<DialogueGroup> axeBorrowConversationDialogue = new List<DialogueGroup>();
+
     public enum FaceType
     {
         NEUTRAL = 0,

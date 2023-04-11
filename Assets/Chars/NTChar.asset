@@ -35,3 +35,18 @@ MonoBehaviour:
     - Sent!
     expressionTypes: 04000000000000000100000001000000
   rejectDialogueGroups: []
+  emoteDialogueGroups: []
+  shouldBeFishingDialogue: []
+  busyFishingDialogue: []
+  shouldBePlantingDialogue: []
+  busyPlantingDialogue: []
+  findAxeDialogue: []
+  endSequenceSoloDialogue: []
+  axeBorrowConversationDialogue:
+  - dialogueLines:
+    - Hi im good thanks u
+    expressionTypes: 03000000
+  - dialogueLines:
+    - ok beyeyeye
+    - jdjdowjdow
+    expressionTypes: 0100000004000000

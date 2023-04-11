@@ -202,3 +202,13 @@ MonoBehaviour:
     - im done in
     - FIN
     expressionTypes: 0300000000000000020000000000000004000000
+  axeBorrowConversationDialogue:
+  - dialogueLines:
+    - Hi hows it goin
+    - what u doin today
+    expressionTypes: 0000000000000000
+  - dialogueLines:
+    - im good thnks
+    - a ittle bored
+    - u know how it do
+    expressionTypes: 000000000200000004000000

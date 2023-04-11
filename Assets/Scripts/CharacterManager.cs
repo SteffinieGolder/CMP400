@@ -8,8 +8,8 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] GameObject char1Gate;
     [SerializeField] GameObject char2Gate;
 
-    private Player char1PlayerScript;
-    private Player char2PlayerScript;
+    public Player char1PlayerScript;
+    public Player char2PlayerScript;
     private CharMovement char1MovementScript;
     private CharMovement char2MovementScript;
     private CharBehaviourBase char1BehaviourScript;

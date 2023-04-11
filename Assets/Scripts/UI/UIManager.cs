@@ -31,9 +31,19 @@ public class UIManager : MonoBehaviour
     public static bool isCharacterInStorageInteractRange;
 
     private int currentActiveToggleUICount;
+
     private List<string> dialogueToShow;
     private List<CharacterData.FaceType> faceTypes;
+    private List<CharacterData.DialogueGroup> conversationGroup1stSpeaker;
+    private List<CharacterData.DialogueGroup> conversationGroup2ndSpeaker;
+    private bool isConversation = false;
+    CharacterData firstSpeakerData;
+    CharacterData secondSpeakerData;
+
     private int currentDialogueIndex = 0;
+    private int speaker1GroupIndex = 0;
+    private int speaker2GroupIndex = 0;
+
     private bool shouldRemoveUI = false;
 
     public bool startCheckingForStorageClosed = false;
@@ -174,35 +184,40 @@ public class UIManager : MonoBehaviour
         dialogueToShow = dialoguelines;
         faceTypes = charFaceTypes;
 
-        //showDialogue = true;
         currentDialogueIndex = 0;
         ShowDialogueBox();
-
-        //ShowDialogueBox();
     }
 
-   /* public void SetSingleDialogueLine(string line, CharacterData.FaceType type)
+    public void SetConversationDialogueData(List<CharacterData.DialogueGroup> firstSpeakerDialogueLines, List<CharacterData.DialogueGroup> secondSpeakerDialoguelines, 
+        CharacterData firstSpeaker, CharacterData secondSpeaker)
     {
-        lineToShow = line;
-        faceToShow = type;
+        conversationGroup1stSpeaker = firstSpeakerDialogueLines;
+        conversationGroup2ndSpeaker = secondSpeakerDialoguelines;
 
-        isSingleLine = true;
-        ShowSingleDialogue();
+        currentDialogueIndex = 0;
+        speaker1GroupIndex = 0;
+        speaker2GroupIndex = 0;
+        isConversation = true;
+        firstSpeakerData = firstSpeaker;
+        secondSpeakerData = secondSpeaker;
+        ShowDialogueBox();
     }
-
-    private void ShowSingleDialogue()
-    {
-        dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceToShow];
-        dialogueTextUI.text = lineToShow;
-
-        if (!dialoguePanel.activeSelf)
-        {
-            dialoguePanel.SetActive(true);
-            // Time.timeScale = 0;
-        }
-    }*/
-
+    
     public void ShowDialogueBox()
+    {
+        if (isConversation)
+        {
+            ShowConversationDialogue();
+        }
+
+        else
+        {
+            ShowSingleCharDialogue();
+        }
+      
+    }
+
+    public void ShowSingleCharDialogue()
     {
         if (currentDialogueIndex < dialogueToShow.Count)
         {
@@ -226,18 +241,87 @@ public class UIManager : MonoBehaviour
             dialogueTextUI.text = "";
             currentDialogueIndex = 0;
             currentActiveToggleUICount--;
-            
+
             if (fadePanel.activeSelf)
             {
                 FadeInOrOut(false);
             }
 
-            if(skyPanel.activeSelf)
+            if (skyPanel.activeSelf)
             {
                 DisplaySkyPanel(false);
             }
         }
     }
+
+    public void ShowConversationDialogue()
+    {
+        if (speaker2GroupIndex < conversationGroup1stSpeaker.Count)
+        {
+            if (speaker1GroupIndex > speaker2GroupIndex)
+            {
+                if (currentDialogueIndex <= conversationGroup2ndSpeaker[speaker2GroupIndex].dialogueLines.Count)
+                {
+                    dialogueSprite.sprite = secondSpeakerData.charFaceSprites[(int)conversationGroup2ndSpeaker[speaker2GroupIndex].expressionTypes[currentDialogueIndex]];
+                    dialogueTextUI.text = conversationGroup2ndSpeaker[speaker2GroupIndex].dialogueLines[currentDialogueIndex];
+
+                    currentDialogueIndex++;
+                }
+
+                if (currentDialogueIndex == conversationGroup2ndSpeaker[speaker2GroupIndex].dialogueLines.Count)
+                {
+                    speaker2GroupIndex++;
+                    currentDialogueIndex = 0;
+                }
+            }
+
+            else
+            {
+                if (currentDialogueIndex < conversationGroup1stSpeaker[speaker1GroupIndex].dialogueLines.Count)
+                {
+                    dialogueSprite.sprite = firstSpeakerData.charFaceSprites[(int)conversationGroup1stSpeaker[speaker1GroupIndex].expressionTypes[currentDialogueIndex]];
+                    dialogueTextUI.text = conversationGroup1stSpeaker[speaker1GroupIndex].dialogueLines[currentDialogueIndex];
+
+                    if (!dialoguePanel.activeSelf)
+                    {
+                        dialoguePanel.SetActive(true);
+                        dialoguePausePanel.SetActive(true);
+                        currentActiveToggleUICount++;
+                    }
+
+                    currentDialogueIndex++;
+                }
+
+                if (currentDialogueIndex == conversationGroup1stSpeaker[speaker1GroupIndex].dialogueLines.Count)
+                {
+                    speaker1GroupIndex++;
+                    currentDialogueIndex = 0;
+                }
+            }
+        }
+
+        else
+        {
+            dialoguePanel.SetActive(false);
+            dialoguePausePanel.SetActive(false);
+            dialogueTextUI.text = "";
+            currentDialogueIndex = 0;
+            currentActiveToggleUICount--;
+
+            if (fadePanel.activeSelf)
+            {
+                FadeInOrOut(false);
+            }
+
+            if (skyPanel.activeSelf)
+            {
+                DisplaySkyPanel(false);
+            }
+
+            isConversation = false;
+        }
+    }
+
 
     public void FadeInOrOut(bool fadeOut)
     {

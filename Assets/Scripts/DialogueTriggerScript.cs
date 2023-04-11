@@ -25,11 +25,17 @@ public class DialogueTriggerScript : MonoBehaviour
             {
                 if (!firstInteractionComplete)
                 {
-                    Debug.Log("We are discussing you taking my axe");
+                    CharacterData ADHDCharData = GameManager.instance.characterManager.char1PlayerScript.charData;
+                    CharacterData NTCharData = GameManager.instance.characterManager.char2PlayerScript.charData;
+
+                    //Show Dialogue lines.
+                    GameManager.instance.uiManager.SetConversationDialogueData(ADHDCharData.axeBorrowConversationDialogue, NTCharData.axeBorrowConversationDialogue,
+                        ADHDCharData, NTCharData);
+
                     firstInteractionComplete = true;
                 }
-                
-                else if(GameManager.instance.uiManager.canTriggerSecondNTDialogue)
+
+                else if (GameManager.instance.uiManager.canTriggerSecondNTDialogue)
                 {
                     if (!secondInteractionComplete)
                     {
