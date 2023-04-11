@@ -29,9 +29,18 @@ public class SwordBehaviour : ToolBehaviour
                 {
                     if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                     {
+
                         if (GameManager.instance.taskManager.isPlantingComplete)
                         {
-                            return true;
+                            if (!GameManager.instance.taskManager.isWeedingComplete)
+                            {
+                                return true;
+                            }
+
+                            else
+                            {
+                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayFindAxeDialogue();
+                            }
                         }
 
                         else
@@ -80,7 +89,7 @@ public class SwordBehaviour : ToolBehaviour
 
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
 
-        Vector2 spawnLocation = new Vector2(GameManager.instance.characterManager.activePlayer.transform.position.x - 1.5f, GameManager.instance.characterManager.activePlayer.transform.position.y);
+        //Vector2 spawnLocation = new Vector2(GameManager.instance.characterManager.activePlayer.transform.position.x - 1.5f, GameManager.instance.characterManager.activePlayer.transform.position.y);
 
         Instantiate(itemData.itemToSpawn, GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), GameManager.instance.characterManager.activePlayer.transform.rotation);
 
@@ -88,12 +97,22 @@ public class SwordBehaviour : ToolBehaviour
         {
             if (GameManager.instance.taskManager.IsTaskPortionComplete(true, itemData.taskIndex))
             {
+                GameManager.instance.taskManager.hasWeedingStarted = true;
+                GameManager.instance.taskManager.weedTaskCounter++;
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
 
-                if (GameManager.instance.taskManager.IsTaskTotallyComplete(true, itemData.taskIndex))
+                //Probs dont hardcode this
+                if (GameManager.instance.taskManager.weedTaskCounter == 10)
                 {
-
+                    GameManager.instance.taskManager.isWeedingComplete = true;
+                    GameManager.instance.taskManager.hasWeedingStarted = false;
+                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayFindAxeDialogue();
                 }
+
+                /* if (GameManager.instance.taskManager.IsTaskTotallyComplete(true, itemData.taskIndex))
+                 {
+                 }
+                */
             }
 
             else

@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+//A LOT OF THESE FUNCTIONS COULD BE CONDENSED REMOVE REPEATED CODE
+
 public abstract class CharBehaviourBase : MonoBehaviour
 {
     public Slider energyBarSlider;
@@ -19,6 +21,7 @@ public abstract class CharBehaviourBase : MonoBehaviour
     private int busyFishingIndex;
     private int shouldBePlantingIndex;
     private int busyPlantingIndex;
+    private int findAxeIndex;
 
     enum EmoteTypes
     {
@@ -131,6 +134,19 @@ public abstract class CharBehaviourBase : MonoBehaviour
         if (rejectDialogueIndex == playerScript.charData.rejectDialogueGroups.Count)
         {
             rejectDialogueIndex = 0;
+        }
+    }
+
+    public void DisplayFindAxeDialogue()
+    {
+        Player playerScript = this.GetComponent<Player>();
+
+        playerScript.charData.DisplayFindAxeDialogue(findAxeIndex);
+        findAxeIndex++;
+
+        if (findAxeIndex == playerScript.charData.findAxeDialogue.Count)
+        {
+            findAxeIndex = 0;
         }
     }
 

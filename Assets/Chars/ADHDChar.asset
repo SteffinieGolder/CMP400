@@ -171,3 +171,34 @@ MonoBehaviour:
   - dialogueLines:
     - im planting rn
     expressionTypes: 01000000
+  findAxeDialogue:
+  - dialogueLines:
+    - Maybe I should actually find my axe
+    - Dont wannt have to use neighbour wood
+    - again
+    - embarrassing
+    expressionTypes: 02000000000000000300000000000000
+  endSequenceSoloDialogue:
+  - dialogueLines:
+    - I really need to find it
+    - Maybe I missed it earlier when I looked in the sell box
+    expressionTypes: 0000000001000000
+  - dialogueLines:
+    - where could it be?
+    - maybe I've accidentally put it in the sell box
+    - I should go check
+    expressionTypes: 020000000100000000000000
+  - dialogueLines:
+    - Damn its no here
+    - i rly have no idea where it is
+    - its rly late now
+    - i should've accepted help
+    - I should go back and see if he's still available
+    expressionTypes: 0000000000000000020000000000000000000000
+  - dialogueLines:
+    - Oh no he's gone in for the night
+    - and I am here all alone
+    - wasted time
+    - im done in
+    - FIN
+    expressionTypes: 0300000000000000020000000000000004000000

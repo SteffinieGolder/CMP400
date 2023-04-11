@@ -35,11 +35,11 @@ public class UIManager : MonoBehaviour
     private List<CharacterData.FaceType> faceTypes;
     private int currentDialogueIndex = 0;
     private bool shouldRemoveUI = false;
-    //private bool showDialogue = false;
 
-    //private bool isSingleLine = false;
-    //private string lineToShow;
-    //private CharacterData.FaceType faceToShow;
+    public bool startCheckingForStorageClosed = false;
+    public bool canTriggerSecondNTDialogue = false;
+    public bool hasPlayerOpenedStorageInPlaythrough = false;
+    [SerializeField] int checkedSellBoxDialogueIndex = 2;
 
     private void Awake()
     {
@@ -284,12 +284,24 @@ public class UIManager : MonoBehaviour
                 storagePanels[0].SetActive(true);
                 RefreshInventoryUI("Storage_C1");
                 currentActiveToggleUICount++;
+
+                if (!hasPlayerOpenedStorageInPlaythrough)
+                {
+                    hasPlayerOpenedStorageInPlaythrough = true;
+                }
             }
             else
             {
                 storagePanels[0].SetActive(false);
                 SetPointerOnToggleUI(false);
                 currentActiveToggleUICount--;
+
+                if (startCheckingForStorageClosed)
+                {
+                    canTriggerSecondNTDialogue = true;
+                    GameManager.instance.characterManager.activePlayer.charData.DisplayEndSeqSoloDialogue(checkedSellBoxDialogueIndex);
+                    startCheckingForStorageClosed = false;
+                }
             }
         }
 
@@ -320,6 +332,13 @@ public class UIManager : MonoBehaviour
                 if (storagePanels[0].activeSelf)
                 {
                     storagePanels[0].SetActive(false);           
+                }
+
+                if (startCheckingForStorageClosed)
+                {
+                    canTriggerSecondNTDialogue = true;
+                    GameManager.instance.characterManager.activePlayer.charData.DisplayEndSeqSoloDialogue(checkedSellBoxDialogueIndex);
+                    startCheckingForStorageClosed = false;
                 }
             }
 

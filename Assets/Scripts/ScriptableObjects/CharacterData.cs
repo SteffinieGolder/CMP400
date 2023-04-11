@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//A LOT OF THESE FUNCTIONS COULD BE CONDENSED REMOVE REPEATED CODE
+
 [CreateAssetMenu(menuName = "Character Data")]
 public class CharacterData : ScriptableObject
 {
@@ -30,6 +32,12 @@ public class CharacterData : ScriptableObject
     [Header("Planting Dialogue")]
     public List<DialogueGroup> shouldBePlantingDialogue = new List<DialogueGroup>();
     public List<DialogueGroup> busyPlantingDialogue = new List<DialogueGroup>();
+
+    [Header("Find Axe Dialogue")]
+    public List<DialogueGroup> findAxeDialogue = new List<DialogueGroup>();
+
+    [Header("End Sequence Dialogue")]
+    public List<DialogueGroup> endSequenceSoloDialogue = new List<DialogueGroup>();
 
     public enum FaceType
     {
@@ -67,6 +75,11 @@ public class CharacterData : ScriptableObject
         GameManager.instance.uiManager.SetDialogueData(busyFishingDialogue[groupIndex].dialogueLines, busyFishingDialogue[groupIndex].expressionTypes);
     }
 
+    public void DisplayFindAxeDialogue(int groupIndex)
+    {
+        GameManager.instance.uiManager.SetDialogueData(findAxeDialogue[groupIndex].dialogueLines, findAxeDialogue[groupIndex].expressionTypes);
+    }
+
     public void DisplayShouldBePlantingDialogue(int groupIndex)
     {
         GameManager.instance.uiManager.SetDialogueData(shouldBePlantingDialogue[groupIndex].dialogueLines, shouldBePlantingDialogue[groupIndex].expressionTypes);
@@ -75,5 +88,10 @@ public class CharacterData : ScriptableObject
     public void DisplayPlantingDialogue(int groupIndex)
     {
         GameManager.instance.uiManager.SetDialogueData(busyPlantingDialogue[groupIndex].dialogueLines, busyPlantingDialogue[groupIndex].expressionTypes);
+    }
+
+    public void DisplayEndSeqSoloDialogue(int groupIndex)
+    {
+        GameManager.instance.uiManager.SetDialogueData(endSequenceSoloDialogue[groupIndex].dialogueLines, endSequenceSoloDialogue[groupIndex].expressionTypes);
     }
 }

@@ -22,7 +22,7 @@ public class AxeBehaviour : ToolBehaviour
                 //Check if player position is in the interact range
                 if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, hit.transform.position) <= itemData.interactRange)
                 {
-                    if (GameManager.instance.taskManager.isPlantingComplete)
+                    if (GameManager.instance.taskManager.isWeedingComplete)
                     {
                         return true;
                     }
@@ -42,7 +42,7 @@ public class AxeBehaviour : ToolBehaviour
                             }
                         }
 
-                        else
+                        else if(!GameManager.instance.taskManager.isPlantingComplete)
                         {
                             if (!GameManager.instance.taskManager.hasPlantingStarted)
                             {
@@ -52,6 +52,21 @@ public class AxeBehaviour : ToolBehaviour
                             else
                             {
                                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
+                            }
+                        }
+
+                        else if (!GameManager.instance.taskManager.isWeedingComplete)
+                        {
+                            if (!GameManager.instance.taskManager.hasWeedingStarted)
+                            {
+                                //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayShouldBePlantingDialogue();
+                                Debug.Log("I should weed");
+                            }
+
+                            else
+                            {
+                                Debug.Log("Just let me weed in peace");
+                                //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
                             }
                         }
                     }
