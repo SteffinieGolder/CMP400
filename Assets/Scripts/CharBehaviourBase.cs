@@ -213,4 +213,9 @@ public abstract class CharBehaviourBase : MonoBehaviour
     {
         return currentEmote.emoteName;
     }
+
+    public void AdvanceTime(float timeToAdvanceBy)
+    {
+        timeManager.AdvanceCurrentTime(timeToAdvanceBy);
+    }
 }

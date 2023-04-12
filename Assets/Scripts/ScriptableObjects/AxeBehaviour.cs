@@ -136,6 +136,8 @@ public class AxeBehaviour : ToolBehaviour
                     //Show Dialogue at desired index. This will be the NT character saying the task is finished. 
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
                         charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
+
+                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }
         }

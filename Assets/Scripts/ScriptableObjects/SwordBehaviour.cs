@@ -134,6 +134,7 @@ public class SwordBehaviour : ToolBehaviour
                     GameManager.instance.taskManager.isWeedingComplete = true;
                     GameManager.instance.taskManager.hasWeedingStarted = false;
                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayFindAxeDialogue();
+                    //GameManager.instance.taskManager.AdvanceTimeForward();
                 }
             }           
         }
@@ -151,6 +152,8 @@ public class SwordBehaviour : ToolBehaviour
                     //Show Dialogue at desired index. This will be the NT character saying the task is finished. 
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
                         charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
+
+                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }
         }

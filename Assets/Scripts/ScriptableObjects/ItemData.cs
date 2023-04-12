@@ -27,11 +27,13 @@ public class ItemData : ScriptableObject
 
     //Timer values, multipliers for energy decreasing and the item grading image for the ADHD character when they use this item. 
     public float ADHDTimeValue;
+    public float ADHDCompleteTimeValue;
     public float ADHDMultiplier;
     public Sprite ADHDGradeImage;
 
     //Timer values, multipliers for energy decreasing and the item grading image for the NT character when they use this item. 
     public float NTTimeValue;
+    public float NTCompleteTimeValue;
     public float NTMultiplier;
     public Sprite NTGradeImage;
 

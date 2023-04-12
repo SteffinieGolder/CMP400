@@ -21,10 +21,12 @@ MonoBehaviour:
   itemToSpawn: {fileID: 0}
   taskIndex: 4
   ADHDTimeValue: 250
+  ADHDCompleteTimeValue: 0
   ADHDMultiplier: 0.2
   ADHDGradeImage: {fileID: 0}
-  NTTimeValue: 50
-  NTMultiplier: 0.2
+  NTTimeValue: 300
+  NTCompleteTimeValue: 0
+  NTMultiplier: 0
   NTGradeImage: {fileID: 0}
   ADHDDialogueGroupIndexes: 
   NTDialogueGroupIndexes: 

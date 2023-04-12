@@ -81,6 +81,7 @@ public class FishingRodBehaviour : ToolBehaviour
                     //Signals that the task is complete and resets the bool which says if the task has started or not. 
                     GameManager.instance.taskManager.isFishingComplete = true;
                     GameManager.instance.taskManager.hasFishingStarted = false;
+                    //GameManager.instance.taskManager.AdvanceTimeForward();
                 }
 
                 //Increment the index which selects which dialogue to show. 
@@ -108,6 +109,7 @@ public class FishingRodBehaviour : ToolBehaviour
 
                 //Changes the tile at the fish bubble location once it has been processed. (Removes the fish bubble). 
                 manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
             }
 
             else
@@ -159,6 +161,8 @@ public class FishingRodBehaviour : ToolBehaviour
                 else if (GameManager.instance.taskManager.fishTaskCounter > 9)
                 {
                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedFishingDialogue();
+                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
+
                 }
             }
         }

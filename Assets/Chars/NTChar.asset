@@ -52,6 +52,9 @@ MonoBehaviour:
     - Jeez
     - etc
     expressionTypes: 010000000000000002000000
+  - dialogueLines:
+    - That was a good coffee break
+    expressionTypes: 01000000
   rejectDialogueGroups:
   - dialogueLines:
     - I'm way too tired to do this right now

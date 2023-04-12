@@ -11,7 +11,7 @@ public class DayAndNightManager : MonoBehaviour
     [SerializeField] AnimationCurve nightTimeCurve;
     [SerializeField] Color dayLightColour = Color.white;
     //Time scale to control how quick a day passes in game. 
-    public float timeScale = 30f;
+    public float timeScale = 20f;
     //Light
     [SerializeField] Light2D globalLight;
     //Text for time display on screen. 

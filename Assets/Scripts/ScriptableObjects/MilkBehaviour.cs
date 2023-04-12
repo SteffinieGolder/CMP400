@@ -57,7 +57,7 @@ public class MilkBehaviour : ToolBehaviour
             //Update the ADHD characters energy and timer values.
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, true);
             //Make time go faster after this event. 
-            GameManager.instance.dayAndNightManager.timeScale = 60f;
+            //GameManager.instance.dayAndNightManager.timeScale = 60f;
             
         }
 
@@ -66,6 +66,9 @@ public class MilkBehaviour : ToolBehaviour
         {
             //Increase NT energy and timer values.
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().FullyRestoreEnergy();
+            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTTimeValue);
+            GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
+              charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
         }
 
         //Return true as item is not reusable and should be removed from the inventory. 

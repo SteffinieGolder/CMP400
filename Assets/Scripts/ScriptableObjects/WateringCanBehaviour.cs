@@ -173,6 +173,7 @@ public class WateringCanBehaviour : ToolBehaviour
                     //Update task stages. 
                     GameManager.instance.taskManager.isPlantingComplete = true;
                     GameManager.instance.taskManager.hasPlantingStarted = false;
+                    //GameManager.instance.taskManager.AdvanceTimeForward();
                 }
 
             }
@@ -189,6 +190,7 @@ public class WateringCanBehaviour : ToolBehaviour
                 //Checks if the task is totally complete (checks off task on the list). 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {
+                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }
         }
