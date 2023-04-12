@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 //Behaviour script for the Hoe tool.
+//Used to plow soil and prepare for seeds. 
 
 [CreateAssetMenu(menuName = "Tool Behaviour/Hoe")]
 

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 //Script which controls the behaviour of the seed item.
+//Plants a seed if conditions are right. 
 
 [CreateAssetMenu(menuName = "Tool Behaviour/Seed")]
 public class SeedBehaviour : ToolBehaviour

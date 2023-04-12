@@ -3,6 +3,8 @@ using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 
 //Script which controls the behaviour for the watering can tool. 
+//Tool which can water seeds once planted. 
+//Final stage in planting task. 
 
 [CreateAssetMenu(menuName = "Tool Behaviour/Watering Can")]
 

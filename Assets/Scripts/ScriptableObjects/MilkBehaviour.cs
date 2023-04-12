@@ -1,6 +1,7 @@
 using UnityEngine;
 
 //Script which controls the behaviour for the milk drink tool. 
+//Milk (or coffee) increases energy of characters.
 
 [CreateAssetMenu(menuName = "Tool Behaviour/Milk")]
 

@@ -1,6 +1,7 @@
 using UnityEngine;
 
 //Behaviour script for the axe tool. 
+//Used to chop trees. 
 
 [CreateAssetMenu(menuName = "Tool Behaviour/Axe")]
 

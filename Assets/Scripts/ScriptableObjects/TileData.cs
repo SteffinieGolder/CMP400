@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 
-//Scriptable object defining data for tiles.
+//Scriptable object defining tile data/types of tiles.
 
 [CreateAssetMenu(menuName = "Data/Tile Data")]
 public class TileData : ScriptableObject

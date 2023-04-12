@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 //Script which controls the behaviour for the sword tool.
+//Sword is used to chop/remove weeds.
+
 [CreateAssetMenu(menuName = "Tool Behaviour/Sword")]
 
 public class SwordBehaviour : ToolBehaviour

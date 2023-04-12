@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 //Behaviour script for the fishing rod tool.
+//Used to catch fish. 
 
 [CreateAssetMenu(menuName = "Tool Behaviour/Fishing Rod")]
 

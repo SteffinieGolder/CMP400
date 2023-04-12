@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 //Behaviour script for the Bag tool. Only used by ADHD character.
+//Used to harvest crops. 
 
 [CreateAssetMenu(menuName = "Tool Behaviour/Bag")]
 
