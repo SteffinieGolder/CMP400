@@ -33,11 +33,11 @@ public class CharacterData : ScriptableObject
 
     [Header("Fishing Dialogue")]
     public List<DialogueGroup> shouldBeFishingDialogue = new List<DialogueGroup>();
-    public List<DialogueGroup> busyFishingDialogue = new List<DialogueGroup>();
+    public List<DialogueGroup> busyOrFinishedFishingDialogue = new List<DialogueGroup>();
 
     [Header("Planting Dialogue")]
     public List<DialogueGroup> shouldBePlantingDialogue = new List<DialogueGroup>();
-    public List<DialogueGroup> busyPlantingDialogue = new List<DialogueGroup>();
+    public List<DialogueGroup> busyOrFinishedPlantingDialogue = new List<DialogueGroup>();
 
     [Header("Find Axe Dialogue")]
     public List<DialogueGroup> findAxeDialogue = new List<DialogueGroup>();
@@ -85,7 +85,7 @@ public class CharacterData : ScriptableObject
     //Display this dialogue when the character is currently fishing but the user tries to change task. 
     public void DisplayFishingDialogue(int groupIndex)
     {
-        GameManager.instance.uiManager.SetDialogueData(busyFishingDialogue[groupIndex].dialogueLines, busyFishingDialogue[groupIndex].expressionTypes);
+        GameManager.instance.uiManager.SetDialogueData(busyOrFinishedFishingDialogue[groupIndex].dialogueLines, busyOrFinishedFishingDialogue[groupIndex].expressionTypes);
     }
 
     //Display this dialogue when the character wants to find their axe.
@@ -103,7 +103,7 @@ public class CharacterData : ScriptableObject
     //Display this dialogue when the character is currently planting seeds but the user tries to change task. 
     public void DisplayPlantingDialogue(int groupIndex)
     {
-        GameManager.instance.uiManager.SetDialogueData(busyPlantingDialogue[groupIndex].dialogueLines, busyPlantingDialogue[groupIndex].expressionTypes);
+        GameManager.instance.uiManager.SetDialogueData(busyOrFinishedPlantingDialogue[groupIndex].dialogueLines, busyOrFinishedPlantingDialogue[groupIndex].expressionTypes);
     }
 
     //Display the solo dialogue for the end sequence (when the ADHD character is looking for their axe).

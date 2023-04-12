@@ -13,6 +13,7 @@ public class SwordBehaviour : ToolBehaviour
     TileData tileData;
     Vector3Int gridPos;
     ItemData itemData;
+    CharacterData charData;
 
     //Function which checks if this tool can be used.
     //position is the screen position that was clicked by the user.
@@ -25,6 +26,8 @@ public class SwordBehaviour : ToolBehaviour
         manager = GameManager.instance.tileManager;
         //Get the grid position in the background tile map for the clicked screen position.
         gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.GROUND);
+        //Data for the current active player. 
+        charData = GameManager.instance.characterManager.activePlayer.charData;
 
         //Store the tile found at the clicked position in the tilemap. 
         TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.GROUND);
@@ -72,7 +75,7 @@ public class SwordBehaviour : ToolBehaviour
 
                                     else
                                     {
-                                        GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyFishingDialogue();
+                                        GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedFishingDialogue();
                                     }
                                 }
 
@@ -85,7 +88,7 @@ public class SwordBehaviour : ToolBehaviour
 
                                     else
                                     {
-                                        GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
+                                        GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedPlantingDialogue();
                                     }
                                 }
                             }
@@ -142,9 +145,12 @@ public class SwordBehaviour : ToolBehaviour
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
 
+                //Checks if the task is totally complete (checks off task on the list). 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {
-
+                    //Show Dialogue at desired index. This will be the NT character saying the task is finished. 
+                    GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
+                        charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
                 }
             }
         }

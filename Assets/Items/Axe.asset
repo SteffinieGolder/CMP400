@@ -23,10 +23,11 @@ MonoBehaviour:
   ADHDTimeValue: 500
   ADHDMultiplier: 0.5
   ADHDGradeImage: {fileID: 0}
-  NTTimeValue: 100
-  NTMultiplier: 0.2
+  NTTimeValue: 500
+  NTMultiplier: 0.4
   NTGradeImage: {fileID: 0}
-  dialogueGroupIndexes: 
+  ADHDDialogueGroupIndexes: 
+  NTDialogueGroupIndexes: 04000000
   TilePatchPositions: []
   patchTile: {fileID: 0}
-  counter: 0
+  currentIndex: 0

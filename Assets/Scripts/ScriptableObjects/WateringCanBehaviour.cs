@@ -77,7 +77,7 @@ public class WateringCanBehaviour : ToolBehaviour
 
                         //NT char is active so return true. 
                         else
-                        {
+                        { 
                             return true;
                         }
                     }
@@ -186,10 +186,10 @@ public class WateringCanBehaviour : ToolBehaviour
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
 
-                /*if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
+                //Checks if the task is totally complete (checks off task on the list). 
+                if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {
-
-                }*/
+                }
             }
         }
 

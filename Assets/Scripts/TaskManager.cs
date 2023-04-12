@@ -15,6 +15,7 @@ public class TaskManager : MonoBehaviour
 
     public int fishTaskCounter = 0;
     public int weedTaskCounter = 0;
+    public int hoeTaskCounter = 0;
     public bool isFishingComplete = false;
     public bool isPlantingComplete = false;
     public bool hasFishingStarted = false;
@@ -26,6 +27,7 @@ public class TaskManager : MonoBehaviour
     {
         fishTaskCounter = 0;
         weedTaskCounter = 0;
+        hoeTaskCounter = 0;
     }
 
     public bool IsTaskPortionComplete(bool isChar1, int taskIndex)

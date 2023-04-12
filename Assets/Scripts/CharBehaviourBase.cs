@@ -157,14 +157,14 @@ public abstract class CharBehaviourBase : MonoBehaviour
         playerScript.charData.DisplayCharEmoteDialogue(index);
     }
 
-    public void DisplayBusyFishingDialogue()
+    public void DisplayBusyOrFinishedFishingDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
 
         playerScript.charData.DisplayFishingDialogue(busyFishingIndex);
         busyFishingIndex++;
 
-        if (busyFishingIndex == playerScript.charData.busyFishingDialogue.Count)
+        if (busyFishingIndex == playerScript.charData.busyOrFinishedFishingDialogue.Count)
         {
             busyFishingIndex = 0;
         }
@@ -183,14 +183,14 @@ public abstract class CharBehaviourBase : MonoBehaviour
         }
     }
 
-    public void DisplayBusyPlantingDialogue()
+    public void DisplayBusyOrFinishedPlantingDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
 
         playerScript.charData.DisplayPlantingDialogue(busyPlantingIndex);
         busyPlantingIndex++;
 
-        if (busyPlantingIndex == playerScript.charData.busyPlantingDialogue.Count)
+        if (busyPlantingIndex == playerScript.charData.busyOrFinishedPlantingDialogue.Count)
         {
             busyPlantingIndex = 0;
         }

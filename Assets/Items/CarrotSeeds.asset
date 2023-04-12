@@ -24,9 +24,10 @@ MonoBehaviour:
   ADHDMultiplier: 0.2
   ADHDGradeImage: {fileID: 0}
   NTTimeValue: 50
-  NTMultiplier: 0.1
+  NTMultiplier: 0.2
   NTGradeImage: {fileID: 0}
-  dialogueGroupIndexes: 
+  ADHDDialogueGroupIndexes: 
+  NTDialogueGroupIndexes: 
   TilePatchPositions: []
   patchTile: {fileID: 0}
   currentIndex: 0

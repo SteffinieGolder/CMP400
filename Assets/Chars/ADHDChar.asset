@@ -145,15 +145,10 @@ MonoBehaviour:
     - wanna
     - fish
     expressionTypes: 000000000000000002000000
-  busyFishingDialogue:
+  busyOrFinishedFishingDialogue:
   - dialogueLines:
     - Im fishing rn
-    expressionTypes: 01000000
-  - dialogueLines:
-    - Stop iiiitttt
-    - Pllsssss
-    - lemme keep fishing
-    expressionTypes: 010000000300000001000000
+    expressionTypes: 02000000
   shouldBePlantingDialogue:
   - dialogueLines:
     - I should be planting rn
@@ -167,10 +162,12 @@ MonoBehaviour:
     - plsssss
     - im begging idiot
     expressionTypes: 020000000100000002000000
-  busyPlantingDialogue:
+  busyOrFinishedPlantingDialogue:
   - dialogueLines:
-    - im planting rn
-    expressionTypes: 01000000
+    - 'I''m '
+    - busy
+    - planting
+    expressionTypes: 000000000200000000000000
   findAxeDialogue:
   - dialogueLines:
     - Maybe I should actually find my axe

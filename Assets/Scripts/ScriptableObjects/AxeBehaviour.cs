@@ -54,7 +54,7 @@ public class AxeBehaviour : ToolBehaviour
 
                                 else
                                 {
-                                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyFishingDialogue();
+                                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedFishingDialogue();
                                 }
                             }
 
@@ -67,7 +67,7 @@ public class AxeBehaviour : ToolBehaviour
 
                                 else
                                 {
-                                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
+                                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedPlantingDialogue();
                                 }
                             }
 
@@ -127,8 +127,16 @@ public class AxeBehaviour : ToolBehaviour
             //If NT character has completed a task portion (chopped on tree).
             if (GameManager.instance.taskManager.IsTaskPortionComplete(false, itemData.taskIndex))
             {
-                //Update NT characters energy and timer values based on tool data.
+                //Update NT characters energy and timer values based on tool data.    
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
+               
+                //Checks if the task is totally complete (checks off task on the list). 
+                if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
+                {
+                    //Show Dialogue at desired index. This will be the NT character saying the task is finished. 
+                    GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
+                        charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
+                }
             }
         }
 

@@ -55,14 +55,13 @@ public class FishingRodBehaviour : ToolBehaviour
     //Function which performs the tool behaviour depending on active character.  
     public override bool PerformBehaviour()
     {
+        //Increment counter which keeps track of how many fish this character has attempted to catch. 
+        GameManager.instance.taskManager.fishTaskCounter++;
+        int current = GameManager.instance.taskManager.fishTaskCounter;
+
         //Checks if ADHD character is active.
         if (GameManager.instance.characterManager.char1IsActive)
         {
-            //Increment counter which keeps track of how many fish this character has attempted to catch. 
-            GameManager.instance.taskManager.fishTaskCounter++;
-
-            int current = GameManager.instance.taskManager.fishTaskCounter;
-
             //Sets this bool to true to signal that the fishing task has started. 
             if (!GameManager.instance.taskManager.hasFishingStarted)
             {
@@ -98,10 +97,23 @@ public class FishingRodBehaviour : ToolBehaviour
             }
         }
 
-        //If NT character is active, run the standard fishing behaviour.
+        //If NT character is active, check if they should miss a fish and say a dialogue line or run the normal behaviour. 
         else
         {
-            RunBehaviour();
+            if (current == 7)
+            {
+                //Show Dialogue lines at selected position in dialogue group. 
+                GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
+                    charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
+
+                //Changes the tile at the fish bubble location once it has been processed. (Removes the fish bubble). 
+                manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
+            }
+
+            else
+            {
+                RunBehaviour();
+            }
         }
 
         //Return false as item is a tool and is reusable. 
@@ -137,6 +149,17 @@ public class FishingRodBehaviour : ToolBehaviour
             if (GameManager.instance.taskManager.IsTaskPortionComplete(false, itemData.taskIndex))
             {
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
+
+                //Checks if the task is totally complete (checks off task on the list). 
+                if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
+                {
+
+                }
+
+                else if (GameManager.instance.taskManager.fishTaskCounter > 9)
+                {
+                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedFishingDialogue();
+                }
             }
         }
     }

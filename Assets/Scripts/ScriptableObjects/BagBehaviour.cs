@@ -60,7 +60,7 @@ public class BagBehaviour : ToolBehaviour
 
                             else
                             {
-                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyFishingDialogue();
+                                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedFishingDialogue();
                             }
                         }
                     }                   

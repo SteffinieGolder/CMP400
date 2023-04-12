@@ -19,8 +19,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 91720d10e0c0c489f80bd693c4a619b1, type: 3}
   - {fileID: 21300000, guid: 36e7d59ac1efc4cf7bc6a250df52e2b4, type: 3}
   dialogueGroups:
-  - dialogueLines: []
-    expressionTypes: 
+  - dialogueLines:
+    - Whoops zoned out for a second there
+    - Missed a fish
+    expressionTypes: 0000000002000000
   - dialogueLines:
     - 'Good to know. '
     expressionTypes: 00000000
@@ -34,12 +36,54 @@ MonoBehaviour:
       do?...meet at 6 for Japanese food?
     - Sent!
     expressionTypes: 04000000000000000100000001000000
-  rejectDialogueGroups: []
-  emoteDialogueGroups: []
+  - dialogueLines:
+    - 'Nice! '
+    - Good to get some extra wood
+    - Good to keep on top of this
+    expressionTypes: 010000000000000001000000
+  - dialogueLines:
+    - I'm really glad I got this done today
+    - Was pretty embarrassed that I let it slip
+    - No one can have it together 100% of the time
+    - etc
+    expressionTypes: 01000000000000000100000002000000
+  - dialogueLines:
+    - Wow I thought I was bad
+    - Jeez
+    - etc
+    expressionTypes: 010000000000000002000000
+  rejectDialogueGroups:
+  - dialogueLines:
+    - I'm way too tired to do this right now
+    expressionTypes: 02000000
+  emoteDialogueGroups:
+  - dialogueLines:
+    - I'm feelig good
+    expressionTypes: 01000000
+  - dialogueLines:
+    - I'm pretty tired
+    - I could use a coffee
+    expressionTypes: 0200000000000000
+  - dialogueLines:
+    - Dont speak to me i am ded
+    expressionTypes: 02000000
   shouldBeFishingDialogue: []
-  busyFishingDialogue: []
+  busyOrFinishedFishingDialogue:
+  - dialogueLines:
+    - That's that done for the day
+    - I missed one which sucks
+    - Can be hard to keep focussed on this for sure
+    - Aw well life goes on etc
+    expressionTypes: 01000000030000000000000001000000
   shouldBePlantingDialogue: []
-  busyPlantingDialogue: []
+  busyOrFinishedPlantingDialogue:
+  - dialogueLines:
+    - I don't want to overdo it on this one task
+    - I've prepared enough soil for my target of 20 seeds
+    - And It would be more beneficial to buy different seeds and then plant the rest
+    - More variety or whatever
+    - I should do something else once I'm done here
+    expressionTypes: 0100000002000000010000000000000004000000
   findAxeDialogue: []
   endSequenceSoloDialogue: []
   axeBorrowConversationDialogue:

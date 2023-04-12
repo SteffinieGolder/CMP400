@@ -50,7 +50,24 @@ public class HoeBehaviour : ToolBehaviour
                         //Checks if the player is in range to use the tool on the tile. 
                         if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                         {
-                            return true;
+                            //Return true if ADHD character is active.
+                            if (GameManager.instance.characterManager.char1IsActive)
+                            {
+                                return true;
+                            }
+
+                            else
+                            {
+                                if (!GameManager.instance.taskManager.isPlantingComplete)
+                                {
+                                    return true;
+                                }
+
+                                else
+                                {
+                                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedPlantingDialogue();
+                                }
+                            }
                         }
                     }
                 }
@@ -76,8 +93,15 @@ public class HoeBehaviour : ToolBehaviour
 
         else
         {
+            GameManager.instance.taskManager.hoeTaskCounter++;
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
 
+            //DONT HARD CODE THIS FIND A BETTER WAY
+            if (GameManager.instance.taskManager.hoeTaskCounter == 20)
+            {
+                GameManager.instance.taskManager.isPlantingComplete = true;
+            }
+            
         }
 
         //Return false as item is a tool and is reusable. Should not be removed from the inventory. 

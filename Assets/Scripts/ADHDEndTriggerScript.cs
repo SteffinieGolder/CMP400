@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTriggerScript : MonoBehaviour
+public class ADHDEndTriggerScript : MonoBehaviour
 {
     private bool firstInteractionComplete = false;
     private bool secondInteractionComplete = false;
