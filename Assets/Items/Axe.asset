@@ -26,7 +26,7 @@ MonoBehaviour:
   ADHDGradeImage: {fileID: 0}
   NTTimeValue: 1200
   NTCompleteTimeValue: 0
-  NTMultiplier: 0
+  NTMultiplier: 0.8
   NTGradeImage: {fileID: 0}
   ADHDDialogueGroupIndexes: 
   NTDialogueGroupIndexes: 04000000
