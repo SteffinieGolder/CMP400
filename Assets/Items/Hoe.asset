@@ -30,6 +30,7 @@ MonoBehaviour:
   NTGradeImage: {fileID: 0}
   ADHDDialogueGroupIndexes: 
   NTDialogueGroupIndexes: 
+  itemFoundIndex: 15
   TilePatchPositions: []
   patchTile: {fileID: 0}
   currentIndex: 0

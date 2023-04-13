@@ -41,6 +41,8 @@ public class ItemData : ScriptableObject
     public List<int> ADHDDialogueGroupIndexes;
     public List<int> NTDialogueGroupIndexes;
 
+    public int itemFoundIndex;
+
     //Tile positions associated with this item. (If item needs to effect a patch of tiles rather than 1).
     public List<Vector2> TilePatchPositions;
     //Tile to change patch to. 

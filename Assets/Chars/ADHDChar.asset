@@ -23,19 +23,21 @@ MonoBehaviour:
     - No way...
     - Is that the right time?
     - I really didn't mean to spend so much time on this...
-    - I just can't seem to stop myself sometimes.
+    - I should've stopped ages ago, now I've used up all of my free space.
+    - Why can't I just stop and think for a second?
+    - I just get so caught up in things sometimes...
     - And the other times I can't get myself interested at all.
     - There's just no in-between with me.
-    expressionTypes: 040000000400000002000000020000000200000003000000
+    expressionTypes: 0400000004000000020000000200000002000000030000000300000003000000
   - dialogueLines:
     - I missed it!
-    - I really need to focus on this.
+    - Come on brain don't do this.
     expressionTypes: 0400000002000000
   - dialogueLines:
-    - I hate fishing...
+    - I really do hate fishing...
     - but I guess it's nice being next to the water.
     - I wonder how many little creatures are in there...
-    - 'What''s it like living in there? Do they communicate with eachother? '
+    - Hmm, do they communicate with eachother? What's it like living under there?
     - I should look into this!
     - ...
     - I missed the fish...
@@ -50,7 +52,7 @@ MonoBehaviour:
     - I wonder why that is...where did that idea come from?
     - Poor goldfish...
     - ...
-    - I MISSED IT AGAIN!
+    - I MISSED ANOTHER ONE!
     expressionTypes: 00000000000000000200000004000000020000000000000000000000020000000200000004000000
   - dialogueLines:
     - Okay! 2 in a row!
@@ -60,7 +62,7 @@ MonoBehaviour:
     - Maybe I'd like fishing more if I got more into the lifestyle.
     - Could buy a vest.. oh and a cool hat maybe?
     - Yeah! I should go have a look around town, see if I can...
-    - I MISSED IT AGAIN! WHY DO I KEEP DOING THIS?
+    - ANOTHER ONE GONE. WHY DO I KEEP DOING THIS?
     expressionTypes: 0100000001000000010000000000000000000000040000000100000004000000
   - dialogueLines:
     - Why can't I do this?
@@ -68,17 +70,17 @@ MonoBehaviour:
     - I need to make money.
     - Please focus...please.
     - I've missed so many.
-    - ...
-    - focus
-    - ...
-    - It's gone. I did it again.
-    - What is my problem? I'm supposed to be an adult!
-    - 'Why is it that I can only focus way too much or not at all? There''s no balance! '
-    - No in-between...
     expressionTypes: 020000000200000002000000030000000300000003000000020000000200000002000000020000000300000003000000
   - dialogueLines:
     - I can't do this.
-    expressionTypes: 03000000
+    - I probably should've stopped.
+    - It's just so hard to pull myself away from things, even if I'm messing it up.
+    - Okay...
+    - I guess I should do something else now.
+    - Planting! I'll do some planting...
+    - That can be pretty relaxing.
+    - I need to find my hoe!
+    expressionTypes: 0300000002000000020000000000000000000000000000000100000004000000
   - dialogueLines:
     - Why do they make important mail look so intimidating?
     - I can't read it. I just can't.
@@ -134,31 +136,44 @@ MonoBehaviour:
     - ...
     - I'm going!
     expressionTypes: 040000000200000004000000020000000000000000000000020000000400000002000000000000000000000002000000000000000000000001000000
+  - dialogueLines:
+    - Here it is!
+    - How did I manage to leave it here?
+    - Okay now I can plant some seeds!
+    - ...after I harvest the crops.
+    expressionTypes: 04000000010000000100000002000000
   rejectDialogueGroups:
   - dialogueLines:
     - I can't do this right now.
     expressionTypes: 02000000
-  - dialogueLines:
-    - STOP
-    - ASKING
-    expressionTypes: 0200000002000000
   emoteDialogueGroups:
   - dialogueLines:
-    - Starting to feel better now
-    - Finally
-    expressionTypes: 0000000000000000
+    - I wasted quite a bit of time...
+    - but I'm actually feeling a bit better.
+    - I can either go and find my axe...
+    - or do the weeding.
+    - I really need firewood.
+    - but I need to find my axe
+    - im confused
+    - eek
+    expressionTypes: 0200000000000000000000000000000000000000000000000000000000000000
   - dialogueLines:
-    - Wow I'm pretty tired
-    expressionTypes: 00000000
+    - Wow, I'm feeling really wiped out right now.
+    - Maybe some coffee will help.
+    expressionTypes: 0200000000000000
   - dialogueLines:
-    - REEEEEEE
-    expressionTypes: 00000000
+    - I am utterly exhausted.
+    - 'I need to stop and take a break. '
+    - I should probably try some coffee.
+    expressionTypes: 030000000200000002000000
   - dialogueLines:
-    - post coffee but tired
-    expressionTypes: 00000000
+    - I'm getting pretty tired again.
+    - I don't know how much more of this I can handle.
+    expressionTypes: 0200000003000000
   - dialogueLines:
-    - post coffee but exhausted
-    expressionTypes: 00000000
+    - 'I can''t keep going. '
+    - I just need to stop.
+    expressionTypes: 0200000003000000
   shouldBeFishingDialogue:
   - dialogueLines:
     - I can't do this right now...
@@ -177,23 +192,17 @@ MonoBehaviour:
     expressionTypes: 0200000002000000
   shouldBePlantingDialogue:
   - dialogueLines:
-    - I should be planting rn
+    - I really just want to do some planting right now.
     expressionTypes: 02000000
   - dialogueLines:
-    - I should be planting bro
-    - just let me plant brp
-    expressionTypes: 0200000001000000
-  - dialogueLines:
-    - let meeee plant
-    - plsssss
-    - im begging idiot
-    expressionTypes: 020000000100000002000000
+    - I can't do this right now.
+    - I've already decided to do some planting.
+    expressionTypes: 0200000002000000
   busyOrFinishedPlantingDialogue:
   - dialogueLines:
-    - 'I''m '
-    - busy
-    - planting
-    expressionTypes: 000000000200000000000000
+    - I want to get back to planting...
+    - I need to make the most of this motivation while it lasts.
+    expressionTypes: 020000000200000000000000
   findAxeDialogue:
   - dialogueLines:
     - Maybe I should actually find my axe

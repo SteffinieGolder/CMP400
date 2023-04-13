@@ -24,6 +24,14 @@ public class Item : MonoBehaviour
         if (player)
         {
             player.inventoryManager.Add(player.inventoryManager.backpack.inventoryName, this);
+
+            if (data.itemName == "Hoe")
+            {
+                //Show Dialogue lines.
+                GameManager.instance.uiManager.SetDialogueData(player.charData.GetDialogueGroup(data.itemFoundIndex).dialogueLines,
+                    player.charData.GetDialogueGroup(data.itemFoundIndex).expressionTypes);
+            }
+
             Destroy(this.gameObject);
         }
     }

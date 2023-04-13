@@ -7,12 +7,14 @@ public class ItemManager : MonoBehaviour
 {
     //Array of each item in game. 
     public Item[] items;
+    [SerializeField] GameObject hoeSpawnPosition;
 
     //Dictionary holding name and item object.
     private Dictionary<string, Item> nameToItemDict = new Dictionary<string, Item>();
 
     private Item equippedItem;
     private SlotsUI equippedSlot;
+    private bool once = false;
 
     private void Awake()
     {
@@ -26,6 +28,18 @@ public class ItemManager : MonoBehaviour
 
     private void Update()
     {
+        if (!once)
+        {
+            if (GameManager.instance.characterManager.char1IsActive)
+            {
+                if (GameManager.instance.taskManager.isFishingComplete)
+                {
+                    Instantiate(GetItemByName("Hoe"), hoeSpawnPosition.transform.position, Quaternion.identity);
+                    once = true;
+                }
+            }
+        }
+
         if (Time.timeScale != 0)
         {
             if (equippedItem)
