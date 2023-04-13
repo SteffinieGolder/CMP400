@@ -13,9 +13,6 @@ public class TaskManager : MonoBehaviour
     public List<Image> char2Icons;
     public Sprite completeSprite;
 
-    //public List<float> NTCharTimes;
-    //public List<float> ADHDCharTimes;
-
     public int fishTaskCounter = 0;
     public int weedTaskCounter = 0;
     public int hoeTaskCounter = 0;
@@ -25,15 +22,20 @@ public class TaskManager : MonoBehaviour
     public bool hasPlantingStarted = false;
     public bool hasWeedingStarted = false;
     public bool isWeedingComplete = false;
+    public int totalTaskCounter = 4;
 
-    //int totalCompleteTasks = 0;
-
-    private void Start()
+    public void ResetCounters()
     {
         fishTaskCounter = 0;
         weedTaskCounter = 0;
         hoeTaskCounter = 0;
-        //totalCompleteTasks = 0;
+        totalTaskCounter = 4;
+        isFishingComplete = false;
+        isPlantingComplete = false;
+        hasFishingStarted = false;
+        hasPlantingStarted = false;
+        hasWeedingStarted = false;
+        isWeedingComplete = false;
     }
 
     public bool IsTaskPortionComplete(bool isChar1, int taskIndex)
@@ -116,20 +118,5 @@ public class TaskManager : MonoBehaviour
             return currentNum;
         }
     }
-
-    /*public void AdvanceTimeForward()
-    {
-        if(GameManager.instance.characterManager.char1IsActive)
-        {
-            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(ADHDCharTimes[totalCompleteTasks]);
-        }
-
-        else
-        {
-            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(NTCharTimes[totalCompleteTasks]);
-        }
-
-        totalCompleteTasks++;
-    }*/
 }
 

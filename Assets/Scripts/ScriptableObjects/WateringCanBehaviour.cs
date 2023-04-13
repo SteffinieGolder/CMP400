@@ -190,6 +190,7 @@ public class WateringCanBehaviour : ToolBehaviour
                 //Checks if the task is totally complete (checks off task on the list). 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {
+                    GameManager.instance.taskManager.totalTaskCounter--;
                     //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }

@@ -89,4 +89,9 @@ public class DayAndNightManager : MonoBehaviour
     {
         time += timeVal;
     }
+
+    public void SetTime(float timeToSkipTo)
+    {
+        time = timeToSkipTo;
+    }
 }

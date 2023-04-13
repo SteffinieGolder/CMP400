@@ -117,6 +117,11 @@ MonoBehaviour:
     - how much everything su ks
     - boooohooooo
     expressionTypes: 02000000010000000400000003000000
+  - dialogueLines:
+    - This is the initial dialgogue
+    - gmpeople
+    - igotso much to tdo etc
+    expressionTypes: 000000000100000004000000
   rejectDialogueGroups:
   - dialogueLines:
     - I can't do this right now.

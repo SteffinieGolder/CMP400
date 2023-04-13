@@ -161,6 +161,8 @@ public class FishingRodBehaviour : ToolBehaviour
                 else if (GameManager.instance.taskManager.fishTaskCounter > 9)
                 {
                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedFishingDialogue();
+                    GameManager.instance.taskManager.totalTaskCounter--;
+
                     //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
 
                 }

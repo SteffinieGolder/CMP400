@@ -55,6 +55,17 @@ MonoBehaviour:
   - dialogueLines:
     - That was a good coffee break
     expressionTypes: 01000000
+  - dialogueLines:
+    - This is my initial dialogue
+    - 'I am ready to start the day '
+    - woooweeeee
+    expressionTypes: 010000000200000000000000
+  - dialogueLines:
+    - This is the end
+    - I should make sure I've put all the stuff I want to sell
+    - in the box
+    - fin
+    expressionTypes: 01000000020000000000000002000000
   rejectDialogueGroups:
   - dialogueLines:
     - I'm way too tired to do this right now

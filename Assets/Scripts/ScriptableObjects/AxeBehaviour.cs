@@ -137,6 +137,7 @@ public class AxeBehaviour : ToolBehaviour
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
                         charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
 
+                    GameManager.instance.taskManager.totalTaskCounter--;
                     //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }

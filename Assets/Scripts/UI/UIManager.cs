@@ -137,6 +137,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void RemoveAllActiveUI()
+    {
+        foreach(GameObject panel in backpackPanels)
+        {
+            if(panel.activeSelf)
+            {
+                panel.SetActive(false);
+            }
+        }
+
+        foreach (GameObject panel in storagePanels)
+        {
+            if (panel.activeSelf)
+            {
+                panel.SetActive(false);
+            }
+        }
+    }
+
     //Function which toggles inventory on/off by activating/deactivating UI panel element.
     public void ToggleInventory()
     {

@@ -7,6 +7,9 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] GameObject char2;
     [SerializeField] GameObject char1Gate;
     [SerializeField] GameObject char2Gate;
+    [SerializeField] int ADHDInitialDialogueIndex;
+    [SerializeField] int NTInitialDialogueIndex;
+    [SerializeField] GameObject endButton;
 
     public Player char1PlayerScript;
     public Player char2PlayerScript;
@@ -58,10 +61,14 @@ public class CharacterManager : MonoBehaviour
     }
 
     void SetChar1Active()
-    {
-        
+    { 
         GameManager.instance.respawnManager.RespawnObject();
         GameManager.instance.respawnManager.RespawnTiles();
+        GameManager.instance.taskManager.ResetCounters();
+        GameManager.instance.dayAndNightManager.SetTime(36000);
+        GameManager.instance.itemManager.ResetEquippedItem();
+        GameManager.instance.uiManager.RemoveAllActiveUI();
+
 
         char1IsActive = true; 
         char2PlayerScript.enabled = false;
@@ -71,25 +78,19 @@ public class CharacterManager : MonoBehaviour
         char1MovementScript.enabled = true;
         char1BehaviourScript.enabled = true;
         char1BehaviourScript.ResetEnergyBar();
-        camFollowScript.followTransform = char1.transform;
         GameManager.instance.uiManager.SwitchToolbar(char1IsActive);
         char1Gate.SetActive(false);
         char2Gate.SetActive(true);
         activePlayer = char1PlayerScript;
 
-        /*if (!char1PlayerScript.isCharDataInitComplete)
-        {
-            char1PlayerScript.charData.InitDialogueLines();
-            char1PlayerScript.isCharDataInitComplete = true;
-        }*/
+        //Show character's initial dialogue lines.
+        GameManager.instance.uiManager.SetDialogueData(char1PlayerScript.charData.GetDialogueGroup(ADHDInitialDialogueIndex).dialogueLines,
+            char1PlayerScript.charData.GetDialogueGroup(ADHDInitialDialogueIndex).expressionTypes);
+        camFollowScript.followTransform = char1.transform;
     }
 
     void SetChar2Active()
     {
-        //put all items in backpack
-        //Put some gold star crops in the sell box
-
-
         char1IsActive = false;
         char1PlayerScript.enabled = false;
         char1MovementScript.enabled = false;
@@ -104,12 +105,9 @@ public class CharacterManager : MonoBehaviour
         char2Gate.SetActive(false);
         activePlayer = char2PlayerScript;
 
-       /* if (!char2PlayerScript.isCharDataInitComplete)
-        {
-            char2PlayerScript.charData.InitDialogueLines();
-            char2PlayerScript.isCharDataInitComplete = true;
-        }*/
-
+        //Show character's initial dialogue lines.
+        GameManager.instance.uiManager.SetDialogueData(char2PlayerScript.charData.GetDialogueGroup(NTInitialDialogueIndex).dialogueLines,
+            char2PlayerScript.charData.GetDialogueGroup(NTInitialDialogueIndex).expressionTypes);
     }
 
     void InitialiseCharacter1InventoryItems()
@@ -148,10 +146,11 @@ public class CharacterManager : MonoBehaviour
         char2PlayerScript.inventoryManager.InitialiseInventoryWithItems(char2StorageItems, char2PlayerScript.inventoryManager.storage.inventoryName);
 
         GameManager.instance.uiManager.RefreshAll();
+    }
 
-        /*GameManager.instance.uiManager.GetInventoryUI(char2PlayerScript.inventoryManager.storage.inventoryName).CheckSlotsForGrading(itemManager.GetItemByName("Carrot"), false);
-        GameManager.instance.uiManager.GetInventoryUI(char2PlayerScript.inventoryManager.storage.inventoryName).CheckSlotsForGrading(itemManager.GetItemByName("Strawberry"), false);
-        GameManager.instance.uiManager.GetInventoryUI(char2PlayerScript.inventoryManager.storage.inventoryName).CheckSlotsForGrading(itemManager.GetItemByName("Tomato"), false);
-   */
+    public void StartDayTwo()
+    {
+        SetChar1Active();
+        endButton.SetActive(false);
     }
 }

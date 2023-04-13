@@ -34,9 +34,10 @@ public class ItemManager : MonoBehaviour
                 {
                     if (GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().currentEmote.doesCharAcceptTask)
                     {
-                        RunTaskAccepted();
+                        {
+                            RunTaskAccepted();
+                        }
                     }
-
                     else
                     {
                         RunTaskRejected();
@@ -161,5 +162,10 @@ public class ItemManager : MonoBehaviour
         {
             equippedItem = null;
         }
+    }
+
+    public void ResetEquippedItem()
+    {
+        equippedItem = null;
     }
 }
