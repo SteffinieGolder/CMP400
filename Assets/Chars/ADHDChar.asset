@@ -118,10 +118,22 @@ MonoBehaviour:
     - boooohooooo
     expressionTypes: 02000000010000000400000003000000
   - dialogueLines:
-    - This is the initial dialgogue
-    - gmpeople
-    - igotso much to tdo etc
-    expressionTypes: 000000000100000004000000
+    - Oh no! I slept in again!
+    - I swear I can never fall asleep at a decent time.
+    - Wow I've got so much to do today!
+    - I really can't afford to put this stuff off any longer.
+    - Today's the day we send stuff away to sell, so last chance!
+    - Lets see...
+    - ...ah yeah I didn't get the harvest done yesterday...
+    - Wait where did I put my hoe? I have no idea what I've done with it...
+    - ...my axe too.
+    - Okay, I can do this. Plenty of time. I think.
+    - I should probably do some fishing first.
+    - I hate fishing, but getting the worst task done first seems like a good idea.
+    - Okay...here we go.
+    - ...
+    - I'm going!
+    expressionTypes: 040000000200000004000000020000000000000000000000020000000400000002000000000000000000000002000000000000000000000001000000
   rejectDialogueGroups:
   - dialogueLines:
     - I can't do this right now.
@@ -149,17 +161,20 @@ MonoBehaviour:
     expressionTypes: 00000000
   shouldBeFishingDialogue:
   - dialogueLines:
-    - I should be fishing rn
-    expressionTypes: 04000000
+    - I can't do this right now...
+    - I think I should fish instead.
+    expressionTypes: 0000000001000000
   - dialogueLines:
-    - I
-    - wanna
-    - fish
-    expressionTypes: 000000000000000002000000
+    - I've already decided that I'm going to do some fishing.
+    expressionTypes: 02000000
   busyOrFinishedFishingDialogue:
   - dialogueLines:
-    - Im fishing rn
+    - Im trying to get fishing out of the way right now.
     expressionTypes: 02000000
+  - dialogueLines:
+    - I can't do this right now...
+    - I can't stop thinking about fishing.
+    expressionTypes: 0200000002000000
   shouldBePlantingDialogue:
   - dialogueLines:
     - I should be planting rn
