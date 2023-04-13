@@ -15,7 +15,7 @@ public class NTDayEndScript : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.taskManager.totalTaskCounter == 0)
+        if (GameManager.instance.taskManager.totalTaskCounter == -1)
         {
             //Show Dialogue at desired index. This will be the NT character saying the day is finished. 
             GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(endDialogueIndex).dialogueLines,
@@ -23,7 +23,7 @@ public class NTDayEndScript : MonoBehaviour
 
             //Reveal the end game button.
             EndUIButton.SetActive(true);
-            GameManager.instance.taskManager.totalTaskCounter = -1;
+            GameManager.instance.taskManager.totalTaskCounter = -2;
         }
     }
 }

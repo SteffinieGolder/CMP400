@@ -133,11 +133,10 @@ public class AxeBehaviour : ToolBehaviour
                 //Checks if the task is totally complete (checks off task on the list). 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {
+                    GameManager.instance.taskManager.totalTaskCounter--;
                     //Show Dialogue at desired index. This will be the NT character saying the task is finished. 
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
                         charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
-
-                    GameManager.instance.taskManager.totalTaskCounter--;
                     //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }

@@ -265,6 +265,11 @@ public class UIManager : MonoBehaviour
             {
                 DisplaySkyPanel(false);
             }
+
+            if (GameManager.instance.taskManager.totalTaskCounter == 0)
+            {
+                GameManager.instance.taskManager.totalTaskCounter--;
+            }
         }
     }
 

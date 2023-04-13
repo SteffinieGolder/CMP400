@@ -52,10 +52,11 @@ MonoBehaviour:
     - maybe she'll be up for a quick chat.
     expressionTypes: 0000000001000000
   - dialogueLines:
-    - That was a good coffee break
-    expressionTypes: 01000000
+    - That little break has really perked me up.
+    - Back to it!
+    expressionTypes: 0100000000000000
   - dialogueLines:
-    - Okay! Busy day ahead...
+    - Okay! I've got a busy day ahead...
     - I managed to harvest the crops on time yesterday, they're in storage waiting
       to be sent off...
     - 'so I can plant some of my carrot seeds today. '
@@ -65,11 +66,10 @@ MonoBehaviour:
     - I'd better get started.
     expressionTypes: 000000000100000001000000000000000000000001000000
   - dialogueLines:
-    - This is the end
-    - I should make sure I've put all the stuff I want to sell
-    - in the box
-    - fin
-    expressionTypes: 01000000020000000000000002000000
+    - What a day!
+    - Okay, I should take anything I want to sell to the storage box...
+    - and then I can relax for the night.
+    expressionTypes: 010000000000000001000000
   - dialogueLines:
     - Nice! I'm all finished with the planting.
     - I can now check this off of my list.
@@ -78,33 +78,35 @@ MonoBehaviour:
   - dialogueLines:
     - Ah well, she must be busy.
     - ...
-    - hm, her garden is looking a bit...
+    - Hmm, her garden is looking a bit...
     - unkempt.
     - In fact, I haven't seen or heard from her at all the past few days.
-    - Although, she sometimes shows up later in the day...
+    - She does sometimes show up later in the day...
     - so if I don't see her tonight I'll pop by and check on her tomorrow.
     expressionTypes: 00000000000000000200000002000000040000000000000001000000
   rejectDialogueGroups:
   - dialogueLines:
-    - I'm way too tired to do this right now
-    expressionTypes: 02000000
+    - I'm way too tired to do this right now.
+    - I really should take a break and recover.
+    expressionTypes: 0200000002000000
   emoteDialogueGroups:
   - dialogueLines:
-    - I'm feelig good
+    - I feel so much better now.
     expressionTypes: 01000000
   - dialogueLines:
-    - I'm pretty tired
-    - I could use a coffee
-    expressionTypes: 0200000000000000
+    - Wow, I'm feeling pretty tired after all that work.
+    - I could really use a coffee break.
+    expressionTypes: 0400000000000000
   - dialogueLines:
-    - Dont speak to me i am ded
-    - I could really use a coffee break
-    expressionTypes: 0200000001000000
+    - I'm...so exhausted.
+    - I don't think I can keep going without a coffee break.
+    expressionTypes: 0200000002000000
   - dialogueLines:
-    - I'm really starting to feel tired
-    expressionTypes: 02000000
+    - I think that coffee is starting to wear off.
+    - I'm starting to get pretty tired again.
+    expressionTypes: 0200000002000000
   - dialogueLines:
-    - I'm totally exhausted
+    - I'm totally exhausted.
     expressionTypes: 03000000
   shouldBeFishingDialogue: []
   busyOrFinishedFishingDialogue:
@@ -119,7 +121,7 @@ MonoBehaviour:
     - I think I've prepared enough soil for the carrot seeds today.
     - I don't want to overdo it...
     - and I should leave space for other types of crops.
-    - I'll pick up and plant new seeds tomorrow.
+    - I'll pick up and plant some new seeds tomorrow.
     - Having more variety in my produce should definitely pay off.
     expressionTypes: 0000000000000000010000000000000001000000
   findAxeDialogue: []
