@@ -893,8 +893,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 'Notes: Fishing rod is in your backpack as usual. Put fish in the sell
-        box when collected. '
+      value: 'Notes: Fishing rod is in inventory as usual. Put fish in the sell box
+        when collected. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
@@ -10306,7 +10306,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.049834013, y: -0.6704982}
+  m_Offset: {x: -0.049834013, y: -0.49044704}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10317,7 +10317,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96104956, y: 0.6170908}
+  m_Size: {x: 0.96104956, y: 0.25698853}
   m_EdgeRadius: 0
 --- !u!4 &428355709
 Transform:
@@ -20808,7 +20808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 'Notes: Weeding tool in backpack. I''ve really let this slip, I hate
+      value: 'Notes: Weeding tool in inventory. I''ve really let this slip, I hate
         weeding. Should get this over and done with today.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -44026,8 +44026,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 'Notes: All tools and items in backpack. Harvest completed on time yesterday
-        so ready for new seeds :) Plow, plant, water, repeat!'
+      value: 'Notes: All tools and items in inventory. Harvest completed on time
+        yesterday so ready for new seeds :) Plow, plant, water, repeat!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
@@ -60439,7 +60439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 'Notes: Axe is in your backpack. Could use some extra firewood.'
+      value: 'Notes: Axe is in inventory. Could use some extra firewood.'
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_fontSize
