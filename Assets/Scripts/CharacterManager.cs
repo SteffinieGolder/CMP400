@@ -76,6 +76,7 @@ public class CharacterManager : MonoBehaviour
                     if (char2.transform.position != NTConvoTransform.transform.position)
                     {
                         char2.transform.position = NTConvoTransform.transform.position;
+                        char2.SetActive(true);
                     }
                 }
 
@@ -84,6 +85,7 @@ public class CharacterManager : MonoBehaviour
                     if (char2.transform.position != char2InitialPosition)
                     {
                         char2.transform.position = char2InitialPosition;
+                        char2.SetActive(false);
                     }
                 }
             }
@@ -99,8 +101,9 @@ public class CharacterManager : MonoBehaviour
         GameManager.instance.itemManager.ResetEquippedItem();
         GameManager.instance.uiManager.RemoveAllActiveUI();
 
-
+        char1.SetActive(true);
         char1IsActive = true;
+        char2.SetActive(false);
         char2.transform.position = char2InitialPosition;
         char2PlayerScript.enabled = false;
         char2MovementScript.enabled = false;
@@ -124,6 +127,8 @@ public class CharacterManager : MonoBehaviour
     {
         GameManager.instance.uiManager.FadeInOrOut(true);
         char1IsActive = false;
+        char2.SetActive(true);
+        char1.SetActive(false);
         char1PlayerScript.enabled = false;
         char1MovementScript.enabled = false;
         char1BehaviourScript.enabled = false;
@@ -159,14 +164,14 @@ public class CharacterManager : MonoBehaviour
     void InitialiseCharacter2InventoryItems()
     {
         Dictionary<Item, int> char2StartItems = new Dictionary<Item, int>();
-        char2StartItems.Add(itemManager.GetItemByName("Carrot Seeds"), 40);
-        char2StartItems.Add(itemManager.GetItemByName("FishingRod"), 1);
-        char2StartItems.Add(itemManager.GetItemByName("Sword"), 1);
-        char2StartItems.Add(itemManager.GetItemByName("Bag"), 1);
-        char2StartItems.Add(itemManager.GetItemByName("WateringCan"), 1);
-        char2StartItems.Add(itemManager.GetItemByName("Axe"), 1);
         char2StartItems.Add(itemManager.GetItemByName("Hoe"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Carrot Seeds"), 40);
+        char2StartItems.Add(itemManager.GetItemByName("WateringCan"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Sword"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("FishingRod"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Axe"), 1);
         char2StartItems.Add(itemManager.GetItemByName("Milk"), 1);
+        char2StartItems.Add(itemManager.GetItemByName("Bag"), 1);
 
         char2PlayerScript.inventoryManager.InitialiseInventoryWithItems(char2StartItems, char2PlayerScript.inventoryManager.backpack.inventoryName);
 

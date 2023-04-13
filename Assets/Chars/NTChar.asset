@@ -20,9 +20,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 36e7d59ac1efc4cf7bc6a250df52e2b4, type: 3}
   dialogueGroups:
   - dialogueLines:
-    - Whoops zoned out for a second there
-    - Missed a fish
-    expressionTypes: 0000000002000000
+    - Whoops, I totally zoned out for a second there...
+    - ...and I missed the fish.
+    - Great.
+    expressionTypes: 040000000200000002000000
   - dialogueLines:
     - 'Good to know. '
     expressionTypes: 00000000
@@ -37,32 +38,32 @@ MonoBehaviour:
     - Sent!
     expressionTypes: 04000000000000000100000001000000
   - dialogueLines:
-    - 'Nice! '
-    - Good to get some extra wood
-    - Good to keep on top of this
-    expressionTypes: 010000000000000001000000
+    - One more chop and...finished.
+    - Always good to keep some extra firewood handy...
+    - and another task to check off the list!
+    expressionTypes: 000000000000000001000000
   - dialogueLines:
-    - I'm really glad I got this done today
-    - Was pretty embarrassed that I let it slip
-    - No one can have it together 100% of the time
-    - etc
-    expressionTypes: 01000000000000000100000002000000
+    - Cool, the weeding is done.
+    - I was a bit embarrassed that I'd let this slip a bit...
+    - so I'm really glad I got it sorted!
+    expressionTypes: 000000000000000001000000
   - dialogueLines:
-    - Wow I thought I was bad
-    - Jeez
-    - etc
-    expressionTypes: 010000000000000002000000
+    - Oh, I wonder if my neighbour is out in her garden...
+    - maybe she'll be up for a quick chat.
+    expressionTypes: 0000000001000000
   - dialogueLines:
     - That was a good coffee break
     expressionTypes: 01000000
   - dialogueLines:
-    - This is my initial dialogue
-    - 'I am ready to start the day '
-    - Sumn about the stuff in storage being sent off to be sold today
-    - so need to catch fish to sell
-    - got the harvest done yesterday and new seeds should be planted
-    - and some other bits n bobs
-    expressionTypes: 010000000200000000000000000000000000000000000000
+    - Okay! Busy day ahead...
+    - I managed to harvest the crops on time yesterday, they're in storage waiting
+      to be sent off...
+    - 'so I can plant some of my carrot seeds today. '
+    - The items in storage will be sent off to be sold today, so I have a few fish
+      to catch before that happens.
+    - I've also got some weeding and wood chopping to do...
+    - I'd better get started.
+    expressionTypes: 000000000100000001000000000000000000000001000000
   - dialogueLines:
     - This is the end
     - I should make sure I've put all the stuff I want to sell
@@ -70,8 +71,19 @@ MonoBehaviour:
     - fin
     expressionTypes: 01000000020000000000000002000000
   - dialogueLines:
-    - I am glad I got the planting done
-    expressionTypes: 01000000
+    - Nice! I'm all finished with the planting.
+    - I can now check this off of my list.
+    - Super satisfying...
+    expressionTypes: 000000000000000001000000
+  - dialogueLines:
+    - Ah well, she must be busy.
+    - ...
+    - hm, her garden is looking a bit...
+    - unkempt.
+    - In fact, I haven't seen or heard from her at all the past few days.
+    - Although, she sometimes shows up later in the day...
+    - so if I don't see her tonight I'll pop by and check on her tomorrow.
+    expressionTypes: 00000000000000000200000002000000040000000000000001000000
   rejectDialogueGroups:
   - dialogueLines:
     - I'm way too tired to do this right now
@@ -97,20 +109,19 @@ MonoBehaviour:
   shouldBeFishingDialogue: []
   busyOrFinishedFishingDialogue:
   - dialogueLines:
-    - That's that done for the day
-    - I missed one which sucks
-    - Can be hard to keep focussed on this for sure
-    - Aw well life goes on etc
-    expressionTypes: 01000000030000000000000001000000
+    - Okay, I think that's all the fishing done for today.
+    - I'm still pretty annoyed that I missed that fish back there...
+    - but hey, 9 out of 10 is still pretty good.
+    expressionTypes: 00000000020000000000000001000000
   shouldBePlantingDialogue: []
   busyOrFinishedPlantingDialogue:
   - dialogueLines:
-    - I don't want to overdo it on this one task
-    - I've prepared enough soil for my target of 20 seeds
-    - And It would be more beneficial to buy different seeds and then plant the rest
-    - More variety or whatever
-    - I should do something else once I'm done here
-    expressionTypes: 0100000002000000010000000000000004000000
+    - I think I've prepared enough soil for the carrot seeds today.
+    - I don't want to overdo it...
+    - and I should leave space for other types of crops.
+    - I'll pick up and plant new seeds tomorrow.
+    - Having more variety in my produce should definitely pay off.
+    expressionTypes: 0000000000000000010000000000000001000000
   findAxeDialogue: []
   endSequenceSoloDialogue: []
   axeBorrowConversationDialogue:
