@@ -191,6 +191,11 @@ public class WateringCanBehaviour : ToolBehaviour
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(false, itemData.taskIndex))
                 {
                     GameManager.instance.taskManager.totalTaskCounter--;
+
+                    //Show Dialogue lines.
+                    GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
+                        charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
+
                     //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }

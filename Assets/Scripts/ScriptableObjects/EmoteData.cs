@@ -14,8 +14,10 @@ public class EmoteData : ScriptableObject
     public float moveSpeed;
     //Will the character accept tasks when feeling this emote?
     public bool doesCharAcceptTask;
-    //Index for dialogue to display when this emote is active. 
-    public int dialogueIndex;
+    //Index for dialogue to display when this emote is active before coffee.
+    public int dialogueIndexPreCoffee;
+    //Index for dialogue to display when this emote is active after coffee.
+    public int dialogueIndexPostCoffee;
     //Lower energy limit for this emote.
     public float lowerLimit;
     //Upper energy limit for this emote. 

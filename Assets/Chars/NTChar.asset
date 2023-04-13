@@ -58,14 +58,20 @@ MonoBehaviour:
   - dialogueLines:
     - This is my initial dialogue
     - 'I am ready to start the day '
-    - woooweeeee
-    expressionTypes: 010000000200000000000000
+    - Sumn about the stuff in storage being sent off to be sold today
+    - so need to catch fish to sell
+    - got the harvest done yesterday and new seeds should be planted
+    - and some other bits n bobs
+    expressionTypes: 010000000200000000000000000000000000000000000000
   - dialogueLines:
     - This is the end
     - I should make sure I've put all the stuff I want to sell
     - in the box
     - fin
     expressionTypes: 01000000020000000000000002000000
+  - dialogueLines:
+    - I am glad I got the planting done
+    expressionTypes: 01000000
   rejectDialogueGroups:
   - dialogueLines:
     - I'm way too tired to do this right now
@@ -80,7 +86,14 @@ MonoBehaviour:
     expressionTypes: 0200000000000000
   - dialogueLines:
     - Dont speak to me i am ded
+    - I could really use a coffee break
+    expressionTypes: 0200000001000000
+  - dialogueLines:
+    - I'm really starting to feel tired
     expressionTypes: 02000000
+  - dialogueLines:
+    - I'm totally exhausted
+    expressionTypes: 03000000
   shouldBeFishingDialogue: []
   busyOrFinishedFishingDialogue:
   - dialogueLines:

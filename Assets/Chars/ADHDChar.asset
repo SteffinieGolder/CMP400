@@ -141,6 +141,12 @@ MonoBehaviour:
   - dialogueLines:
     - REEEEEEE
     expressionTypes: 00000000
+  - dialogueLines:
+    - post coffee but tired
+    expressionTypes: 00000000
+  - dialogueLines:
+    - post coffee but exhausted
+    expressionTypes: 00000000
   shouldBeFishingDialogue:
   - dialogueLines:
     - I should be fishing rn

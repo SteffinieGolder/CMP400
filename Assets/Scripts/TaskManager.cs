@@ -22,6 +22,7 @@ public class TaskManager : MonoBehaviour
     public bool hasPlantingStarted = false;
     public bool hasWeedingStarted = false;
     public bool isWeedingComplete = false;
+    public bool hasPlayerDrunkCoffee = false;
     public int totalTaskCounter = 4;
 
     public void ResetCounters()
@@ -36,9 +37,10 @@ public class TaskManager : MonoBehaviour
         hasPlantingStarted = false;
         hasWeedingStarted = false;
         isWeedingComplete = false;
-    }
+        hasPlayerDrunkCoffee = false;
+}
 
-    public bool IsTaskPortionComplete(bool isChar1, int taskIndex)
+public bool IsTaskPortionComplete(bool isChar1, int taskIndex)
     {
         if (isChar1)
         {

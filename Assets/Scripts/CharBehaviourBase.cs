@@ -71,7 +71,7 @@ public abstract class CharBehaviourBase : MonoBehaviour
                     currentEmote = charEmotes[(int)EmoteTypes.HAPPY];
                     emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
-                    DisplayEmoteChangeDialogue(currentEmote.dialogueIndex);
+                    DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPreCoffee);
                 }
             }
 
@@ -82,7 +82,16 @@ public abstract class CharBehaviourBase : MonoBehaviour
                     currentEmote = charEmotes[(int)EmoteTypes.TIRED];
                     emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
-                    DisplayEmoteChangeDialogue(currentEmote.dialogueIndex);
+
+                    if (GameManager.instance.taskManager.hasPlayerDrunkCoffee)
+                    {
+                        DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPostCoffee);
+                    }
+
+                    else
+                    {
+                        DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPreCoffee);
+                    }
                 }
             }
 
@@ -93,7 +102,16 @@ public abstract class CharBehaviourBase : MonoBehaviour
                     currentEmote = charEmotes[(int)EmoteTypes.FRUSTRATED];
                     emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
-                    DisplayEmoteChangeDialogue(currentEmote.dialogueIndex);
+
+                    if (GameManager.instance.taskManager.hasPlayerDrunkCoffee)
+                    {
+                        DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPostCoffee);
+                    }
+
+                    else
+                    {
+                        DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPreCoffee);
+                    }
                 }
             }
         }

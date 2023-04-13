@@ -615,7 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 14049742}
   m_Layer: 0
-  m_Name: CharPosition
+  m_Name: ConvoPositionNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -629,7 +629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14049741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.35, y: 3.78, z: 0.24660534}
+  m_LocalPosition: {x: 7.57, y: 4.18, z: 0.24660534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2011,6 +2011,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44e42c39360ddf4fb8db6c1a5329075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &124243586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124243587}
+  m_Layer: 0
+  m_Name: ConvoPositionADHD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &124243587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124243586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.83, y: -14.49, z: 0.24660534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &125177579
 GameObject:
   m_ObjectHideFlags: 0
@@ -9695,7 +9726,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10275,7 +10306,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.9550085, y: 0.042444944}
+  m_Offset: {x: -0.049834013, y: -0.6704982}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10286,7 +10317,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.777589, y: 4.91511}
+  m_Size: {x: 0.96104956, y: 0.6170908}
   m_EdgeRadius: 0
 --- !u!4 &428355709
 Transform:
@@ -10849,7 +10880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &488642988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22398,6 +22429,8 @@ MonoBehaviour:
   ADHDInitialDialogueIndex: 14
   NTInitialDialogueIndex: 8
   endButton: {fileID: 335238724}
+  ADHDConvoTransform: {fileID: 124243586}
+  NTConvoTransform: {fileID: 14049741}
   char1PlayerScript: {fileID: 0}
   char2PlayerScript: {fileID: 0}
   char1IsActive: 0
@@ -22454,6 +22487,7 @@ MonoBehaviour:
   hasPlantingStarted: 0
   hasWeedingStarted: 0
   isWeedingComplete: 0
+  hasPlayerDrunkCoffee: 0
   totalTaskCounter: 4
 --- !u!114 &979790181
 MonoBehaviour:

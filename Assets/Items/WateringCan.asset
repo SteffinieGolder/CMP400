@@ -29,7 +29,7 @@ MonoBehaviour:
   NTMultiplier: 0.1
   NTGradeImage: {fileID: 0}
   ADHDDialogueGroupIndexes: 00000000
-  NTDialogueGroupIndexes: 
+  NTDialogueGroupIndexes: 0a000000
   TilePatchPositions:
   - {x: -18, y: -11}
   - {x: -18, y: -12}

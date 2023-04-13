@@ -16,6 +16,7 @@ MonoBehaviour:
   emoteSprite: {fileID: -1682688866, guid: 960bf5022a04bf647a4a554c7d580f2b, type: 3}
   moveSpeed: 1.5
   doesCharAcceptTask: 1
-  dialogueIndex: 1
+  dialogueIndexPreCoffee: 1
+  dialogueIndexPostCoffee: 3
   lowerLimit: 0.245
   upperLimit: 0.622

@@ -10,6 +10,8 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] int ADHDInitialDialogueIndex;
     [SerializeField] int NTInitialDialogueIndex;
     [SerializeField] GameObject endButton;
+    [SerializeField] GameObject ADHDConvoTransform;
+    [SerializeField] GameObject NTConvoTransform;
 
     public Player char1PlayerScript;
     public Player char2PlayerScript;
@@ -23,6 +25,9 @@ public class CharacterManager : MonoBehaviour
 
     public bool char1IsActive;
     public Player activePlayer;
+
+    private Vector3 char1InitialPosition;
+    private Vector3 char2InitialPosition;
 
     void Start()
     {
@@ -41,6 +46,9 @@ public class CharacterManager : MonoBehaviour
         InitialiseCharacter1InventoryItems();
         InitialiseCharacter2InventoryItems();
 
+        char1InitialPosition = char1.transform.position;
+        char2InitialPosition = char2.transform.position;
+
         SetChar2Active();
     }
 
@@ -55,7 +63,29 @@ public class CharacterManager : MonoBehaviour
 
             else
             {
-                SetChar1Active();
+                StartDayTwo();
+            }
+        }
+
+        if (char1IsActive)
+        {
+            if (GameManager.instance.taskManager.isWeedingComplete)
+            {
+                if (!GameManager.instance.uiManager.canTriggerSecondNTDialogue)
+                {
+                    if (char2.transform.position != NTConvoTransform.transform.position)
+                    {
+                        char2.transform.position = NTConvoTransform.transform.position;
+                    }
+                }
+
+                else
+                {
+                    if (char2.transform.position != char2InitialPosition)
+                    {
+                        char2.transform.position = char2InitialPosition;
+                    }
+                }
             }
         }
     }
@@ -70,7 +100,8 @@ public class CharacterManager : MonoBehaviour
         GameManager.instance.uiManager.RemoveAllActiveUI();
 
 
-        char1IsActive = true; 
+        char1IsActive = true;
+        char2.transform.position = char2InitialPosition;
         char2PlayerScript.enabled = false;
         char2MovementScript.enabled = false;
         char2BehaviourScript.enabled = false;
@@ -91,6 +122,7 @@ public class CharacterManager : MonoBehaviour
 
     void SetChar2Active()
     {
+        GameManager.instance.uiManager.FadeInOrOut(true);
         char1IsActive = false;
         char1PlayerScript.enabled = false;
         char1MovementScript.enabled = false;
@@ -150,7 +182,8 @@ public class CharacterManager : MonoBehaviour
 
     public void StartDayTwo()
     {
-        SetChar1Active();
         endButton.SetActive(false);
+        GameManager.instance.uiManager.FadeInOrOut(true);
+        SetChar1Active();
     }
 }
