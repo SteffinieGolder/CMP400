@@ -38,25 +38,24 @@ MonoBehaviour:
     - but I guess it's nice being next to the water.
     - Hm, it's actually pretty mesmerising to look at...
     - ...
-    - .....
     - ......
+    - .........
     - I missed the fish.
     expressionTypes: 02000000000000000000000000000000000000000000000002000000
   - dialogueLines:
     - Okay...focus...focus...
     - ...
-    - 'Am I actually focussing or am I focussing too much on telling myself to focus? '
+    - Am I actually focussing or am I just focussing on telling myself to focus?
     - FOCUS! PLEASE!
     - ...
     - I wonder where I could've put my hoe.
-    - Why is my memory so bad?
     - I'm always forgetting where I put things.
-    - 'I have an actual fish brain. '
+    - I have the brain of a fish, I'm sure of it.
     - Although, now that I mention it...
     - I'm actually pretty sure its a common misconception that fish have bad memories,
       I think a few studi...
     - I MISSED ANOTHER ONE!
-    expressionTypes: 000000000000000002000000040000000200000000000000000000000200000002000000000000000000000004000000
+    expressionTypes: 0000000000000000020000000400000002000000000000000200000002000000000000000000000004000000
   - dialogueLines:
     - Nice! 2 in a row!
     - Now for number 3.
@@ -81,12 +80,13 @@ MonoBehaviour:
     - It's gone.
     - I probably should've stopped.
     - It's just so hard to pull myself away from things, even if I'm messing it up.
+    - ...
     - Okay...
-    - I guess I should do something else now.
+    - At least I can move on to something else now.
     - Planting! I'll do some planting...
     - That can be pretty relaxing.
     - I need to find my hoe!
-    expressionTypes: 0300000002000000020000000000000000000000000000000100000004000000
+    expressionTypes: 030000000200000002000000020000000000000000000000000000000100000004000000
   - dialogueLines:
     - Why do they make important mail look so intimidating?
     - I can't read it. I just can't.
@@ -239,35 +239,102 @@ MonoBehaviour:
     expressionTypes: 0400000000000000020000000000000000000000
   endSequenceSoloDialogue:
   - dialogueLines:
-    - I really need to find it
-    - Maybe I missed it earlier when I looked in the sell box
-    expressionTypes: 0000000001000000
+    - I totally zoned out while he was talking.
+    - I hope I didn't miss anything important.
+    - Am I just totally self absorbed or something? can I just not give others my
+      attention if they're not talking about something I personally find interesting?
+    - Okay I really have to find my axe.
+    - Maybe I put it in the storage box, but didn't notice in while I was in there
+      earlier.
+    - I should go check.
+    expressionTypes: 020000000200000002000000020000000000000000000000
   - dialogueLines:
-    - where could it be?
-    - maybe I've accidentally put it in the sell box
-    - I should go check
-    expressionTypes: 020000000100000000000000
+    - I totally zoned out while he was talking.
+    - I hope I didn't miss anything important.
+    - Am I just totally self absorbed or something? can I just not give others my
+      attention if they're not talking about something I personally find interesting?
+    - Okay I really have to find my axe.
+    - Maybe I've accidentally put it in storage?
+    - I should go check.
+    expressionTypes: 020000000200000002000000020000000000000000000000
   - dialogueLines:
-    - Damn its no here
-    - i rly have no idea where it is
-    - its rly late now
-    - i should've accepted help
-    - I should go back and see if he's still available
-    expressionTypes: 0000000000000000020000000000000000000000
+    - Damn, not here either.
+    - It's so late.
+    - I probably should've taken him up on his offer...
+    - I just...I already feel like such a failure. I can't deal with other people
+      thinking im a failure too.
+    - And if I borrowed his axe, chances are I'd just end up losing his too.
+    - ...
+    - I should go ask for wood.
+    - I'll chop extra tomorrow and pay him back!
+    expressionTypes: 0200000002000000020000000300000003000000020000000200000000000000
   - dialogueLines:
-    - Oh no he's gone in for the night
-    - and I am here all alone
-    - wasted time
-    - im done in
-    - FIN
-    expressionTypes: 0300000000000000020000000000000004000000
+    - He must've gone in for the night.
+    - ...
+    expressionTypes: 0200000003000000
   axeBorrowConversationDialogue:
   - dialogueLines:
-    - Hi hows it goin
-    - what u doin today
-    expressionTypes: 0000000000000000
+    - 'Hey! '
+    - Got a quick question for you...
+    expressionTypes: 0100000000000000
   - dialogueLines:
-    - im good thnks
-    - a ittle bored
-    - u know how it do
-    expressionTypes: 000000000200000004000000
+    - Oh right yeah, sorry...
+    - I must've not heard the door.
+    - Things have been pretty hectic lately.
+    - How have you been?
+    expressionTypes: 00000000010000000000000000000000
+  - dialogueLines:
+    - 'Oh yeah! '
+    - You haven't seen my axe anywhere have you?
+    - I really gotta get some firewood but I can't find it anywhere.
+    expressionTypes: 010000000000000000000000
+  - dialogueLines:
+    - Ah, damn.
+    - Okay, I guess I better...
+    expressionTypes: 0200000000000000
+  - dialogueLines:
+    - Oh, uhhh...
+    - its okay! I probably should find mine anyway.
+    expressionTypes: 0400000000000000
+  - dialogueLines:
+    - Oh no really it's okay, I'll get on top of this.
+    - Thanks for the offer though, I really appreciate it!
+    expressionTypes: 0400000000000000
+  - dialogueLines:
+    - Ah yeah, I'm fine! Honestly nothing to worry about.
+    - ...
+    - 'Although, do you ever feel like you just can''t get your brain to work properly? '
+    expressionTypes: 040000000000000002000000
+  - dialogueLines:
+    - Ummm...kinda.
+    - I guess I'm meaning more...lifelong? Like you just can't get it to cooperate.
+    - Like you have no reliable control over if and when it will let you focus and
+      get anything done at all.
+    expressionTypes: 000000000000000002000000
+  - dialogueLines:
+    - You do?
+    expressionTypes: 01000000
+  - dialogueLines:
+    - Ah, right!
+    - Yeah I guess everybody does do that.
+    - How do you stay in control of it?
+    expressionTypes: 000000000000000002000000
+  - dialogueLines:
+    - Oh, okay...I get you.
+    expressionTypes: 00000000
+  - dialogueLines:
+    - No I don't think so...
+    expressionTypes: 00000000
+  - dialogueLines:
+    - Wow!
+    expressionTypes: 01000000
+  - dialogueLines:
+    - ...
+    expressionTypes: 04000000
+  - dialogueLines:
+    - For sure!
+    expressionTypes: 01000000
+  - dialogueLines:
+    - Oh uh yeah! I'll go do that.
+    - Cya!
+    expressionTypes: 0100000001000000

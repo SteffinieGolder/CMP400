@@ -128,9 +128,68 @@ MonoBehaviour:
   endSequenceSoloDialogue: []
   axeBorrowConversationDialogue:
   - dialogueLines:
-    - Hi im good thanks u
-    expressionTypes: 03000000
+    - Oh hi! How have you been?
+    - I popped round this morning to catch up but I must've missed you.
+    - Or maybe I didn't knock hard enough.
+    expressionTypes: 010000000000000001000000
   - dialogueLines:
-    - ok beyeyeye
-    - jdjdowjdow
-    expressionTypes: 0100000004000000
+    - Oh for sure.
+    - Ah y'know, just getting on with things.
+    - Did you say you had a question?
+    expressionTypes: 010000000000000000000000
+  - dialogueLines:
+    - You've lost it again? I swear you'd lose your head if it wasn't screwed on.
+    - But nah, I haven't noticed it while I've been out.
+    expressionTypes: 0100000000000000
+  - dialogueLines:
+    - But feel free to borrow mine if you like!
+    expressionTypes: 01000000
+  - dialogueLines:
+    - Or even if you need any firewood, I've got plenty extra...
+    - I wouldn't mind giving you some again if you need it.
+    expressionTypes: 0000000001000000
+  - dialogueLines:
+    - Are you sure you're doing okay?
+    expressionTypes: 00000000
+  - dialogueLines:
+    - Oh for sure, especially recently when work has been so hectic.
+    - Is that what you mean?
+    expressionTypes: 0000000001000000
+  - dialogueLines:
+    - Uhh, I mean I zone out if that's what you mean?
+    expressionTypes: 00000000
+  - dialogueLines:
+    - Yeah! Everybody does...
+    - Yesterday I zoned out while fishing, totally missed one of the fish I was trying
+      to catch!
+    - ...still super annoyed about that.
+    expressionTypes: 010000000000000002000000
+  - dialogueLines:
+    - I guess I just try to address the cause of my lack of focus.
+    - Like, am I tired? hungry?
+    - bored?
+    - I'll take a break, have something to eat...try my best to solve the problem.
+    expressionTypes: 00000000000000000000000001000000
+  - dialogueLines:
+    - So yeah, I hope that's helpful.
+    - Anyway, have you seen that new show?
+    - Everybody is talking about it...
+    expressionTypes: 000000000100000001000000
+  - dialogueLines:
+    - It's crazy!...I swear it's some of the best t.v...
+    - ...there's so much going on...
+    - ...just when you think...
+    expressionTypes: 010000000100000001000000
+  - dialogueLines:
+    - ...EXPLOSIONS!
+    expressionTypes: 01000000
+  - dialogueLines:
+    - ...honestly some of the best effects...
+    - ...you really should...
+    expressionTypes: 0100000001000000
+  - dialogueLines:
+    - ...anyway I'll let you go and find your axe!
+    expressionTypes: 00000000
+  - dialogueLines:
+    - Bye! Good luck!
+    expressionTypes: 01000000
