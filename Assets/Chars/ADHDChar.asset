@@ -36,43 +36,49 @@ MonoBehaviour:
   - dialogueLines:
     - I really do hate fishing...
     - but I guess it's nice being next to the water.
-    - I wonder how many little creatures are in there...
-    - Hmm, do they communicate with eachother? What's it like living under there?
-    - I should look into this!
+    - Hm, it's actually pretty mesmerising to look at...
     - ...
-    - I missed the fish...
-    expressionTypes: 02000000000000000100000001000000040000000000000002000000
+    - .....
+    - ......
+    - I missed the fish.
+    expressionTypes: 02000000000000000000000000000000000000000000000002000000
   - dialogueLines:
     - Okay...focus...focus...
     - ...
     - 'Am I actually focussing or am I focussing too much on telling myself to focus? '
-    - FOCUS!
+    - FOCUS! PLEASE!
     - ...
-    - Hmm...I'm pretty sure its a misconception that goldfish have bad memories...
-    - I wonder why that is...where did that idea come from?
-    - Poor goldfish...
-    - ...
+    - I wonder where I could've put my hoe.
+    - Why is my memory so bad?
+    - I'm always forgetting where I put things.
+    - 'I have an actual fish brain. '
+    - Although, now that I mention it...
+    - I'm actually pretty sure its a common misconception that fish have bad memories,
+      I think a few studi...
     - I MISSED ANOTHER ONE!
-    expressionTypes: 00000000000000000200000004000000020000000000000000000000020000000200000004000000
+    expressionTypes: 000000000000000002000000040000000200000000000000000000000200000002000000000000000000000004000000
   - dialogueLines:
-    - Okay! 2 in a row!
+    - Nice! 2 in a row!
     - Now for number 3.
     - I'm doing it!
     - I am fishing...
-    - Maybe I'd like fishing more if I got more into the lifestyle.
-    - Could buy a vest.. oh and a cool hat maybe?
+    - Maybe I'd like fishing if I actually got more into the lifestyle.
+    - I could buy a vest...oh and a hat maybe? Get some new gear!
     - Yeah! I should go have a look around town, see if I can...
-    - ANOTHER ONE GONE. WHY DO I KEEP DOING THIS?
+    - AHH I DID IT AGAIN. WHY DO I KEEP DOING THIS?
     expressionTypes: 0100000001000000010000000000000000000000040000000100000004000000
   - dialogueLines:
-    - Why can't I do this?
+    - Another one gone...
+    - I genuinely don't think I can do this.
     - I need to catch these.
-    - I need to make money.
-    - Please focus...please.
-    - I've missed so many.
-    expressionTypes: 020000000200000002000000030000000300000003000000020000000200000002000000020000000300000003000000
+    - I need to make money...
+    - but I can't get myself to focus.
+    - Every time I think I've got it under control, I've zoned out again without
+      even realising.
+    - I'll give it one last try, maybe I can make it work.
+    expressionTypes: 02000000030000000300000003000000030000000200000002000000
   - dialogueLines:
-    - I can't do this.
+    - It's gone.
     - I probably should've stopped.
     - It's just so hard to pull myself away from things, even if I'm messing it up.
     - Okay...
@@ -114,11 +120,23 @@ MonoBehaviour:
     - I will get to this, I just can't right now.
     expressionTypes: 02000000
   - dialogueLines:
-    - This is the text
-    - where i talk about
-    - how much everything su ks
-    - boooohooooo
-    expressionTypes: 02000000010000000400000003000000
+    - I really don't know why I bother drinking coffee.
+    - I still feel so drained...
+    - like my body won't move, despite begging it to get up over and over again.
+    - Completely helpless...like I have no control whatsoever over my own mind and
+      body.
+    - I just have to wait here until I'm allowed to move again.
+    - This can't be the way it's supposed to be.
+    - This struggle...
+    - ...this constant, daily struggle.
+    - I'm supposed to be an adult. Why can't I cope with the bare minimum?
+    - ...
+    - I guess I'll just sit here for a while.
+    - ...
+    - Hmm, the sky does look really nice today.
+    - I feel horrible for wasting time when I have so much to do...
+    - but maybe I just have to wait this out.
+    expressionTypes: 020000000200000002000000020000000200000003000000030000000300000003000000030000000200000002000000000000000200000002000000
   - dialogueLines:
     - Oh no! I slept in again!
     - I swear I can never fall asleep at a decent time.
@@ -150,13 +168,21 @@ MonoBehaviour:
   - dialogueLines:
     - I wasted quite a bit of time...
     - but I'm actually feeling a bit better.
-    - I can either go and find my axe...
-    - or do the weeding.
-    - I really need firewood.
-    - but I need to find my axe
-    - im confused
-    - eek
-    expressionTypes: 0200000000000000000000000000000000000000000000000000000000000000
+    - I think I can do something now!
+    - 'I can either do the weeding, or chop wood. '
+    - Okay I have let the weeds take over quite a bit.
+    - But I'm totally out of firewood. I really don't want to ask my neighbour for
+      some of his again...
+    - 'super embarrasing. '
+    - Although, to chop wood I need to find my axe.
+    - I'm really running out of time here but I can't decide what to do!
+    - Umm...okay maybe if I retrace my steps?
+    - Nah, that would take forever. I really don't have time for this.
+    - Okay, make a decision!
+    - I'll do some weeding.
+    - I think...
+    - Yeah!
+    expressionTypes: 020000000000000001000000000000000200000004000000020000000200000002000000040000000200000004000000000000000200000001000000
   - dialogueLines:
     - Wow, I'm feeling really wiped out right now.
     - Maybe some coffee will help.
@@ -205,11 +231,12 @@ MonoBehaviour:
     expressionTypes: 020000000200000000000000
   findAxeDialogue:
   - dialogueLines:
-    - Maybe I should actually find my axe
-    - Dont wannt have to use neighbour wood
-    - again
-    - embarrassing
-    expressionTypes: 02000000000000000300000000000000
+    - 'I change my mind! '
+    - I really should go find my axe...
+    - I really don't want to rely on my neighbour for firewood again...
+    - although maybe I can ask him if he's seen it anywhere?
+    - He should be finishing up his workday by this time, I should check his garden!
+    expressionTypes: 0400000000000000020000000000000000000000
   endSequenceSoloDialogue:
   - dialogueLines:
     - I really need to find it
