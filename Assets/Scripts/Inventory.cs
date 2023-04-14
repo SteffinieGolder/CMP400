@@ -196,14 +196,16 @@ public class Inventory
 
     public int ReturnItemCount(Item item)
     {
+        int totalCount = 0;
+
         foreach (Slot slot in slots)
         {
             if (slot.itemName == item.data.itemName)
             {
-                return slot.count;
+                totalCount+= slot.count;
             }
         }
 
-        return 0;
+        return totalCount;
     }
 }

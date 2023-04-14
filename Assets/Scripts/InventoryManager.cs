@@ -55,4 +55,9 @@ public class InventoryManager : MonoBehaviour
         }
            
     }
+
+    public int DoesStorageContainEndItems(Item item)
+    {
+        return storage.ReturnItemCount(item);
+    }
 }

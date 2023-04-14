@@ -55,8 +55,11 @@ public class MilkBehaviour : ToolBehaviour
                 charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
 
             //Update the ADHD characters energy and timer values.
-            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, true);
+            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().SetEnergyLevel(itemData.ADHDMultiplier);
+            GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.ADHDTimeValue);
+
             GameManager.instance.taskManager.hasPlayerDrunkCoffee = true;
+            GameManager.instance.dayAndNightManager.timeScale = 60f;
             //Make time go faster after this event. 
             //GameManager.instance.dayAndNightManager.timeScale = 60f;
 

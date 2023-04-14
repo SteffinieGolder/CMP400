@@ -77,7 +77,7 @@ public class FishingRodBehaviour : ToolBehaviour
 
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
 
-                GameManager.instance.characterManager.char1PlayerScript.GetComponent<CharMovement>().moveSpeed -= 0.4f;
+                GameManager.instance.characterManager.char1PlayerScript.GetComponent<CharMovement>().moveSpeed -= 0.3f;
 
                 //Checks if user has reached the last task.
                 if (current == 10)

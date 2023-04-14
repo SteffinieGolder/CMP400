@@ -28,6 +28,7 @@ public class CharacterManager : MonoBehaviour
 
     private Vector3 char1InitialPosition;
     private Vector3 char2InitialPosition;
+    public bool isGameOver = false;
 
     void Start()
     {
@@ -188,8 +189,18 @@ public class CharacterManager : MonoBehaviour
 
     public void StartDayTwo()
     {
-        endButton.SetActive(false);
-        GameManager.instance.uiManager.FadeInOrOut(true);
-        SetChar1Active();
+        if (char1IsActive)
+        {
+            GameManager.instance.uiManager.FadeInOrOut(true);
+            GameManager.instance.characterManager.activePlayer.charData.DisplayEndSeqSoloDialogue(3);
+            isGameOver = true;
+        }
+
+        else
+        {
+            endButton.SetActive(false);
+            GameManager.instance.uiManager.FadeInOrOut(true);
+            SetChar1Active();
+        }
     }
 }

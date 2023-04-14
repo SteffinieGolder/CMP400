@@ -20,7 +20,7 @@ MonoBehaviour:
   tileToChangeTo: {fileID: 11400000, guid: 2f0b83313c91bd4499d17312ee8faa1a, type: 2}
   itemToSpawn: {fileID: 0}
   taskIndex: 3
-  ADHDTimeValue: 900
+  ADHDTimeValue: 200
   ADHDCompleteTimeValue: 0
   ADHDMultiplier: 0.1
   ADHDGradeImage: {fileID: 0}

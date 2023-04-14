@@ -142,6 +142,11 @@ public abstract class CharBehaviourBase : MonoBehaviour
         energyBarSlider.value = 1.0f;
     }
 
+    public void SetEnergyLevel(float value)
+    {
+        energyBarSlider.value = value;
+    }
+
     public void DisplayRejectDialogue()
     {
         Player playerScript = this.GetComponent<Player>();

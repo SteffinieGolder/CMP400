@@ -9,7 +9,7 @@ public class ADHDEndTriggerScript : MonoBehaviour
 
     [SerializeField] int checkSellBoxTrueDialogueIndex = 0;
     [SerializeField] int checkSellBoxFalseDialogueIndex = 1;
-    [SerializeField] int missedChanceDialogueIndex = 3;
+    //[SerializeField] int missedChanceDialogueIndex = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,8 @@ public class ADHDEndTriggerScript : MonoBehaviour
                         ADHDCharData, NTCharData);
 
                     firstInteractionComplete = true;
+                    GameManager.instance.dayAndNightManager.AdvanceCurrentTime(3600);
+                    GameManager.instance.characterManager.char1PlayerScript.GetComponent<CharBehaviourBase>().SetEnergyLevel(0.7f);
                 }
 
                 else if (GameManager.instance.uiManager.canTriggerSecondNTDialogue)
@@ -40,8 +42,9 @@ public class ADHDEndTriggerScript : MonoBehaviour
                     if (!secondInteractionComplete)
                     {
                         //Have character despawn.
-                        GameManager.instance.characterManager.activePlayer.charData.DisplayEndSeqSoloDialogue(missedChanceDialogueIndex);
+                        //GameManager.instance.characterManager.activePlayer.charData.DisplayEndSeqSoloDialogue(missedChanceDialogueIndex);
                         secondInteractionComplete = true;
+                        GameManager.instance.taskManager.totalTaskCounter = -1;
                     }
                 }
             }

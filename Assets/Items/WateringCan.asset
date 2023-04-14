@@ -22,7 +22,7 @@ MonoBehaviour:
   taskIndex: 3
   ADHDTimeValue: 4000
   ADHDCompleteTimeValue: 0
-  ADHDMultiplier: 4
+  ADHDMultiplier: 0.4
   ADHDGradeImage: {fileID: 0}
   NTTimeValue: 300
   NTCompleteTimeValue: 0
@@ -30,6 +30,7 @@ MonoBehaviour:
   NTGradeImage: {fileID: 0}
   ADHDDialogueGroupIndexes: 00000000
   NTDialogueGroupIndexes: 0a000000
+  itemFoundIndex: 0
   TilePatchPositions:
   - {x: -18, y: -11}
   - {x: -18, y: -12}

@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public Image dialogueSprite;
     public TextMeshProUGUI dialogueTextUI;
     public GameObject dialoguePausePanel;
+    //public GameObject finalEndPanel;
 
     public GameObject fadePanel;
     public GameObject skyPanel;
@@ -258,7 +259,10 @@ public class UIManager : MonoBehaviour
 
             if (fadePanel.activeSelf)
             {
-                FadeInOrOut(false);
+                if (!GameManager.instance.characterManager.isGameOver)
+                {
+                    FadeInOrOut(false);
+                }
             }
 
             if (skyPanel.activeSelf)
@@ -270,6 +274,14 @@ public class UIManager : MonoBehaviour
             {
                 GameManager.instance.taskManager.totalTaskCounter--;
             }
+
+           /* if (GameManager.instance.characterManager.isGameOver)
+            {
+                if (GameManager.instance.characterManager.char1IsActive)
+                {
+                    finalEndPanel.SetActive(true);
+                }
+            }*/
         }
     }
 

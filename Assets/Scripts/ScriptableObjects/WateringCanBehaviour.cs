@@ -169,9 +169,10 @@ public class WateringCanBehaviour : ToolBehaviour
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).dialogueLines,
                         charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
 
+                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.ADHDTimeValue);
                     //Update ADHD character timer and energy values.
-                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
-                   
+                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().SetEnergyLevel(itemData.ADHDMultiplier);
+
                     //Update task stages. 
                     GameManager.instance.taskManager.isPlantingComplete = true;
                     GameManager.instance.taskManager.hasPlantingStarted = false;
