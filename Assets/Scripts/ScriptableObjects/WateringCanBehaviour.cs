@@ -102,6 +102,7 @@ public class WateringCanBehaviour : ToolBehaviour
             //Checks if task portion is complete (user has watered a tile).
             if (GameManager.instance.taskManager.IsTaskPortionComplete(true, itemData.taskIndex))
             {
+               // GameManager.instance.taskManager.wateredSeedCounter++;
                 //Checks if all available tiles have been watered. 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(true, itemData.taskIndex))
                 {
@@ -154,7 +155,8 @@ public class WateringCanBehaviour : ToolBehaviour
 
                     //Change some tiles to watered. 
                     List<Vector2> lessPositions = new List<Vector2>();
-                    for (int i = 0; i < itemData.TilePatchPositions.Count / 2; i++)
+                
+                    for (int i = 0; i < itemData.TilePatchPositions.Count; i++)
                     {
                         lessPositions.Add(itemData.TilePatchPositions[i]);
                     }

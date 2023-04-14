@@ -202,12 +202,12 @@ MonoBehaviour:
     expressionTypes: 0200000003000000
   shouldBeFishingDialogue:
   - dialogueLines:
-    - I can't do this right now...
-    - I think I should fish instead.
-    expressionTypes: 0000000001000000
+    - I really think I should give fishing a go!
+    expressionTypes: 01000000
   - dialogueLines:
-    - I've already decided that I'm going to do some fishing.
-    expressionTypes: 02000000
+    - I've been avoiding fishing for so long...
+    - I should try and get it over with.
+    expressionTypes: 0200000000000000
   busyOrFinishedFishingDialogue:
   - dialogueLines:
     - Im trying to get fishing out of the way right now.
@@ -224,11 +224,16 @@ MonoBehaviour:
     - I can't do this right now.
     - I've already decided to do some planting.
     expressionTypes: 0200000002000000
-  busyOrFinishedPlantingDialogue:
+  busyPlantingDialogue:
   - dialogueLines:
-    - I want to get back to planting...
-    - I need to make the most of this motivation while it lasts.
-    expressionTypes: 020000000200000000000000
+    - I can't stop thinking about planting right now.
+    - I should keep planting!
+    expressionTypes: 0200000000000000
+  finishedPlantingDialogue:
+  - dialogueLines:
+    - Okay, I think I've prepared enough soil.
+    - I should really try not to get too carried away.
+    expressionTypes: 0000000002000000
   findAxeDialogue:
   - dialogueLines:
     - 'I change my mind! '

@@ -16,8 +16,10 @@ public class TaskManager : MonoBehaviour
     public int fishTaskCounter = 0;
     public int weedTaskCounter = 0;
     public int hoeTaskCounter = 0;
+    public int wateredSeedCounter = 0;
     public bool isFishingComplete = false;
     public bool isPlantingComplete = false;
+    public bool isSoilPrepComplete = false;
     public bool hasFishingStarted = false;
     public bool hasPlantingStarted = false;
     public bool hasWeedingStarted = false;
@@ -30,6 +32,7 @@ public class TaskManager : MonoBehaviour
         fishTaskCounter = 0;
         weedTaskCounter = 0;
         hoeTaskCounter = 0;
+        wateredSeedCounter = 0;
         totalTaskCounter = 4;
         isFishingComplete = false;
         isPlantingComplete = false;
@@ -38,6 +41,7 @@ public class TaskManager : MonoBehaviour
         hasWeedingStarted = false;
         isWeedingComplete = false;
         hasPlayerDrunkCoffee = false;
+        isSoilPrepComplete = false;
 }
 
 public bool IsTaskPortionComplete(bool isChar1, int taskIndex)

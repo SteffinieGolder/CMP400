@@ -88,7 +88,7 @@ public class SwordBehaviour : ToolBehaviour
 
                                     else
                                     {
-                                        GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedPlantingDialogue();
+                                        GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
                                     }
                                 }
                             }

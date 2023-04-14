@@ -14,6 +14,7 @@ public class HoeBehaviour : ToolBehaviour
     Vector3Int gridPos;
     Vector3Int gridPos2;
     ItemData itemData;
+    CharacterData charData;
 
     //Function which checks if this tool can be used.
     //position is the screen position that was clicked by the user.
@@ -28,6 +29,8 @@ public class HoeBehaviour : ToolBehaviour
         gridPos = manager.GetGridPosition(position, true, TileManager.tilemapOptions.BACKGROUND);
         //Get the grid position in the ground tile map for the clicked screen position.
         gridPos2 = manager.GetGridPosition(position, true, TileManager.tilemapOptions.GROUND);
+        charData = GameManager.instance.characterManager.activePlayer.charData;
+
 
         //Store the tile found at the clicked position in both tilemaps. 
         TileBase tile = manager.GetTileBase(gridPos, TileManager.tilemapOptions.BACKGROUND);
@@ -50,29 +53,21 @@ public class HoeBehaviour : ToolBehaviour
                         //Checks if the player is in range to use the tool on the tile. 
                         if (Vector3.Distance(GameManager.instance.characterManager.activePlayer.transform.position, manager.GetWorldPosition(gridPos, TileManager.tilemapOptions.GROUND)) <= itemData.interactRange)
                         {
-                            //Return true if ADHD character is active.
-                            if (GameManager.instance.characterManager.char1IsActive)
+                            if (!GameManager.instance.taskManager.isSoilPrepComplete)
                             {
                                 return true;
                             }
 
                             else
                             {
-                                if (!GameManager.instance.taskManager.isPlantingComplete)
-                                {
-                                    return true;
-                                }
-
-                                else
-                                {
-                                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedPlantingDialogue();
-                                }
+                                charData.DisplayFinishedPlantingDialogue(0);
                             }
                         }
                     }
                 }
             }
         }
+
         return false;
     }
 
@@ -87,6 +82,7 @@ public class HoeBehaviour : ToolBehaviour
         //Checks which character is active and updates their energy and timer values. 
         if (GameManager.instance.characterManager.char1IsActive)
         {
+            GameManager.instance.taskManager.hoeTaskCounter++;
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
 
         }
@@ -95,13 +91,13 @@ public class HoeBehaviour : ToolBehaviour
         {
             GameManager.instance.taskManager.hoeTaskCounter++;
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.NTTimeValue, itemData.NTMultiplier, false);
-
-            //DONT HARD CODE THIS FIND A BETTER WAY
-            if (GameManager.instance.taskManager.hoeTaskCounter == 20)
-            {
-                GameManager.instance.taskManager.isPlantingComplete = true;
-            }
             
+        }
+
+        //DONT HARD CODE THIS FIND A BETTER WAY
+        if (GameManager.instance.taskManager.hoeTaskCounter == 20)
+        {
+            GameManager.instance.taskManager.isSoilPrepComplete = true;
         }
 
         //Return false as item is a tool and is reusable. Should not be removed from the inventory. 

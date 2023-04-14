@@ -103,6 +103,7 @@ public class CharacterManager : MonoBehaviour
 
         char1.SetActive(true);
         char1IsActive = true;
+        char2BehaviourScript.currentEmote = char2BehaviourScript.charEmotes[0];
         char2.SetActive(false);
         char2.transform.position = char2InitialPosition;
         char2PlayerScript.enabled = false;

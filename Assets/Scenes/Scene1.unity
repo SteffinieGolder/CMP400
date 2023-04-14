@@ -9726,7 +9726,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10880,7 +10880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &488642988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22482,8 +22482,10 @@ MonoBehaviour:
   fishTaskCounter: 0
   weedTaskCounter: 0
   hoeTaskCounter: 0
+  wateredSeedCounter: 0
   isFishingComplete: 0
   isPlantingComplete: 0
+  isSoilPrepComplete: 0
   hasFishingStarted: 0
   hasPlantingStarted: 0
   hasWeedingStarted: 0
@@ -62350,7 +62352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5896968721987062047, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5896968722212395579, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_AnchoredPosition.y

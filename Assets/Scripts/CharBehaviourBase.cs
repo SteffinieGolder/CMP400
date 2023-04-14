@@ -201,14 +201,14 @@ public abstract class CharBehaviourBase : MonoBehaviour
         }
     }
 
-    public void DisplayBusyOrFinishedPlantingDialogue()
+    public void DisplayBusyPlantingDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
 
         playerScript.charData.DisplayPlantingDialogue(busyPlantingIndex);
         busyPlantingIndex++;
 
-        if (busyPlantingIndex == playerScript.charData.busyOrFinishedPlantingDialogue.Count)
+        if (busyPlantingIndex == playerScript.charData.busyPlantingDialogue.Count)
         {
             busyPlantingIndex = 0;
         }

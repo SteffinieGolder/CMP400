@@ -75,12 +75,17 @@ public class FishingRodBehaviour : ToolBehaviour
                 GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[itemData.currentIndex]).dialogueLines,
                     charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[itemData.currentIndex]).expressionTypes);
 
+                GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
+
+                GameManager.instance.characterManager.char1PlayerScript.GetComponent<CharMovement>().moveSpeed -= 0.4f;
+
                 //Checks if user has reached the last task.
                 if (current == 10)
                 {
                     //Signals that the task is complete and resets the bool which says if the task has started or not. 
                     GameManager.instance.taskManager.isFishingComplete = true;
                     GameManager.instance.taskManager.hasFishingStarted = false;
+                    GameManager.instance.characterManager.char1PlayerScript.GetComponent<CharMovement>().moveSpeed = 3.5f;
                     //GameManager.instance.taskManager.AdvanceTimeForward();
                 }
 
@@ -88,7 +93,6 @@ public class FishingRodBehaviour : ToolBehaviour
                 itemData.currentIndex++;
                 //Changes the tile at the fish bubble location once it has been processed. (Removes the fish bubble). 
                 manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
-
             }
 
             //If ADHD char is active but the current index isn't one which should trigger dialogue, run the standard fishing behaviour. 

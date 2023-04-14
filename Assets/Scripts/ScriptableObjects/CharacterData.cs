@@ -37,7 +37,8 @@ public class CharacterData : ScriptableObject
 
     [Header("Planting Dialogue")]
     public List<DialogueGroup> shouldBePlantingDialogue = new List<DialogueGroup>();
-    public List<DialogueGroup> busyOrFinishedPlantingDialogue = new List<DialogueGroup>();
+    public List<DialogueGroup> busyPlantingDialogue = new List<DialogueGroup>();
+    public List<DialogueGroup> finishedPlantingDialogue = new List<DialogueGroup>();
 
     [Header("Find Axe Dialogue")]
     public List<DialogueGroup> findAxeDialogue = new List<DialogueGroup>();
@@ -103,7 +104,12 @@ public class CharacterData : ScriptableObject
     //Display this dialogue when the character is currently planting seeds but the user tries to change task. 
     public void DisplayPlantingDialogue(int groupIndex)
     {
-        GameManager.instance.uiManager.SetDialogueData(busyOrFinishedPlantingDialogue[groupIndex].dialogueLines, busyOrFinishedPlantingDialogue[groupIndex].expressionTypes);
+        GameManager.instance.uiManager.SetDialogueData(busyPlantingDialogue[groupIndex].dialogueLines, busyPlantingDialogue[groupIndex].expressionTypes);
+    }
+
+    public void DisplayFinishedPlantingDialogue(int groupIndex)
+    {
+        GameManager.instance.uiManager.SetDialogueData(finishedPlantingDialogue[groupIndex].dialogueLines, finishedPlantingDialogue[groupIndex].expressionTypes);
     }
 
     //Display the solo dialogue for the end sequence (when the ADHD character is looking for their axe).

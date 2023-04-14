@@ -67,7 +67,7 @@ public class AxeBehaviour : ToolBehaviour
 
                                 else
                                 {
-                                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedPlantingDialogue();
+                                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
                                 }
                             }
 

@@ -20,9 +20,9 @@ MonoBehaviour:
   tileToChangeTo: {fileID: 11400000, guid: 7471b09934a16c04c97c819995220d1e, type: 2}
   itemToSpawn: {fileID: 0}
   taskIndex: 4
-  ADHDTimeValue: 250
+  ADHDTimeValue: 300
   ADHDCompleteTimeValue: 0
-  ADHDMultiplier: 0.2
+  ADHDMultiplier: 0.1
   ADHDGradeImage: {fileID: 0}
   NTTimeValue: 300
   NTCompleteTimeValue: 0
@@ -30,6 +30,7 @@ MonoBehaviour:
   NTGradeImage: {fileID: 0}
   ADHDDialogueGroupIndexes: 
   NTDialogueGroupIndexes: 
+  itemFoundIndex: 0
   TilePatchPositions: []
   patchTile: {fileID: 0}
   currentIndex: 0
