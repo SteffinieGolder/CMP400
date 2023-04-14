@@ -58,6 +58,7 @@ public class HoeBehaviour : ToolBehaviour
                                 return true;
                             }
 
+                            //Display dialogue to say that they have finished preparing the soil.
                             else
                             {
                                 charData.DisplayFinishedPlantingDialogue(0);
@@ -94,8 +95,8 @@ public class HoeBehaviour : ToolBehaviour
             
         }
 
-        //DONT HARD CODE THIS FIND A BETTER WAY
-        if (GameManager.instance.taskManager.hoeTaskCounter == 20)
+        //If the character has used this tool the max amount of times, set this bool to true to signal that they should not be able to use it anymore.
+        if (GameManager.instance.taskManager.hoeTaskCounter == itemData.totalTaskCount)
         {
             GameManager.instance.taskManager.isSoilPrepComplete = true;
         }

@@ -2,54 +2,79 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 //Script which stores and controls all inventory UIs accessed by the player. 
 
 public class UIManager : MonoBehaviour
 {
+    //Dictionary of all inventory UI elements in game.
     public Dictionary<string, InventoryUI> inventoryUIByName = new Dictionary<string, InventoryUI>();
 
+    //Dialogue UI panel.
     public GameObject dialoguePanel;
+    //Dialogue sprite object.
     public Image dialogueSprite;
+    //Dialogue text element.
     public TextMeshProUGUI dialogueTextUI;
+    //Panel which prevents user from touching other UI elements when dialogue is active. 
     public GameObject dialoguePausePanel;
-    //public GameObject finalEndPanel;
 
+    //UI element for the screen fade out.
     public GameObject fadePanel;
+    //UI element for the ADHD sky fade out. 
     public GameObject skyPanel;
 
+    //UI elements.
     public List<InventoryUI> inventoryUIs;
     public List<GameObject> backpackPanels;
     public List<GameObject> toolbarPanels;
     public List<GameObject> storagePanels;
     public GameObject removePanel;
+    //The amount of 'toggle' UI - the inventories which can be toggled on and off by the user. 
     public int toggleUIAmount = 2;
 
+    //UI variables for the dragged slot (if user decides to move an item around in their inventory).
     public static SlotsUI draggedSlot;
     public static Image draggedIcon;
     public static bool dragSingle;
+    //Variables which track where the mouse pointer is.
     public static bool isPointerOnToggleUI;
     public static bool isPointerOnConstantUI;
+    //Used to determine if player can open storage box.
     public static bool isCharacterInStorageInteractRange;
 
+    //Keeps track of current active toggle inventories in game. 
     private int currentActiveToggleUICount;
 
+    //Dialogue lines to show.
     private List<string> dialogueToShow;
+    //Dialogue faces to show.
     private List<CharacterData.FaceType> faceTypes;
+    //Conversation dialogue for the first speaker.
     private List<CharacterData.DialogueGroup> conversationGroup1stSpeaker;
+    //Conversation dialogue for the second speaker.
     private List<CharacterData.DialogueGroup> conversationGroup2ndSpeaker;
+    //Used to tell script if incoming dialogue is a conversation or single person. 
     private bool isConversation = false;
+    //Character data for different speakers in conversation.
     CharacterData firstSpeakerData;
     CharacterData secondSpeakerData;
-
+    //Keep track of index in dialogue.
     private int currentDialogueIndex = 0;
+    //Keep track of index for first speaker in conversation.
     private int speaker1GroupIndex = 0;
+    //Keep track of index for second speaker in conversation.
     private int speaker2GroupIndex = 0;
-
+    //Tells script to remove UI element.
     private bool shouldRemoveUI = false;
 
+    //Triggered once ADHD day is about to end and they should check their storage box.
     public bool startCheckingForStorageClosed = false;
+    //Triggered once ADHD day is about to end and they should return to the other character.
     public bool canTriggerSecondNTDialogue = false;
+    //Triggered if player has been in the storage box yet in the playthrough, and changes dialogue accordingly. 
     public bool hasPlayerOpenedStorageInPlaythrough = false;
+    //Dialogue index for the dialogue line which tells the user to check the storage box. 
     [SerializeField] int checkedSellBoxDialogueIndex = 2;
 
     private void Awake()
@@ -62,8 +87,8 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        //IS THIS JUST CONSTANTLY SETTING/////////////////////////
-        if(currentActiveToggleUICount ==0)
+        //Set timescale (pause or unpause) if a toggle UI is open/closed.
+        if (currentActiveToggleUICount == 0)
         {
             Time.timeScale = 1;
         }
@@ -73,8 +98,8 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        //Make function??
-        if(shouldRemoveUI)
+        //Removes UI elements if they're active and this is triggered.
+        if (shouldRemoveUI)
         {
             if (fadePanel.activeSelf)
             {
@@ -97,11 +122,12 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        //Allows the user to press I to open their storage UI if they are in range.
         if (isCharacterInStorageInteractRange)
         {
             if(Input.GetKeyDown(KeyCode.I))
             {
-                //Pull up storage screen
+                //Pull up storage screen.
                 ShowStorageScreen();
             }
         }
@@ -112,6 +138,7 @@ public class UIManager : MonoBehaviour
             ToggleInventory();
         }
 
+        //User can hold shift to drag one item around in inventories rather than full stack. 
         if (Input.GetKey(KeyCode.LeftShift))
         {
             dragSingle = true;
@@ -121,9 +148,10 @@ public class UIManager : MonoBehaviour
             dragSingle = false;
         }
 
-        if(draggedSlot)
+        //Activate this panel to prevent user from dragging an item into the world.
+        if (draggedSlot)
         {
-            if(!removePanel.activeSelf)
+            if (!removePanel.activeSelf)
             {
                 removePanel.SetActive(true);
             }
@@ -131,13 +159,14 @@ public class UIManager : MonoBehaviour
 
         else
         {
-            if(removePanel.activeSelf)
+            if (removePanel.activeSelf)
             {
                 removePanel.SetActive(false);
             }
         }
     }
 
+    //Removes all active UI.
     public void RemoveAllActiveUI()
     {
         if (backpackPanels[1].activeSelf)
@@ -155,7 +184,6 @@ public class UIManager : MonoBehaviour
     //Function which toggles inventory on/off by activating/deactivating UI panel element.
     public void ToggleInventory()
     {
-        //THIS IS BAD////////////////////////////////////////////////////////////////
         if (backpackPanels != null)
         {
             if (GameManager.instance.characterManager.char1IsActive)
@@ -194,6 +222,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Sets the dialogue data to show.
     public void SetDialogueData(List<string> dialoguelines, List<CharacterData.FaceType> charFaceTypes)
     {
         dialogueToShow = dialoguelines;
@@ -203,6 +232,7 @@ public class UIManager : MonoBehaviour
         ShowDialogueBox();
     }
 
+    //Sets dialogue data for a conversation.
     public void SetConversationDialogueData(List<CharacterData.DialogueGroup> firstSpeakerDialogueLines, List<CharacterData.DialogueGroup> secondSpeakerDialoguelines, 
         CharacterData firstSpeaker, CharacterData secondSpeaker)
     {
@@ -218,6 +248,7 @@ public class UIManager : MonoBehaviour
         ShowDialogueBox();
     }
     
+    //Show dialogue box to user depending on if its a conversation or not.
     public void ShowDialogueBox()
     {
         if (isConversation)
@@ -232,13 +263,16 @@ public class UIManager : MonoBehaviour
       
     }
 
+    //Shows single character dialogue.
     public void ShowSingleCharDialogue()
     {
+        //Goes through each dialogue element and and displays to the user.
         if (currentDialogueIndex < dialogueToShow.Count)
         {
             dialogueSprite.sprite = GameManager.instance.characterManager.activePlayer.charData.charFaceSprites[(int)faceTypes[currentDialogueIndex]];
             dialogueTextUI.text = dialogueToShow[currentDialogueIndex];
 
+            //Activate the UI panel.
             if (!dialoguePanel.activeSelf)
             {
                 dialoguePanel.SetActive(true);
@@ -246,9 +280,11 @@ public class UIManager : MonoBehaviour
                 currentActiveToggleUICount++;
             }
 
+            //Increment the index used for looping through the dialogue elements. 
             currentDialogueIndex++;
         }
 
+        //Remove the dialogue UI elements once all of the lines have been displayed. 
         else
         {
             dialoguePanel.SetActive(false);
@@ -270,25 +306,21 @@ public class UIManager : MonoBehaviour
                 DisplaySkyPanel(false);
             }
 
+            //Used for the ADHD ending. 
             if (GameManager.instance.taskManager.totalTaskCounter == 0)
             {
                 GameManager.instance.taskManager.totalTaskCounter--;
             }
-
-           /* if (GameManager.instance.characterManager.isGameOver)
-            {
-                if (GameManager.instance.characterManager.char1IsActive)
-                {
-                    finalEndPanel.SetActive(true);
-                }
-            }*/
         }
     }
 
+    //Show conversation dialogue to the user. 
     public void ShowConversationDialogue()
     {
+        //Checks if last speaker still has lines to say.
         if (speaker2GroupIndex < conversationGroup1stSpeaker.Count)
         {
+            //Display the 2nd speaker's dialogue lines if the first is a step ahead. 
             if (speaker1GroupIndex > speaker2GroupIndex)
             {
                 if (currentDialogueIndex <= conversationGroup2ndSpeaker[speaker2GroupIndex].dialogueLines.Count)
@@ -308,11 +340,13 @@ public class UIManager : MonoBehaviour
 
             else
             {
+                //Display the first speakers dialogue lines.
                 if (currentDialogueIndex < conversationGroup1stSpeaker[speaker1GroupIndex].dialogueLines.Count)
                 {
                     dialogueSprite.sprite = firstSpeakerData.charFaceSprites[(int)conversationGroup1stSpeaker[speaker1GroupIndex].expressionTypes[currentDialogueIndex]];
                     dialogueTextUI.text = conversationGroup1stSpeaker[speaker1GroupIndex].dialogueLines[currentDialogueIndex];
 
+                    //Activate the UI panels.
                     if (!dialoguePanel.activeSelf)
                     {
                         dialoguePanel.SetActive(true);
@@ -331,6 +365,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        //Remove the UI elements. 
         else
         {
             dialoguePanel.SetActive(false);
@@ -353,7 +388,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
+    //Function which plays a fade in/out animation.
     public void FadeInOrOut(bool fadeOut)
     {
         Animator animator = fadePanel.GetComponent<Animator>();
@@ -372,6 +407,7 @@ public class UIManager : MonoBehaviour
 
     }
 
+    //Displays the sky panel (used when ADHD character zones out).
     public void DisplaySkyPanel(bool shouldDisplayPanel)
     {
         Animator animator = skyPanel.GetComponent<Animator>();
@@ -389,8 +425,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Shows storage screen.
     public void ShowStorageScreen()
     {
+        //Checks if ADHD character is active.
         if (GameManager.instance.characterManager.char1IsActive)
         {
             if (storagePanels[0].activeSelf == false)
@@ -400,6 +438,7 @@ public class UIManager : MonoBehaviour
                 RefreshInventoryUI("Storage_C1");
                 currentActiveToggleUICount++;
 
+                //Set this to true as player has opened the storage UI.
                 if (!hasPlayerOpenedStorageInPlaythrough)
                 {
                     hasPlayerOpenedStorageInPlaythrough = true;
@@ -411,6 +450,7 @@ public class UIManager : MonoBehaviour
                 SetPointerOnToggleUI(false);
                 currentActiveToggleUICount--;
 
+                //If the bool has been set to start checking if the user has checked the storage for their lost item, then display the dialogue.
                 if (startCheckingForStorageClosed)
                 {
                     canTriggerSecondNTDialogue = true;
@@ -420,6 +460,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        //If NT character is active either open or close storage UI.
         else
         {
             if (storagePanels[1].activeSelf == false)
@@ -438,7 +479,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void CloseStorageUI()
+    /*public void CloseStorageUI()
     {
         if (storagePanels != null)
         {
@@ -466,13 +507,15 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
+    //Returns if character is in a conversation.
     public bool IsCharacterInConversation()
     {
         return isConversation;
     }
 
+    //Switches the active toolbar depending on which character is active.
     public void SwitchToolbar(bool isCharOne)
     {
         if(isCharOne)
@@ -490,6 +533,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Refreshes inventory UI element. 
     public void RefreshInventoryUI(string inventoryName)
     {
         if (inventoryUIByName.ContainsKey(inventoryName))
@@ -498,6 +542,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Refreshes all inventory UI elements. 
     public void RefreshAll()
     {
         foreach (KeyValuePair<string, InventoryUI> keyValuePair in inventoryUIByName)
@@ -506,6 +551,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Returns UI element.
     public InventoryUI GetInventoryUI(string inventoryName)
     {
         if (inventoryUIByName.ContainsKey(inventoryName))
@@ -516,6 +562,7 @@ public class UIManager : MonoBehaviour
         return null;
     }
 
+    //Initialise inventory UI elements.
     void Initialise()
     {   
         foreach(InventoryUI ui in inventoryUIs)
@@ -527,6 +574,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Remove object from inventory.
     public void RemoveFromInv(GameObject triggerObj)
     {
         if (draggedSlot)
@@ -535,31 +583,24 @@ public class UIManager : MonoBehaviour
 
             if (current)
             {
-                //FIX THIS///////
-                //if (triggerObj.name == "CompostBin" && draggedSlot.itemIcon.name == "Weed")
-                // /{
-                //   Debug.Log("Found weed");
-                //}
-
-                //else
-                // {
                 current.RemoveItem();
-                //  }
-                // }
             }
         }
     }
 
+    //Determines if pointer is on a toggle UI (backpack).
     public void SetPointerOnToggleUI(bool isOnUI)
     {
         isPointerOnToggleUI = isOnUI;
     }
 
+    //Determines if pointer is on a constant UI (toolbar).
     public void SetPointerOnConstantUI(bool isOnUI)
     {
         isPointerOnConstantUI = isOnUI;
     }
 
+    //Determines if player can interact with their storage box.
     public void SetCharInStorageRange(bool isInRange)
     {
         isCharacterInStorageInteractRange = isInRange;

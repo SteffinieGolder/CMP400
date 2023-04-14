@@ -102,7 +102,7 @@ public class WateringCanBehaviour : ToolBehaviour
             //Checks if task portion is complete (user has watered a tile).
             if (GameManager.instance.taskManager.IsTaskPortionComplete(true, itemData.taskIndex))
             {
-               // GameManager.instance.taskManager.wateredSeedCounter++;
+               //GameManager.instance.taskManager.wateredSeedCounter++;
                 //Checks if all available tiles have been watered. 
                 if (GameManager.instance.taskManager.IsTaskTotallyComplete(true, itemData.taskIndex))
                 {
@@ -169,14 +169,13 @@ public class WateringCanBehaviour : ToolBehaviour
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).dialogueLines,
                         charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[0]).expressionTypes);
 
-                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.ADHDTimeValue);
                     //Update ADHD character timer and energy values.
+                    GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.ADHDTimeValue);
                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().SetEnergyLevel(itemData.ADHDMultiplier);
 
                     //Update task stages. 
                     GameManager.instance.taskManager.isPlantingComplete = true;
                     GameManager.instance.taskManager.hasPlantingStarted = false;
-                    //GameManager.instance.taskManager.AdvanceTimeForward();
                 }
 
             }
@@ -198,8 +197,6 @@ public class WateringCanBehaviour : ToolBehaviour
                     //Show Dialogue lines.
                     GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
                         charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
-
-                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }
         }

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UI;
 
 //Scriptable object which defines data for items.
 
@@ -24,6 +23,8 @@ public class ItemData : ScriptableObject
     public GameObject itemToSpawn;
     //The index for this item in the task list. 
     public int taskIndex;
+    //Total times this tool should be used before the task is complete.
+    public int totalTaskCount;
 
     //Timer values, multipliers for energy decreasing and the item grading image for the ADHD character when they use this item. 
     public float ADHDTimeValue;

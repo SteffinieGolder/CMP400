@@ -14,7 +14,6 @@ public class BagBehaviour : ToolBehaviour
     Vector3Int gridPos;
     ItemData itemData;
     TileBase tile;
-    CharacterData charData;
 
     //Function which checks if this tool can be used.
     //position is the screen position that was clicked by the user.

@@ -6,15 +6,20 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
+    //Inventory name.
     public string inventoryName;
+    //Character who owns the inventory.
     public GameObject owningCharacter;
 
     //List of UI slots in inventory. 
     public List<SlotsUI> slots = new List<SlotsUI>();
 
+    //Inventory canvas.
     [SerializeField] private Canvas canvas;
 
+    //Inventory object.
     private Inventory inventory;
+    //Player script attached to the owning character.
     private Player owningCharScript;
 
     private void Awake()
@@ -64,12 +69,13 @@ public class InventoryUI : MonoBehaviour
         //Check if item has been selected to drop. 
         if (itemToDrop != null)
         {
-            //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Remove the grading image attached to this item if it was in a storage inventory.
             if (inventory.inventoryName == "Storage_C1" || inventory.inventoryName == "Storage_C2")
             {
                 slots[UIManager.draggedSlot.slotID].ratingImage.SetActive(false);
             }
 
+            //Check if user selected to drag one item from the slot.
             if (UIManager.dragSingle)
             {
                 //Tell player script to drop item.
@@ -90,9 +96,12 @@ public class InventoryUI : MonoBehaviour
             Refresh();
         }
 
+        //Reset the dragged slot.
         UIManager.draggedSlot = null;
     }
 
+    //Function which defines behaviour for if an item has been dragged from a slot.
+    //Creates a smaller version of the item attached to the mouse pointer so it can be moved by the user.
     public void SlotBeginDrag(SlotsUI slot)
     {
         UIManager.draggedSlot = slot;
@@ -103,33 +112,37 @@ public class InventoryUI : MonoBehaviour
         MoveToMousePosition(UIManager.draggedIcon.gameObject);
     }
 
+    //Moves the smaller spawned item wherever the mouse goes.
     public void SlotDrag()
     {
         MoveToMousePosition(UIManager.draggedIcon.gameObject);
     }
 
+    //Destroys the smaller spawned item once the user has let go of the mouse button.
     public void SlotEndDrag()
     {
         Destroy(UIManager.draggedIcon.gameObject);
         UIManager.draggedIcon = null;
     }
 
+    //Moves the item to the new inventory slot selected by the user.
     public void SlotDrop(SlotsUI slot)
     {
         if (slot)
         {
             if (UIManager.draggedSlot)
             {
-                //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //Checks if the slot is in a storage inventory.
                 if (slot.inventory.inventoryName == "Storage_C1" || slot.inventory.inventoryName == "Storage_C2")
                 {
+                    //Grades the item placed in the storage slot depending on the item and active character.
                     Item itemToGrade = GameManager.instance.itemManager.GetItemByName(UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].itemName);
 
                     if (itemToGrade)
                     {
                         if (itemToGrade.data.itemName == "Fish" || itemToGrade.data.itemName == "Strawberry" || itemToGrade.data.itemName == "Tomato" || itemToGrade.data.itemName == "Carrot")
                         {
-                            if(GameManager.instance.characterManager.char1IsActive)
+                            if (GameManager.instance.characterManager.char1IsActive)
                             {
                                 slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.ADHDGradeImage;
 
@@ -145,10 +158,13 @@ public class InventoryUI : MonoBehaviour
                     }
                 }
 
+                //Moves a single item if the user has selected to move a single item.
                 if (UIManager.dragSingle)
                 {
+                    //Move the item to the desired slot.
                     UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory);
 
+                    //If an item has been moved from a storage inventory, then remove the grading image. 
                     if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
                     {
                         if (UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].IsEmpty)
@@ -160,22 +176,25 @@ public class InventoryUI : MonoBehaviour
 
                 else
                 {
+                    //Move the item to the desired slot.
                     UIManager.draggedSlot.inventory.MoveSlot(UIManager.draggedSlot.slotID, slot.slotID, slot.inventory,
                         UIManager.draggedSlot.inventory.slots[UIManager.draggedSlot.slotID].count);
 
-                    //THIS IS BAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //If an item has been moved from a storage inventory, then remove the grading image. 
                     if (UIManager.draggedSlot.inventory.inventoryName == "Storage_C1" || UIManager.draggedSlot.inventory.inventoryName == "Storage_C2")
                     {
                         UIManager.draggedSlot.ratingImage.SetActive(false);
                     }
                 }
 
+                //Refresh the inventory and reset the dragged slot.
                 GameManager.instance.uiManager.RefreshAll();
                 UIManager.draggedSlot = null;
             }
         }
     }
 
+    //Moves the spawned item to the mouse position (so it can be dragged by the user).
     private void MoveToMousePosition(GameObject toMove)
     {
         if (canvas != null)
@@ -189,6 +208,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    //Instantiate the slots in the inventory.
     void SetupSlots()
     {
         int counter = 0;
@@ -200,30 +220,4 @@ public class InventoryUI : MonoBehaviour
             slot.inventory = inventory;
         }
     }
-
-   /* public void CheckSlotsForGrading(Item itemToGrade, bool isChar1)
-    {
-        // if (inventoryNameForGrading == "Storage_C1" || inventoryNameForGrading == "Storage_C2")
-        // {
-        // if (inventoryName == inventoryNameForGrading)
-        // {
-        foreach (SlotsUI slot in slots)
-        {
-            if (slot.itemIcon == itemToGrade.data.icon)
-            {
-                if (isChar1)
-                {
-                    slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.ADHDGradeImage;
-                }
-                else
-                {
-                    slot.ratingImage.GetComponent<Image>().sprite = itemToGrade.data.NTGradeImage;
-                }
-
-                slot.ratingImage.SetActive(true);
-            }
-            //     }
-        }
-        //  }
-    }*/
 }

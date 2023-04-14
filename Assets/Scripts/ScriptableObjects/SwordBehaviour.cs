@@ -134,7 +134,6 @@ public class SwordBehaviour : ToolBehaviour
                     GameManager.instance.taskManager.isWeedingComplete = true;
                     GameManager.instance.taskManager.hasWeedingStarted = false;
                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayFindAxeDialogue();
-                    //GameManager.instance.taskManager.AdvanceTimeForward();
                 }
             }           
         }
@@ -154,8 +153,6 @@ public class SwordBehaviour : ToolBehaviour
                         charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
 
                     GameManager.instance.taskManager.totalTaskCounter--;
-
-                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
                 }
             }
         }

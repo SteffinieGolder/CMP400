@@ -59,9 +59,8 @@ public class MilkBehaviour : ToolBehaviour
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.ADHDTimeValue);
 
             GameManager.instance.taskManager.hasPlayerDrunkCoffee = true;
+            //Make time go faster after this event.
             GameManager.instance.dayAndNightManager.timeScale = 60f;
-            //Make time go faster after this event. 
-            //GameManager.instance.dayAndNightManager.timeScale = 60f;
 
         }
 
@@ -71,6 +70,8 @@ public class MilkBehaviour : ToolBehaviour
             //Increase NT energy and timer values.
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().FullyRestoreEnergy();
             GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTTimeValue);
+
+            //Display dialogue.
             GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).dialogueLines,
               charData.GetDialogueGroup(itemData.NTDialogueGroupIndexes[0]).expressionTypes);
             GameManager.instance.taskManager.hasPlayerDrunkCoffee = true;

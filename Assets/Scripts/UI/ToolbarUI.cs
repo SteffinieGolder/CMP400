@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 //Script which controls the toolbar UI element and adds highlight to selected toolbar slot. 
 
@@ -11,12 +10,6 @@ public class ToolbarUI : MonoBehaviour
      
     //The slot selected by the player.
     private SlotsUI selectedSlot;
-
-    private void Start()
-    {
-        //Initialise selected slot to 0.
-        //SelectSlot(0);
-    }
 
     private void Update()
     {
@@ -39,6 +32,7 @@ public class ToolbarUI : MonoBehaviour
             selectedSlot = toolbarSlots[index];
             selectedSlot.SetHighlight(true);
 
+            //Equips the item at the selected toolbar slot. 
             GameManager.instance.itemManager.EquipItem(selectedSlot.inventory.slots[selectedSlot.slotID].itemName, selectedSlot);
         }
     }

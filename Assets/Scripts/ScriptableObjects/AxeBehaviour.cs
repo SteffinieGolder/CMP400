@@ -70,21 +70,6 @@ public class AxeBehaviour : ToolBehaviour
                                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
                                 }
                             }
-
-                            /*else if (!GameManager.instance.taskManager.isWeedingComplete)
-                            {
-                                if (!GameManager.instance.taskManager.hasWeedingStarted)
-                                {
-                                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayShouldBePlantingDialogue();
-                                    Debug.Log("I should weed");
-                                }
-
-                                else
-                                {
-                                    Debug.Log("Just let me weed in peace");
-                                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyPlantingDialogue();
-                                }
-                            }*/
                         }
                     }
 

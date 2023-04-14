@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-//A LOT OF THESE FUNCTIONS COULD BE CONDENSED REMOVE REPEATED CODE
 
 //Script which stores dialogue data for characters. 
 

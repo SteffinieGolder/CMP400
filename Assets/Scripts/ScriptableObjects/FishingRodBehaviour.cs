@@ -75,8 +75,10 @@ public class FishingRodBehaviour : ToolBehaviour
                 GameManager.instance.uiManager.SetDialogueData(charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[itemData.currentIndex]).dialogueLines,
                     charData.GetDialogueGroup(itemData.ADHDDialogueGroupIndexes[itemData.currentIndex]).expressionTypes);
 
+                //Update character energy and day timer.
                 GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().UpdateBehaviour(itemData.ADHDTimeValue, itemData.ADHDMultiplier, false);
 
+                //Alter movement speed.
                 GameManager.instance.characterManager.char1PlayerScript.GetComponent<CharMovement>().moveSpeed -= 0.3f;
 
                 //Checks if user has reached the last task.
@@ -162,13 +164,11 @@ public class FishingRodBehaviour : ToolBehaviour
 
                 }
 
-                else if (GameManager.instance.taskManager.fishTaskCounter > 9)
+                //If the character has caught the max amount of fish, reduce the total task counter and display the finished fishing dialogue. 
+                else if (GameManager.instance.taskManager.fishTaskCounter > itemData.totalTaskCount)
                 {
                     GameManager.instance.taskManager.totalTaskCounter--;
                     GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().DisplayBusyOrFinishedFishingDialogue();
-
-                    //GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().AdvanceTime(itemData.NTCompleteTimeValue);
-
                 }
             }
         }

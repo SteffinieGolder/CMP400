@@ -8,6 +8,7 @@ public class SlotsUI : MonoBehaviour
 {
     public int slotID;
     public Inventory inventory;
+    //Image which acts as a grading for items placed in the storage box. 
     public GameObject ratingImage;
 
     //Item icon and text which displays number held. 
