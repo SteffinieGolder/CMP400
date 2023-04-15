@@ -12,13 +12,14 @@ public class ItemManager : MonoBehaviour
     //Dictionary holding name and item object.
     private Dictionary<string, Item> nameToItemDict = new Dictionary<string, Item>();
 
+    //Variables for an equipped item;
     private Item equippedItem;
     private SlotsUI equippedSlot;
     private bool once = false;
 
     private void Awake()
     {
-        //Run AddItem func for each item in array. 
+        //Add items to dictionary.
         foreach (Item item in items)
         {
             AddItem(item);
@@ -28,6 +29,7 @@ public class ItemManager : MonoBehaviour
 
     private void Update()
     {
+        //Spawn the hoe object in the environment after the fishing task is complete. Do this once.
         if (!once)
         {
             if (GameManager.instance.characterManager.char1IsActive)
@@ -40,12 +42,15 @@ public class ItemManager : MonoBehaviour
             }
         }
 
+        //Do this if the game isn't paused.
         if (Time.timeScale != 0)
         {
             if (equippedItem)
             {
+                //Check that the milk object isn't equipped.
                 if (equippedItem.data.itemName != "Milk")
                 {
+                    //Check if the character will accept the task (they will refuse if they're too tired).
                     if (GameManager.instance.characterManager.activePlayer.GetComponent<CharBehaviourBase>().currentEmote.doesCharAcceptTask)
                     {
                         {
@@ -66,17 +71,22 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    //Run the task behaviour.
     private void RunTaskAccepted()
     {
+        //Checks if the user has clicked and their not on a UI element.
         if (Input.GetMouseButtonDown(0))
         {
             if (!UIManager.isPointerOnToggleUI && !UIManager.isPointerOnConstantUI)
             {
                 Vector2 pos = Input.mousePosition;
+                //Checks if current toolbar item is equippable.
                 if (equippedItem.data.isEquippable)
                 {
+                    //Checks if the item can be used based on its specific conditions.
                     if (equippedItem.data.toolBehaviourScript.CheckUseConditions(pos, equippedItem.data))
                     {
+                        //Performs the behaviour based on the equipped tool. If this returns true then the item should be removed from the inventory after use.
                         if (equippedItem.data.toolBehaviourScript.PerformBehaviour())
                         {
                             //Remove item from player inventory.
@@ -84,6 +94,7 @@ public class ItemManager : MonoBehaviour
                             inventory.Remove(equippedSlot.slotID);
                             GameManager.instance.uiManager.RefreshInventoryUI(inventory.inventoryName);
 
+                            //Reset the equipped item if the user has run out.
                             if (equippedSlot.quantityText.text == "")
                             {
                                 equippedItem = null;
@@ -95,6 +106,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    //Reject the task. Same as above but doesn't run the behaviour, it just displays dialogue.
     private void RunTaskRejected()
     {
         if (Input.GetMouseButtonDown(0))
@@ -115,6 +127,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    //Drink the milk (coffee).
     private void DrinkMilk()
     {
         if (Input.GetMouseButtonDown(0))
@@ -164,6 +177,7 @@ public class ItemManager : MonoBehaviour
         return null;
     }
 
+    //Equips the user with the desired item.
     public void EquipItem(string equipName, SlotsUI slot)
     {
         if (nameToItemDict.ContainsKey(equipName))
@@ -178,6 +192,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    //Resets the equipped item.
     public void ResetEquippedItem()
     {
         equippedItem = null;

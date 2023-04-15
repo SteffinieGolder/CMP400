@@ -16,6 +16,7 @@ public class TileManager : MonoBehaviour
     //Dictionary which matches a tile to its data.
     Dictionary<TileBase, TileData> dataFromTileDict;
 
+    //Corresponds to index positions in the tilemap list.
     public enum tilemapOptions
     {
         BACKGROUND = 0,

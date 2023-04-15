@@ -2,20 +2,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-//A LOT OF THESE FUNCTIONS COULD BE CONDENSED REMOVE REPEATED CODE
-
+//Script which controls the character behaviour (energy levels, emotes, dialogue etc).
 public class CharBehaviourBase : MonoBehaviour
 {
+    //Energy bar.
     public Slider energyBarSlider;
+    //List of emotes for this character.
     public List<EmoteData> charEmotes;
+    //The emote object.
     public GameObject emoteObject;
+    //A cell on the energy bar.
     protected float energyCellSize = 0.126f;
+    //The current energy slider value (1 is full).
     protected float currentEnergySliderNum = 1;
-    protected float timeBetweenChanges = 8000;
+    //Current day time.
     protected float currentTime;
+    //Time manager class.
     protected DayAndNightManager timeManager;
+    //The current emote for this character.
     public EmoteData currentEmote;
 
+    //Indexes for different dialogue groups.
     private int rejectDialogueIndex;
     private int shouldBeFishingIndex;
     private int busyFishingIndex;
@@ -23,6 +30,7 @@ public class CharBehaviourBase : MonoBehaviour
     private int busyPlantingIndex;
     private int findAxeIndex;
 
+    //Types of emotes and indexes in emote list.
     enum EmoteTypes
     {
         HAPPY = 0,
@@ -30,6 +38,7 @@ public class CharBehaviourBase : MonoBehaviour
         FRUSTRATED = 2
     }
 
+    //Initialise variables.
     private void Start()
     {
         currentEnergySliderNum = energyBarSlider.value;
@@ -49,6 +58,7 @@ public class CharBehaviourBase : MonoBehaviour
 
     private void Update()
     {
+        //Run if game isn't paused.
         if (Time.timeScale != 0)
         {
             //Testing
@@ -62,18 +72,21 @@ public class CharBehaviourBase : MonoBehaviour
                 currentTime = timeManager.GetCurrentTime();
             }
 
-            //This value hardcoding is probably dodgy should fix
+            //Changes the character emote to happy if their energy levels are within the happy range.
             if (energyBarSlider.value > charEmotes[(int)EmoteTypes.HAPPY].lowerLimit)
             {
                 if (currentEmote != charEmotes[(int)EmoteTypes.HAPPY])
                 {
+                    //Update emote sprite and move speed.
                     currentEmote = charEmotes[(int)EmoteTypes.HAPPY];
                     emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
+                    //Display emote change dialogue.
                     DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPreCoffee);
                 }
             }
 
+            //Changes the character emote to tired if their energy levels are within the tired range.
             else if (energyBarSlider.value <= charEmotes[(int)EmoteTypes.TIRED].upperLimit && energyBarSlider.value > charEmotes[(int)EmoteTypes.TIRED].lowerLimit)
             {
                 if (currentEmote != charEmotes[(int)EmoteTypes.TIRED])
@@ -82,6 +95,7 @@ public class CharBehaviourBase : MonoBehaviour
                     emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
 
+                    //Display emote change dialogue depending on if player has drunk coffee yet in game.
                     if (GameManager.instance.taskManager.hasPlayerDrunkCoffee)
                     {
                         DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPostCoffee);
@@ -94,7 +108,8 @@ public class CharBehaviourBase : MonoBehaviour
                 }
             }
 
-           else if (energyBarSlider.value <= charEmotes[(int)EmoteTypes.HAPPY].lowerLimit)
+            //Changes the character emote to frustrated if their energy levels are within the frustrated range.
+            else if (energyBarSlider.value <= charEmotes[(int)EmoteTypes.HAPPY].lowerLimit)
             {
                 if (currentEmote != charEmotes[(int)EmoteTypes.FRUSTRATED])
                 {
@@ -102,6 +117,7 @@ public class CharBehaviourBase : MonoBehaviour
                     emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
 
+                    //Display emote change dialogue depending on if player has drunk coffee yet in game.
                     if (GameManager.instance.taskManager.hasPlayerDrunkCoffee)
                     {
                         DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPostCoffee);
@@ -116,6 +132,7 @@ public class CharBehaviourBase : MonoBehaviour
         }
     }
 
+    //Change the value of the energy bar using params. Energy can be increased or decreased.
     public void UpdateEnergyBar(float multiplier, bool isIncreasing)
     {
         if (isIncreasing)
@@ -129,11 +146,13 @@ public class CharBehaviourBase : MonoBehaviour
         }
     }
 
+    //Reset the energy bar.
     public void ResetEnergyBar()
     {
         energyBarSlider.value = currentEnergySliderNum;
     }
 
+    //Update the character behaviour. Advance time and update their energy bar.
     public void UpdateBehaviour(float timeVal, float multiplier, bool isEnergyIncreasing)
     {
         timeManager.AdvanceCurrentTime(timeVal);
@@ -141,29 +160,36 @@ public class CharBehaviourBase : MonoBehaviour
         currentEnergySliderNum = energyBarSlider.value;
     }
 
+    //Restore energy to full.
     public void FullyRestoreEnergy()
     {
         energyBarSlider.value = 1.0f;
     }
 
+    //Set energy level to param.
     public void SetEnergyLevel(float value)
     {
         energyBarSlider.value = value;
     }
 
+    //Display the dialogue which rejects a task.
     public void DisplayRejectDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
 
+        //Access the dialogue group through the characters data object.
         playerScript.charData.DisplayCharRejectDialogue(rejectDialogueIndex);
+        //Increase the index so the next line can be accessed.
         rejectDialogueIndex++;
 
+        //If the index has reached the end of the collection of dialogue lines to show then reset it.
         if (rejectDialogueIndex == playerScript.charData.rejectDialogueGroups.Count)
         {
             rejectDialogueIndex = 0;
         }
     }
 
+    //Display the dialogue which tells the user to find the axe.
     public void DisplayFindAxeDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
@@ -177,6 +203,7 @@ public class CharBehaviourBase : MonoBehaviour
         }
     }
 
+    //Display the emote change dialogue.
     public void DisplayEmoteChangeDialogue(int index)
     {
         Player playerScript = this.GetComponent<Player>();
@@ -184,6 +211,7 @@ public class CharBehaviourBase : MonoBehaviour
         playerScript.charData.DisplayCharEmoteDialogue(index);
     }
 
+    //Display the dialogue for the fishing task.
     public void DisplayBusyOrFinishedFishingDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
@@ -197,6 +225,7 @@ public class CharBehaviourBase : MonoBehaviour
         }
     }
 
+    //Display the dialogue which tells the user they should be fishing.
     public void DisplayShouldBeFishingDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
@@ -210,6 +239,7 @@ public class CharBehaviourBase : MonoBehaviour
         }
     }
 
+    //Displays the dialogue which tells the user to go back to planting.
     public void DisplayBusyPlantingDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
@@ -223,6 +253,7 @@ public class CharBehaviourBase : MonoBehaviour
         }
     }
 
+    //Display the dialogue which tells the user they should start planting seeds.
     public void DisplayShouldBePlantingDialogue()
     {
         Player playerScript = this.GetComponent<Player>();
@@ -236,11 +267,13 @@ public class CharBehaviourBase : MonoBehaviour
         }
     }
 
+    //Return the current emote.
     public string GetEmoteAsString()
     {
         return currentEmote.emoteName;
     }
 
+    //Advance time forward by param.
     public void AdvanceTime(float timeToAdvanceBy)
     {
         timeManager.AdvanceCurrentTime(timeToAdvanceBy);

@@ -479,7 +479,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    /*public void CloseStorageUI()
+    //Closes the storage UI.
+    public void CloseStorageUI()
     {
         if (storagePanels != null)
         {
@@ -507,7 +508,7 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
-    }*/
+    }
 
     //Returns if character is in a conversation.
     public bool IsCharacterInConversation()

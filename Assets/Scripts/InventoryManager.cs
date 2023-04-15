@@ -1,11 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script which initialises and manages the character inventories.
+
 public class InventoryManager : MonoBehaviour
 {
+    //Dictionary of inventories.
     public Dictionary<string, Inventory> inventoryByName = new Dictionary<string, Inventory>();
+
+    //Different inventory types.
     [Header("Backpack")]
+    //Inventory type.
     public Inventory backpack;
+    //Amount of slots in this inventory.
     public int backpackSlotCount;
 
     [Header("Toolbar")]
@@ -18,15 +25,18 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
+        //Initialise inventories with slots and a name.
         backpack = new Inventory(backpackSlotCount, backpack.inventoryName);
         toolbar = new Inventory(toolbarSlotCount, toolbar.inventoryName);
         storage = new Inventory(storageSlotCount, storage.inventoryName);
 
+        //Add inventories to dictionary.
         inventoryByName.Add(backpack.inventoryName, backpack);
         inventoryByName.Add(toolbar.inventoryName, toolbar);
         inventoryByName.Add(storage.inventoryName, storage);
     }
 
+    //Add item if the inventory exists.
     public void Add(string inventoryName, Item item)
     {
         if(inventoryByName.ContainsKey(inventoryName))
@@ -35,6 +45,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    //Return the inventory.
     public Inventory GetInventoryByName(string inventoryName)
     {
         if(inventoryByName.ContainsKey(inventoryName))
@@ -45,6 +56,7 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 
+    //Add a desired amount of an item to the inventory if it exists. Used to initialise inventory with items at the start of the game.
     public void InitialiseInventoryWithItems(Dictionary<Item, int> items, string nameOfInventory)
     {
         foreach(Item item in items.Keys)
@@ -56,6 +68,7 @@ public class InventoryManager : MonoBehaviour
            
     }
 
+    //Return the amount of an item the inventory contains.
     public int DoesStorageContainEndItems(Item item)
     {
         return storage.ReturnItemCount(item);
