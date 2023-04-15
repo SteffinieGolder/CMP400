@@ -17,6 +17,7 @@ public class Item : MonoBehaviour
     }
 
     //Checks if player has collided which the collectable.
+    //Adds item to the inventory and destroys it from the environment.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();

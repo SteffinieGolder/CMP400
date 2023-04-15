@@ -58,6 +58,7 @@ public class CharMovement : MonoBehaviour
         }
     }
 
+    //Returns a suitable spawn location for items depending on direction user is facing. 
     public Vector3 GetItemSpawnPos()
     {
         if(lastDirFacing.x >= 1)

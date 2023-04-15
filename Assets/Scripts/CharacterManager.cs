@@ -1,18 +1,26 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+//Script which controls the switch between characters in the game.
+
 public class CharacterManager : MonoBehaviour
 {
+    //Character objects.
     [SerializeField] GameObject char1;
     [SerializeField] GameObject char2;
+    //Character farm gates.
     [SerializeField] GameObject char1Gate;
     [SerializeField] GameObject char2Gate;
+    //Dialogue indexes.
     [SerializeField] int ADHDInitialDialogueIndex;
     [SerializeField] int NTInitialDialogueIndex;
+    //UI element to end the game.
     [SerializeField] GameObject endButton;
+    //Transforms used for positioning characters in conversation.
     [SerializeField] GameObject ADHDConvoTransform;
     [SerializeField] GameObject NTConvoTransform;
 
+    //Character scripts.
     public Player char1PlayerScript;
     public Player char2PlayerScript;
     private CharMovement char1MovementScript;
@@ -20,16 +28,21 @@ public class CharacterManager : MonoBehaviour
     private CharBehaviourBase char1BehaviourScript;
     private CharBehaviourBase char2BehaviourScript;
 
+    //Camera script.
     private CamFollow camFollowScript;
+    //Item manager.
     private ItemManager itemManager;
 
+    //Set if character 1 (ADHD) is active.
     public bool char1IsActive;
     public Player activePlayer;
 
-    private Vector3 char1InitialPosition;
+    //Initial position of the NT character.
     private Vector3 char2InitialPosition;
+    //Game over bool. Set when game is finished.
     public bool isGameOver = false;
 
+    //Initialise.
     void Start()
     {
         itemManager = GameManager.instance.itemManager;
@@ -47,7 +60,6 @@ public class CharacterManager : MonoBehaviour
         InitialiseCharacter1InventoryItems();
         InitialiseCharacter2InventoryItems();
 
-        char1InitialPosition = char1.transform.position;
         char2InitialPosition = char2.transform.position;
 
         SetChar2Active();
@@ -55,6 +67,7 @@ public class CharacterManager : MonoBehaviour
 
     void Update()
     {
+        //Testing.
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(char1IsActive)
@@ -64,10 +77,12 @@ public class CharacterManager : MonoBehaviour
 
             else
             {
-                StartDayTwo();
+                EndDay();
             }
         }
 
+        //Check if character 1 is active and move the NT character to the right place depending on the stage the player is at in the game.
+        //Need to move to the fence and back when in conversation/conversation is finished.
         if (char1IsActive)
         {
             if (GameManager.instance.taskManager.isWeedingComplete)
@@ -93,15 +108,20 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    //Set character 1 active.
     void SetChar1Active()
     { 
+        //Respawn objects and tiles changed through NT gameplay.
         GameManager.instance.respawnManager.RespawnObject();
         GameManager.instance.respawnManager.RespawnTiles();
         GameManager.instance.taskManager.ResetCounters();
+        //Reset time.
         GameManager.instance.dayAndNightManager.SetTime(36000);
+        //Reset UI.
         GameManager.instance.itemManager.ResetEquippedItem();
         GameManager.instance.uiManager.RemoveAllActiveUI();
 
+        //Switch characters.
         char1.SetActive(true);
         char1IsActive = true;
         char2BehaviourScript.currentEmote = char2BehaviourScript.charEmotes[0];
@@ -127,6 +147,7 @@ public class CharacterManager : MonoBehaviour
 
     void SetChar2Active()
     {
+        //Switch characters.
         GameManager.instance.uiManager.FadeInOrOut(true);
         char1IsActive = false;
         char2.SetActive(true);
@@ -149,6 +170,7 @@ public class CharacterManager : MonoBehaviour
             char2PlayerScript.charData.GetDialogueGroup(NTInitialDialogueIndex).expressionTypes);
     }
 
+    //Initialise character 1's inventory.
     void InitialiseCharacter1InventoryItems()
     {
         Dictionary<Item, int> char1StartItems = new Dictionary<Item, int>();
@@ -163,6 +185,7 @@ public class CharacterManager : MonoBehaviour
         GameManager.instance.uiManager.RefreshAll();
     }
 
+    //Initialise character 2's inventory.
     void InitialiseCharacter2InventoryItems()
     {
         Dictionary<Item, int> char2StartItems = new Dictionary<Item, int>();
@@ -187,10 +210,12 @@ public class CharacterManager : MonoBehaviour
         GameManager.instance.uiManager.RefreshAll();
     }
 
-    public void StartDayTwo()
+    //Ends the current day depending on current active character. 
+    public void EndDay()
     {
         if (char1IsActive)
         {
+            //Fades out the game and displays final dialogue.
             GameManager.instance.uiManager.FadeInOrOut(true);
             GameManager.instance.characterManager.activePlayer.charData.DisplayEndSeqSoloDialogue(3);
             isGameOver = true;
@@ -198,6 +223,7 @@ public class CharacterManager : MonoBehaviour
 
         else
         {
+            //Starts day 2.
             endButton.SetActive(false);
             GameManager.instance.uiManager.FadeInOrOut(true);
             SetChar1Active();

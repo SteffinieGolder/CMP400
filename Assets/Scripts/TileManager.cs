@@ -6,10 +6,14 @@ using System.Collections.Generic;
 
 public class TileManager : MonoBehaviour
 {
+    //Tilemaps for the game.
     [SerializeField] List<Tilemap> tilemaps;
+    //List of tile data objects (defines the type of tile and how it can be used).
     [SerializeField] List<TileData> tileDataList;
+    //Carrot seed tile.
     [SerializeField] Tile seedTile;
 
+    //Dictionary which matches a tile to its data.
     Dictionary<TileBase, TileData> dataFromTileDict;
 
     public enum tilemapOptions
@@ -20,6 +24,7 @@ public class TileManager : MonoBehaviour
 
     private void Start()
     {
+        //Initialise dictionary of tiles.
         dataFromTileDict = new Dictionary<TileBase, TileData>();
 
         foreach(TileData tileData in tileDataList)
@@ -31,6 +36,7 @@ public class TileManager : MonoBehaviour
         }  
     }
 
+    //Returns the position in the tilemap which corresponds to a world/mouse position.
     public Vector3Int GetGridPosition(Vector2 position, bool mousePosition, tilemapOptions choice)
     {
         Vector3 worldPosition;
@@ -48,18 +54,21 @@ public class TileManager : MonoBehaviour
         return gridPos;
     }
 
+    //Returns the world position of a tile.
     public Vector3 GetWorldPosition(Vector3Int gridPos, tilemapOptions choice)
     {
         Vector3 worldPos = tilemaps[((int)choice)].CellToWorld(gridPos);
         return worldPos;
     }
 
+    //Returns the tile.
     public TileBase GetTileBase(Vector3Int gridPosition, tilemapOptions choice)
     {
         TileBase tile = tilemaps[((int)choice)].GetTile(gridPosition);
         return tile;
     }
 
+    //Returns the tile data.
     public TileData GetTileData(TileBase tileBase)
     {
         if(dataFromTileDict.ContainsKey(tileBase))
@@ -69,12 +78,14 @@ public class TileManager : MonoBehaviour
         return null;
     }
 
+    //Changes a tile.
     public void ChangeTile(Vector3Int position, Tile newTile, tilemapOptions choice)
     {
         tilemaps[((int)choice)].SetTile(position, newTile);
 
     }
 
+    //Changes a patch of tiles.
     public void ChangeAllPatchTiles(List<Vector3Int> positions, tilemapOptions option, Tile tileToChangeTo)
     {
         foreach(Vector3Int pos in positions)
@@ -83,6 +94,7 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    //Returns a patch of positions in the tilemap.
     public List<Vector3Int> GetAllPatchGridPositions(List<Vector2> positions, tilemapOptions option)
     {
         List<Vector3Int> gridPositions = new List<Vector3Int>();

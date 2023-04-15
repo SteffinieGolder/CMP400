@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 //A LOT OF THESE FUNCTIONS COULD BE CONDENSED REMOVE REPEATED CODE
 
-public abstract class CharBehaviourBase : MonoBehaviour
+public class CharBehaviourBase : MonoBehaviour
 {
     public Slider energyBarSlider;
     public List<EmoteData> charEmotes;
@@ -30,7 +30,7 @@ public abstract class CharBehaviourBase : MonoBehaviour
         FRUSTRATED = 2
     }
 
-    public void Initialise()
+    private void Start()
     {
         currentEnergySliderNum = energyBarSlider.value;
         timeManager = GameManager.instance.dayAndNightManager;
@@ -45,10 +45,9 @@ public abstract class CharBehaviourBase : MonoBehaviour
         busyFishingIndex = 0;
         shouldBePlantingIndex = 0;
         busyPlantingIndex = 0;
-
     }
 
-    public void UpdateBase()
+    private void Update()
     {
         if (Time.timeScale != 0)
         {
@@ -135,7 +134,12 @@ public abstract class CharBehaviourBase : MonoBehaviour
         energyBarSlider.value = currentEnergySliderNum;
     }
 
-    public abstract void UpdateBehaviour(float timeVal, float multiplier, bool isEnergyIncreasing);
+    public void UpdateBehaviour(float timeVal, float multiplier, bool isEnergyIncreasing)
+    {
+        timeManager.AdvanceCurrentTime(timeVal);
+        UpdateEnergyBar(multiplier, isEnergyIncreasing);
+        currentEnergySliderNum = energyBarSlider.value;
+    }
 
     public void FullyRestoreEnergy()
     {

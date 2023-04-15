@@ -25,7 +25,6 @@ public class DayAndNightManager : MonoBehaviour
     public float startTime = 21600f;
     float time;
 
-    //jank
     bool once = false;
 
     //Time in hours.
@@ -74,6 +73,7 @@ public class DayAndNightManager : MonoBehaviour
         days += 1;
     }
 
+    //Returns the current time.
     public float GetCurrentTime()
     {
         if(!once)
@@ -84,12 +84,14 @@ public class DayAndNightManager : MonoBehaviour
 
         return time;
     }
-
+    
+    //Advances time forward by the amount passed in.
     public void AdvanceCurrentTime(float timeVal)
     {
         time += timeVal;
     }
 
+    //Sets the current time to the amount passed in.
     public void SetTime(float timeToSkipTo)
     {
         time = timeToSkipTo;

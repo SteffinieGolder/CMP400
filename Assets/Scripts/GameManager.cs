@@ -9,10 +9,15 @@ public class GameManager : MonoBehaviour
     public ItemManager itemManager;
     //Tile manager script which controls ground environment tiles in the level. 
     public TileManager tileManager;
+    //UI manager script which controls the UI in the game.
     public UIManager uiManager;
+    //Script which manages the day and night cycle.
     public DayAndNightManager dayAndNightManager;
+    //Script which manages characters.
     public CharacterManager characterManager;
+    //Script which manages tasks.
     public TaskManager taskManager;
+    //Script which manages item respawning. 
     public RespawnManager respawnManager;
 
     private void Awake()
@@ -31,9 +36,9 @@ public class GameManager : MonoBehaviour
 
         //Ensure this object persists. 
         DontDestroyOnLoad(this.gameObject);
-        //Set item manager. 
+
+        //Set manager variables.
         itemManager = GetComponent<ItemManager>();
-        //Set tile manager.
         tileManager = GetComponent<TileManager>();
         uiManager = GetComponent<UIManager>();
         dayAndNightManager = GetComponent<DayAndNightManager>();

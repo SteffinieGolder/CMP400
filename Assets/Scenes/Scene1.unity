@@ -7435,7 +7435,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 979790179}
         m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
-        m_MethodName: StartDayTwo
+        m_MethodName: EndDay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22463,7 +22463,6 @@ MonoBehaviour:
   dialogueSprite: {fileID: 1789002281}
   dialogueTextUI: {fileID: 562204083}
   dialoguePausePanel: {fileID: 1923000357}
-  finalEndPanel: {fileID: 0}
   fadePanel: {fileID: 1145897684}
   skyPanel: {fileID: 1532235190}
   inventoryUIs:
@@ -46416,7 +46415,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1256042633}
-  - component: {fileID: 1256042639}
   - component: {fileID: 1256042634}
   - component: {fileID: 1256042635}
   - component: {fileID: 1256042636}
@@ -46424,6 +46422,7 @@ GameObject:
   - component: {fileID: 1256042638}
   - component: {fileID: 1256042640}
   - component: {fileID: 1256042641}
+  - component: {fileID: 1256042642}
   m_Layer: 3
   m_Name: Char1
   m_TagString: Untagged
@@ -46549,25 +46548,6 @@ MonoBehaviour:
     slots: []
     inventoryName: Storage_C1
   storageSlotCount: 24
---- !u!114 &1256042639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256042632}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e461325eb69317844841f9458cf4ffa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyBarSlider: {fileID: 1243950307}
-  charEmotes:
-  - {fileID: 11400000, guid: fc2bff11e413ed54dae0a8f77806bdeb, type: 2}
-  - {fileID: 11400000, guid: 14f51b5b32ac3974aa450bc9b296362a, type: 2}
-  - {fileID: 11400000, guid: 1cf4b0c94858bb840b63cf5305c3b332, type: 2}
-  emoteObject: {fileID: 887396321}
-  currentEmote: {fileID: 0}
 --- !u!58 &1256042640
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -46600,6 +46580,25 @@ MonoBehaviour:
   EndUIButton: {fileID: 335238724}
   fishAmount: 4
   cropAmount: 40
+--- !u!114 &1256042642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256042632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540a5b65f2896134c9e47e15388d3168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBarSlider: {fileID: 1243950307}
+  charEmotes:
+  - {fileID: 11400000, guid: fc2bff11e413ed54dae0a8f77806bdeb, type: 2}
+  - {fileID: 11400000, guid: 14f51b5b32ac3974aa450bc9b296362a, type: 2}
+  - {fileID: 11400000, guid: 1cf4b0c94858bb840b63cf5305c3b332, type: 2}
+  emoteObject: {fileID: 887396321}
+  currentEmote: {fileID: 0}
 --- !u!1 &1265103221
 GameObject:
   m_ObjectHideFlags: 0
@@ -68117,9 +68116,9 @@ GameObject:
   - component: {fileID: 2102600628}
   - component: {fileID: 2102600627}
   - component: {fileID: 2102600626}
-  - component: {fileID: 2102600632}
   - component: {fileID: 2102600633}
   - component: {fileID: 2102600634}
+  - component: {fileID: 2102600635}
   m_Layer: 3
   m_Name: Char2
   m_TagString: Untagged
@@ -68245,25 +68244,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2102600632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102600625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23158068759356b42819bab1bd4c7766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyBarSlider: {fileID: 1243950307}
-  charEmotes:
-  - {fileID: 11400000, guid: 1e4deed35614fc341acd04a27ef67dbb, type: 2}
-  - {fileID: 11400000, guid: 243c6a9ace5530e4ca87f7a6a602ab68, type: 2}
-  - {fileID: 11400000, guid: 5f9f2cb1f9f217a4aa5986e66e3f72fe, type: 2}
-  emoteObject: {fileID: 1501443102}
-  currentEmote: {fileID: 0}
 --- !u!58 &2102600633
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -68296,6 +68276,25 @@ MonoBehaviour:
   EndUIButton: {fileID: 335238724}
   fishAmount: 9
   cropAmount: 40
+--- !u!114 &2102600635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102600625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540a5b65f2896134c9e47e15388d3168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBarSlider: {fileID: 1243950307}
+  charEmotes:
+  - {fileID: 11400000, guid: 1e4deed35614fc341acd04a27ef67dbb, type: 2}
+  - {fileID: 11400000, guid: 243c6a9ace5530e4ca87f7a6a602ab68, type: 2}
+  - {fileID: 11400000, guid: 5f9f2cb1f9f217a4aa5986e66e3f72fe, type: 2}
+  emoteObject: {fileID: 1501443102}
+  currentEmote: {fileID: 0}
 --- !u!1001 &2106112604
 PrefabInstance:
   m_ObjectHideFlags: 0

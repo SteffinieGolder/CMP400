@@ -55,7 +55,7 @@ public class Inventory
             count++;
         }
 
-        //Function which fills slot with item data. //////////////////////////////////////////////////////////////////FIX
+        //Function which fills slot with item data.
         public void AddItem(string itemName, Sprite icon, int maxAllowed)
         {
             this.itemName = itemName;
@@ -136,6 +136,7 @@ public class Inventory
         }
     }
 
+    //Function which removes all items of a desired type from the inventory.
     public void RemoveAllItemsOfType(Item itemToRemove)
     {
         for (int i = 0; i < slots.Count; i++)
@@ -147,6 +148,7 @@ public class Inventory
         }
     }
 
+    //Function which adds a specific item to the inventory up to a desired amount.
     public void AddItemToAmount(int goalAmount, Item itemToAdd)
     {
         foreach (Slot slot in slots)
@@ -176,6 +178,7 @@ public class Inventory
         }
     }
 
+    //Function which moves an item from one slot to another.
     public void MoveSlot(int fromIndex, int toIndex, Inventory toInventory, int numToMove = 1)
     {
         Slot fromSlot = slots[fromIndex];
@@ -194,6 +197,7 @@ public class Inventory
         }
     }
 
+    //Function which counts each instance of an item in an inventory and returns it.
     public int ReturnItemCount(Item item)
     {
         int totalCount = 0;

@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         droppedItem.rb2d.AddForce(spawnOffset * .01f, ForceMode2D.Impulse);
     }
 
+    //Drop inventory item.
     public void DropItem(Item item, int numToDrop)
     {
         for(int i = 0; i<numToDrop; i++)
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Allow user to interact with storage box if they enter this trigger.
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == (gameObject.name + "StorageBox"))
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Prevent user from using the storage box if they leave this trigger.
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.name == (gameObject.name + "StorageBox"))

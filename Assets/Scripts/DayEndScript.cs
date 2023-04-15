@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+//Script which controls the ending of a day in game. Users can end the game once they've placed items in the storage box.
 
 public class DayEndScript : MonoBehaviour
 {
     CharacterData charData;
     InventoryManager inventoryManager;
+    //Dialogue index.
     [SerializeField] int endDialogueIndex;
-    [SerializeField] GameObject EndUIButton;
+    [SerializeField] GameObject endUIButton;
+    //Item amounts that should be in storage before the end can be triggered.
     [SerializeField] int fishAmount;
     [SerializeField] int cropAmount;
 
@@ -19,6 +21,7 @@ public class DayEndScript : MonoBehaviour
 
     void Update()
     {
+        //Ensures this is only done once.
         if (GameManager.instance.taskManager.totalTaskCounter == -1)
         {
             //Show Dialogue at desired index. This will be the NT character saying the day is finished. 
@@ -28,8 +31,10 @@ public class DayEndScript : MonoBehaviour
             GameManager.instance.taskManager.totalTaskCounter = -2;
         }
 
+        //Ensures this is only done once.
         if (GameManager.instance.taskManager.totalTaskCounter == -2)
         {
+            //Ensures the correct amount of items are in storage before the game can end.
             if (inventoryManager.DoesStorageContainEndItems(GameManager.instance.itemManager.GetItemByName("Fish")) == fishAmount)
             {
                 if (inventoryManager.DoesStorageContainEndItems(GameManager.instance.itemManager.GetItemByName("Strawberry")) +
@@ -37,7 +42,7 @@ public class DayEndScript : MonoBehaviour
                     inventoryManager.DoesStorageContainEndItems(GameManager.instance.itemManager.GetItemByName("Tomato")) == cropAmount)
                 {
                     //Reveal the end game button.
-                    EndUIButton.SetActive(true);
+                    endUIButton.SetActive(true);
                 }
             }
         }
