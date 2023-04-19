@@ -20,15 +20,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 70fb0fc6beb2647a897e9b1683114fce, type: 3}
   dialogueGroups:
   - dialogueLines:
-    - No way...
-    - Is that the right time?
+    - Plow, plant, water!
+    - ...
+    - No way...is that the right time?
     - I really didn't mean to spend so much time on this...
-    - I should've stopped ages ago, now I've used up all of my free space.
-    - Why can't I just stop and think for a second?
-    - I just get so caught up in things sometimes...
-    - And the other times I can't get myself interested at all.
-    - There's just no in-between with me.
-    expressionTypes: 0400000004000000020000000200000002000000030000000300000003000000
+    - I told myself not to get carried away.
+    expressionTypes: 0100000000000000040000000200000002000000
   - dialogueLines:
     - I missed it!
     - Come on brain, don't do this.
@@ -121,23 +118,14 @@ MonoBehaviour:
     - I will get to this, I just can't right now.
     expressionTypes: 02000000
   - dialogueLines:
-    - I really don't know why I bother drinking coffee.
-    - I still feel so drained...
-    - like my body won't move, despite begging it to get up over and over again.
-    - Completely helpless...like I have no control whatsoever over my own mind and
-      body.
-    - I just have to wait here until I'm allowed to move again.
-    - This can't be the way it's supposed to be.
-    - This struggle...
-    - ...this constant, daily struggle.
-    - I'm supposed to be an adult. Why can't I cope with the bare minimum?
+    - Well, that did nothing.
+    - I have so much to do still...
+    - 'but I can''t get my body to move. '
+    - Come on...get up.
+    - Please.
     - ...
-    - I guess I'll just sit here for a while.
-    - ...
-    - Hmm, the sky does look really nice today.
-    - I feel horrible for wasting time when I have so much to do...
-    - but maybe I just have to wait this out.
-    expressionTypes: 020000000200000002000000020000000200000003000000030000000300000003000000030000000200000002000000000000000200000002000000
+    - I guess I'll just have to wait this out.
+    expressionTypes: 02000000020000000200000003000000030000000300000002000000
   - dialogueLines:
     - I slept in again?!
     - I really need to fix my sleep schedule.
@@ -177,20 +165,21 @@ MonoBehaviour:
     - I wasted quite a bit of time...
     - but I'm actually feeling a bit better.
     - I think I can do something now!
-    - 'I can either do the weeding, or chop wood. '
-    - Okay I have let the weeds take over quite a bit.
-    - But I'm totally out of firewood. I really don't want to ask my neighbour for
-      some of his again...
-    - 'super embarrasing. '
-    - Although, to chop wood I need to find my axe.
-    - I'm really running out of time here but I can't decide what to do!
-    - Umm...okay maybe if I retrace my steps?
-    - Nah, that would take forever. I really don't have time for this.
-    - Okay, make a decision!
-    - I'll do some weeding.
-    - I think...
-    - Yeah!
-    expressionTypes: 020000000000000001000000000000000200000004000000020000000200000002000000040000000200000004000000000000000200000001000000
+    - 'Okay I''ll go find my axe! '
+    - Time goes so fast...
+    - and I have no idea where it is.
+    - Right, I'll get started on weeding instead then!
+    - Okay.
+    - Although...
+    - I have no firewood left.
+    - I can't ask the neighbour for help again, I'm sure he already thinks I'm a
+      mess.
+    - Okay, umm...
+    - ...
+    - Make a decision...
+    - ...
+    - Weeding! Fast!
+    expressionTypes: 02000000000000000100000000000000040000000400000000000000010000000000000002000000020000000200000002000000020000000200000004000000
   - dialogueLines:
     - Wow, I'm feeling really wiped out right now.
     - Maybe some coffee will help.
@@ -215,15 +204,14 @@ MonoBehaviour:
   - dialogueLines:
     - I've been avoiding fishing for so long...
     - I should try and get it over with.
-    expressionTypes: 0200000000000000
+    expressionTypes: 0200000002000000
   busyOrFinishedFishingDialogue:
   - dialogueLines:
     - I'm trying to get fishing out of the way right now.
     expressionTypes: 02000000
   - dialogueLines:
-    - I can't do this right now...
     - I can't stop thinking about fishing.
-    expressionTypes: 0200000002000000
+    expressionTypes: 02000000
   shouldBePlantingDialogue:
   - dialogueLines:
     - I really just want to do some planting right now.
@@ -234,22 +222,21 @@ MonoBehaviour:
     expressionTypes: 0200000002000000
   busyPlantingDialogue:
   - dialogueLines:
-    - I can't stop thinking about planting right now.
     - I should keep planting!
-    expressionTypes: 0200000000000000
+    expressionTypes: 00000000
   finishedPlantingDialogue:
   - dialogueLines:
     - Okay, I think I've prepared enough soil.
-    - I should really try not to get too carried away.
+    - I should really try to not get too carried away.
     expressionTypes: 0000000002000000
   findAxeDialogue:
   - dialogueLines:
     - 'I change my mind! '
-    - I really should go find my axe...
+    - I should go find my axe!
     - I really don't want to rely on my neighbour for firewood again...
-    - although maybe I can ask him if he's seen it anywhere?
-    - He should be finishing up his workday by this time, I should check his garden!
-    expressionTypes: 0400000000000000020000000000000000000000
+    - although maybe I can ask him if he's seen it anywhere!
+    - He should be finishing up his work day by now, I should go check his garden.
+    expressionTypes: 0400000004000000020000000000000000000000
   endSequenceSoloDialogue:
   - dialogueLines:
     - I totally zoned out while he was talking.
