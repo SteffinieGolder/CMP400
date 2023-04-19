@@ -10,7 +10,7 @@ public class CharBehaviourBase : MonoBehaviour
     //List of emotes for this character.
     public List<EmoteData> charEmotes;
     //The emote object.
-    public GameObject emoteObject;
+    //public GameObject emoteObject;
     //A cell on the energy bar.
     protected float energyCellSize = 0.126f;
     //The current energy slider value (1 is full).
@@ -46,7 +46,7 @@ public class CharBehaviourBase : MonoBehaviour
         currentTime = timeManager.GetCurrentTime();
 
         currentEmote = charEmotes[(int)EmoteTypes.HAPPY];
-        emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
+        //emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
         this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
 
         rejectDialogueIndex = 0;
@@ -79,7 +79,7 @@ public class CharBehaviourBase : MonoBehaviour
                 {
                     //Update emote sprite and move speed.
                     currentEmote = charEmotes[(int)EmoteTypes.HAPPY];
-                    emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
+                   // emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
                     //Display emote change dialogue.
                     DisplayEmoteChangeDialogue(currentEmote.dialogueIndexPreCoffee);
@@ -92,7 +92,7 @@ public class CharBehaviourBase : MonoBehaviour
                 if (currentEmote != charEmotes[(int)EmoteTypes.TIRED])
                 {
                     currentEmote = charEmotes[(int)EmoteTypes.TIRED];
-                    emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
+                   // emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
 
                     //Display emote change dialogue depending on if player has drunk coffee yet in game.
@@ -114,7 +114,7 @@ public class CharBehaviourBase : MonoBehaviour
                 if (currentEmote != charEmotes[(int)EmoteTypes.FRUSTRATED])
                 {
                     currentEmote = charEmotes[(int)EmoteTypes.FRUSTRATED];
-                    emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
+                    //emoteObject.GetComponent<SpriteRenderer>().sprite = currentEmote.emoteSprite;
                     this.GetComponent<CharMovement>().moveSpeed = currentEmote.moveSpeed;
 
                     //Display emote change dialogue depending on if player has drunk coffee yet in game.
