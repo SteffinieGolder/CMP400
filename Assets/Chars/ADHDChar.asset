@@ -303,38 +303,43 @@ MonoBehaviour:
   - dialogueLines:
     - Ah yeah, I'm fine! Honestly nothing to worry about.
     - ...
-    - 'Although, do you ever feel like you just can''t get your brain to work properly? '
+    - 'Although...do you ever feel like you just can''t get your brain to work properly? '
     expressionTypes: 040000000000000002000000
   - dialogueLines:
     - Ummm...kinda.
-    - I guess I'm meaning more...lifelong? Like you just can't get it to cooperate.
-    - Like you have no reliable control over if and when it will let you focus and
-      get anything done at all.
-    expressionTypes: 000000000000000002000000
+    - 'I guess I''m meaning more, long term? '
+    - I feel like I've always been this way.
+    - I just can't get myself to focus.
+    expressionTypes: 00000000020000000200000002000000
   - dialogueLines:
     - You do?
-    expressionTypes: 01000000
+    expressionTypes: 00000000
   - dialogueLines:
     - Ah, right!
     - Yeah I guess everybody does do that.
-    - How do you stay in control of it?
-    expressionTypes: 000000000000000002000000
+    - It's probably nothing.
+    expressionTypes: 000000000000000001000000
   - dialogueLines:
-    - Oh, okay...I get you.
+    - Oh uh, no I don't think so...
     expressionTypes: 00000000
   - dialogueLines:
-    - No I don't think so...
-    expressionTypes: 00000000
+    - '*What have I done with my axe?*'
+    - '*How do I manage to lose stuff so much?*'
+    - '*Pay attention!*'
+    expressionTypes: 000000000000000000000000
   - dialogueLines:
-    - Wow!
+    - No way!
     expressionTypes: 01000000
+  - dialogueLines:
+    - '*The river sounds really nice right now*'
+    - '*I can''t believe it''s so late and I still haven''t finished working yet*'
+    - '*I bet he thinks I''m totally useless*'
+    - '*Wait what is he saying?*'
+    expressionTypes: 00000000000000000000000000000000
   - dialogueLines:
     - ...
     expressionTypes: 04000000
   - dialogueLines:
-    - For sure!
-    expressionTypes: 01000000
-  - dialogueLines:
-    - Oh uh yeah! I'll go do that.
+    - Oh, okay! Thanks for the help.
     - Cya!
     expressionTypes: 0100000001000000

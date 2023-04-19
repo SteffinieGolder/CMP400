@@ -133,10 +133,9 @@ MonoBehaviour:
     - Or maybe I didn't knock hard enough.
     expressionTypes: 010000000000000001000000
   - dialogueLines:
-    - Oh for sure.
     - Ah y'know, just getting on with things.
     - Did you say you had a question?
-    expressionTypes: 010000000000000000000000
+    expressionTypes: 0000000000000000
   - dialogueLines:
     - You've lost it again? I swear you'd lose your head if it wasn't screwed on.
     - But nah, I haven't noticed it while I've been out.
@@ -156,7 +155,7 @@ MonoBehaviour:
     - Is that what you mean?
     expressionTypes: 0000000001000000
   - dialogueLines:
-    - Uhh, I mean I zone out if that's what you mean?
+    - I mean, I zone out sometimes if that's what you mean?
     expressionTypes: 00000000
   - dialogueLines:
     - Yeah! Everybody does...
@@ -165,31 +164,28 @@ MonoBehaviour:
     - ...still super annoyed about that.
     expressionTypes: 010000000000000002000000
   - dialogueLines:
-    - I guess I just try to address the cause of my lack of focus.
-    - Like, am I tired? hungry?
-    - bored?
-    - I'll take a break, have something to eat...try my best to solve the problem.
-    expressionTypes: 00000000000000000000000001000000
-  - dialogueLines:
-    - So yeah, I hope that's helpful.
+    - Yeah, you probably just need to take more breaks and make sure you're eating
+      enough!
+    - That's how I keep on top of it.
     - Anyway, have you seen that new show?
     - Everybody is talking about it...
     expressionTypes: 000000000100000001000000
   - dialogueLines:
-    - It's crazy!...I swear it's some of the best t.v...
-    - ...there's so much going on...
-    - ...just when you think...
-    expressionTypes: 010000000100000001000000
-  - dialogueLines:
-    - ...EXPLOSIONS!
+    - It's crazy! Pretty much the best...
     expressionTypes: 01000000
   - dialogueLines:
-    - ...honestly some of the best effects...
-    - ...you really should...
-    expressionTypes: 0100000001000000
+    - Can you believe that?
+    expressionTypes: 01000000
   - dialogueLines:
-    - ...anyway I'll let you go and find your axe!
-    expressionTypes: 00000000
+    - So after that the main guy goes...
+    expressionTypes: 01000000
   - dialogueLines:
-    - Bye! Good luck!
+    - IT EXPLODES!
+    expressionTypes: 04000000
+  - dialogueLines:
+    - Okay, it's getting pretty late so I'll let you go and find your axe...
+    - Good luck!
+    expressionTypes: 0000000001000000
+  - dialogueLines:
+    - Cya around!
     expressionTypes: 01000000
