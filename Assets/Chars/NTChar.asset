@@ -169,7 +169,7 @@ MonoBehaviour:
     - That's how I keep on top of it.
     - Anyway, have you seen that new show?
     - Everybody is talking about it...
-    expressionTypes: 000000000100000001000000
+    expressionTypes: 00000000010000000100000001000000
   - dialogueLines:
     - It's crazy! Pretty much the best...
     expressionTypes: 01000000

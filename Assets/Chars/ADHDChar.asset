@@ -154,8 +154,13 @@ MonoBehaviour:
     - ...after I harvest the crops.
     expressionTypes: 04000000010000000100000002000000
   - dialogueLines:
-    - FIN
-    expressionTypes: 04000000
+    - Ah, he must've gone in for the night.
+    - I really don't want to bother him this late...
+    - ...
+    - What a day.
+    - I should make sure I've got all of my crops and fish in storage...
+    - then I can call it a night.
+    expressionTypes: 020000000200000003000000030000000200000002000000
   rejectDialogueGroups:
   - dialogueLines:
     - I can't do this right now.
@@ -239,31 +244,27 @@ MonoBehaviour:
     expressionTypes: 0400000004000000020000000000000000000000
   endSequenceSoloDialogue:
   - dialogueLines:
-    - I totally zoned out while he was talking.
-    - I hope I didn't miss anything important.
-    - Am I just totally self absorbed or something? can I just not give others my
-      attention if they're not talking about something I personally find interesting?
-    - Okay I really have to find my axe.
+    - I think I missed a lot of what he said there...
+    - hope it wasn't important.
+    - Okay, I really have to find my axe.
     - Maybe I put it in the storage box, but didn't notice in while I was in there
       earlier.
     - I should go check.
-    expressionTypes: 020000000200000002000000020000000000000000000000
+    expressionTypes: 0200000002000000020000000200000000000000
   - dialogueLines:
-    - I totally zoned out while he was talking.
-    - I hope I didn't miss anything important.
-    - Am I just totally self absorbed or something? can I just not give others my
-      attention if they're not talking about something I personally find interesting?
+    - I think I missed a lot of what he said there...
+    - hope it wasn't important.
     - Okay I really have to find my axe.
     - Maybe I've accidentally put it in storage?
     - I should go check.
-    expressionTypes: 020000000200000002000000020000000000000000000000
+    expressionTypes: 0200000002000000020000000200000002000000
   - dialogueLines:
     - Damn, not here either.
     - It's so late.
     - I probably should've taken him up on his offer...
     - I just...I already feel like such a failure. I can't deal with other people
       thinking im a failure too.
-    - And if I borrowed his axe, chances are I'd just end up losing his too.
+    - And if I borrowed his axe, chances are I'd just lose his too.
     - ...
     - I should go ask for wood.
     - I'll chop extra tomorrow and pay him back!
