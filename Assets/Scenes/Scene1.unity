@@ -893,8 +893,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: 'Notes: Fishing rod is in inventory as usual. Put fish in the sell box
-        when collected. '
+      value: 'Notes: Fishing rod is in inventory as usual. All fish need to be in
+        storage box by the end of the day.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
@@ -46577,7 +46577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endDialogueIndex: 16
-  EndUIButton: {fileID: 335238724}
+  endUIButton: {fileID: 335238724}
   fishAmount: 4
   cropAmount: 40
 --- !u!114 &1256042642
@@ -68273,7 +68273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endDialogueIndex: 9
-  EndUIButton: {fileID: 335238724}
+  endUIButton: {fileID: 335238724}
   fishAmount: 9
   cropAmount: 40
 --- !u!114 &2102600635

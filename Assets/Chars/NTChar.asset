@@ -28,7 +28,7 @@ MonoBehaviour:
     - 'Good to know. '
     expressionTypes: 00000000
   - dialogueLines:
-    - Nice! Getting everything sorted yesterday really paid off!
+    - Nice! The items from last week must've sold well.
     expressionTypes: 01000000
   - dialogueLines:
     - Whoops, probably should've replied to this earlier.
@@ -43,9 +43,9 @@ MonoBehaviour:
     - and another task to check off the list!
     expressionTypes: 000000000000000001000000
   - dialogueLines:
-    - Cool, the weeding is done.
+    - Finished!
     - I was a bit embarrassed that I'd let this slip a bit...
-    - so I'm really glad I got it sorted!
+    - so I'm really glad I got it sorted.
     expressionTypes: 000000000000000001000000
   - dialogueLines:
     - Oh, I wonder if my neighbour is out in her garden...
@@ -60,8 +60,8 @@ MonoBehaviour:
     - I managed to harvest the crops on time yesterday, they're in storage waiting
       to be sent off...
     - 'so that means I can plant some of my carrot seeds today. '
-    - The items in storage will be sent off to be sold tomorrow, so I have a few
-      fish to catch before that happens.
+    - The items in storage will be sold tomorrow, so I have a few fish to catch before
+      that happens.
     - I've also got some weeding and wood chopping to do...
     - I'd better get started.
     expressionTypes: 000000000100000001000000000000000000000001000000
@@ -71,17 +71,16 @@ MonoBehaviour:
     - and then I can relax for the night.
     expressionTypes: 010000000000000001000000
   - dialogueLines:
-    - Nice! I'm all finished with the planting.
+    - Nice!
     - I can now check this off of my list.
-    - Super satisfying...
-    expressionTypes: 000000000000000001000000
+    expressionTypes: 0000000000000000
   - dialogueLines:
     - Ah well, she must be busy.
     - ...
     - Hmm, her garden is looking a bit...
-    - unkempt.
-    - In fact, I haven't seen or heard from her at all the past few days.
-    - She does sometimes show up later in the day...
+    - messy.
+    - In fact, I haven't seen around the past few days.
+    - She'll sometimes show up later in the day...
     - so if I don't see her tonight I'll pop by and check on her tomorrow.
     expressionTypes: 00000000000000000200000002000000040000000000000001000000
   rejectDialogueGroups:
@@ -91,7 +90,7 @@ MonoBehaviour:
     expressionTypes: 0200000002000000
   emoteDialogueGroups:
   - dialogueLines:
-    - I feel so much better now.
+    - I'm feeling a lot better now.
     expressionTypes: 01000000
   - dialogueLines:
     - Wow, I'm feeling pretty tired after all that work.
@@ -113,17 +112,17 @@ MonoBehaviour:
   - dialogueLines:
     - Okay, I think that's all the fishing done for today.
     - I'm still pretty annoyed that I missed that fish back there...
-    - but hey, 9 out of 10 is still pretty good.
-    expressionTypes: 00000000020000000000000001000000
+    - but 9 out of 10 is still pretty good.
+    expressionTypes: 000000000200000000000000
   shouldBePlantingDialogue: []
   busyPlantingDialogue: []
   finishedPlantingDialogue:
   - dialogueLines:
-    - That should do it for soil prep.
+    - That's probably enough soil prep for today.
     - I don't want to overdo it...
     - and I'll be picking up different seeds tomorrow, so I should leave some space
       for them.
-    - Having more variety in my produce should be beneficial!
+    - It's usually best to have some variety in my produce.
     expressionTypes: 00000000000000000100000001000000
   findAxeDialogue: []
   endSequenceSoloDialogue: []

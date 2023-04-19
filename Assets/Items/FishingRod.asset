@@ -20,6 +20,7 @@ MonoBehaviour:
   tileToChangeTo: {fileID: 11400000, guid: 2492ed2c38b10244caa9de43b4a0f57d, type: 2}
   itemToSpawn: {fileID: 8231763008255958994, guid: c10f4e1df5be1b64983b461c5c980aeb, type: 3}
   taskIndex: 1
+  totalTaskCount: 9
   ADHDTimeValue: 900
   ADHDCompleteTimeValue: 0
   ADHDMultiplier: 0.2
@@ -33,4 +34,4 @@ MonoBehaviour:
   itemFoundIndex: 0
   TilePatchPositions: []
   patchTile: {fileID: 0}
-  currentIndex: 6
+  currentIndex: 0
