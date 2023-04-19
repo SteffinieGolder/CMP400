@@ -15270,7 +15270,7 @@ MonoBehaviour:
     with us and that you'll continue to choose us for all of your farming needs.
     \n\nAs you've been a subscription holder for over a year, we'd like to remind
     you that you are eligible to make use of our peer referral program. If you successfully
-    refer a friend to our service, you'll get discounts and freebies! Its a win/win.
+    refer a friend to our service, you'll get DISCOUNTS and FREEBIES! Its a win/win.
     Find out more on our website. \n\nBest Regards,\nFarming Solutions LTD. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -62567,7 +62567,7 @@ PrefabInstance:
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
       value: "Notes: Find hoe, no idea where I put it. \nNEED TO HARVEST CROPS FIRST!!\nPut
-        crops in the sell box, don't forget again!\nPlow, plant, water. \n"
+        crops in the storage box, don't forget!\nPlow, plant, water. "
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
@@ -70729,7 +70729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827613868314139858, guid: 88f594d78e3a85743badff96a37c5e5c, type: 3}
       propertyPath: m_text
-      value: "Notes: Axe should be next to the sell box. I think. Did I move it?
+      value: "Notes: Axe should be next to the storage box. I think. Did I move it?
         Can't put this off again. NEED FIREWOOD. \n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []

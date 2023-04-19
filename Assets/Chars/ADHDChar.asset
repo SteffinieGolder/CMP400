@@ -31,7 +31,7 @@ MonoBehaviour:
     expressionTypes: 0400000004000000020000000200000002000000030000000300000003000000
   - dialogueLines:
     - I missed it!
-    - Come on brain don't do this.
+    - Come on brain, don't do this.
     expressionTypes: 0400000002000000
   - dialogueLines:
     - I really do hate fishing...
@@ -43,53 +43,52 @@ MonoBehaviour:
     - I missed the fish.
     expressionTypes: 02000000000000000000000000000000000000000000000002000000
   - dialogueLines:
-    - Okay...focus...focus...
+    - Okay...focus...
     - ...
-    - Am I actually focussing or am I just focussing on telling myself to focus?
-    - FOCUS! PLEASE!
+    - Am I actually focussing? or am I just focussing on telling myself to focus?
+    - 'FOCUS! '
+    - Please!
     - ...
     - I wonder where I could've put my hoe.
     - I'm always forgetting where I put things.
-    - I have the brain of a fish, I'm sure of it.
+    - Total fish brain.
     - Although, now that I mention it...
-    - I'm actually pretty sure its a common misconception that fish have bad memories,
-      I think a few studi...
+    - I'm pretty sure it's a misconception that fish have bad memories, I think a
+      few studi...
     - I MISSED ANOTHER ONE!
-    expressionTypes: 0000000000000000020000000400000002000000000000000200000002000000000000000000000004000000
+    expressionTypes: 000000000000000002000000040000000200000002000000000000000200000002000000000000000000000004000000
   - dialogueLines:
     - Nice! 2 in a row!
     - Now for number 3.
     - I'm doing it!
-    - I am fishing...
-    - Maybe I'd like fishing if I actually got more into the lifestyle.
+    - I'm fishing...
+    - Maybe I'd like fishing if I actually got into the lifestyle.
     - I could buy a vest...oh and a hat maybe? Get some new gear!
     - Yeah! I should go have a look around town, see if I can...
-    - AHH I DID IT AGAIN. WHY DO I KEEP DOING THIS?
+    - AHH I DID IT AGAIN!
     expressionTypes: 0100000001000000010000000000000000000000040000000100000004000000
   - dialogueLines:
-    - Another one gone...
-    - I genuinely don't think I can do this.
-    - I need to catch these.
-    - I need to make money...
-    - but I can't get myself to focus.
-    - Every time I think I've got it under control, I've zoned out again without
-      even realising.
-    - I'll give it one last try, maybe I can make it work.
-    expressionTypes: 02000000030000000300000003000000030000000200000002000000
+    - ...I've lost another one.
+    - I feel like I should stop...
+    - yeah I should probably do something else.
+    - Maybe some planting?
+    - ...
+    - .....
+    - I'll try catch one more fish, then I'll switch!
+    expressionTypes: 02000000020000000200000000000000000000000200000002000000
   - dialogueLines:
-    - It's gone.
-    - I probably should've stopped.
-    - It's just so hard to pull myself away from things, even if I'm messing it up.
+    - Yeah I probably should've stopped.
+    - It's so hard to pull myself away sometimes, even if I'm just messing it up.
     - ...
     - Okay...
     - At least I can move on to something else now.
     - Planting! I'll do some planting...
     - That can be pretty relaxing.
     - I need to find my hoe!
-    expressionTypes: 030000000200000002000000020000000000000000000000000000000100000004000000
+    expressionTypes: 0300000002000000020000000200000000000000000000000000000004000000
   - dialogueLines:
     - Why do they make important mail look so intimidating?
-    - I can't read it. I just can't.
+    - I'll...I'll come back to this.
     expressionTypes: 0400000002000000
   - dialogueLines:
     - Probably another bill I've forgotten to pay...
@@ -103,19 +102,21 @@ MonoBehaviour:
     expressionTypes: 0100000000000000040000000200000000000000
   - dialogueLines:
     - Just open it.
-    - Come on brain, let me open it.
-    - 'Okay I''ll come back to it! '
-    expressionTypes: 000000000200000000000000
+    - Come on, open it.
+    - Open it open it open it open it...
+    - 'Okay fine, I''ll come back to it! '
+    expressionTypes: 02000000020000000200000000000000
   - dialogueLines:
-    - I'm really trying to read this but I keep getting lost.
-    - 'Repeating the same line over and over but I can''t seem to comprehend what''s
-      being said... '
-    - Why can't I just read it and respond?! Why is it so difficult?
-    - Why am I so overwhelmed by everything?
-    - 'I will reply to this. I wont forget again. I cant forget again. '
-    - When I get some time, I'll sit down and write a proper reply. She deserves
-      a proper reply.
-    expressionTypes: 020000000200000003000000030000000300000000000000
+    - ...
+    - I've really messed up...
+    - again.
+    - ...
+    - Why do I keep letting this happen?
+    - How hard is it to just read a letter and reply?
+    - ...
+    - I'll read this properly and reply later.
+    - She deserves a good explanation and apology.
+    expressionTypes: 020000000200000002000000030000000300000003000000030000000200000000000000
   - dialogueLines:
     - I will get to this, I just can't right now.
     expressionTypes: 02000000
@@ -138,22 +139,26 @@ MonoBehaviour:
     - but maybe I just have to wait this out.
     expressionTypes: 020000000200000002000000020000000200000003000000030000000300000003000000030000000200000002000000000000000200000002000000
   - dialogueLines:
-    - Oh no! I slept in again!
-    - I swear I can never fall asleep at a decent time.
-    - Wow I've got so much to do today!
-    - I really can't afford to put this stuff off any longer.
+    - I slept in again?!
+    - I really need to fix my sleep schedule.
+    - Wow okay I've got so much to do today!
+    - I have to get this stuff done! Today!
+    - 'No more putting it off. '
     - Today's the day we send stuff away to sell, so last chance!
     - Lets see...
-    - ...ah yeah I didn't get the harvest done yesterday...
-    - Wait where did I put my hoe? I have no idea what I've done with it...
-    - ...my axe too.
-    - Okay, I can do this. Plenty of time. I think.
+    - ...ah yeah, I still need to harvest the crops.
+    - 'Wait...where did I put my hoe? '
+    - My axe too?
+    - Okay, I can do this. Plenty of time...
     - I should probably do some fishing first.
-    - I hate fishing, but getting the worst task done first seems like a good idea.
+    - I hate fishing...
+    - but I've heard it's usually best to get the worst stuff finished first.
     - Okay...here we go.
     - ...
-    - I'm going!
-    expressionTypes: 040000000200000004000000020000000000000000000000020000000400000002000000000000000000000002000000000000000000000001000000
+    - Fishing...
+    - ...
+    - Okay, I'm going!
+    expressionTypes: 04000000020000000400000002000000020000000000000000000000020000000400000002000000000000000200000002000000000000000000000000000000020000000200000001000000
   - dialogueLines:
     - Here it is!
     - How did I manage to leave it here?
@@ -213,7 +218,7 @@ MonoBehaviour:
     expressionTypes: 0200000000000000
   busyOrFinishedFishingDialogue:
   - dialogueLines:
-    - Im trying to get fishing out of the way right now.
+    - I'm trying to get fishing out of the way right now.
     expressionTypes: 02000000
   - dialogueLines:
     - I can't do this right now...
