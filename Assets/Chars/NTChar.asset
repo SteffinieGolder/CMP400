@@ -128,7 +128,7 @@ MonoBehaviour:
   endSequenceSoloDialogue: []
   axeBorrowConversationDialogue:
   - dialogueLines:
-    - Oh hi! How have you been?
+    - Oh hi! how have you been?
     - I popped round this morning to catch up but I must've missed you.
     - Or maybe I didn't knock hard enough.
     expressionTypes: 010000000000000001000000
@@ -144,7 +144,7 @@ MonoBehaviour:
     - But feel free to borrow mine if you like!
     expressionTypes: 01000000
   - dialogueLines:
-    - Or even if you need any firewood, I've got plenty extra...
+    - Or if you need any firewood, I've got plenty extra...
     - I wouldn't mind giving you some again if you need it.
     expressionTypes: 0000000001000000
   - dialogueLines:
