@@ -270,9 +270,9 @@ MonoBehaviour:
     - I'll chop extra tomorrow and pay him back!
     expressionTypes: 0200000002000000020000000300000003000000020000000200000000000000
   - dialogueLines:
-    - This is the very end dialogue
     - ...
-    expressionTypes: 0200000003000000
+    - I can't keep doing this.
+    expressionTypes: 0300000003000000
   axeBorrowConversationDialogue:
   - dialogueLines:
     - 'Hey! '
