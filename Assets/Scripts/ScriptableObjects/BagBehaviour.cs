@@ -74,7 +74,7 @@ public class BagBehaviour : ToolBehaviour
     //Function which performs the tool behaviour. 
     public override bool PerformBehaviour()
     {
-        //Instantiate the required crop. If the current tile is a carrot in the ground, this will spawn a carrot in the environment that the player
+        //Instantiate the required crop. If the current tile is a carrot in the ground, this will spawn a vegetable in the environment that the player
         //can pick up. 
         Instantiate(GameManager.instance.itemManager.GetItemByName(tile.name), GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), 
             GameManager.instance.characterManager.activePlayer.transform.rotation);

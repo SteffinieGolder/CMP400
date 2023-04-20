@@ -115,8 +115,9 @@ public class SwordBehaviour : ToolBehaviour
         //Remove the weed tile from the clicked position. 
         manager.ChangeTile(gridPos, null, TileManager.tilemapOptions.GROUND);
 
-        //Spawn a weed item which can be picked up in the environment. 
-        Instantiate(itemData.itemToSpawn, GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), GameManager.instance.characterManager.activePlayer.transform.rotation);
+        //Spawn a weed item in the players inventory.
+        GameManager.instance.characterManager.activePlayer.inventoryManager.Add(GameManager.instance.characterManager.activePlayer.inventoryManager.backpack.inventoryName,
+                   GameManager.instance.itemManager.GetItemByName("Weed"));
 
         //Checks if ADHD character is active.
         if (GameManager.instance.characterManager.char1IsActive)

@@ -137,8 +137,9 @@ public class FishingRodBehaviour : ToolBehaviour
         //Change the fish bubble tile to a plain water tile. 
         manager.ChangeTile(gridPos, itemData.tileToChangeTo, TileManager.tilemapOptions.GROUND);
 
-        //Spawn a fish next to the player. 
-        Instantiate(itemData.itemToSpawn, GameManager.instance.characterManager.activePlayer.gameObject.GetComponent<CharMovement>().GetItemSpawnPos(), GameManager.instance.characterManager.activePlayer.transform.rotation);
+        //Spawn a fish in player's inventory.
+        GameManager.instance.characterManager.activePlayer.inventoryManager.Add(GameManager.instance.characterManager.activePlayer.inventoryManager.backpack.inventoryName,
+            GameManager.instance.itemManager.GetItemByName("Fish"));
 
         //Checks if the current active character is ADHD.
         if (GameManager.instance.characterManager.char1IsActive)
