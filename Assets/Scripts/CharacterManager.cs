@@ -68,7 +68,7 @@ public class CharacterManager : MonoBehaviour
     void Update()
     {
         //Testing.
-        if(Input.GetKeyDown(KeyCode.Space))
+        /*if(Input.GetKeyDown(KeyCode.Space))
         {
             if(char1IsActive)
             {
@@ -79,7 +79,7 @@ public class CharacterManager : MonoBehaviour
             {
                 EndDay();
             }
-        }
+        }*/
 
         //Check if character 1 is active and move the NT character to the right place depending on the stage the player is at in the game.
         //Need to move to the fence and back when in conversation/conversation is finished.
