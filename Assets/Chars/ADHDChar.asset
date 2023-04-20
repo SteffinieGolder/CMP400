@@ -131,23 +131,23 @@ MonoBehaviour:
     - I slept in again?!
     - I really need to fix my sleep schedule.
     - Wow okay I've got so much to do today!
-    - I have to get this stuff done! Today!
+    - I have to get this stuff done!
     - 'No more putting it off. '
     - Today's the day we send stuff away to sell, so last chance!
     - Lets see...
     - ...ah yeah, I still need to harvest the crops.
     - 'Wait...where did I put my hoe? '
-    - My axe too?
+    - My axe too!
     - Okay, I can do this. Plenty of time...
     - I should probably do some fishing first.
     - I hate fishing...
     - but I've heard it's usually best to get the worst stuff finished first.
     - Okay...here we go.
     - ...
-    - Fishing...
+    - '*sigh*'
     - ...
     - Okay, I'm going!
-    expressionTypes: 04000000020000000400000002000000020000000000000000000000020000000400000002000000000000000200000002000000000000000000000000000000020000000200000001000000
+    expressionTypes: 04000000020000000400000002000000020000000000000000000000020000000400000002000000000000000200000002000000000000000000000000000000020000000200000000000000
   - dialogueLines:
     - Here it is!
     - How did I manage to leave it here?
@@ -158,7 +158,7 @@ MonoBehaviour:
     - I really don't want to bother him this late...
     - ...
     - What a day.
-    - I should make sure I've got all of my crops and fish in storage...
+    - If everything is in the storage box...
     - then I can call it a night.
     expressionTypes: 020000000200000003000000030000000200000002000000
   rejectDialogueGroups:
@@ -310,7 +310,7 @@ MonoBehaviour:
     - Ummm...kinda.
     - 'I guess I''m meaning more, long term? '
     - I feel like I've always been this way.
-    - I just can't get myself to focus.
+    - I just can't get myself to function.
     expressionTypes: 00000000020000000200000002000000
   - dialogueLines:
     - You do?
@@ -324,19 +324,23 @@ MonoBehaviour:
     - Oh uh, no I don't think so...
     expressionTypes: 00000000
   - dialogueLines:
-    - '*What have I done with my axe?*'
-    - '*How do I manage to lose stuff so much?*'
-    - '*Pay attention!*'
-    expressionTypes: 000000000000000000000000
+    - '*Okay...take more breaks...*'
+    - '*Although, every time I take a break it''s so hard to get going again.*'
+    - '*IF I get going again.*'
+    - '*Where could I have put my axe?*'
+    - '*How is it possible to lose stuff so much?*'
+    - '*Whoops, I should really be listening.*'
+    expressionTypes: 000000000000000000000000000000000000000000000000
   - dialogueLines:
     - No way!
     expressionTypes: 01000000
   - dialogueLines:
-    - '*The river sounds really nice right now*'
-    - '*I can''t believe it''s so late and I still haven''t finished working yet*'
-    - '*I bet he thinks I''m totally useless*'
-    - '*Wait what is he saying?*'
-    expressionTypes: 00000000000000000000000000000000
+    - '*The river sounds really nice right now.*'
+    - '*I can''t believe it''s so late and I still haven''t finished working yet.*'
+    - '*No wonder I can never sleep.*'
+    - '*I bet he thinks I''m a total mess.*'
+    - '*Wait, what is he saying?*'
+    expressionTypes: 0000000000000000000000000000000000000000
   - dialogueLines:
     - ...
     expressionTypes: 04000000

@@ -67,8 +67,8 @@ MonoBehaviour:
     expressionTypes: 000000000100000001000000000000000000000001000000
   - dialogueLines:
     - What a day!
-    - Okay, I should take anything I want to sell to the storage box...
-    - and then I can relax for the night.
+    - Okay, if everything is in the storage box...
+    - then I can relax for the night.
     expressionTypes: 010000000000000001000000
   - dialogueLines:
     - Nice!
@@ -137,7 +137,7 @@ MonoBehaviour:
     - Did you say you had a question?
     expressionTypes: 0000000000000000
   - dialogueLines:
-    - You've lost it again? I swear you'd lose your head if it wasn't screwed on.
+    - You've lost it again? Why am I not surprised?
     - But nah, I haven't noticed it while I've been out.
     expressionTypes: 0100000000000000
   - dialogueLines:
@@ -164,9 +164,8 @@ MonoBehaviour:
     - ...still super annoyed about that.
     expressionTypes: 010000000000000002000000
   - dialogueLines:
-    - Yeah, you probably just need to take more breaks and make sure you're eating
-      enough!
-    - That's how I keep on top of it.
+    - Yeah, you're probably just stressed!
+    - Make sure you take breaks...that's how I keep on top of it.
     - Anyway, have you seen that new show?
     - Everybody is talking about it...
     expressionTypes: 00000000010000000100000001000000
