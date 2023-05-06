@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Script which tracks items in game. Used to store item reference for instantiation when it is dropped from inventory. 
+//Code adapted from this series by Jacquelynne Hei: https://www.youtube.com/watch?v=ZPYrdKMDsGI&list=PL4PNgDjMajPN51E5WzEi7cXzJ16BCHZXl&ab_channel=GameDevwithJacquelynneHei
 
 public class ItemManager : MonoBehaviour
 {

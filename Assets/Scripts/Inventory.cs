@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Script which sets up player inventory. 
+//Code adapted from this series by Jacquelynne Hei: https://www.youtube.com/watch?v=ZPYrdKMDsGI&list=PL4PNgDjMajPN51E5WzEi7cXzJ16BCHZXl&ab_channel=GameDevwithJacquelynneHei
 
 //Serialisable so it can be attached to player. 
 [System.Serializable]

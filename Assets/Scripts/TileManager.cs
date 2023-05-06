@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 
 //Script which controls the tile map and ground tiles in the scene. 
+//Code adapted from this tutorial series by Greg Dev Stuff: https://www.youtube.com/watch?v=ZIEE-2ZdAxU&list=PL0GUZtUkX6t6wXF0U0WAQNVYL68pYUCZv&ab_channel=GregDevStuff 
 
 public class TileManager : MonoBehaviour
 {

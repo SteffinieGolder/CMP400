@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Script which initialises and manages the character inventories.
+//Code adapted from this series by Jacquelynne Hei: https://www.youtube.com/watch?v=ZPYrdKMDsGI&list=PL4PNgDjMajPN51E5WzEi7cXzJ16BCHZXl&ab_channel=GameDevwithJacquelynneHei
 
 public class InventoryManager : MonoBehaviour
 {

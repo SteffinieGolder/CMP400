@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 //Script which controls the day and night cycle in the game. This changes the lighting using an animation curve depending on the in game time. 
+//Code adapted from this tutorial series by Greg Dev Stuff: https://www.youtube.com/watch?v=ZIEE-2ZdAxU&list=PL0GUZtUkX6t6wXF0U0WAQNVYL68pYUCZv&ab_channel=GregDevStuff 
 
 public class DayAndNightManager : MonoBehaviour
 {

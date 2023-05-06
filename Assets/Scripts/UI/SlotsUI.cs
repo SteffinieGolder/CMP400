@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 
 //Script which controls the slots UI. 
+//Code adapted from this series by Jacquelynne Hei: https://www.youtube.com/watch?v=ZPYrdKMDsGI&list=PL4PNgDjMajPN51E5WzEi7cXzJ16BCHZXl&ab_channel=GameDevwithJacquelynneHei
 
 public class SlotsUI : MonoBehaviour
 {

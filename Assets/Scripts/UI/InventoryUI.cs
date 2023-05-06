@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Script which controls the inventory UI. 
+//Code adapted from this series by Jacquelynne Hei: https://www.youtube.com/watch?v=ZPYrdKMDsGI&list=PL4PNgDjMajPN51E5WzEi7cXzJ16BCHZXl&ab_channel=GameDevwithJacquelynneHei
 
 public class InventoryUI : MonoBehaviour
 {
